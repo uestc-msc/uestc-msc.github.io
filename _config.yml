@@ -35,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -81,3 +81,18 @@ deploy:
   type: git
   repo: https://github.com/uestc-msc/uestc-msc.github.io
   branch: master
+
+# Search
+search:
+  path: search.xml
+  字段: post
+  格式: html
+  limit: 10000
+
+# Symbols Count
+symbols_count_time:
+  symbols: true
+  time: true
+  total_symbols: true
+  total_time: true
+  exclude_codeblock: true
