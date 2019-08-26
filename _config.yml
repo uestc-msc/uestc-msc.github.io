@@ -79,7 +79,7 @@ theme: uestc-msc
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repo: https://github.com/uestc-msc/uestc-msc.github.io
+  repo: git@github.com:uestc-msc/uestc-msc.github.io.git
   branch: master
 
 # Search
