@@ -4,7 +4,11 @@ branches:
   - Root
 before_install:
   - npm install -g hexo-cli
+  - npm install -g chalk
   - npm install
+cache:
+  directories:
+    - node_modules
 script:
   - hexo clean
   - hexo d -g
