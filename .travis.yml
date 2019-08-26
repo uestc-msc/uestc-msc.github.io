@@ -1,7 +1,9 @@
 language: bash
 before_install: nvm
+sudo: required
 script:
-  - deploy.sh
+  - sudo chmod a+x ./deploy.sh
+  - ./deploy.sh
 branches:
   only:
   - Root
