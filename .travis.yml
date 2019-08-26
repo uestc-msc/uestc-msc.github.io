@@ -5,6 +5,8 @@ branches:
   - Root
 before_install:
 - export TZ='Asia/Shanghai'
+- git config --global user.name "travis"
+- git config --global user.email "LeoJhonSong@outlook.com"
 cache:
   directories:
   - node_modules
