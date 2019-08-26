@@ -2,8 +2,9 @@ dist: xenial
 language: bash
 sudo: required
 script:
-  - sudo chmod a+x ./deploy.sh
-  - ./deploy.sh
+  - ln -s /usr/bin/nodejs /usr/bin/node
+  - ./node_modules/hexo/bin/hexo clean
+  - ./node_modules/hexo/bin/hexo d -g
 branches:
   only:
   - Root
