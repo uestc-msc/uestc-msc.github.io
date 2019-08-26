@@ -17,6 +17,7 @@ dd:
 addons:
   ssh_known_hosts:
   - github.com
+  - ssh.github.com
 script:
 - hexo clean
 - hexo d -g
