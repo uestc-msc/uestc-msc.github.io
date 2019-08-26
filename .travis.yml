@@ -1,5 +1,6 @@
 language: bash
 script:
+  - sudo chmod a+x ./deploy.sh
   - ./deploy.sh
 branches:
   only:
