@@ -19,3 +19,6 @@ official
 [Hexo NexT主题 | 自定义友链页面](https://blog.asucreyau.xyz/2018/12/29/hexo-next-customize-link-page/)
 
 修改了 /themes/uestc-msc/source/css/_common/components/post/post.styl
+
+[集成travis参考一](https://blessing.studio/deploy-hexo-blog-automatically-with-travis-ci/)
+[集成Travis参考二](https://www.jianshu.com/p/630d75e4697e)
