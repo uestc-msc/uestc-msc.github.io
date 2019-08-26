@@ -3,7 +3,7 @@ branches:
   only:
   - Root
 before_install:
-  - nvm 
+  - nvm install stable
   - npm install -g hexo-cli
   - npm install
 cache:
