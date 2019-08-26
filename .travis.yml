@@ -1,7 +1,7 @@
 language: bash
 before_install: nvm
 script:
-  - ./deploy.sh
+  - bash ./deploy.sh
 branches:
   only:
   - Root
