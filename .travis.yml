@@ -1,17 +1,19 @@
 language: node_js
+node_js: stable
 branches:
   only:
   - Root
 before_install:
-  - nvm install stable
-  - npm install -g hexo-cli
-  - npm install
+  - export TZ='Asia/Shanghai'
   - git config --global user.name "travis"
   - git config --global user.email "LeoJhonSong@outlook.com"
   - git config --global user.password "Szh13880584374"
 cache:
   directories:
     - node_modules
+install:
+  - npm install -g hexo-cli
+  - npm install
 script:
   - hexo clean
   - hexo d -g
