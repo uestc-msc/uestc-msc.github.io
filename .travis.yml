@@ -2,7 +2,7 @@ dist: xenial
 language: bash
 sudo: required
 script:
-  - ln -s /usr/bin/nodejs /usr/bin/node
+  - sudo ln -s /usr/bin/nodejs /usr/bin/node
   - ./node_modules/hexo/bin/hexo clean
   - ./node_modules/hexo/bin/hexo d -g
 branches:
