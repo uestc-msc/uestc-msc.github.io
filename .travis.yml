@@ -4,16 +4,19 @@ branches:
   only:
   - Root
 before_install:
-  - export TZ='Asia/Shanghai'
-  - git config --global user.name "travis"
-  - git config --global user.email "LeoJhonSong@outlook.com"
-  - git config --global user.password "Szh13880584374"
+- export TZ='Asia/Shanghai'
 cache:
   directories:
-    - node_modules
+  - node_modules
 install:
-  - npm install -g hexo-cli
-  - npm install
+- npm install -g hexo-cli
+- npm install
+dd:
+- openssl aes-256-cbc -K $encrypted_2bae0f9d1d0b_key -iv $encrypted_2bae0f9d1d0b_iv
+  -in travis_key.enc -out travis_key -d
+addons:
+  ssh_known_hosts:
+  - github.com
 script:
-  - hexo clean
-  - hexo d -g
+- hexo clean
+- hexo d -g
