@@ -1,5 +1,5 @@
+dist: xenial
 language: bash
-before_install: nvm
 sudo: required
 script:
   - sudo chmod a+x ./deploy.sh
