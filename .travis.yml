@@ -2,4 +2,4 @@ language: bash
 script: deploy.sh
 branches:
   only:
-  - 
+  - Root
