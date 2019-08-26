@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://uestc-msc.github.io/"/>
-  <updated>2019-08-24T18:09:54.151Z</updated>
+  <updated>2019-08-26T06:44:48.000Z</updated>
   <id>https://uestc-msc.github.io/</id>
   
   <author>
@@ -20,8 +20,8 @@
     <title>Hello World</title>
     <link href="https://uestc-msc.github.io/2019/08/25/Hello-World/"/>
     <id>https://uestc-msc.github.io/2019/08/25/Hello-World/</id>
-    <published>2019-08-24T18:09:25.000Z</published>
-    <updated>2019-08-24T18:09:54.151Z</updated>
+    <published>2019-08-25T02:09:25.000Z</published>
+    <updated>2019-08-26T06:44:48.000Z</updated>
     
     <content type="html"><![CDATA[<p>阿罗哈!</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
