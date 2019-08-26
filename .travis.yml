@@ -1,10 +1,9 @@
-dist: xenial
-language: bash
-sudo: required
-script:
-  - sudo ln -s /usr/bin/nodejs /usr/bin/node
-  - ./node_modules/hexo/bin/hexo clean
-  - ./node_modules/hexo/bin/hexo d -g
+language: node_js
 branches:
   only:
   - Root
+before_install:
+  - npm install -g hexo-cli
+script:
+  - hexo clean
+  - hexo d -g
