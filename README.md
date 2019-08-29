@@ -20,7 +20,7 @@
 
 - 简约而不硬核的友链页面. next主题的样式会覆盖文章markdown文件中的样式, 需要在
   **/themes/uestc-msc/source/css/_common/components/post/post.styl**中设置需要的
-  样式 (因为友链的元素是在post-main里)
+  样式 (因为友链的元素是在post-body里)
 
   🔗 [参考方案](https://blog.asucreyau.xyz/2018/12/29/hexo-next-customize-link-page)
 
