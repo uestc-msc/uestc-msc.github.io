@@ -5,6 +5,10 @@ hexo位于 **./node_modules/hexo/bin/hexo** (相对于根目录)
 
 ## 配置记录
 
+📖 [hexo官方文档](https://hexo.io/zh-cn/docs/)
+
+📖 [NexT官方文档](https://theme-next.org/docs/getting-started/)
+
 ### hexo插件
 
 - 一键git部署插件 [hexo-deployer-git](https://github.com/hexojs/hexo-deployer-git)
