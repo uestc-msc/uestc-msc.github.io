@@ -47,23 +47,28 @@ favicon:
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
+# see README for details
+# Iconfont project source
+iconfont:
+  source: //at.alicdn.com/t/font_1378191_l1qw46p25c9.js
+
 # hexo-generator-feed required for rss support. Leave rss as blank to use site's feed link.
 # Set rss to false to disable feed link. Set rss to specific value if you have burned your feed already.
 rss:
 
 footer:
   # Specify the date when the site was setup. If not defined, current year will be used.
-  #since: 2015
+  since: 2003
 
   # Icon between year and copyright info.
   icon:
-    # Icon name in Font Awesome. See: https://fontawesome.com/v4.7.0/icons/
+    # Icon name in iconfont
     # `heart` is recommended with animation in red (#ff0000).
-    name: user
+    name: iconMicrosoft
     # If you want to animate the icon, set it to true.
-    animated: false
+    animated: true
     # Change the color of icon, using Hex Code.
-    color: "#808080"
+    # color: "#808080"
 
   # If not defined, `author` from Hexo `_config.yml` will be used.
   copyright:
@@ -197,9 +202,11 @@ site_state: true
 # Value before `||` delimiter is the target permalink.
 # Value after `||` delimiter is the name of Font Awesome icon. If icon (with or without delimiter) is not specified, globe icon will be loaded.
 social:
-  #GitHub: https://github.com/yourname || github
-  #E-Mail: mailto:yourname@gmail.com || envelope
-  #Weibo: https://weibo.com/yourname || weibo
+  GitHub: https://github.com/uestc-msc || icongithub
+  E-Mail: mailto:uestcmsc@demo4c.onmicrosoft.com || iconOUTLOOK
+  Weibo: https://weibo.com/uestcmstc || iconweibo
+  bilibili: https://space.bilibili.com/456910030 || iconbilibili
+  Wechat: https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ || iconwechat
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook

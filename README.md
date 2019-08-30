@@ -57,3 +57,40 @@ next主题的样式会覆盖文章markdown文件中的样式, 需要在
 
 🔗 [参考方案](https://blog.asucreyau.xyz/2018/12/29/hexo-next-customize-link-page)
 
+##### 彩色字体图标
+
+font awesome似乎只提供单色字体图标, 也不够丰富, 而
+[Iconfont](https://www.iconfont.cn/?spm=a313x.7781069.1998910419.d4d0a486a)就很
+牛皮了, 有丰富的图标, 有多色图标, 也能很容易的集成到网页.
+
+此处采用[symbol引用](https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8cf4382a&helptype=code)
+
+1. 首先图省事直接把项目生成的symbol代码添加到整个站点的head, 即
+**themes/uestc-msc/layout/_partials/head/head.swig** (目前在line54):
+
+   ```swig
+   {%- if theme.iconfont.source %}
+   <script src =“https：{{theme.iconfont.source}}”> </ script>
+   {%- endif%}
+   ```
+
+   🔗 [参考操作](https://leojhonsong.github.io/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/#Colorful-icons-for-social-links-in-sidebar)
+2. 更改**sidebar**中的社交链接使用iconfont
+
+   **themes/uestc-msc/layout/_partials/sidebar/site-overview.swig** line 101:
+
+   ❗️只注释掉原本的font awesome语句, 万一以后还用呢 🤷 ‍
+
+   ```swig
+           {#%- set sidebarIcon = '<i class="fa fa-fw fa-' + link.split('||')[1] | trim | default('globe') + '"></i>' %#}
+        {%- set sidebarIcon = '<svg class =“icon” aria-hidden =“true”> <use xlink：href =“＃' + link.split（'||'）[1] | trim + ' “> </use> </svg>' %}
+   ```
+
+3. 更改footer中的用户图标使用iconfont
+
+   **themes/uestc-msc/layout/_partials/footer.swig** line13:
+
+   ```swig
+       <!-- <i class="fa fa-{{ theme.footer.icon.name }}"></i> -->
+    <svg class =“icon” aria-hidden =“true”> <use xlink：href =“＃{{ theme.footer.icon.name }}“> </use> </svg>
+    ```

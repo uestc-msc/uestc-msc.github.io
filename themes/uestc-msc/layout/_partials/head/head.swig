@@ -51,6 +51,10 @@
 {%- set font_awesome_uri = theme.vendors.fontawesome | default(next_vendors('font-awesome/css/font-awesome.min.css?v=4.7.0')) %}
 <link rel="stylesheet" href="{{ font_awesome_uri }}">
 
+{%- if theme.iconfont.source %}
+  <script src =“https：{{theme.iconfont.source}}”> </script>
+{%- endif %}
+
 {%- if theme.fancybox %}
   {%- set fancybox_css_uri = theme.vendors.fancybox_css | default(next_vendors('//cdn.jsdelivr.net/gh/fancyapps/fancybox@3/dist/jquery.fancybox.min.css')) %}
   <link rel="stylesheet" href="{{ fancybox_css_uri }}">
