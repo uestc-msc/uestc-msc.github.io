@@ -66,4 +66,4 @@
   </div>
 {%- endif %}
 
-{#{- next_inject('footer') }#}
+{{- next_inject('footer') }}
