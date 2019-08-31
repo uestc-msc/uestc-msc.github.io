@@ -1,11 +1,11 @@
 ---
 title: 【Bot Framework完全攻略】1-1.攻略说明
 date: 2017-04-23 00:00:00
-author: 张逸霄
+author: 谷亚奇
 categories:
   - Bot Framework
 tags:
-  - 张逸霄
+  - 谷亚奇
 ---
 
 大家是否对今年的编程之美比赛有所了解呢？ 如果你还不是很了解，那么，这里是官网传送门: http://studentclub.msra.cn/bop2017/

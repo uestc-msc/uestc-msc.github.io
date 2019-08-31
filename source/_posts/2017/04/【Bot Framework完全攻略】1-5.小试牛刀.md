@@ -1,0 +1,15 @@
+---
+title: 【Bot Framework完全攻略】1-5.小试牛刀
+date: 2017-04-24 01:00:00
+author: 谷亚奇
+categories:
+  - Bot Framework
+tags:
+  - 谷亚奇
+---
+
+本篇教程将引导你实现一个最基础的Bot
+
+- [开始造船（写一个你的Bot项目）](`../【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/)
+- [向政府注册你的旗帜（注册一个你的Bot）](../【Bot Framework完全攻略】1-7.向政府注册你的旗帜（注册一个你的Bot）/)
+- [把旗子插在船上（关联配置）](../【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）/)
