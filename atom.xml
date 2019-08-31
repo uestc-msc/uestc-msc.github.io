@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://uestc-msc.github.io/"/>
-  <updated>2019-08-31T21:49:28.430Z</updated>
+  <updated>2019-08-31T23:41:06.148Z</updated>
   <id>https://uestc-msc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://uestc-msc.github.io/2019/08/25/Hello-World/"/>
     <id>https://uestc-msc.github.io/2019/08/25/Hello-World/</id>
     <published>2019-08-24T18:09:25.000Z</published>
-    <updated>2019-08-31T21:49:28.430Z</updated>
+    <updated>2019-08-31T23:41:06.148Z</updated>
     
     <content type="html"><![CDATA[<p>阿罗哈!</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
@@ -42,11 +42,411 @@
   </entry>
   
   <entry>
+    <title>【谷哥的C/C++（2）】变量，数组，指针，结构体</title>
+    <link href="https://uestc-msc.github.io/2017/09/26/%E3%80%90%E8%B0%B7%E5%93%A5%E7%9A%84C-C++%EF%BC%882%EF%BC%89%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%8C%E6%95%B0%E7%BB%84%EF%BC%8C%E6%8C%87%E9%92%88%EF%BC%8C%E7%BB%93%E6%9E%84%E4%BD%93/"/>
+    <id>https://uestc-msc.github.io/2017/09/26/【谷哥的C-C++（2）】变量，数组，指针，结构体/</id>
+    <published>2017-09-25T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>逸霄说在前面的话：为了缓和谷哥的学习曲线，建议搭配《C Primer Plus》进行学习，同时我会搭配一些轻松愉快的小练习，供大家玩耍。本篇教程大概需要花费各位两个星期的时间进行完全的消化理解。</p><a id="more"></a><hr><p>久违的第二次C语言教程又要开始了~<br>在这之前，我在第一期教程中带着大家弄出了第一个程序。然后给出了几个需要自学才能完成的题目。不知道大家有没有努力自学并且完成呢。<br>如果你还没有开始自学，那么，在阅读以下内容之前，请保证对C语言的以下相关部分的了解：<br>了解基本的变量类型（int ,char ,float ,double）的基本含义<br>运算符的简单使用（加减乘除，取地址解引用，自增自减，逻辑判断）<br><strong>简单的语法（顺序，判断，循环结构）</strong><br>常用的函数的用法（printf , scanf）</p><p>这些内容的学习还是比较轻松的，通过书籍与在线文档/搜索引擎很快就能完成。</p><p>（来自逸霄的唠叨：我知道这可能有些难度，尤其是输入输出需要多加练习。在编程的初期，你可能会遇到很多各种各样的bug，可能是因为你还没有太熟悉C语言的编程模式。欢迎你在群里询问。）</p><p>为了确认你认真的阅读了第一期教程，我们来做个热身。</p><hr><p><strong>热身</strong></p><p>打开你喜欢的IDE或者文本编辑器，随手写一个打印九九乘法表的小程序出来，结果应该像这样：</p><p><img src="%E3%80%90%E8%B0%B7%E5%93%A5%E7%9A%84C-C++%EF%BC%882%EF%BC%89%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%8C%E6%95%B0%E7%BB%84%EF%BC%8C%E6%8C%87%E9%92%88%EF%BC%8C%E7%BB%93%E6%9E%84%E4%BD%93/img_59c92684243f7.png" alt="img"></p><p>（逸霄的提示：首先你需要考虑一下怎么控制一样的宽度；然后你可能要写一个嵌套的for循环。如果你无法顺利完成这一步的话，意味着你还不能看第二讲，请使用一个星期的时间好好学习一下循环、条件这几大语法。这些并不难，只要好好写写小代码，就没有问题了。）</p><p>（逸霄的唠叨：关于解引用这一块，你只要明白，在变量前面加上&amp;号，就代表取地址，比如说<code>b=&amp;x;</code>就代表着b被赋值了x的地址。而反过来，<code>x</code>与<code>*b</code>是一样的，如果我们在地址/指针前面加上*号，那么指的就是一个对象。更多的消息请看这里：<a href="http://blog.csdn.net/synapse7/article/details/10260339）" target="_blank" rel="noopener">http://blog.csdn.net/synapse7/article/details/10260339）</a></p><p>如果你感觉上面的小程序太小儿科了，那真是太好了。我也并不想在验证你的水平上浪费太多时间。</p><p>本期的教程的主题是 变量，数组，指针，结构体。在我们的仅有的基础上讲解C语言的各种数据类型。<br>接下来我们步入正题。</p><hr><p><strong>一，为什么要有那么多数据类型？</strong><br>刚刚当你打印九九乘法表的时候应该用了<strong>整型变量</strong>。遇到一些其他的计算问题，比如说计算商品折扣后的价格时又用了浮点类型。如果你仔细的想一想，发现用浮点类型计算只需要使用整数类型的变量时好像也没什么问题。那么C语言为什么要存在这么多数据类型?储存数字不是只需要一个浮点类型就好了吗？</p><p>（来自逸霄的唠叨：如果你写python，你会发现浮点类型被广泛应用；另外关于浮点类型的存储方式，可以参见IEEE 754标准。这将会在计算机组成原理中被系统地学到。二进制浮点数地存储并不是很精确，所以时常会出现微小的误差。）</p><p>各种不同的数据类型出现的根本原因在于，计算机的储存空间和计算能力并不是无穷无尽的。如果你是一个单机游戏爱好者，肯定会知道，许多大型游戏需要计算机的内存，CPU，显卡等达到一定标准才能玩。如果你是更高级的游戏发烧友，可能还会听说什么游戏优化做的好，什么游戏特别烧显卡等。其实这就和我们今天要讲的话题有很大关系。</p><p>深入的了解计算机底层的知识，你会了解，整数运算的速度和浮点运算的速度不相同。整数与浮点类型占用的内存空间也是不相等的。我们不讨论计算机计算能力的无聊话题。变量所占用的内存空间可以通过C语言中一个看起来像函数的运算符sizeof求出，大概像这样：</p><p><img src="%E3%80%90%E8%B0%B7%E5%93%A5%E7%9A%84C-C++%EF%BC%882%EF%BC%89%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%8C%E6%95%B0%E7%BB%84%EF%BC%8C%E6%8C%87%E9%92%88%EF%BC%8C%E7%BB%93%E6%9E%84%E4%BD%93/img_59c929349e339.png" alt="img"></p><p>亲自动手看看，sizeof会输出类型占用的字节长度<br>值得一提的是，C语言中除了char这个最小的类型之外，类型的字节长度并不是一定的，这与使用的编译器以及平台有关。具体的原因在这里我们不做讨论，其实在一些底层的技术，以及开发平台无关的应用上了解这些还是相当重要的。但是这不是我们今天的主菜。</p><p>如果你需要做OJ，或者说为了考试，多上网了解一些这方面的知识。</p><hr><p><strong>二，数组</strong><br>数组简单的讲就是许多同类型的变量放在一起。比如一个程序需要储存一个名字，这就需要一个字符数组。<br><code>char ch='G';</code><br><code>char name[]="GYQ";</code></p><p>（来自逸霄的唠叨：在一些特殊的情况下，你也可能看到数组的元素是数组，这种情况在C#中被称为交错数组。）<br><strong>关于数组的初始化，赋值操作可以去看看书，文档，查查百度。</strong></p><p>（来自逸霄的唠叨：这一块请务必不要跳过。关掉博文，去看一看书吧！）<br>值得注意的是字符串的末尾有一个<strong>看不见的终止符</strong>。<br>字符串”GYQ”由’G’，’Y’，’Q’，’\0’四个字符串组成，’\0’是空字符。没有了解的同学迅速去百度一波。</p><p>（来自逸霄的唠叨：也许你之前已经看过了类似\n, \r这样的表示方法，这些叫做转义字符。转义字符一般在你的C语言书中会有一个比较完整的表格，一般情况下只需要使用\n, \t这两种。如果你使用的教材是《现代方法》，你就会发现转义字符，编者是慢慢介绍的。）</p><p>（事实上，每一串字符串，背后都会接一个空字符，代表这个字串已经结束了。更多的讨论请看这里：<a href="http://blog.csdn.net/supreme42/article/details/7300451，如果你不明白，请**不要跳过**这一段。）" target="_blank" rel="noopener">http://blog.csdn.net/supreme42/article/details/7300451，如果你不明白，请**不要跳过**这一段。）</a></p><p>数组还有维数这个说法。比如说，你在做线性代数的…呸。。。我们换一个轻松的话题。你在做一个贪吃蛇的小游戏，需要用一个变量来储存画面，最可能的就是一个二维的字符数组了。</p><p>所有的多维数组都能转化为一维数组<br><code>int a[3][3]={</code><br><code>{1,2,3},</code><br><code>{4,5,6},</code><br><code>{7,8,9}</code><br><code>};</code><br><code>int b[9]={1,2,3,4,5,6,7,8,9};</code></p><p>（横向存储的二维数组）<br>转化方式就像上面那样，实际上多维数组与一维数组在计算机上的储存方式是一样的，也就是说上面那两个数组里面的数据的储存方式完全一致，多维数组的使用完全是为了<strong>更简单的逻辑表达</strong>。比如说我上面提到的贪吃蛇小游戏，用二维数组储存地图可以方便的使用两个索引值表示几行几列：<br><code>map[5][3];//第6行4列</code><br>如果是一维数组：<br><code>map[5*LINEWIDTH+3]//看起来就像这样</code></p><p>关于数组的一些复杂语法在文末附有博客。</p><p>（逸霄的唠叨：如果学完这些你感觉有些吃力的话，你可以试试看在二维数组上嵌套for循环，来锻炼自己的能力。接下来是一个小小的练习：）</p><hr><p><strong>逸霄的小练习</strong></p><p>请你设计一个井字棋游戏。井字棋可能长这样：</p><p><img src="%E3%80%90%E8%B0%B7%E5%93%A5%E7%9A%84C-C++%EF%BC%882%EF%BC%89%E3%80%91%E5%8F%98%E9%87%8F%EF%BC%8C%E6%95%B0%E7%BB%84%EF%BC%8C%E6%8C%87%E9%92%88%EF%BC%8C%E7%BB%93%E6%9E%84%E4%BD%93/img_59c92db451200.png" alt="img"></p><p>要点：正确使用二维数组打印棋盘；判断胜利条件。</p><p>这个程序可能需要你一至两小时完成，并花费一下午的时间进行debug。但是一旦完成了这个训练，你将会明白之前学的那些东西如何贯穿到一起来。</p><hr><p><strong>三，指针</strong><br>许多人都说指针是C语言里面最难学的地方，因为指针运算牵扯到太多的知识。就考试而言的确如此。<br>但实际上，普通的指针应用并不是十分复杂。<br>对于一个仅仅使用C/C++进行软件开发的人，因为有各种方便的东西可以使用。也许他所用到的东西就只有这个：<br><code>/*C*/</code><br><code>SomeType *a=(SomeType*)malloc(sizeof(SomeType));</code><br><code>a-&gt;dosomething();</code><br><code>...</code><br><code>/*C++*/</code><br><code>SomeType *a=new SomeType();</code><br><code>a-&gt;dosomething();</code><br><code>...</code></p><p>以上就是为一个类(结构)进行动态内存分配声明一个实例。<br>注：malloc是C语言用于动态内存分配的函数，参数是类型的字节长，可以直接使用sizeof运算符计算。<br>有关指针运算的部分，在实际应用中，大多可以使用数组下标的方法代替。</p><p>当然指针的用处并不只有这个指针是C语言中极其精髓的东西，关于指针的使用，运算规则可以查阅书籍，自行百度。</p><p>参考网站：<a href="http://www.runoob.com/cprogramming/c-pointers.html" target="_blank" rel="noopener">http://www.runoob.com/cprogramming/c-pointers.html</a></p><p>（来自逸霄的唠叨：指针是一个庞杂的话题。在《现代方法》中，有关指针的话题聊了整整两章。我们也无法在线上课程里详细地说明，但是我们可以进行一些针对性的提点。希望你在阅读下面的模块前，已经看过了教材对应的部分。你可能一时间弄不懂全部。没关系，之后我们用得多了自然就会熟练的。）</p><hr><p><strong>逸霄的Tips：</strong></p><p>1，<strong>指针</strong>是一个变量，其值为另一个变量的地址，即，内存位置的直接地址。就像其他变量或常量一样，您必须在使用指针存储其他变量地址之前，对其进行声明。</p><p>2，使用指针时会频繁进行以下几个操作：定义一个指针变量、把变量地址赋值给指针、访问指针变量中可用地址的值。这些是通过使用一元运算符 ***** 来返回位于操作数所指定地址的变量的值。</p><p>3，在变量声明的时候，如果没有确切的地址可以赋值，为指针变量赋一个 NULL 值是一个良好的编程习惯。赋为 NULL 值的指针被称为<strong>空</strong>指针。</p><p>4，我们喜欢在程序中使用指针代替数组，因为变量指针可以递增，而数组不能递增，因为<strong>数组是一个常量指针</strong>。（实际上如果你尝试着将数组名当作指针使用，你会发现数组名指向了数组的第一个元素。）</p><hr><p><strong>逸霄的Tips：</strong></p><p>为什么说指针是C语言的精髓？（<a href="https://www.zhihu.com/question/20125963）" target="_blank" rel="noopener">https://www.zhihu.com/question/20125963）</a></p><p>除去知乎dalao们回答的这些以外，我想特意指出的是，C语言是一门强大的语言，但也是一门很精炼（简陋）的语言。它没有繁多的语法糖，如同一把中国厨刀，什么都能做。与之相比，C#、Java更像是厨师机，而Python更像是一套厨刀。拥有了很多绝妙的语言特性之后，指针的存在感将会被弱化。但是不得不说，指针的使用充满了技巧。</p><hr><p><strong>四，指针与数组</strong><br>指针与数组的复合运算，以及语法基本上算是C语言考试题中最高难度的东西了。<br>这里推荐几篇博客：<br>指针数组与数组指针：<a href="http://www.cnblogs.com/Romi/archive/2012/01/10/2317898.html" target="_blank" rel="noopener">http://www.cnblogs.com/Romi/archive/2012/01/10/2317898.html</a><br>二维数组和指针：<a href="http://blog.csdn.net/iu_81/article/details/1782642" target="_blank" rel="noopener">http://blog.csdn.net/iu_81/article/details/1782642</a></p><hr><p><strong>逸霄的Tips：</strong></p><p>整个一套学下来，你可能对C的整体有了一些把握。指针需要学通是一件长期而艰苦的事情，很多人一直学不会，于是便有了其他语言（比如C++实际上削弱了指针）。如果你实在无法熟练操作指针，没关系，至少概念要明白——我们为什么需要指针，指针的工作原理是什么，我们可以透过指针做些什么。</p><hr><p><strong>五，结构体</strong></p><p>因为出现事故，这里贴个博客：<a href="http://blog.csdn.net/huqinwei987/article/details/23625823" target="_blank" rel="noopener">http://blog.csdn.net/huqinwei987/article/details/23625823</a></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;逸霄说在前面的话：为了缓和谷哥的学习曲线，建议搭配《C Primer Plus》进行学习，同时我会搭配一些轻松愉快的小练习，供大家玩耍。本篇教程大概需要花费各位两个星期的时间进行完全的消化理解。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="C/C++" scheme="https://uestc-msc.github.io/categories/C-C/"/>
+    
+    
+      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【谷哥的新人技术培养计划】从最简单的开始</title>
+    <link href="https://uestc-msc.github.io/2017/07/28/%E3%80%90%E8%B0%B7%E5%93%A5%E7%9A%84%E6%96%B0%E4%BA%BA%E6%8A%80%E6%9C%AF%E5%9F%B9%E5%85%BB%E8%AE%A1%E5%88%92%E3%80%91%E4%BB%8E%E6%9C%80%E7%AE%80%E5%8D%95%E7%9A%84%E5%BC%80%E5%A7%8B/"/>
+    <id>https://uestc-msc.github.io/2017/07/28/【谷哥的新人技术培养计划】从最简单的开始/</id>
+    <published>2017-07-27T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.148Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>由于现在是假期，大家的时间比较好安排。所以大家比较可能会有时间<strong>系统地看书</strong>或者教程。教程从零到编写出第一个程序，方便大家自行安排学习。本次的作业是引导性的，需要学习了知识才能完成。<br>希望大家在假期劳逸结合，学有所得，玩得开心！</p><a id="more"></a><h4 id="C语言的前世今生"><a href="#C语言的前世今生" class="headerlink" title="C语言的前世今生"></a>C语言的前世今生</h4><blockquote><p>C是一种通用的编程语言，广泛用于系统软件与应用软件的开发。于1969年至1973年间，为了移植与开发UNIX操作系统，由丹尼斯·里奇与肯·汤普逊，以B语言为基础，在贝尔实验室设计、开发出来。<br>C语言具有高效、灵活、功能丰富、表达力强和较高的可移植性等特点，在程序员中备受青睐，成为最近25年使用最为广泛的编程语言。目前，C语言编译器普遍存在于各种不同的操作系统中，例如Microsoft Windows, Mac OS X, Linux, Unix等。C语言的设计<strong>影响了众多后来的编程语言</strong>，例如C++、Objective-C、Java、C#等。<br>二十世纪八十年代，为了避免各开发厂商用的C语言语法产生差异，由美国国家标准局为C语言订定了一套<strong>完整的国际标准语法</strong>，称为ANSI C，作为C语言的标准。二十世纪八十年代至今的有关程序开发工具，一般都支持匹配ANSI C的语法。<br>–摘自 维基百科</p></blockquote><h4 id="术语解释"><a href="#术语解释" class="headerlink" title="术语解释"></a>术语解释</h4><p><strong>编程语言</strong>：编写计算机程序的语言<br><strong>系统软件、应用软件</strong>：粗略的理解，系统软件指较为底层的软件，应用软件是面向使用者的软件<br><strong>操作系统</strong>：粗略的理解，操作系统是像Windows、Mac OS这样不同的平台。实际上操作系统也是一种程序，它负责管理各种计算机硬件与软件资源，是计算机系统的基石。<br><strong>B语言</strong>：一种被遗弃的编程语言，C语言的前身<br><strong>软件的可移植性</strong>：软件的移植指一个软件从一个平台迁移到另一个平台，比如一个手游从安卓系统迁移到苹果的IOS系统<br><strong>编译器</strong>：编译器是把程序代码转化成计算机程序的组件中的一个</p><h4 id="为什么学习C语言？"><a href="#为什么学习C语言？" class="headerlink" title="为什么学习C语言？"></a>为什么学习C语言？</h4><p><a href="http://c.biancheng.net/cpp/html/2709.html" target="_blank" rel="noopener">http://c.biancheng.net/cpp/html/2709.html</a></p><p>张逸霄注：我认为，C语言在现在固然有它的不足，在设计上也有些繁琐。在实际的工业界，C语言不是一门特别常用的语言。与之相对的，Python作为一门新生语言，拥有自己的灵活特性，的确很引人注目，而且的确很好学。</p><p>但是重点在于，语言越上层，你就看不到越底层的东西。如果你不学习C，你的编程思想会<strong>受到一些限制</strong>，你就可能被囚禁在高等语言的笼子里了。</p><p>第二个原因是，现在又很多主流语言，比如Java，C#，这些语言都是由C语言延伸过来的，C语言可以说是这些主流语言的<strong>简化版</strong>。当你将C语言学通了，再来看这些语言，你将会觉得它们好学得多。</p><p>另外，C语言的<strong>学习周期不长</strong>，一般来说一两个月你就能进入到中等水平，此时你就可以考虑学习C++了。</p><h4 id="关于在线编程、WebIDE"><a href="#关于在线编程、WebIDE" class="headerlink" title="关于在线编程、WebIDE"></a>关于在线编程、WebIDE</h4><p>在线编程是为了方便学习与展示而发展出来的一种形式，由于为了安全起见，在线编程会有诸多限制，有的在线编程网站不支持输入，比如runoob的在线编辑器。</p><h4 id="关于“Hello-World”"><a href="#关于“Hello-World”" class="headerlink" title="关于“Hello World”"></a>关于“Hello World”</h4><p>当新手开始学习、程序员使用一门新的编程语言时，编写的第一个程序通常是输出一行【hello, world】。一般来说，这是每一种计算机编程语言中最基本、最简单的程序，通常也会作为一般的编程语言教程的第一个程序。这个传统产生于贝尔实验室的技术文档中，后来广为流传，沿用至今。</p><p>张逸霄注：当然，某本著名的C语言书里使用的就是：“to C or not to C,  that is a question.”</p><h4 id="Hello-World代码分析"><a href="#Hello-World代码分析" class="headerlink" title="Hello World代码分析"></a>Hello World代码分析</h4><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">前置说明：程序代码中，<span class="comment">/**/</span>里面的内容是注释，是用来解释程序功能的文字解释</span><br><span class="line">，不会改变程序的行为。</span><br><span class="line"><span class="comment">//在一行中，双斜杠后面的代码也是注释</span></span><br><span class="line">-----</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">/* 我的第一个 C 程序 */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, World! \n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><h4 id="顺序说明"><a href="#顺序说明" class="headerlink" title="顺序说明"></a>顺序说明</h4><p>1.#include用来使用一个库中的功能<br>stdio是C语言标准输入输出库<br>下文的printf就是包含于这个库的。<br>这一行代码表示程序使用C语言标准输入输出库中的内容<br>也是大多数C语言程序都有的一行</p><p>2.空行没有任何作用，目的是使程序代码结构更清晰<br>下面的缩进（每行代码前面相同数量的空格）作用也是如此</p><p>3.main()，主函数。是C语言程序开始的地方，跟随的一对花括号{}中的内容才是程序的主体。</p><p>4./**/里面是解释性文本</p><p>5.printf是C语言中输出内容最常用的函数，括号中的内容是要输出的东西。结尾的分号代表一条C语言语句的结束</p><p>6.return是返回的意思，通常代表一个过程的结束。return 0;是使程序结束的标准做法。</p><h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>1.首先要说明的是，这个程序的主体只有printf(“Hello, World! \n”);一行代码，其余的部分是大多数C语言程序使用的固定格式。<br>对于一个C语言程序，引入一个库的内容，写出程序入口是必要的。<br>#号开头的一行代码（#include &lt;stdio.h&gt;）叫做预编译指令，预编译指令不是编程的主体，它控制编译器的行为。<br>比如说这行指令告诉编译器，程序使用stdio.h库中的内容，<br>如果不加这一行，那么printf函数是无法使用的，编译程序时会出现错误<br>以上是include指令的使用，关于更多预编译指令的知识将在以后介绍</p><p>2.主函数main()前面的int在C语言中表示小整数（当然还有大整数，比如long和long long）<br>函数前面的类型名称，表示的是函数返回的值，与结尾的return 0;相对应<br>用int标记主函数的返回值类型，return 0;来结束程序是C语言程序的规范，事实上还存在其他写法，这里不做介绍。</p><p>张逸霄注：关于C语言的更多细节，可以参见两本著名的教材：《C Primer Plus（第六版 中文版）》以及《C语言程序设计现代方法》。前者是世界著名教材，后者是信软学院使用的教材，非常好用。</p><p>张逸霄注：另外，可以参见知乎链接：<a href="https://www.zhihu.com/question/37304655/answer/71527606" target="_blank" rel="noopener">为什么学习C语言？</a></p><h4 id="在电脑中安装C语言集成开发环境-IDE"><a href="#在电脑中安装C语言集成开发环境-IDE" class="headerlink" title="在电脑中安装C语言集成开发环境(IDE)"></a>在电脑中安装C语言集成开发环境(IDE)</h4><p>Dev C++安装教程：<a href="https://jingyan.baidu.com/article/948f5924014f72d80ff5f908.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/948f5924014f72d80ff5f908.html</a><br>顺便提一下，这个教程与实际操作的有些出入纯属正常，因为可能你使用的版本不一样。<br>推荐使用英文的程序环境，中文也可以。后面的说明以英文为例</p><p><strong>张逸霄注：当然你也可以使用Visual Studio 2017，相关配置方法参见知乎链接：怎么用Visual Studio写C语言？</strong></p><h4 id="编写属于你自己的第一个程序"><a href="#编写属于你自己的第一个程序" class="headerlink" title="编写属于你自己的第一个程序"></a>编写属于你自己的第一个程序</h4><p>打开Dev c++，从顶部的菜单栏中的File&gt;New&gt;Project…新建一个工程<br>工程类型Basic&gt;Empty Project&gt;C Project<br>项目名改为helloworld，点击下一步。这里的项目名可以理解为程序的名字<br>选择一个空的文件夹来容纳项目，免得把电脑弄得乱七八糟</p><p>项目建立成功后会自动新建一个文件，亲手把一下内容输入：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"hello, world\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>提示：缩进可以用键盘最左边的Tab键输入，Dev c++也有自动缩进、自动补全的功能（亲手写了上面的程序肯定能理解是什么意思）</p><p>写完按Ctrl+S保存文件，在相同的目录下保存刚刚写的代码，名字可以随便起。命名为main.c是标准的做法。<br>按F9编译并且执行程序。（F9是上部工具栏中某个图标的快捷键，你可以去找一找）</p><p>等待一小会，弹出一个黑色窗体，里面有白色文字：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hello, world</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Process exited normally.</span><br><span class="line">Press any key to <span class="keyword">continue</span> . . .</span><br></pre></td></tr></tbody></table></figure><p>你的第一个程序至此运行完毕。</p><h4 id="相关解释"><a href="#相关解释" class="headerlink" title="相关解释"></a>相关解释</h4><p>1.Dev c++是C语言和C++的IDE（集成开发环境）<br>2.Dev c++最顶部的文字菜单叫菜单栏（Menu Bar），菜单中有Dev c++的功能与设置<br>有图标的一条叫做工具栏（Tool Bar），工具栏上面是程序最常用的功能<br>其他部分请自行摸索。</p><p>如果要在关闭Dev c++后，再次打开之前的项目：<br>菜单栏中File&gt;Open…找到之前保存项目的文件夹，打开名字为【项目名称.dev】的文件即可(这次是helloworld.dev)<br>—</p><p>注：上面的教程只是介绍了C语言，带你编写了第一个C语言程序。<br>作业的难度不是很大，请查阅相关资料后完成。</p><h4 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h4><p>1.程序示例：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Input two number,divided with a space:"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The sum of them is:%d\n"</span>,a+b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>这个程序展示了printf，scanf这两个函数的通常用法。<br>请在runoob、C语言中文网、《C Primer Plus》或者在百度上上查阅变量，语句，操作符，转义字符，printf，scanf的知识来理解上面的程序。<br>上面程序的功能是输入两个数字，输出它们的和。并且在运行的时候对用户要进行什么操作给予了提示，对输出做了说明，这是个好习惯。<br>1)编写一个程序，输入三个数字，输出他们的积。<br>例如：输入了2.5 3 4，输出30<br>注意上面的数字是小数，不能用int储存</p><p>2)编写一个程序，输入三个数字，倒序输出他们。<br>例如：输入了2 3 4，输出4 3 2</p><p>—（下面的两个并不是很简单哦）<br>3)编写一个程序，输入一个英文的名字，输出打招呼。<br>例如：输入Henry，输出Hello, Henry.</p><p>4)编写一个程序，输入一个一元二次方程的三个参数，输出两个根（假设有实根）。</p><p>张逸霄注：使用Visual Sudio写程序的时候，会有一个安全警告提示你：scanf()并不安全，你可以自行搜索解决办法，简而言之就是调整Visual Studio的安全等级。</p><p>2.程序实例：</p><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Give me some money for my lunch:"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">    <span class="keyword">if</span>(a&lt;=<span class="number">50</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"You are too mean!"</span>);</span><br><span class="line">    }<span class="keyword">else</span> <span class="keyword">if</span>(a&lt;=<span class="number">100</span>){</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Thank you!"</span>);</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I like you so much!"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure><p>上面的程序是展示了分支型控制流的基本用法<br>请在runoob、C语言中文网、《c primer plus》或者在百度上上查阅关于if语句的知识来理解上面的程序。<br>并且了解while,do while,for,break,continue等关键字的用法。</p><p>1)写一个能一直计算两个数的和的程序，（算完一次提示是否继续）</p><p>2)写一个猜数游戏，玩家输入数字，系统提示是大了还是小了，猜对了结束，数字可以是固定的</p><p>3)写一个完善的解二元一次方程的程序（判断是否有根，有实根输出实根，没有输出虚根）</p><p>结尾</p><p>以上的作业涉及了C语言入门的各种知识，请同学们认真对待，不懂就查资料，靠自己的力量完成，注意培养自己的自学能力，不要轻易的问别人。<br>但是有什么疑惑不解的难题时，不要不好意思，一定要找其他的同学或者学长问问。<br>最后，如果我的教程有问题可以私发我，或者在大群指出，都可以的。</p><p>鉴于是假期，作业是不收的，想让我看可以私发我QQ或者QQ邮箱。</p><p>正式的教程在开学后发布，在此之间这篇教程可能会有所修改（更正文字错误，添加新内容）。<br>我相信，半个月的时间，即使对于没有任何基础的同学来讲，看懂这些也是足够了。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h4&gt;&lt;p&gt;由于现在是假期，大家的时间比较好安排。所以大家比较可能会有时间&lt;strong&gt;系统地看书&lt;/strong&gt;或者教程。教程从零到编写出第一个程序，方便大家自行安排学习。本次的作业是引导性的，需要学习了知识才能完成。&lt;br&gt;希望大家在假期劳逸结合，学有所得，玩得开心！&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="C/C++" scheme="https://uestc-msc.github.io/categories/C-C/"/>
+    
+    
+      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新的主席团成立！！</title>
+    <link href="https://uestc-msc.github.io/2017/06/03/%E6%96%B0%E7%9A%84%E4%B8%BB%E5%B8%AD%E5%9B%A2%E6%88%90%E7%AB%8B%EF%BC%81%EF%BC%81/"/>
+    <id>https://uestc-msc.github.io/2017/06/03/新的主席团成立！！/</id>
+    <published>2017-06-02T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>今年的主席团换届完毕，感谢离开的学长们的付出😭。你们不在，我们还会继续前进！</p><a id="more"></a><p>主席团换届结果：</p><p>主席 张逸霄</p><p>理事 谷亚奇 李沐瑾</p><p>技术部部长 王子和</p><p>运营部部长 任仕贤</p><p>产品部部长 王志伟</p><p>大家在新的一年齐心协力，共创佳绩！</p><p>另外，官网开放了评论功能，大家的评论不会受限了！</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;今年的主席团换届完毕，感谢离开的学长们的付出😭。你们不在，我们还会继续前进！&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="管理层公告" scheme="https://uestc-msc.github.io/categories/%E7%AE%A1%E7%90%86%E5%B1%82%E5%85%AC%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>换届了！！！</title>
+    <link href="https://uestc-msc.github.io/2017/06/02/%E6%8D%A2%E5%B1%8A%E4%BA%86%EF%BC%81%EF%BC%81%EF%BC%81/"/>
+    <id>https://uestc-msc.github.io/2017/06/02/换届了！！！/</id>
+    <published>2017-06-01T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.148Z</updated>
+    
+    <content type="html"><![CDATA[<p>The following is who keep the club running said:</p><p>谁终将声震人间，必长久深自缄默；谁终将点燃闪电，必长久如云漂泊。<br>本周五中午13:00，俱乐部新一年主席团换届将拉开帷幕。</p><a id="more"></a><p>本次换届空缺出来的职位：<br>理事x1 技术部部长x1 产品部部长x1 运营部部长x1（随实际情况可能增多或减少）<br>主席团是俱乐部真正的核心，共同决定俱乐部的发展方向，策划活动；各个部长又有足够多的自主权，每一个部长都是本部门发展的最大BOSS。理事适合于多面手，协助各个部门的事务。<br>各位如想在俱乐部的新一年中，与我们共同策划俱乐部的路途与走向，和其他主席团成员共同工作，此时便是加入的好时候。主席团成员各司其职，又会定期召开会议，共同讨论俱乐部事务。加入主席团并不需要耗费多少精力，同事们也会帮助你发展自己的计划。<br>在承担主席团义务的同时，成员将能优先获得俱乐部总部各种福利（包括夏令营名额，和内推机会），诚邀各位加入！<br>选拔的重要指标是俱乐部成员的投票，用你的热情去征服大家吧！<br>另：如无特殊情况，俱乐部成员需要按时参加现场换届</p><p>The following is who write the page said:</p><p>你们谁还对我们俱乐部有所留恋的，就留下来吧！秋招之后我们就更新了，以我搞事的能力为名义担保，我们俱乐部一定会变得不一样🐳</p><p>ps:一定要来竞选！</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;The following is who keep the club running said:&lt;/p&gt;
+&lt;p&gt;谁终将声震人间，必长久深自缄默；谁终将点燃闪电，必长久如云漂泊。&lt;br&gt;本周五中午13:00，俱乐部新一年主席团换届将拉开帷幕。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="管理层公告" scheme="https://uestc-msc.github.io/categories/%E7%AE%A1%E7%90%86%E5%B1%82%E5%85%AC%E5%91%8A/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】2-2.模具（C#项目结构）</title>
+    <link href="https://uestc-msc.github.io/2017/04/30/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%912-2.%E6%A8%A1%E5%85%B7%EF%BC%88C#%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%EF%BC%89/"/>
+    <id>https://uestc-msc.github.io/2017/04/30/【Bot Framework完全攻略】2-2.模具（C#项目结构）/</id>
+    <published>2017-04-29T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.144Z</updated>
+    
+    <content type="html"><![CDATA[<p>在着手准备打造天气娘之前我先讲一讲C#的项目结构。即使你学过编程（C/C++），你要知道C#只是名字和语言风格和他们有些相像而已。我不会费太多话讲他们的区别，我就挑一些关键的，你必须知道的东西。</p><p>首先，打开VS，新建一个C#控制台项目。看看你的解决方案管理器里面都有什么。</p><a id="more"></a><p>不出意外，在默认的解决方案下有一个同名的项目。项目包含依赖项和一个Program.cs</p><p>![img](【Bot Framework完全攻略】2-2.模具（C#项目结构）/s5v1d9a1fv9as8f.png)</p><p>其中Program.cs是输出Helloworld的代码。上面的依赖项是做什么的呢？展开！</p><p>![img](【Bot Framework完全攻略】2-2.模具（C#项目结构）/s5v1d9a1fv9as8f-1.png)</p><p>好多好多东西。。。你如果只学过C/C++很基础的一部分，根据你的编程经验可能不是很懂。我们对比一下C++/C#的Helloworld程序代码。你只需要关注最上面的两行（1~2行）</p><p>C#</p><p>![img](【Bot Framework完全攻略】2-2.模具（C#项目结构）/s5v1d9a1fv9as8f-2.png)</p><p>C++</p><p>![img](【Bot Framework完全攻略】2-2.模具（C#项目结构）/s5v1d9a1fv9as8f-3.png)</p><p>这两段程序的using那行都是用来声明使用的namespace（命名空间）的。但是C++上面还有预处理指令#include<iostream> C#的在哪里呢？</iostream></p><p>当然是在依赖项里啊（要不我费那么多话要干嘛。。）</p><p>我不在往下讲更多，讲的这些只是想让你注意一件事。</p><p>你想使用C#自带的库中的功能时，通常只需要加上像using System.xxx;这样的语句。那是因为.NET CORE这个库里面的东西实在是太多了，你在前面也看见了，就像C++里有一个变态的叫bits/std<em>c++</em>.h的头文件一样。</p><p>但是，这个最基本的库并不具有整个计算机World所有的功能。For Example：</p><p>当你想使用C#去查询天气，你需要使用网络请求。这时候你去百度，找到一段代码，贴进来发现有些类是未定义的。比如说有个类叫HttpClient，根据往常的经验，这时候你去msdn或者其他的地方查到了这个类属于System.Net.Http命名空间，然后你在你程序的开头加入了一行using语句，发现提示你这个命名空间是不存在的。</p><p>这时候你要注意了，你犯的错误就像在C++中using namespace std 但是却没有#include<iostream>一样</iostream></p><p>不用我说你可能也知道了，到依赖项/引用（在引用过一些其他的包后这个名字就变成了引用）那里，右键点击引用&gt;添加引用：</p><p>![img](【Bot Framework完全攻略】2-2.模具（C#项目结构）/s5v1d9a1fv9as8f-4.png)</p><p>在弹出的包管理器中&gt;程序集&gt;框架 中，找到System.Net.Http并且勾选：</p><p>![img](【Bot Framework完全攻略】2-2.模具（C#项目结构）/s5v1d9a1fv9as8f-5.png)</p><p>确认之后发现问题就解决了。</p><p>总结：这篇教程并没有带你做一些实际的东西，只是为了让你了解一下C#项目与C++或者其他语言不一样的地方，便于以后处理一些小问题。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在着手准备打造天气娘之前我先讲一讲C#的项目结构。即使你学过编程（C/C++），你要知道C#只是名字和语言风格和他们有些相像而已。我不会费太多话讲他们的区别，我就挑一些关键的，你必须知道的东西。&lt;/p&gt;
+&lt;p&gt;首先，打开VS，新建一个C#控制台项目。看看你的解决方案管理器里面都有什么。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】2-2.蓝图（Bot Framework项目结构）</title>
+    <link href="https://uestc-msc.github.io/2017/04/30/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%912-2.%E8%93%9D%E5%9B%BE%EF%BC%88Bot%20Framework%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84%EF%BC%89/"/>
+    <id>https://uestc-msc.github.io/2017/04/30/【Bot Framework完全攻略】2-2.蓝图（Bot Framework项目结构）/</id>
+    <published>2017-04-29T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.144Z</updated>
+    
+    <content type="html"><![CDATA[<p>当你导入Bot Framework项目时，你就看到了一大堆东西。这节教程我们就从Bot Framework项目的解决方案管理器出发，来讲讲项目中代码之外的一切东西。</p><a id="more"></a><p>首先你要知道Bot是一个基于ASP.NET的网络应用，它有一个固有格式，不是所有东西都需要做修改的。下面我先列出你能看到的所有东西的用途：</p><ul><li>Connected Services：从Visual Studio直接连接微软的一些服务（我们应该用不到这些高级的东西）</li><li>Properties中的Assembly.cs：项目信息（用不到）</li><li>***引用：右键点击引用可以管理引用和Nuget程序包，Nuget默认开启了你缺什么包就自动下载的功能，但是就像我之前提到的，使用一些功能时需要手动添加引用。</li><li>App_Start中的WebApiConfig.cs：Api配置（用不到）</li><li>***Controllers中的MessagesController.cs</li><li>***Dialogs中的RootDialog.cs</li><li>**default.htm：Bot的首页，已经被我们修改成了与Bot对话的地方</li><li>Global.asax：响应网络应用的应用级和模块级事件（太高级以至于用不到）</li><li>packages.config：文本方式管理应用程序使用的包（你不摸它可以包你没事）</li><li>**Web.config：网络应用的配置信息，比如我们之前就把AppID和AppSecret加了进去，但是之后我们也用不到它了</li></ul><p>所有用到过的东西我都打了“*”，其他的东西基本是不需要你改的（摸坏了后果自负）。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;当你导入Bot Framework项目时，你就看到了一大堆东西。这节教程我们就从Bot Framework项目的解决方案管理器出发，来讲讲项目中代码之外的一切东西。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-10.Cheers!（初级篇总结）</title>
+    <link href="https://uestc-msc.github.io/2017/04/29/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-10.Cheers!%EF%BC%88%E5%88%9D%E7%BA%A7%E7%AF%87%E6%80%BB%E7%BB%93%EF%BC%89/"/>
+    <id>https://uestc-msc.github.io/2017/04/29/【Bot Framework完全攻略】1-10.Cheers!（初级篇总结）/</id>
+    <published>2017-04-28T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.132Z</updated>
+    
+    <content type="html"><![CDATA[<p>读完了我写的初级篇教程，你也真是不容易。不过我在这里祝贺你，你已经知道了Bot开发的基本流程。这虽然没有啥好得瑟（炫耀）的，但是我觉的你可以开心一小下。</p><p>初级教程只是Bot开发的门票罢了，要想真正做出能用的，实用的，甚至于做出你可以用来得瑟（炫耀）一把的东西，你还要继续学习！</p><p>现在，你可以选择去Bot的官网看官网文档（佐以谷歌翻译食用风味更佳）。这次传送门就不开了。我相信进去这么多次的网站你肯定收藏了或者记住网址了，对不对！（不对那你很棒哦）</p><p>最后提醒一次看官方Doc的同学，其实官网的Doc因为Bot Framework 的更新出现了许多小错误，富有C#使用经验的程序员通常可以简单的改正。但是，呵呵，呵呵，呵呵呵呵。</p><p>接下来的教程中，我们会共同开发一个用来查询天气的Bot。通过这个具体的例子，你肯定可以熟悉Bot开发的方方面面。（如果你想做一个查询xxx的也可以哦）</p><p>咳咳！就到这里。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;读完了我写的初级篇教程，你也真是不容易。不过我在这里祝贺你，你已经知道了Bot开发的基本流程。这虽然没有啥好得瑟（炫耀）的，但是我觉的你可以开心一小下。&lt;/p&gt;
+&lt;p&gt;初级教程只是Bot开发的门票罢了，要想真正做出能用的，实用的，甚至于做出你可以用来得瑟（炫耀）一把的东西，
+      
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）</title>
+    <link href="https://uestc-msc.github.io/2017/04/29/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D%EF%BC%88%E5%A6%82%E4%BD%95%E8%AE%A9%E5%88%AB%E4%BA%BA%E7%94%A8%E6%88%91%E4%BB%AC%E7%9A%84Bot%EF%BC%89/"/>
+    <id>https://uestc-msc.github.io/2017/04/29/【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）/</id>
+    <published>2017-04-28T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.140Z</updated>
+    
+    <content type="html"><![CDATA[<p>这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊）</p><p>这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。</p><a id="more"></a><p>首先去Bot官网，并且登陆，进入My bots，选择你的Bot</p><p>找到Web Chat 后面的Edit：</p><p>![img](【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）/afs5d-22.png)</p><p>点击之后进入Web Chat 的配置界面。第一次进入可能会提示你新建一个site如果没有的话，就点击左边的Add  new site。site的名字随便起，没卵用的。然后进入这个界面：</p><p>![img](【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）/afs5d-23.png)</p><p>你可以看到Secret keys （密钥）是隐藏的，点击后面的Show就能看到。</p><p>下面的Embed code（嵌入代码）是一段HTML代码，内容就是与你Bot聊天的聊天室。</p><p>打开你的记事本，把Embed code（嵌入代码）复制进去，然后复制Secret keys（密钥）其中的一个，替换掉记事本里的 YOUR_SECRET_HERE。这样你就得到一段可用的html代码。</p><p>接下来，打开你的VS，进入你的项目，到解决方案管理器中找到default.htm文件：</p><p>![img](【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）/afs5d-24.png)</p><p>打开它，把body标签里面的内容替换成你记事本里的那段代码：</p><p>![img](【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）/afs5d-25.png)</p><p>然后，保存你的更改。重新发布你的Bot，这样就可以通过直接访问Bot的主页（endpoint的网址去掉后面/api/messages）来直接访问Bot了。</p><p>效果图：</p><p>![img](【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）/afs5d-26.png)</p><p>你会发现聊天的窗口太矮了。。。</p><p>在default.htm做出如下的修改可以改变小窗口的高度：</p><p>![img](【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）/afs5d-27.png)</p><p>修改完记得保存，重新发布。</p><p>记得Web Chat的网址就是你发布的站点URL（你在发布页面能找到）</p><p>大功告成！你可以把聊天窗口的网址发给你的朋友们，让他们感受一下你在做的工作。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊）&lt;/p&gt;
+&lt;p&gt;这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】2-1.天气娘（查询天气的Bot）</title>
+    <link href="https://uestc-msc.github.io/2017/04/29/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%912-1.%E5%A4%A9%E6%B0%94%E5%A8%98%EF%BC%88%E6%9F%A5%E8%AF%A2%E5%A4%A9%E6%B0%94%E7%9A%84Bot%EF%BC%89/"/>
+    <id>https://uestc-msc.github.io/2017/04/29/【Bot Framework完全攻略】2-1.天气娘（查询天气的Bot）/</id>
+    <published>2017-04-28T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.144Z</updated>
+    
+    <content type="html"><![CDATA[<p>作为我们的第一个实战项目，选择做一个查询天气的Bot是再好不过的了。（你问我为什么？简单呗~咳咳，呸！肯定是实用 啊。。）</p><p>注意：在后续的教程里，一个传送门我只开一次。大家感觉重要可以收藏好，或者下次再用的时候回来找或者自己到百度，谷歌搜。</p><p>还有一个非常重要的事，请大家到LUIS的官网登陆一下，因为用户第一次使用LUIS时，官方的服务器会花好长的时间创建用户的工作空间（原因大概是这样） LUIS：<a href="http://www.luis.ai/" target="_blank" rel="noopener">www.<strong>luis</strong>.ai/</a></p><p>最后，我们天气娘的教程大概分这么几个部分：</p><ul><li>C#项目结构</li><li>Bot的项目结构</li><li>LUIS的食用方法</li><li>C#解析json的方法</li><li>完结篇</li></ul><p>我们的教程并不是以连贯的形式来进行的，毕竟对于初学者，总是不喜欢看着一堆自己看不懂的东西。但是最后我们一定会把所有的东西集合到一起，拼出我们可爱的天气娘~</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;作为我们的第一个实战项目，选择做一个查询天气的Bot是再好不过的了。（你问我为什么？简单呗~咳咳，呸！肯定是实用 啊。。）&lt;/p&gt;
+&lt;p&gt;注意：在后续的教程里，一个传送门我只开一次。大家感觉重要可以收藏好，或者下次再用的时候回来找或者自己到百度，谷歌搜。&lt;/p&gt;
+&lt;p&gt;还有
+      
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）</title>
+    <link href="https://uestc-msc.github.io/2017/04/24/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-6.%E5%BC%80%E5%A7%8B%E9%80%A0%E8%88%B9%EF%BC%88%E5%86%99%E4%B8%80%E4%B8%AA%E4%BD%A0%E7%9A%84Bot%E9%A1%B9%E7%9B%AE%EF%BC%89/"/>
+    <id>https://uestc-msc.github.io/2017/04/24/【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/</id>
+    <published>2017-04-23T19:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.136Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先我们一起来导入模板。首先我可耻的说我用的是中文系统+中文VS+中文解说0.0</p><a id="more"></a><p>你如果还没下载模板文件，传送门附上：<a href="http://aka.ms/bf-bc-vstemplate" target="_blank" rel="noopener">http://aka.ms/bf-bc-vstemplate</a></p><p>Visual的项目文件，以及用户自定义模板默认位置都在 “用户的文件夹/文档”这一路径下，如果你用过更老的Windows，这里的位置应该叫我的文档0.0。呸！费了这么多话，也许一张图就能解决问题：</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-1.png)</p><p>注意打开你对应版本的文件夹 比如我就要打开Visual Studio 2017（我也不知道为什么我会有一个2013。。。）</p><p>进入这个目录下的\Templates\ProjectTemplates文件夹，这是用户自定义模板的大本营</p><p>如果你看见了一个叫Visual C#的文件夹，那就把模板文件丢到里面，如果没有也没关系，直接放在根目录好像也行。</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-2.png)</p><p>到这模板就导入完成了。</p><p>打开你的Visual Studio，新建一个项目，位置在顶部的 文件&gt;新建&gt;项目</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe.png)</p><p>在打开的窗口中 依次选择 模板&gt;C#&gt;Bot Application 点击确定</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-3.png)</p><p>你就会看到如下场景：</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-4.png)</p><p>左面的解决方案管理器中可以看到项目的所有文件，如果你没有看到解决方案管理器，他可能像工具箱一样在左面被折叠了起来</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-5.png)</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-7.png)</p><p>还是没有的话 到顶部菜单的 视图&gt;解决方案管理器 去打开</p><p>你可以顺便看看项目的结构（如果你看得懂）</p><p>接下来就可以开始本地调试（就是在本地测试一下你的Bot，先和自己做的Bot聊聊。。。）</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-8.png)</p><p>点击上面的按钮或者按F5开始调试，之后你应该看到下面的窗口，或者类似的东西。（如果调试不成功，显示代码有错误，你可以等一等，因为Bot SDK正在后台自动下载）</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-9.png)</p><p>读完上面的网页你会看到有个词叫endpoint，你可以暂时的把它理解成Bot服务的网址。上面网址localhost:3979就是本地调试的your_bots_hostname。所以开启调试后我的Bot的endpoint就是<a href="https://localhost:3979/api/messages你的应该和我的差不多，有的时候3979端口会被占用那么上面的网址给你的就是其它端口。" target="_blank" rel="noopener">https://localhost:3979/api/messages你的应该和我的差不多，有的时候3979端口会被占用那么上面的网址给你的就是其它端口。</a></p><p>另外，在这里有一点需要注意，虽然在我们的认识中 localhost = 127.0.0.1 但是在这里是不能替换的，具体原因可以自行查阅相关资料。</p><p>接下来，你只需要打开你的模拟器了。如果你还没有，传送门：<a href="https://emulator.botframework.com/" target="_blank" rel="noopener">https://emulator.botframework.com/</a></p><p>安装以后打开你的模拟器：</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-10.png)</p><p>左边是聊天窗口，右边是控制台。在开始之前，点击聊天窗口顶部的Enter your endpoint URL 并且输入我们之前获得的endpoint:</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-11.png)</p><p>注意，由于我们是本地测试，所以其他的一律不填，点击CONNECT继续，这时候你会发现控制台有了变化 POST 200代表发送数据成功，如果你看到了红色的文字，出现了错误，可以重启一下这个模拟器，可能会解决问题，如果出现了问题不能解决，可以到俱乐部的QQ群提出，也可以直接问学长（不要问我啦）</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-12.png)</p><p>这个应该是一切就绪时你会看到的：</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-13.png)</p><p>我对我的Bot说了句Hello。。。。</p><p>![img](【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/dfa1b981fv96arbe-14.png)</p><p>看得出Bot有了回应，控制台也有了变化，这就是一般Bot调试的流程，如果出错了，就分析控制台Log的内容。再次说明，看不懂的Log(日志)和其他的东西要问哦。</p><p>至此，一个你的基本的Bot就构建并测试完成了！</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先我们一起来导入模板。首先我可耻的说我用的是中文系统+中文VS+中文解说0.0&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-5.小试牛刀</title>
+    <link href="https://uestc-msc.github.io/2017/04/24/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80/"/>
+    <id>https://uestc-msc.github.io/2017/04/24/【Bot Framework完全攻略】1-5.小试牛刀/</id>
+    <published>2017-04-23T17:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.136Z</updated>
+    
+    <content type="html"><![CDATA[<p>本篇教程将引导你实现一个最基础的Bot</p><ul><li>[开始造船（写一个你的Bot项目）](`../【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/)</li><li>[向政府注册你的旗帜（注册一个你的Bot）](../【Bot Framework完全攻略】1-7.向政府注册你的旗帜（注册一个你的Bot）/)</li><li>[把旗子插在船上（关联配置）](../【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）/)</li></ul><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;本篇教程将引导你实现一个最基础的Bot&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;[开始造船（写一个你的Bot项目）](`../【Bot Framework完全攻略】1-6.开始造船（写一个你的Bot项目）/)&lt;/li&gt;
+&lt;li&gt;[向政府注册你的旗帜（注册一个你的Bot）](../【Bot
+      
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-7.向政府注册你的旗帜（注册一个你的Bot）</title>
+    <link href="https://uestc-msc.github.io/2017/04/24/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-7.%E5%90%91%E6%94%BF%E5%BA%9C%E6%B3%A8%E5%86%8C%E4%BD%A0%E7%9A%84%E6%97%97%E5%B8%9C%EF%BC%88%E6%B3%A8%E5%86%8C%E4%B8%80%E4%B8%AA%E4%BD%A0%E7%9A%84Bot%EF%BC%89/"/>
+    <id>https://uestc-msc.github.io/2017/04/24/【Bot Framework完全攻略】1-7.向政府注册你的旗帜（注册一个你的Bot）/</id>
+    <published>2017-04-23T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.140Z</updated>
+    
+    <content type="html"><![CDATA[<p>上一篇文章中我们实现的本地的Bot搭建及测试，为了能让小伙伴们也能看一看我们的Bot，我们需要到Bot官网注册一个Bot，官网提供了一些丰富的能让小伙伴们与Bot交流的方式，最简单的就是在网页上聊天，还有Skye等等，通过复杂一点的实现，也可以将Bot连接至微信公众号。</p><p>这一节我们只做准备工作，就是到官网注册一个Bot，并且我会告诉你一些配置的用途</p><a id="more"></a><p>首先登陆Bot官网：<a href="https://dev.botframework.com/" target="_blank" rel="noopener">https://dev.botframework.com/</a></p><p>你会看到顶部有一个导航栏</p><ul><li>Bot Framework PREVIEW 官网的Bot概述</li><li>My Bots 管理你注册过的Bot</li><li>Register a bot 注册一个新的Bot</li><li>Documentaton 官方开发文档，佐以谷歌翻译食用风味更佳</li><li>Bot Directory 一个有趣的地方，有好多别人的Bot，更有趣的是你还可以用它们</li><li>Blog 官网的信息发布博客，如果你将来成为了一名高级的开发者，可以关注一下</li></ul><p>初来乍到你可以逛逛</p><p>现在我们就来注册第一个Bot。进入Register a bot（登录过程跳过）:</p><p>![img](【Bot Framework完全攻略】1-7.向政府注册你的旗帜（注册一个你的Bot）/dfa1b981fv96arbe-15.png)</p><p>![img](【Bot Framework完全攻略】1-7.向政府注册你的旗帜（注册一个你的Bot）/dfa1b981fv96arbe-16.png)</p><ul><li>Name：Bot的名字 ，这个名字只有你把你的Bot公布到Directory才会被看到</li><li>Bot handle：你可以理解成ID，就像你在游戏中起的不能和别人重复的名字一样</li><li>Description：这个描述也是只有你把你的Bot公布到Directory才会被看到</li><li>Messaging endpoint：就是上一个教程中的endpoint，只不过这里肯定不能用localhost了，因为那是测试用的本地网址。这里暂且空下不填</li><li>App ID and password 部分：点那个蓝色按钮，微软会为你生成AppID还有密钥，你要妥善保管</li><li>Admin部分：Owners是主人。这个不用改，上面写的应该就是你的微软账号，如果想填多个账号用逗号分隔。下面的AppInsight xxxxxxxxxx是只有把你的Bot发布到Azure云时才会用到的，是一个用来分析请求的东西。</li></ul><p>做好配置，勾选接受协议，点击Register注册。</p><p>至此你的Bot就注册完成了，你在My Bots那里应该就能找到了。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;上一篇文章中我们实现的本地的Bot搭建及测试，为了能让小伙伴们也能看一看我们的Bot，我们需要到Bot官网注册一个Bot，官网提供了一些丰富的能让小伙伴们与Bot交流的方式，最简单的就是在网页上聊天，还有Skye等等，通过复杂一点的实现，也可以将Bot连接至微信公众号。&lt;/p&gt;
+&lt;p&gt;这一节我们只做准备工作，就是到官网注册一个Bot，并且我会告诉你一些配置的用途&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）</title>
+    <link href="https://uestc-msc.github.io/2017/04/24/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-8.%E6%8A%8A%E6%97%97%E5%AD%90%E6%8F%92%E5%9C%A8%E8%88%B9%E4%B8%8A%EF%BC%88%E5%85%B3%E8%81%94%E9%85%8D%E7%BD%AE%EF%BC%89/"/>
+    <id>https://uestc-msc.github.io/2017/04/24/【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）/</id>
+    <published>2017-04-23T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.140Z</updated>
+    
+    <content type="html"><![CDATA[<p>关联配置其实也很简单，但是在这之前首先你要有一个服务器来搭载你的Bot服务</p><a id="more"></a><p>传送门列表：</p><ul><li><a href="http://119.23.17.142/【bot-framework完全攻略】666-1-将bot发布至azure云（困难度i）/" target="_blank" rel="noopener">将Bot发布至Azure云（困难度I）</a></li><li><a href="http://119.23.17.142/【bot-framework完全攻略】666-2-将bot发布至本地（困难度ii）/" target="_blank" rel="noopener">将Bot发布至本地服务器（困难度II）</a></li><li>将Bot发布之远程服务器（困难度III）</li></ul><p>在搭建好服务器之后， 把<a href="https://your_bots_hostname/api/messages" target="_blank" rel="noopener">https://your_bots_hostname/api/messages</a> 中间的your_bots_hostname替换成你获得的服务地址，这些都应当是你在发布过程中配置好的</p><p>在本地的Bot项目中 通过解决方案管理器找到Web.config，找到如下部分并填写。要填的东西就是之前我告诉你妥善保管好的App ID还有密钥</p><p>![img](【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）/dfa1b981fv96arbe-17.png)</p><p>填写完之后保存，并且重新发布到你的服务器。。。</p><p>在Bot官网中进入My bots，选择你要配置的Bot，之后再你看到的面板中点击这里：</p><p>![img](【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）/dfa1b981fv96arbe-18.png)</p><p>之后找到这里，输入你的endpoint：</p><p>![img](【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）/dfa1b981fv96arbe-19.png)</p><p>最后保存配置</p><p>回到那个总览的面板，下方有测试连接的按钮</p><p>![img](【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）/dfa1b981fv96arbe-20.png)</p><p>如果你的所有东西都配置好了，看到的应该和我的不一样。。。</p><p>好吧我折腾了一小会，当你把一切都配置完了，并且测试成功应该是这样的：</p><p>![img](【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）/dfa1b981fv96arbe-21.png)</p><p>至此，简单的开发流程你应该已经了解了。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;关联配置其实也很简单，但是在这之前首先你要有一个服务器来搭载你的Bot服务&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）</title>
+    <link href="https://uestc-msc.github.io/2017/04/24/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%91666-1.%E5%B0%86Bot%E5%8F%91%E5%B8%83%E8%87%B3Azure%E4%BA%91%EF%BC%88%E5%9B%B0%E9%9A%BE%E5%BA%A6I%EF%BC%89/"/>
+    <id>https://uestc-msc.github.io/2017/04/24/【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/</id>
+    <published>2017-04-23T16:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.144Z</updated>
+    
+    <content type="html"><![CDATA[<p>把Bot发送到Azure云上是最简单方便的选择了，而且Azure云有个学生免费的许可，是专门用来搭载像Bot这样的网络应用的。学生免费请注意！！！</p><p>我还没说怎么发布你的项目0.0，不过在这之前我先带你申请一个那个学生免费的许可。Dreamspark传送门：<a href="http://www.dreamspark.com/" target="_blank" rel="noopener">www.<strong>dreamspark</strong>.com/</a></p><p>首先你得用自己的Microsoft账号登陆（网页右上角）。</p><p>然后点击Account，进入账户设置：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-4.png)</p><p>然后你首先要完善个人信息。。。</p><p>然后就会进入真的Account页面。。。：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-5.png)</p><p>页面左下角的Get Azure就是获取免费Azure的地方，点击Active Azure，你会看到如下的东西：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-6.png)</p><p>红框中的 Register now是灰的，也就是说我们现在不能马上就申请，因为我们还没进行学生认证。下面蓝色的链接就是认证的链接。</p><p>点击之后，会提示你选择认证方式。偷偷告诉你，学校邮箱（School email address）最稳妥。。。：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-9.png)</p><p>然后你就输入你的学校邮箱，Micorsoft会给你的邮箱发邮件，就像一般的注册游戏账号的认证过程一样。。。。。讨厌死了手动复制链接地址：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-10.png)</p><p>不出意外的话链接会跳转到Account页面，此时Register now还是黑的，还需要点击下面蓝色的链接，然后才能完成验证（点击Continue）：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-11.png)</p><p>回到Account界面的你发现Register now还是灰的。。。。不过其实已经可以点进去了（仔细一点看你会发现字变成黑色了）</p><p>之后就进入了Azure云的登陆页面（不得不说画风突变）</p><p>登陆之后会有一些简单的设置</p><p>如果遇到下面的问题，就把国家改成美国。。。</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-12.png)</p><p>之后又是简单的填写个人信息，协议条款。</p><p>填写完之后Azure会开始在服务器部署你的工作空间。趁着这个时候，泡杯柠檬茶(੭ु•́ω•̀)੭ु</p><p>开始使用免费的Azure喽！！！</p><p>看到Azure丰富等功能了没。感觉兴奋的同学你别高兴的太早，感觉复杂的同学你也不要嫌烦，点击左上角的新建，看看你可以新建什么。</p><p>看完之后你的表情：(→_→)</p><p>只有这一个能用啊。。。（免费给你用就不错了好吗）：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-13.png)</p><p>既然就有这个能用，你就新建一个用用看：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-14.png)</p><p>填完东西，点创建就好。。。</p><p>Azure会开始部署你的Web App，不过这些你都不用管了，因为我们也用不到了。刚刚新建一个网络应用的目的其实是顺便创建一个新的资源组以及，，，让你感受一下微软的学生认证免费版的。。。。（我不说，你也别猜）</p><p>把网页全都关了（别关我这个教程），打开你的VS，进入你的项目。</p><p>这样点击发布：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-15.png)</p><p>或者这样：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-17.png)</p><p>进入发布页面，发布目标当然是Azure云，然后下面的新建/选择现有的选项也不用动，因为我们是第一次发布。</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-18.png)</p><p>点击确定就可以了。</p><p>在创建App Service的界面，如果你的表单保持一片空白不能更改，那不是你的错。。。全都关了，喝完柠檬茶在打开吧（玄学问题 重启就好）。</p><p>表单自动填写完毕就可以点击创建。创建好了应该会自动发布吧，不会的话你就再发布一次。</p><p>如果发布失败了可以百度，谷歌，问学长</p><p>成功了的话，蓝色的网址就是bot的那个什么了。。。。（你懂就行）：</p><p>![img](【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）/afs5d-19.png)</p><p>发布成功，你的Bot就被怼上了你的Azure。</p><p>最后注意下endpoint：</p><p>我的那个什么是 <a href="http://botapplication220170429091745.azurewebsites.net/" target="_blank" rel="noopener">http://botapplication220170429091745.azurewebsites.net/</a></p><p>那么endpoint就在后面加上api/messages</p><p>即 <a href="http://botapplication220170429091745.azurewebsites.net/api/messages" target="_blank" rel="noopener">http://botapplication220170429091745.azurewebsites.net/api/messages</a></p><p>大功告成！</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;把Bot发送到Azure云上是最简单方便的选择了，而且Azure云有个学生免费的许可，是专门用来搭载像Bot这样的网络应用的。学生免费请注意！！！&lt;/p&gt;
+&lt;p&gt;我还没说怎么发布你的项目0.0，不过在这之前我先带你申请一个那个学生免费的许可。Dreamspark传送门：&lt;a
+      
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-4.战争前的准备</title>
+    <link href="https://uestc-msc.github.io/2017/04/23/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-4.%E6%88%98%E4%BA%89%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87/"/>
+    <id>https://uestc-msc.github.io/2017/04/23/【Bot Framework完全攻略】1-4.战争前的准备/</id>
+    <published>2017-04-22T19:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.136Z</updated>
+    
+    <content type="html"><![CDATA[<p>我们来聊聊写程序的部分。。。</p><a id="more"></a><p>官网为Bot Framework的开发者提供了两种SDK。不懂什么是SDK的，百度百科传送门：<a href="http://baike.baidu.com/link?url=bH9-2ES2i6OPUXNpunCTeGSyQcgatkabbUHuxMIGMZlQSRtIkOmLTXT3p5U_Dz5buT_52YyNtcLiYR71dKbtBa" target="_blank" rel="noopener">http://baike.baidu.com/link?url=bH9-2ES2i6OPUXNpunCTeGSyQcgatkabbUHuxMIGMZlQSRtIkOmLTXT3p5U_Dz5buT_52YyNtcLiYR71dKbtBa</a></p><p>Bot Framework的开发可以用.NET SDK或者Node.js SDK来进行。</p><p>Node.js是用javascript写服务端的东西，我并不是很了解。我们的教程打算使用.NET SDK来进行（都是微软自己家的东西）</p><p>我们选用的开发语言是C#。虽然说.NET SDK是支持C++的，而且大多数人都会使用C++，但是使用C++开发的难度绝对不比从0开始学C#在开发要简单。简单来说，C++/CLR 要求你对C++有更到位的理解，并且会使用一些不属于C++的诡异语法。同时你要对C++环境下的托管编程有理解。</p><p>如果你要使用一些其他的开发方式，请参考</p><p>官方文档：<a href="https://docs.botframework.com/en-us/" target="_blank" rel="noopener">https://docs.botframework.com/en-us/</a></p><p>谷歌翻译：<a href="https://translate.google.cn/" target="_blank" rel="noopener">https://translate.google.cn</a></p><p>如果你选择了Node.js或者C++/CLR 慢走不送。。。</p><p>既然你到了这里，那么我开门见山的列出你需要的东西：</p><ul><li>Microsoft账号（这东西我想大多数人都有，不过还是要说一下）</li><li>Visual Studio 2015 （大于均可，小于不知道）<a href="https://www.visualstudio.com/zh-hans/downloads/" target="_blank" rel="noopener">https://www.visualstudio.com/zh-hans/downloads/</a></li><li>Bot模板 （VS&amp;C#专用）<a href="http://aka.ms/bf-bc-vstemplate" target="_blank" rel="noopener">http://aka.ms/bf-bc-vstemplate</a></li><li>一个服务器，可以是Azure云，也可以是其他的你自己的服务器（需要支持ASP.NET），如果没有我后面也会给你提供其他解决方案。</li><li>Bot Emulator（这个是官方提供的本地测试工具）<a href="https://emulator.botframework.com/" target="_blank" rel="noopener">https://emulator.botframework.com/</a></li></ul><p>有了这些东西就差不多了吧。。。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我们来聊聊写程序的部分。。。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-3.这东西是怎么干活的？</title>
+    <link href="https://uestc-msc.github.io/2017/04/23/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-3.%E8%BF%99%E4%B8%9C%E8%A5%BF%E6%98%AF%E6%80%8E%E4%B9%88%E5%B9%B2%E6%B4%BB%E7%9A%84%EF%BC%9F/"/>
+    <id>https://uestc-msc.github.io/2017/04/23/【Bot Framework完全攻略】1-3.这东西是怎么干活的？/</id>
+    <published>2017-04-22T18:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.136Z</updated>
+    
+    <content type="html"><![CDATA[<p>我不得不说，我写的前一篇文章很简陋。不过我也相信，这能让你对Bot有最直观的了解。而且我也会坚守这个道理，Simple is good！</p><p>你要知道，如果不是我发布的，文章的标题可能叫一个其他的令人反感的名字。</p><p>步入正题！</p><a id="more"></a><p>首先，我之前说过Bot是一个网络服务，最终要部署到服务器上的。想一想自动客服和人工客服的区别（除了服务器你还指望着谁来替你回复用户的消息）</p><p>接着，你需要到Bot Framework的官网上注册一个Bot。你如果问我为什么会有这一步。。。我就在这里勉为其难的解释一下，这样的设计是与Bot的一些其他的有趣的功能和特性有关系的。</p><p>你可以去Bot的官网的Bot Directory页面看看，或许你会明白一丢丢。。。传送门：<a href="https://bots.botframework.com/" target="_blank" rel="noopener">https://bots.botframework.com/</a></p><p>就这样，你只需要：</p><ul><li>写程序并且发布到服务器（听不懂别着急）</li><li>到Bot官网注册一个Bot（后面讲别着急）</li><li>进行一些关联配置（面包和牛奶都会有的别着急，笑哭。。。）</li></ul><p>这是最粗略的流程，详细怎么做，步步深入，请大家关注后续教程。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;我不得不说，我写的前一篇文章很简陋。不过我也相信，这能让你对Bot有最直观的了解。而且我也会坚守这个道理，Simple is good！&lt;/p&gt;
+&lt;p&gt;你要知道，如果不是我发布的，文章的标题可能叫一个其他的令人反感的名字。&lt;/p&gt;
+&lt;p&gt;步入正题！&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-2.Bot简介</title>
+    <link href="https://uestc-msc.github.io/2017/04/23/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-2.Bot%E7%AE%80%E4%BB%8B/"/>
+    <id>https://uestc-msc.github.io/2017/04/23/【Bot Framework完全攻略】1-2.Bot简介/</id>
+    <published>2017-04-22T17:00:00.000Z</published>
+    <updated>2019-08-31T23:41:06.132Z</updated>
+    
+    <content type="html"><![CDATA[<p>这是Bot Framework的官方文档：<a href="https://docs.botframework.com/en-us/" target="_blank" rel="noopener">https://docs.botframework.com/en-us/</a></p><p>不得不说全英文的东西还是很让人头疼的。如果你真的那么爱看官方的文档的话，这里附上谷歌翻译的链接：<a href="https://translate.google.cn/" target="_blank" rel="noopener">https://translate.google.cn/</a></p><a id="more"></a><p>首先，我来介绍一下这个大家伙。官网上给出的概述往往并不是很直观。直观的额说，Bot Framework就是那种开发在线客服的东西。不要误会以为Bot是指像小冰一样的聊天机器人哦。Bot的具有更强的目的性，因此开发起来并不像想象中的那么困难。与此同时Bot也更加的实用。</p><p>下面给出官网的一个例子：</p><p>![img](【Bot Framework完全攻略】1-2.Bot简介/salon_bot_example.png)</p><p>你应该能看懂上面的例子吧，这就是一个用来预订理发服务的Bot。</p><p>Bot Framework就是一个用来开发在线非人工服务的框架。并没有多么高深。主要的用途就<br>像上面的例子展示的那样。但你所见的只是Bot极小的一部分功能，Bot所具有的更强大的功<br>能与更丰富的交互方式，会在将来的教程中逐步讲解。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是Bot Framework的官方文档：&lt;a href=&quot;https://docs.botframework.com/en-us/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://docs.botframework.com/en-us/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;不得不说全英文的东西还是很让人头疼的。如果你真的那么爱看官方的文档的话，这里附上谷歌翻译的链接：&lt;a href=&quot;https://translate.google.cn/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;https://translate.google.cn/&lt;/a&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
+    
+  </entry>
+  
+  <entry>
     <title>【Bot Framework完全攻略】1-1.攻略说明</title>
     <link href="https://uestc-msc.github.io/2017/04/23/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-1.%E6%94%BB%E7%95%A5%E8%AF%B4%E6%98%8E/"/>
     <id>https://uestc-msc.github.io/2017/04/23/【Bot Framework完全攻略】1-1.攻略说明/</id>
     <published>2017-04-22T16:00:00.000Z</published>
-    <updated>2019-08-31T21:49:28.430Z</updated>
+    <updated>2019-08-31T23:41:06.132Z</updated>
     
     <content type="html"><![CDATA[<p>大家是否对今年的编程之美比赛有所了解呢？ 如果你还不是很了解，那么，这里是官网传送门: <a href="http://studentclub.msra.cn/bop2017/" target="_blank" rel="noopener">http://studentclub.msra.cn/bop2017/</a></p><p>建议你先去看一看</p><p>总结起来，这次比赛就是做一个足以介绍自己学校的Bot。。。我不得不说，这个不酷，不炫，甚至还有点无聊。。。但是这次比赛的目的性很强，如果你没用过Bot Framework 或者相关框架，在或者你没写过网络服务，在或者你没写过稍微大一丢丢的程序。。。可以来练一练手 ^_^|||</p><p>如果你是个新人，请慎重抱团。额。。。我是指团队合作方面的新人。有一个规则叫做1+1&lt;1，我没打错是小于1，不是小于2。不会团队合作的队友是会互相拖累的。不过，如果能找到值得信赖的好队友也是极好的。</p><p>由于Bot开发涉及的知识较多，而且官方并没有推出友好的中文文档，所以接下来的日子里，我会负责推出一系列的Bot Framework相关教程来帮助大家对Bot开发整体有充分的了解。特此声明，文章更新持续稳定。如有更新不及时，隔着屏幕你又打不死我 ╮(╯▽╰)╭。</p><p>非常感谢 –&lt;-&lt;@</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
@@ -62,7 +462,7 @@
       <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
     
     
-      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
+      <category term="谷亚奇" scheme="https://uestc-msc.github.io/tags/%E8%B0%B7%E4%BA%9A%E5%A5%87/"/>
     
   </entry>
   
@@ -71,7 +471,7 @@
     <link href="https://uestc-msc.github.io/2017/04/12/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%91Bot%20Framework%E6%8A%80%E6%9C%AF%E6%B1%87/"/>
     <id>https://uestc-msc.github.io/2017/04/12/【俱乐部活动】Bot Framework技术汇/</id>
     <published>2017-04-11T16:00:00.000Z</published>
-    <updated>2019-08-31T21:49:28.430Z</updated>
+    <updated>2019-08-31T23:41:06.148Z</updated>
     
     <content type="html"><![CDATA[<p>4月，俱乐部进行了编程之美的专题技术沙龙，主题是Bot Framework的了解与使用。</p><p>副主席张逸霄主讲本次技术沙龙。</p><p>![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235051-300x169.jpg)</p><p>![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235100-300x169.jpg)</p><p>![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235056-300x169.jpg)</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
@@ -87,109 +487,6 @@
     </summary>
     
       <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
-    
-    
-      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【俱乐部活动】2015年创新杯宣讲会</title>
-    <link href="https://uestc-msc.github.io/2015/12/03/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E5%88%9B%E6%96%B0%E6%9D%AF%E5%AE%A3%E8%AE%B2%E4%BC%9A/"/>
-    <id>https://uestc-msc.github.io/2015/12/03/【俱乐部活动】2015年创新杯宣讲会/</id>
-    <published>2015-12-02T16:00:00.000Z</published>
-    <updated>2019-08-31T21:49:28.430Z</updated>
-    
-    <content type="html"><![CDATA[<p>2015年12月3日，电子科技大学微软学生俱乐部于立人楼B308举办了2015年创新杯宣讲会。微软成都的工作人员为在场的同学们激情讲述Azure云与2015年创新杯的报名流程。</p><p>图为微软技术人员讲述Azure云平台技术。</p><p>图为工作人员发放奖品。</p><p>图为散场之后同学仍然在于技术人员进行热烈讨论。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;2015年12月3日，电子科技大学微软学生俱乐部于立人楼B308举办了2015年创新杯宣讲会。微软成都的工作人员为在场的同学们激情讲述Azure云与2015年创新杯的报名流程。&lt;/p&gt;
-&lt;p&gt;图为微软技术人员讲述Azure云平台技术。&lt;/p&gt;
-&lt;p&gt;图为工作人员发放奖品。&lt;
-      
-    
-    </summary>
-    
-      <category term="创新杯" scheme="https://uestc-msc.github.io/categories/%E5%88%9B%E6%96%B0%E6%9D%AF/"/>
-    
-    
-      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【俱乐部活动】2015年10月·黑客马拉松</title>
-    <link href="https://uestc-msc.github.io/2015/11/01/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B410%E6%9C%88%C2%B7%E9%BB%91%E5%AE%A2%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
-    <id>https://uestc-msc.github.io/2015/11/01/【俱乐部活动】2015年10月·黑客马拉松/</id>
-    <published>2015-10-31T16:00:00.000Z</published>
-    <updated>2019-08-31T21:49:28.430Z</updated>
-    
-    <content type="html"><![CDATA[<p>2015年，微软学生俱乐部黑客马拉松启动仪式在四川大学举办。</p><p>电子科技大学微软学生俱乐部在2015年10月31日-2015年11月1日进行了为期48小时的黑客马拉松活动，有13组同学报名，展开了思维的头脑风暴。</p><p>图为黑客马拉松现场。</p><p>图为一组同学在进行项目展示。</p><p>本次活动由张帆等时任主席团成员组织，笔者（张逸霄）同样参与了活动的全程策划与实施。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;2015年，微软学生俱乐部黑客马拉松启动仪式在四川大学举办。&lt;/p&gt;
-&lt;p&gt;电子科技大学微软学生俱乐部在2015年10月31日-2015年11月1日进行了为期48小时的黑客马拉松活动，有13组同学报名，展开了思维的头脑风暴。&lt;/p&gt;
-&lt;p&gt;图为黑客马拉松现场。&lt;/p&gt;
-&lt;p
-      
-    
-    </summary>
-    
-      <category term="Hackathon" scheme="https://uestc-msc.github.io/categories/Hackathon/"/>
-    
-    
-      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【俱乐部活动】俱乐部2015年秋季见面会</title>
-    <link href="https://uestc-msc.github.io/2015/10/10/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%91%E4%BF%B1%E4%B9%90%E9%83%A82015%E5%B9%B4%E7%A7%8B%E5%AD%A3%E8%A7%81%E9%9D%A2%E4%BC%9A/"/>
-    <id>https://uestc-msc.github.io/2015/10/10/【俱乐部活动】俱乐部2015年秋季见面会/</id>
-    <published>2015-10-09T16:00:00.000Z</published>
-    <updated>2019-08-31T21:49:28.430Z</updated>
-    
-    <content type="html"><![CDATA[<p>2015年10月9日晚7：00，成电微软俱乐部在品学楼A106举行了第一次见面会暨内建活动，旨在帮助俱乐部成员相互了解，增进友谊，从而提升整个俱乐部的凝聚力。</p><p>活动开始，首先由张帆主席讲话。主席提到，俱乐部是大家的俱乐部，大家要有主人翁精神。以俱乐部为平台，展示自己，锻炼自己，成就自己。随后主席与各个部门负责人进行了自我介绍，向大家分享了自己学习、活动的经历并且明确了各部门的职责。会上还请到了上届主席张明群向大家分享了自己三年俱乐部的经历，整个过程掌声雷动。</p><p>随后在财务部部长梁浩东的主持下，随机分为了5个小组，每个小组5—6人，每小组由一名部长带领，准备进行小组对抗。为了帮助大家更加熟悉俱乐部的其他成员，此次分组有意将同部门的人员错开，如此更方便大家跨部门交流。期间人力资源部部长夏雪还向各小组分发了零食与饮料，玩好也别忘了吃好呀。</p><p>小组分配完毕，各小组有10分钟的时间让成员间相互熟悉。一时，教室一片火爆，大家都聊得火热兴起。第五小组在部长马洪亮的带领下更是玩起了“名字接龙”的游戏，好生热闹。</p><p>1<br>第一个游戏：折飞机。每个小组用所给的A4纸折出三个纸飞机，从教室的最后方向讲台处试飞，若飞机飞至黑板的上、中、下，分别记4、3、2分。各小组有8分钟的制作和试飞时间。</p><p>在主持人梁浩东部长的开始令下，教室各种纸飞机已纷纷出厂试飞，一架架歼10、20、30翱翔天际。当然啦，那种技术不到家的自然是出师未捷身先死啦！不过也有技术过硬，赶英超美的，居然飞到了黑板的最上方，直击灯管！大家都叹为观止。直呼歼100就是牛</p><p>试飞之后，比赛正式开始，原本被看好的第三组出现了滑铁卢，歼100起飞过高，中途遭遇阻击，被天花板一掌拍下，真是可惜，而第五组凭借稳扎稳打的技术，拿到了两个2分，领跑积分榜。</p><p>2<br>第二个游戏：肢体传话。以小组为单位上台表演，第一个人从主持人处获得题板上的成词语，用肢体语言表演给第二个人，整个过程不能发出一点声音，也不能用口形，第二人再以同样的方法传递给第三个人，以此类推。</p><p>首先上场的是第五组，一个广场舞的表演，引爆全场，卓识让大家开了眼。随后第四组的挤公交表演也是蛮拼的，愣是将黑板比作了车窗，每传递一次，便撞击一次黑板，让人大呼过瘾。最让人沸腾的是第三组的上厕所的表演，一帮男生中偏偏夹带了个人力资源部部长夏雪（女），这样的场面怎能让人错过？手机的摄像头如饥似渴得捕捉着这样的饕餮盛宴。</p><p>3<br>第三个游戏：一元五角。（1）为充分表示重视会里的女性朋友，规定每个女生代表“一元”，每个男生代表“五角”。 （2）报名参加者一男一女分隔开围成一个大圆圈，组织者说开始，大家就手拉手围着圆圈走。（3）组织者大声说出一个金额，参加者在最短的时间内找到朋友抱在一起组成组织者要求的金额。例如：听到口令“二元五角”，可以的组合为：两个女生+一个男生；或五个男生；或一个女生+三个男生 没有找到朋友和组合数字不正确的遭到淘汰。（4）经过几轮，最后站在一起的一个小组获胜，获胜组人数控制在三至四人以内，也就是说如果超过这个人数还要加赛。胜利的2至3人获奖。</p><p>游戏的高潮出现在游戏中期，当人数只剩下一半的时候，主持人喊出了一块，此时，一场为争夺市场部马洪亮的战争打响了。这是两个男的为了另一个男的战争：紧抱，扭扯，摔倒，死不放手。一个堂堂八尺男儿，被人争夺……这画面太美，我不敢看。最后由第三组的三名成员留在舞台上而结束。原来他们早有预谋有木有！赢了的当然少不了奖品啦！</p><p>本次活动充分调动了成员的激情与活力，加强了俱乐部成员的相互认识，融洽了俱乐部氛围，完成了”学在微软，玩在微软“的目标，这样的活动以后还会继续。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;2015年10月9日晚7：00，成电微软俱乐部在品学楼A106举行了第一次见面会暨内建活动，旨在帮助俱乐部成员相互了解，增进友谊，从而提升整个俱乐部的凝聚力。&lt;/p&gt;
-&lt;p&gt;活动开始，首先由张帆主席讲话。主席提到，俱乐部是大家的俱乐部，大家要有主人翁精神。以俱乐部为平台，展
-      
-    
-    </summary>
-    
-      <category term="见面会" scheme="https://uestc-msc.github.io/categories/%E8%A7%81%E9%9D%A2%E4%BC%9A/"/>
-    
-    
-      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>【俱乐部活动】2015年俱乐部秋季招新</title>
-    <link href="https://uestc-msc.github.io/2015/09/22/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/"/>
-    <id>https://uestc-msc.github.io/2015/09/22/【俱乐部活动】2015年俱乐部秋季招新/</id>
-    <published>2015-09-21T16:00:00.000Z</published>
-    <updated>2019-08-31T21:49:28.430Z</updated>
-    
-    <content type="html"><![CDATA[<p>为了帮助成电学子更好的了解微软，加入微软。2015年9月17日晚7：00，成电微软俱乐部在品学楼A102举行了招新宣讲会。</p><a id="more"></a><p>在大家期盼的眼神中，主持人开始了本次的招新宣讲会。首先，主持人介绍了出席本次宣讲会的张帆主席和各个部门的负责人，以及邀请到的嘉宾：上届主席张明群、副主席温尔雅。</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640.jpeg" alt="img"></p><p>在介绍完本次宣讲会的流程之后，张帆主席从俱乐部的目的、历史、夏令营体验三个方面向大家展示了微软。微软学生俱乐部（Microsoft Student Club，简称MSC），是微软亚洲研究院与高校合作培养人才的一种探索。2000年10月15日，第一个俱乐部在四川大学成立，至今全国已有32所高校拥有了自己的俱乐部，今年已是俱乐部成立的第15个年头。俱乐部本着“学习先进技术，开拓创新思维，体验多元文化，成就一流人才”的宗旨，培养会员的创新头脑、实践能力和组织能力。我们号召各个专业同学加入俱乐部，不一定必须是要计算机相关专业的，也不一定需要什么技术基础，我们会鼓励同学在俱乐部做自己感兴趣的项目，认识一些志同道合的朋友，通过想过活动来锻炼自己，提高自己，成就自己！</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378629.jpeg" alt="img"></p><p>接着，主席分享了自己夏令营的体验，主席说道：这次微软俱乐部成立15周年夏令营，有全国30多所知名高校以及香港台湾的同学参加。一共150个营员，在西安度过了非常难忘的5天（路费，吃住全部报销）。有令人热血沸腾的Hacker主题演讲，紧张激烈的Hackathon，还有精彩纷呈的15周年庆典晚会。更重要的是短短5天的时间，我们在一起团结，协作，奋进，拼搏，成为非常好的朋友。就这样的一群人，聚是一团火，散作漫天星。然后主席还预先回答了招新群中的问题。其中问的最多的问题就是成电微软俱乐部和其他的社团的什么区别：首先，俱乐部是微软亚洲研究院负责，而其他组织大部分是学校的老师或者同学，俱乐部成员可以通过俱乐部了解到公司的文化，接触到公司的员工和产品；不仅如此，俱乐部的氛围要比学生会更轻松，不会有太多任务性的工作，大家可以在俱乐部做自己喜欢的事，在快乐中锻炼自己，成就自己</p><p>过后的各部门介绍也是精彩万分，为了抢人，市场部部长提出市场部可以提着拍照的幌子把俱乐部所有的福利都享受到的论调吸引了不少同学。通过部门介绍，同学们知道了各部门的职责，明确了自己的具体兴趣所在。</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378626.jpeg" alt="img"></p><p>张明群前主席还向同学们介绍了微软校园精英项目（MSP），MSP微软校园精英是微软公司针对在校学生在全球范围内所设立的项目。旨在鼓励那些在校园里积极倡导、推动创新实践，乐于积极帮助他人的优秀学生，给他们提供微软最前沿的技术资源，以及更广泛的交流、展示自我的平台。一般建议是大二大三或者保研的同学申报。</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378616.jpeg" alt="img"></p><p>MSP福利多多，其中最令人映像深刻的要数前副主席温尔雅和大家分享的南京IC2014 local final 小记者、西雅图 IC2014 world wide final 小记者和北京 IC2015 local final 小记者体验，要知道这些涉及的金钱问题都是“财大气粗的微软大大”全包的！简直爽爆了有木有！</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378753.jpeg" alt="img"></p><p>最后的问答环节也是人气火爆，根本停不下来！张帆和温尔雅站在台上给大家解答各种问题真是棒棒哒！</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378640.jpeg" alt="img"></p><p>本次招新宣讲向大家展示了一个全面的微软俱乐部，向大家诠释了Hckathon精神以及MSP，真心感谢各位喜欢微软的小伙伴和两位主席的到来！</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378841.jpeg" alt="img"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;为了帮助成电学子更好的了解微软，加入微软。2015年9月17日晚7：00，成电微软俱乐部在品学楼A102举行了招新宣讲会。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="招新" scheme="https://uestc-msc.github.io/categories/%E6%8B%9B%E6%96%B0/"/>
     
     
       <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
