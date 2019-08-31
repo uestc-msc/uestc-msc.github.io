@@ -203,10 +203,10 @@ site_state: true
 # Value after `||` delimiter is the name of Font Awesome icon. If icon (with or without delimiter) is not specified, globe icon will be loaded.
 social:
   GitHub: https://github.com/uestc-msc || icongithub
-  E-Mail: mailto:uestcmsc@demo4c.onmicrosoft.com || iconOUTLOOK
-  weibo: https://weibo.com/uestcmstc || iconweibo
+  邮箱: mailto:uestcmsc@demo4c.onmicrosoft.com || iconOUTLOOK
+  微博: https://weibo.com/uestcmstc || iconweibo
   bilibili: https://space.bilibili.com/456910030 || iconbilibili
-  Wechat: https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ || iconwechat
+  微信: https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ || iconwechat
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
