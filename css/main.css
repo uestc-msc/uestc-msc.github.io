@@ -1725,7 +1725,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffedff;
+  background: #7ab159;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2604,4 +2604,11 @@ ul.breadcrumb li + li:last-child {
 }
 .links-of-blogroll-item {
   padding: 0;
+}
+svg.icon {
+  width: 1.5em !important;
+  height: 1.5em !important;
+  vertical-align: -0.4em;
+  fill: currentColor;
+  overflow: hidden;
 }
