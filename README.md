@@ -1,7 +1,7 @@
 # uestc-msc.github.io
 
 💡 因为hexo是安装在当前文件夹, 因此不会在路径里, 无法通过`hexo`命令直接调用,
-hexo位于 **./node_modules/hexo/bin/hexo** (相对于根目录)
+hexo位于 `node_modules/hexo/bin/hexo` (相对于根目录)
 
 ## next中比较炫酷的用法
 
@@ -60,7 +60,7 @@ travis自动部署的方式进一步减少需要下载到本地的文件数量
 ##### 简约而不硬核的友链页面
 
 next主题的样式会覆盖文章markdown文件中的样式, 需要在
-`/themes/uestc-msc/source/css/_common/components/post/post.styl`中设置需要的样
+`source/_data/styles.styl`中设置需要的样
 式 (因为友链的元素是在post-body里)
 
 🔗 [参考方案](https://blog.asucreyau.xyz/2018/12/29/hexo-next-customize-link-page)

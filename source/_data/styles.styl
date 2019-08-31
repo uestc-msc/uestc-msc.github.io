@@ -1,5 +1,5 @@
 //------------------------------------------------------------------------------
-//colorful icons
+// colorful icons
 //------------------------------------------------------------------------------
 svg.icon {
     width: 1.5em !important;
@@ -8,3 +8,68 @@ svg.icon {
     fill: currentColor;
     overflow: hidden
 }
+//------------------------------------------------------------------------------
+// friendlink card
+//------------------------------------------------------------------------------
+  .container {
+    width: 100%;
+  }
+
+  .links {
+    list-style: none;
+  }
+
+  .link {
+    margin: 10px;
+    display: inline-block;
+  }
+
+  .card {
+    height: 72px;
+    width: 300px;
+    box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+    transition: box-shadow .25s cubic-bezier(.4,0,.2,1);
+  }
+
+  .card:hover {
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12);
+  }
+
+  .avatar {
+    float: left;
+    height: 72px;
+    width: 72px;
+  }
+
+  img {
+    height: 100%;
+    width: 100%;
+  }
+
+  .titles {
+    overflow: hidden;
+    height: 72px;
+    width: 227px;
+    margin-left: 72px;
+  }
+
+  .title{
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    margin: 0;
+    line-height: 20px;
+    margin-top: 14px;
+  }
+
+  .subtitle {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    margin: 0;
+    line-height: 20px;
+  }
+
+  small {
+    width: 100%;
+  }
