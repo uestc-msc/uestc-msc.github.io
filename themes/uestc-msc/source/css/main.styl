@@ -43,3 +43,11 @@ for $inject_mixin in hexo-config('injects.mixin')
 // --------------------------------------------------
 for $inject_style in hexo-config('injects.style')
   @import $inject_style;
+
+svg.icon {
+    width: 1.5em !important;
+    height: 1.5em !important;
+    vertical-align: -0.4em;
+    fill: currentColor;
+    overflow: hidden
+}

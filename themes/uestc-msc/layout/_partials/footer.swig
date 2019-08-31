@@ -11,7 +11,7 @@
 #}<span itemprop="copyrightYear">{{ current }}</span>
   <span class="with-love" id="animate">
     <!-- <i class="fa fa-{{ theme.footer.icon.name }}"></i> -->
-    <svg class =“icon” aria-hidden =“true”> <use xlink：href =“＃{{ theme.footer.icon.name }}“> </use> </svg>
+    <svg class="icon" aria-hidden="true"><use xlink:href="#{{ theme.footer.icon.name }}"></use></svg>
   </span>
   <span class="author" itemprop="copyrightHolder">{{ theme.footer.copyright || author }}</span>
 

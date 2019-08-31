@@ -52,7 +52,7 @@
 <link rel="stylesheet" href="{{ font_awesome_uri }}">
 
 {%- if theme.iconfont.source %}
-  <script src =“https：{{theme.iconfont.source}}”> </script>
+  <script src = "https:{{ theme.iconfont.source }}"></script>
 {%- endif %}
 
 {%- if theme.fancybox %}

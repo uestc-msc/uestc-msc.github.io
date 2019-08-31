@@ -43,6 +43,8 @@ travis自动部署的方式进一步减少需要下载到本地的文件数量
 🔗 [参考一](https://blessing.studio/deploy-hexo-blog-automatically-with-travis-ci/)
 🔗 [参考二](https://www.jianshu.com/p/630d75e4697e)
 
+❗️ 在 travis-ci.com 管理, 而不是 travis-ci.org
+
 #### 站点内容
 
 ##### 生成about和categories页面
@@ -70,11 +72,10 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
 
    ```swig
    {%- if theme.iconfont.source %}
-   <script src =“https：{{theme.iconfont.source}}”> </ script>
+   <script src = "https:{{ theme.iconfont.source }}"></script>
    {%- endif%}
    ```
 
-   🔗 [参考操作](https://leojhonsong.github.io/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/#Colorful-icons-for-social-links-in-sidebar)
 2. 更改**sidebar**中的社交链接使用iconfont
 
    **themes/uestc-msc/layout/_partials/sidebar/site-overview.swig** line 101:
@@ -82,8 +83,8 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
    ❗️只注释掉原本的font awesome语句, 万一以后还用呢 🤷 ‍
 
    ```swig
-           {#%- set sidebarIcon = '<i class="fa fa-fw fa-' + link.split('||')[1] | trim | default('globe') + '"></i>' %#}
-        {%- set sidebarIcon = '<svg class =“icon” aria-hidden =“true”> <use xlink：href =“＃' + link.split（'||'）[1] | trim + ' “> </use> </svg>' %}
+        {#%- set sidebarIcon = '<i class="fa fa-fw fa-' + link.split('||')[1] | trim | default('globe') + '"></i>' %#}
+        {% set sidebarIcon = '<svg class="icon" aria-hidden="true"><use xlink:href="#' + link.split('||')[1] | trim + '"></use></svg>' %}
    ```
 
 3. 更改footer中的用户图标使用iconfont
@@ -92,5 +93,19 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
 
    ```swig
        <!-- <i class="fa fa-{{ theme.footer.icon.name }}"></i> -->
-    <svg class =“icon” aria-hidden =“true”> <use xlink：href =“＃{{ theme.footer.icon.name }}“> </use> </svg>
+       <svg class="icon" aria-hidden="true"><use xlink:href="#{{ theme.footer.icon.name }}"></use></svg>
     ```
+
+4. 将彩色字体图标的样式添加到**`themes/uestc-msc/source/css/main.styl**:
+
+   ```styl
+   svg.icon {
+       width: 1.5em !important;
+       height: 1.5em !important;
+       vertical-align: -0.4em;
+       fill: currentColor;
+       overflow: hidden
+   }
+   ```
+
+   🔗 [参考操作](https://leojhonsong.github.io/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/#Colorful-icons-for-social-links-in-sidebar)

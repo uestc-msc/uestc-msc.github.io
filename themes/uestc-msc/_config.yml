@@ -31,7 +31,7 @@ custom_file_path:
   #bodyEnd: source/_data/body-end.swig
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
-  #style: source/_data/styles.styl
+  # style: source/_data/styles.styl
 
 
 # ---------------------------------------------------------------
@@ -50,7 +50,7 @@ favicon:
 # see README for details
 # Iconfont project source
 iconfont:
-  source: //at.alicdn.com/t/font_1378191_l1qw46p25c9.js
+  source: //at.alicdn.com/t/font_1378191_vfwwvut3oa.js
 
 # hexo-generator-feed required for rss support. Leave rss as blank to use site's feed link.
 # Set rss to false to disable feed link. Set rss to specific value if you have burned your feed already.
