@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://uestc-msc.github.io/"/>
-  <updated>2019-08-31T19:46:38.272Z</updated>
+  <updated>2019-08-31T21:49:28.430Z</updated>
   <id>https://uestc-msc.github.io/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://uestc-msc.github.io/2019/08/25/Hello-World/"/>
     <id>https://uestc-msc.github.io/2019/08/25/Hello-World/</id>
     <published>2019-08-24T18:09:25.000Z</published>
-    <updated>2019-08-31T19:46:38.272Z</updated>
+    <updated>2019-08-31T21:49:28.430Z</updated>
     
     <content type="html"><![CDATA[<p>阿罗哈!</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
     
@@ -38,6 +38,161 @@
     
     </summary>
     
+    
+  </entry>
+  
+  <entry>
+    <title>【Bot Framework完全攻略】1-1.攻略说明</title>
+    <link href="https://uestc-msc.github.io/2017/04/23/%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-1.%E6%94%BB%E7%95%A5%E8%AF%B4%E6%98%8E/"/>
+    <id>https://uestc-msc.github.io/2017/04/23/【Bot Framework完全攻略】1-1.攻略说明/</id>
+    <published>2017-04-22T16:00:00.000Z</published>
+    <updated>2019-08-31T21:49:28.430Z</updated>
+    
+    <content type="html"><![CDATA[<p>大家是否对今年的编程之美比赛有所了解呢？ 如果你还不是很了解，那么，这里是官网传送门: <a href="http://studentclub.msra.cn/bop2017/" target="_blank" rel="noopener">http://studentclub.msra.cn/bop2017/</a></p><p>建议你先去看一看</p><p>总结起来，这次比赛就是做一个足以介绍自己学校的Bot。。。我不得不说，这个不酷，不炫，甚至还有点无聊。。。但是这次比赛的目的性很强，如果你没用过Bot Framework 或者相关框架，在或者你没写过网络服务，在或者你没写过稍微大一丢丢的程序。。。可以来练一练手 ^_^|||</p><p>如果你是个新人，请慎重抱团。额。。。我是指团队合作方面的新人。有一个规则叫做1+1&lt;1，我没打错是小于1，不是小于2。不会团队合作的队友是会互相拖累的。不过，如果能找到值得信赖的好队友也是极好的。</p><p>由于Bot开发涉及的知识较多，而且官方并没有推出友好的中文文档，所以接下来的日子里，我会负责推出一系列的Bot Framework相关教程来帮助大家对Bot开发整体有充分的了解。特此声明，文章更新持续稳定。如有更新不及时，隔着屏幕你又打不死我 ╮(╯▽╰)╭。</p><p>非常感谢 –&lt;-&lt;@</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;大家是否对今年的编程之美比赛有所了解呢？ 如果你还不是很了解，那么，这里是官网传送门: &lt;a href=&quot;http://studentclub.msra.cn/bop2017/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://studentcl
+      
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【俱乐部活动】Bot Framework技术汇</title>
+    <link href="https://uestc-msc.github.io/2017/04/12/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%91Bot%20Framework%E6%8A%80%E6%9C%AF%E6%B1%87/"/>
+    <id>https://uestc-msc.github.io/2017/04/12/【俱乐部活动】Bot Framework技术汇/</id>
+    <published>2017-04-11T16:00:00.000Z</published>
+    <updated>2019-08-31T21:49:28.430Z</updated>
+    
+    <content type="html"><![CDATA[<p>4月，俱乐部进行了编程之美的专题技术沙龙，主题是Bot Framework的了解与使用。</p><p>副主席张逸霄主讲本次技术沙龙。</p><p>![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235051-300x169.jpg)</p><p>![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235100-300x169.jpg)</p><p>![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235056-300x169.jpg)</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;4月，俱乐部进行了编程之美的专题技术沙龙，主题是Bot Framework的了解与使用。&lt;/p&gt;
+&lt;p&gt;副主席张逸霄主讲本次技术沙龙。&lt;/p&gt;
+&lt;p&gt;![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235051-300x169.jpg)
+      
+    
+    </summary>
+    
+      <category term="Bot Framework" scheme="https://uestc-msc.github.io/categories/Bot-Framework/"/>
+    
+    
+      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【俱乐部活动】2015年创新杯宣讲会</title>
+    <link href="https://uestc-msc.github.io/2015/12/03/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E5%88%9B%E6%96%B0%E6%9D%AF%E5%AE%A3%E8%AE%B2%E4%BC%9A/"/>
+    <id>https://uestc-msc.github.io/2015/12/03/【俱乐部活动】2015年创新杯宣讲会/</id>
+    <published>2015-12-02T16:00:00.000Z</published>
+    <updated>2019-08-31T21:49:28.430Z</updated>
+    
+    <content type="html"><![CDATA[<p>2015年12月3日，电子科技大学微软学生俱乐部于立人楼B308举办了2015年创新杯宣讲会。微软成都的工作人员为在场的同学们激情讲述Azure云与2015年创新杯的报名流程。</p><p>图为微软技术人员讲述Azure云平台技术。</p><p>图为工作人员发放奖品。</p><p>图为散场之后同学仍然在于技术人员进行热烈讨论。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2015年12月3日，电子科技大学微软学生俱乐部于立人楼B308举办了2015年创新杯宣讲会。微软成都的工作人员为在场的同学们激情讲述Azure云与2015年创新杯的报名流程。&lt;/p&gt;
+&lt;p&gt;图为微软技术人员讲述Azure云平台技术。&lt;/p&gt;
+&lt;p&gt;图为工作人员发放奖品。&lt;
+      
+    
+    </summary>
+    
+      <category term="创新杯" scheme="https://uestc-msc.github.io/categories/%E5%88%9B%E6%96%B0%E6%9D%AF/"/>
+    
+    
+      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【俱乐部活动】2015年10月·黑客马拉松</title>
+    <link href="https://uestc-msc.github.io/2015/11/01/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B410%E6%9C%88%C2%B7%E9%BB%91%E5%AE%A2%E9%A9%AC%E6%8B%89%E6%9D%BE/"/>
+    <id>https://uestc-msc.github.io/2015/11/01/【俱乐部活动】2015年10月·黑客马拉松/</id>
+    <published>2015-10-31T16:00:00.000Z</published>
+    <updated>2019-08-31T21:49:28.430Z</updated>
+    
+    <content type="html"><![CDATA[<p>2015年，微软学生俱乐部黑客马拉松启动仪式在四川大学举办。</p><p>电子科技大学微软学生俱乐部在2015年10月31日-2015年11月1日进行了为期48小时的黑客马拉松活动，有13组同学报名，展开了思维的头脑风暴。</p><p>图为黑客马拉松现场。</p><p>图为一组同学在进行项目展示。</p><p>本次活动由张帆等时任主席团成员组织，笔者（张逸霄）同样参与了活动的全程策划与实施。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2015年，微软学生俱乐部黑客马拉松启动仪式在四川大学举办。&lt;/p&gt;
+&lt;p&gt;电子科技大学微软学生俱乐部在2015年10月31日-2015年11月1日进行了为期48小时的黑客马拉松活动，有13组同学报名，展开了思维的头脑风暴。&lt;/p&gt;
+&lt;p&gt;图为黑客马拉松现场。&lt;/p&gt;
+&lt;p
+      
+    
+    </summary>
+    
+      <category term="Hackathon" scheme="https://uestc-msc.github.io/categories/Hackathon/"/>
+    
+    
+      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【俱乐部活动】俱乐部2015年秋季见面会</title>
+    <link href="https://uestc-msc.github.io/2015/10/10/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%91%E4%BF%B1%E4%B9%90%E9%83%A82015%E5%B9%B4%E7%A7%8B%E5%AD%A3%E8%A7%81%E9%9D%A2%E4%BC%9A/"/>
+    <id>https://uestc-msc.github.io/2015/10/10/【俱乐部活动】俱乐部2015年秋季见面会/</id>
+    <published>2015-10-09T16:00:00.000Z</published>
+    <updated>2019-08-31T21:49:28.430Z</updated>
+    
+    <content type="html"><![CDATA[<p>2015年10月9日晚7：00，成电微软俱乐部在品学楼A106举行了第一次见面会暨内建活动，旨在帮助俱乐部成员相互了解，增进友谊，从而提升整个俱乐部的凝聚力。</p><p>活动开始，首先由张帆主席讲话。主席提到，俱乐部是大家的俱乐部，大家要有主人翁精神。以俱乐部为平台，展示自己，锻炼自己，成就自己。随后主席与各个部门负责人进行了自我介绍，向大家分享了自己学习、活动的经历并且明确了各部门的职责。会上还请到了上届主席张明群向大家分享了自己三年俱乐部的经历，整个过程掌声雷动。</p><p>随后在财务部部长梁浩东的主持下，随机分为了5个小组，每个小组5—6人，每小组由一名部长带领，准备进行小组对抗。为了帮助大家更加熟悉俱乐部的其他成员，此次分组有意将同部门的人员错开，如此更方便大家跨部门交流。期间人力资源部部长夏雪还向各小组分发了零食与饮料，玩好也别忘了吃好呀。</p><p>小组分配完毕，各小组有10分钟的时间让成员间相互熟悉。一时，教室一片火爆，大家都聊得火热兴起。第五小组在部长马洪亮的带领下更是玩起了“名字接龙”的游戏，好生热闹。</p><p>1<br>第一个游戏：折飞机。每个小组用所给的A4纸折出三个纸飞机，从教室的最后方向讲台处试飞，若飞机飞至黑板的上、中、下，分别记4、3、2分。各小组有8分钟的制作和试飞时间。</p><p>在主持人梁浩东部长的开始令下，教室各种纸飞机已纷纷出厂试飞，一架架歼10、20、30翱翔天际。当然啦，那种技术不到家的自然是出师未捷身先死啦！不过也有技术过硬，赶英超美的，居然飞到了黑板的最上方，直击灯管！大家都叹为观止。直呼歼100就是牛</p><p>试飞之后，比赛正式开始，原本被看好的第三组出现了滑铁卢，歼100起飞过高，中途遭遇阻击，被天花板一掌拍下，真是可惜，而第五组凭借稳扎稳打的技术，拿到了两个2分，领跑积分榜。</p><p>2<br>第二个游戏：肢体传话。以小组为单位上台表演，第一个人从主持人处获得题板上的成词语，用肢体语言表演给第二个人，整个过程不能发出一点声音，也不能用口形，第二人再以同样的方法传递给第三个人，以此类推。</p><p>首先上场的是第五组，一个广场舞的表演，引爆全场，卓识让大家开了眼。随后第四组的挤公交表演也是蛮拼的，愣是将黑板比作了车窗，每传递一次，便撞击一次黑板，让人大呼过瘾。最让人沸腾的是第三组的上厕所的表演，一帮男生中偏偏夹带了个人力资源部部长夏雪（女），这样的场面怎能让人错过？手机的摄像头如饥似渴得捕捉着这样的饕餮盛宴。</p><p>3<br>第三个游戏：一元五角。（1）为充分表示重视会里的女性朋友，规定每个女生代表“一元”，每个男生代表“五角”。 （2）报名参加者一男一女分隔开围成一个大圆圈，组织者说开始，大家就手拉手围着圆圈走。（3）组织者大声说出一个金额，参加者在最短的时间内找到朋友抱在一起组成组织者要求的金额。例如：听到口令“二元五角”，可以的组合为：两个女生+一个男生；或五个男生；或一个女生+三个男生 没有找到朋友和组合数字不正确的遭到淘汰。（4）经过几轮，最后站在一起的一个小组获胜，获胜组人数控制在三至四人以内，也就是说如果超过这个人数还要加赛。胜利的2至3人获奖。</p><p>游戏的高潮出现在游戏中期，当人数只剩下一半的时候，主持人喊出了一块，此时，一场为争夺市场部马洪亮的战争打响了。这是两个男的为了另一个男的战争：紧抱，扭扯，摔倒，死不放手。一个堂堂八尺男儿，被人争夺……这画面太美，我不敢看。最后由第三组的三名成员留在舞台上而结束。原来他们早有预谋有木有！赢了的当然少不了奖品啦！</p><p>本次活动充分调动了成员的激情与活力，加强了俱乐部成员的相互认识，融洽了俱乐部氛围，完成了”学在微软，玩在微软“的目标，这样的活动以后还会继续。</p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;2015年10月9日晚7：00，成电微软俱乐部在品学楼A106举行了第一次见面会暨内建活动，旨在帮助俱乐部成员相互了解，增进友谊，从而提升整个俱乐部的凝聚力。&lt;/p&gt;
+&lt;p&gt;活动开始，首先由张帆主席讲话。主席提到，俱乐部是大家的俱乐部，大家要有主人翁精神。以俱乐部为平台，展
+      
+    
+    </summary>
+    
+      <category term="见面会" scheme="https://uestc-msc.github.io/categories/%E8%A7%81%E9%9D%A2%E4%BC%9A/"/>
+    
+    
+      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>【俱乐部活动】2015年俱乐部秋季招新</title>
+    <link href="https://uestc-msc.github.io/2015/09/22/%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/"/>
+    <id>https://uestc-msc.github.io/2015/09/22/【俱乐部活动】2015年俱乐部秋季招新/</id>
+    <published>2015-09-21T16:00:00.000Z</published>
+    <updated>2019-08-31T21:49:28.430Z</updated>
+    
+    <content type="html"><![CDATA[<p>为了帮助成电学子更好的了解微软，加入微软。2015年9月17日晚7：00，成电微软俱乐部在品学楼A102举行了招新宣讲会。</p><a id="more"></a><p>在大家期盼的眼神中，主持人开始了本次的招新宣讲会。首先，主持人介绍了出席本次宣讲会的张帆主席和各个部门的负责人，以及邀请到的嘉宾：上届主席张明群、副主席温尔雅。</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640.jpeg" alt="img"></p><p>在介绍完本次宣讲会的流程之后，张帆主席从俱乐部的目的、历史、夏令营体验三个方面向大家展示了微软。微软学生俱乐部（Microsoft Student Club，简称MSC），是微软亚洲研究院与高校合作培养人才的一种探索。2000年10月15日，第一个俱乐部在四川大学成立，至今全国已有32所高校拥有了自己的俱乐部，今年已是俱乐部成立的第15个年头。俱乐部本着“学习先进技术，开拓创新思维，体验多元文化，成就一流人才”的宗旨，培养会员的创新头脑、实践能力和组织能力。我们号召各个专业同学加入俱乐部，不一定必须是要计算机相关专业的，也不一定需要什么技术基础，我们会鼓励同学在俱乐部做自己感兴趣的项目，认识一些志同道合的朋友，通过想过活动来锻炼自己，提高自己，成就自己！</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378629.jpeg" alt="img"></p><p>接着，主席分享了自己夏令营的体验，主席说道：这次微软俱乐部成立15周年夏令营，有全国30多所知名高校以及香港台湾的同学参加。一共150个营员，在西安度过了非常难忘的5天（路费，吃住全部报销）。有令人热血沸腾的Hacker主题演讲，紧张激烈的Hackathon，还有精彩纷呈的15周年庆典晚会。更重要的是短短5天的时间，我们在一起团结，协作，奋进，拼搏，成为非常好的朋友。就这样的一群人，聚是一团火，散作漫天星。然后主席还预先回答了招新群中的问题。其中问的最多的问题就是成电微软俱乐部和其他的社团的什么区别：首先，俱乐部是微软亚洲研究院负责，而其他组织大部分是学校的老师或者同学，俱乐部成员可以通过俱乐部了解到公司的文化，接触到公司的员工和产品；不仅如此，俱乐部的氛围要比学生会更轻松，不会有太多任务性的工作，大家可以在俱乐部做自己喜欢的事，在快乐中锻炼自己，成就自己</p><p>过后的各部门介绍也是精彩万分，为了抢人，市场部部长提出市场部可以提着拍照的幌子把俱乐部所有的福利都享受到的论调吸引了不少同学。通过部门介绍，同学们知道了各部门的职责，明确了自己的具体兴趣所在。</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378626.jpeg" alt="img"></p><p>张明群前主席还向同学们介绍了微软校园精英项目（MSP），MSP微软校园精英是微软公司针对在校学生在全球范围内所设立的项目。旨在鼓励那些在校园里积极倡导、推动创新实践，乐于积极帮助他人的优秀学生，给他们提供微软最前沿的技术资源，以及更广泛的交流、展示自我的平台。一般建议是大二大三或者保研的同学申报。</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378616.jpeg" alt="img"></p><p>MSP福利多多，其中最令人映像深刻的要数前副主席温尔雅和大家分享的南京IC2014 local final 小记者、西雅图 IC2014 world wide final 小记者和北京 IC2015 local final 小记者体验，要知道这些涉及的金钱问题都是“财大气粗的微软大大”全包的！简直爽爆了有木有！</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378753.jpeg" alt="img"></p><p>最后的问答环节也是人气火爆，根本停不下来！张帆和温尔雅站在台上给大家解答各种问题真是棒棒哒！</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378640.jpeg" alt="img"></p><p>本次招新宣讲向大家展示了一个全面的微软俱乐部，向大家诠释了Hckathon精神以及MSP，真心感谢各位喜欢微软的小伙伴和两位主席的到来！</p><p><img src="%E3%80%90%E4%BF%B1%E4%B9%90%E9%83%A8%E6%B4%BB%E5%8A%A8%E3%80%912015%E5%B9%B4%E4%BF%B1%E4%B9%90%E9%83%A8%E7%A7%8B%E5%AD%A3%E6%8B%9B%E6%96%B0/640-1567281378841.jpeg" alt="img"></p><script>        document.querySelectorAll('.github-emoji')          .forEach(el => {            if (!el.dataset.src) { return; }            const img = document.createElement('img');            img.style = 'display:none !important;';            img.src = el.dataset.src;            img.addEventListener('error', () => {              img.remove();              el.style.color = 'inherit';              el.style.backgroundImage = 'none';              el.style.background = 'none';            });            img.addEventListener('load', () => {              img.remove();            });            document.body.appendChild(img);          });      </script>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;为了帮助成电学子更好的了解微软，加入微软。2015年9月17日晚7：00，成电微软俱乐部在品学楼A102举行了招新宣讲会。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="招新" scheme="https://uestc-msc.github.io/categories/%E6%8B%9B%E6%96%B0/"/>
+    
+    
+      <category term="张逸霄" scheme="https://uestc-msc.github.io/tags/%E5%BC%A0%E9%80%B8%E9%9C%84/"/>
     
   </entry>
   
