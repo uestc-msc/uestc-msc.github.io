@@ -53,6 +53,12 @@ travis自动部署的方式进一步减少需要下载到本地的文件数量
 
 #### 站点内容
 
+##### 自定义博客背景图片
+
+因为没找到合适的图片暂时没改. 老网站的背景图是`themes/uestc-msc/source/images/microsoft-building-logo2-1920.jpg`
+
+🔗 [参考操作](https://github.com/theme-next/hexo-theme-next/issues/973)
+
 ##### 生成about和categories页面
 
 🔗 [参考](https://theme-next.org/docs/theme-settings/custom-pages)
@@ -121,6 +127,10 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
    ```
 
    🔗 [参考操作](https://leojhonsong.github.io/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/#Colorful-icons-for-social-links-in-sidebar)
+
+##### 实现每篇文章显示作者
+
+🔗 [参考操作](https://bolt.coding.me/blog/2017/03/13/%E5%9F%BA%E4%BA%8E-Hexo-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%BD%9C%E8%80%85%E5%8D%9A%E5%AE%A2/)
 
 TODO: 图标
 TODO: 谷歌认证

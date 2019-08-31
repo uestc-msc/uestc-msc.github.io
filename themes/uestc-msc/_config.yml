@@ -27,7 +27,7 @@ custom_file_path:
   sidebar: source/_data/sidebar.swig
   #postMeta: source/_data/post-meta.swig
   #postBodyEnd: source/_data/post-body-end.swig
-  footer: source/_data/footer.swig
+  # footer: source/_data/footer.swig
   #bodyEnd: source/_data/body-end.swig
   #variable: source/_data/variables.styl
   #mixin: source/_data/mixins.styl
@@ -50,7 +50,7 @@ favicon:
 # see README for details
 # Iconfont project source
 iconfont:
-  source: //at.alicdn.com/t/font_1378191_vfwwvut3oa.js
+  source: //at.alicdn.com/t/font_1378191_mii11329xt.js
 
 # hexo-generator-feed required for rss support. Leave rss as blank to use site's feed link.
 # Set rss to false to disable feed link. Set rss to specific value if you have burned your feed already.
@@ -162,7 +162,7 @@ baidu_push: false
 # External url should start with http:// or https://
 menu:
   home: / || home
-  #tags: /tags/ || tags
+  tags: /tags/ || tags
   categories: /categories/ || th
   archives: /archives/ || archive
   #schedule: /schedule/ || calendar

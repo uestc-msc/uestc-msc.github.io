@@ -47,6 +47,19 @@
           {%- set time_diff = time(post.date) != time(post.updated) %}
           {%- set datetime_diff = date_diff or time_diff %}
 
+          {%- if post.author %}
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
+              </span>
+              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <a href="{{ url_for('/tags/' + post.author) }}" itemprop="url" rel="index">
+                  <span itemprop="name">{{ post.author }}</span>
+                </a>
+              </span>
+            </span>
+          {%- endif %}
+
           {%- if theme.post_meta.created_at %}
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
