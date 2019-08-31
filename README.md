@@ -73,6 +73,9 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
 
 此处采用[symbol引用](https://www.iconfont.cn/help/detail?spm=a313x.7781069.1998910419.d8cf4382a&helptype=code)
 
+❗️ 在这几个改动了的.swig文件头尾加了如果有对应自定义.swig文件就不渲染的条件语句,
+不然会有重复渲染的bug, 已提PR
+
 1. 首先图省事直接把项目生成的symbol代码添加到整个站点的head, 即
 `themes/uestc-msc/layout/_partials/head/head.swig` (目前在line54) (改后放到`source/_data/head.swig`):
 
@@ -101,9 +104,6 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
        <!-- <i class="fa fa-{{ theme.footer.icon.name }}"></i> -->
        <svg class="icon" aria-hidden="true"><use xlink:href="#{{ theme.footer.icon.name }}"></use></svg>
     ```
-
-    💡 需要注释掉`themes/uestc-msc/layout/_partials/footer.swig`最后一行的注入,
-    否则会报错, 无法生成静态文件
 
 4. 将彩色字体图标的样式添加到`source/_data/styles.styl`:
 
