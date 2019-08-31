@@ -18,6 +18,10 @@ menu:
 sidebar:
   overview: 站点概览
   toc: 文章目录
+social:
+  E-mail: 邮箱
+  weibo: 微博
+  Wechat: 微信
 post:
   posted: 发表于
   edited: 更新于

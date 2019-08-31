@@ -204,7 +204,7 @@ site_state: true
 social:
   GitHub: https://github.com/uestc-msc || icongithub
   E-Mail: mailto:uestcmsc@demo4c.onmicrosoft.com || iconOUTLOOK
-  Weibo: https://weibo.com/uestcmstc || iconweibo
+  weibo: https://weibo.com/uestcmstc || iconweibo
   bilibili: https://space.bilibili.com/456910030 || iconbilibili
   Wechat: https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ || iconwechat
   #Google: https://plus.google.com/yourname || google
