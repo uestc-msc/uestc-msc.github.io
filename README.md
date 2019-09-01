@@ -142,6 +142,8 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
 
 🔗 [参考操作](https://bolt.coding.me/blog/2017/03/13/%E5%9F%BA%E4%BA%8E-Hexo-%E5%AE%9E%E7%8E%B0%E5%A4%9A%E4%BD%9C%E8%80%85%E5%8D%9A%E5%AE%A2/)
 
+❗️因为实现得比较简陋每篇文章只能有一个作者
+
 ##### 更改文章底部tag的#
 
 修改`themes/uestc-msc/layout/_macro/post.swig` line271为:

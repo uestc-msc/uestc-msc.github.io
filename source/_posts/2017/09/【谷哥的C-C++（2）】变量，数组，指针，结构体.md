@@ -3,7 +3,6 @@ title: 【谷哥的C/C++（2）】变量，数组，指针，结构体
 date: 2017-09-26 00:00:00
 author:
   - 谷亚奇
-  - 张逸霄
 categories:
   - C/C++
 tags:
