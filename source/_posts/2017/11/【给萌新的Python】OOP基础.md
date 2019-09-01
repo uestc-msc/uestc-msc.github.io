@@ -3,8 +3,7 @@ title: 【给萌新的Python】OOP基础
 date: 2017-11-18 00:00:00
 author: 张逸霄
 categories:
-  - Python
-  - OOP
+  - Python, OOP
 tags:
   - 张逸霄
 ---
