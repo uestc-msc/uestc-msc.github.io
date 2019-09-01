@@ -9,6 +9,16 @@ hexo位于 `node_modules/hexo/bin/hexo` (相对于根目录)
 
 🔗 [tab](https://theme-next.org/docs/tag-plugins/tabs)
 
+🔗 [首页摘要图片](https://segmentfault.com/q/1010000004840061/a-1020000004895286)
+
+## troubleshoot
+
+### 首页图片地址错误
+
+由于[hexo的懒惰](https://hexo.io/zh-cn/docs/asset-folders.html), 用md语法插入的
+图片在首页无法显示, 用它提供的标签插件倒是可以兼顾, 但不够优雅. 目前没去解决, 不
+过可以尝试关注`asset_img`附近代码来自己实现.
+
 ## 配置记录
 
 📖 [hexo官方文档](https://hexo.io/zh-cn/docs/)

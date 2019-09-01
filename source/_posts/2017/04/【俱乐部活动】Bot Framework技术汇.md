@@ -13,8 +13,10 @@ tags:
 
 副主席张逸霄主讲本次技术沙龙。
 
-![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235051-300x169.jpg)
+<!-- More -->
 
-![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235100-300x169.jpg)
+![img](【俱乐部活动】Bot&#32;Framework技术汇/QQ图片20170331235051-300x169.jpg)
 
-![img](【俱乐部活动】Bot Framework技术汇/QQ图片20170331235056-300x169.jpg)
+![img](【俱乐部活动】Bot&#32;Framework技术汇/QQ图片20170331235100-300x169.jpg)
+
+![img](【俱乐部活动】Bot&#32;Framework技术汇/QQ图片20170331235056-300x169.jpg)

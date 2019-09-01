@@ -12,6 +12,8 @@ tags:
 
 我还没说怎么发布你的项目0.0，不过在这之前我先带你申请一个那个学生免费的许可。Dreamspark传送门：[www.**dreamspark**.com/](http://www.dreamspark.com/)
 
+<!-- More -->
+
 首先你得用自己的Microsoft账号登陆（网页右上角）。
 
 然后点击Account，进入账户设置：
