@@ -1,6 +1,6 @@
 ---
 title: 【Bot Framework完全攻略】2-1.天气娘（查询天气的Bot）
-date: 2017-04-29 00:00:00
+date: 2017-04-29 04:00:00
 author: 谷亚奇
 categories:
   - Bot Framework

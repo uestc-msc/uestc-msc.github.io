@@ -1,6 +1,6 @@
 ---
 title: 【Bot Framework完全攻略】1-10.Cheers!（初级篇总结）
-date: 2017-04-29 00:00:00
+date: 2017-04-29 02:00:00
 author: 谷亚奇
 categories:
   - Bot Framework

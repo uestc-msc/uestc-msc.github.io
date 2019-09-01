@@ -1,6 +1,6 @@
 ---
 title: 【Bot Framework完全攻略】2-2.蓝图（Bot Framework项目结构）
-date: 2017-04-30 00:00:00
+date: 2017-04-30 02:00:00
 author: 谷亚奇
 categories:
   - Bot Framework

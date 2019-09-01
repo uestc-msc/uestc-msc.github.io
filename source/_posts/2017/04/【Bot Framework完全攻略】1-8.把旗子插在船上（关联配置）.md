@@ -1,6 +1,6 @@
 ---
 title: 【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）
-date: 2017-04-24 00:00:00
+date: 2017-04-24 05:00:00
 author: 谷亚奇
 categories:
   - Bot Framework

@@ -1,6 +1,6 @@
 ---
 title: 【Bot Framework完全攻略】1-7.向政府注册你的旗帜（注册一个你的Bot）
-date: 2017-04-24 00:00:00
+date: 2017-04-24 04:00:00
 author: 谷亚奇
 categories:
   - Bot Framework

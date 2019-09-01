@@ -1,6 +1,6 @@
 ---
 title: 【Bot Framework完全攻略】666-1.将Bot发布至Azure云（困难度I）
-date: 2017-04-24 00:00:00
+date: 2017-04-24 05:00:00
 author: 谷亚奇
 categories:
   - Bot Framework
