@@ -1673,7 +1673,7 @@ article:last-child .post-eof {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #181625;
+  background: #57ff87;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2637,4 +2637,17 @@ article {
 }
 img {
   border: none !important;
+}
+@media (max-width: 425px) {
+  .site-title {
+    font-size: 6vw;
+  }
+  .content-wrap {
+    padding: 10px !important;
+  }
+}
+@media (max-width: 767px) {
+  .posts-expand {
+    margin: 0 0px;
+  }
 }
