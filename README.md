@@ -154,7 +154,6 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
 
 TODO: 图标
 TODO: 谷歌认证
-TODO: 加载图片
 TODO: hexo-admin-ehc
 TODO: 迁移老站点的文章
 TODO: about
