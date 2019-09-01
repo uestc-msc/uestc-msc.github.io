@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  
+  <meta name="description" content="各位萌新们大家好啊！这里是划水主席逸霄。根据我们之前约定的培养计划，我现在要写第一课了。">
+<meta name="keywords" content="张逸霄">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【给萌新们的Python】相关环境，以及Python的hello world">
+<meta property="og:url" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】相关环境，以及Python的hello world/index.html">
+<meta property="og:site_name" content="UESTC-MSC">
+<meta property="og:description" content="各位萌新们大家好啊！这里是划水主席逸霄。根据我们之前约定的培养计划，我现在要写第一课了。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-01T00:13:24.723Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【给萌新们的Python】相关环境，以及Python的hello world">
+<meta name="twitter:description" content="各位萌新们大家好啊！这里是划水主席逸霄。根据我们之前约定的培养计划，我现在要写第一课了。">
+  <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
+  <link rel="canonical" href="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】相关环境，以及Python的hello world/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src = "https://at.alicdn.com/t/font_1378191_mii11329xt.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <title>【给萌新们的Python】相关环境，以及Python的hello world | UESTC-MSC</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">UESTC-MSC</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">欢迎来到电子科大微软学生俱乐部</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-friendlinks">
+      
+    
+
+    <a href="/friendlinks/" rel="section"><i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>友链</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】相关环境，以及Python的hello world/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="UESTC-MSC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="UESTC-MSC">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【给萌新们的Python】相关环境，以及Python的hello world
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
+              </span>
+              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <a href="/tags/张逸霄" itemprop="url" rel="index">
+                  <span itemprop="name">张逸霄</span>
+                </a>
+              </span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-23 00:00:00" itemprop="dateCreated datePublished" datetime="2017-09-23T00:00:00+08:00">2017-09-23</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-01 08:13:24" itemprop="dateModified" datetime="2019-09-01T08:13:24+08:00">2019-09-01</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.9k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>5 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>各位萌新们大家好啊！这里是划水主席逸霄。根据我们之前约定的培养计划，我现在要写第一课了。</p>
+<a id="more"></a>
+<hr>
+<p><strong>Python是一门怎样的语言？</strong></p>
+<p>Python是一门非常流行的解释型高级语言。现在，全世界差不多有600多种编程语言，但流行的编程语言也就那么20来种。如果你听说过TIOBE排行榜，你就能知道编程语言的大致流行程度。</p>
+<p>总的来说，这几种编程语言各有千秋。C语言是可以用来编写操作系统的贴近硬件的语言，所以，C语言适合开发那些追求运行速度、充分发挥硬件性能的程序。而Python是用来编写应用程序的高级编程语言。</p>
+<p>当你用一种语言开始作真正的软件开发时，你除了编写代码外，还需要很多基本的已经写好的现成的东西，来帮助你加快开发进度。比如说，要编写一个电子邮件客户端，如果先从最底层开始编写网络协议相关的代码，那估计一年半载也开发不出来。高级编程语言通常都会提供一个比较完善的基础代码库，让你能直接调用，比如，针对电子邮件协议的SMTP库，针对桌面环境的GUI库，在这些已有的代码库的基础上开发，一个电子邮件客户端几天就能开发出来。</p>
+<p>Python就为我们提供了非常完善的基础代码库，覆盖了网络、文件、GUI、数据库、文本等大量内容，被形象地称作“内置电池（batteries included）”。用Python开发，许多功能不必从零编写，直接使用现成的即可。</p>
+<p>除了内置的库外，Python还有大量的第三方库，也就是别人开发的，供你直接使用的东西。当然，如果你开发的代码通过很好的封装，也可以作为第三方库给别人使用。</p>
+<p>Python的主要优点是：简单、适合快速开发。</p>
+<p>Python的主要缺点是：慢、保密性差。</p>
+<p>有关Python的介绍，请看廖雪峰的相关文章：<a href="https://www.liaoxuefeng.com/wiki/0014316089557264a6b348958f449949df42a6d3a2e542c000/001431608990315a01b575e2ab041168ff0df194698afac000" target="_blank" rel="noopener">Python简介</a></p>
+<p>![img](【给萌新们的Python】相关环境，以及Python的hello world/img_59c5fd4232272.png)</p>
+<hr>
+<p><strong>如何安装Python呢？</strong></p>
+<p>首先这里默认你使用了Windows系统。我们首先打开Python官网：<a href="https://www.python.org/" target="_blank" rel="noopener">https://www.python.org/</a></p>
+<p>之后找到32位或者64位的版本进行下载就好了。注意关于Python的版本号选择，因为Python3已经具有广泛的应用，是Python的现在和未来。所以本教程将会立足于Python3来进行讲述。请各位下载Python3的最新版本：Python 3.6.2.</p>
+<p>![img](【给萌新们的Python】相关环境，以及Python的hello world/img_59c5fd5a9625c.png)</p>
+<p>在安装的时候，请勾选：Add Python to path这一项，即将Python加入到环境变量。当然之后手动操作也是没问题的。这样配置的好处是，你可以直接在cmd，Powershell里启用Python.</p>
+<p>当我们编写Python代码时，我们得到的是一个包含Python代码的以<code>.py</code>为扩展名的文本文件。要运行代码，就需要Python解释器去执行<code>.py</code>文件。</p>
+<p>由于整个Python语言从规范到解释器都是开源的，所以理论上，只要水平够高，任何人都可以编写Python解释器来执行Python代码（当然难度很大）。事实上，确实存在多种Python解释器。</p>
+<p>当然我们也可以选择更加集成的环境，即使用IDE。</p>
+<p><strong>集成开发环境</strong>（Integrated Development Environment，简称<strong>IDE</strong>，也称为Integration Design Environment、Integration Debugging Environment）是一种辅助程序开发人员开发<a href="https://zh.wikipedia.org/wiki/軟體" target="_blank" rel="noopener">软件</a>的<a href="https://zh.wikipedia.org/wiki/應用軟體" target="_blank" rel="noopener">应用软件</a>，在开发工具内部就可以辅助编写源代码文本、并编译打包成为可用的程序，有些甚至可以设计图形接口。</p>
+<p>IDE通常包括<a href="https://zh.wikipedia.org/wiki/文本编辑器" target="_blank" rel="noopener">编程语言编辑器</a>、<a href="https://zh.wikipedia.org/wiki/自动构建" target="_blank" rel="noopener">自动构建</a>工具、通常还包括<a href="https://zh.wikipedia.org/wiki/除錯器" target="_blank" rel="noopener">调试器</a>。有些IDE包含<a href="https://zh.wikipedia.org/wiki/編譯器" target="_blank" rel="noopener">编译器</a>／<a href="https://zh.wikipedia.org/wiki/直譯器" target="_blank" rel="noopener">解释器</a>，如微软的<a href="https://zh.wikipedia.org/wiki/Microsoft_Visual_Studio" target="_blank" rel="noopener">Microsoft Visual Studio</a>，有些则不包含，如<a href="https://zh.wikipedia.org/wiki/Eclipse" target="_blank" rel="noopener">Eclipse</a>、<a href="https://zh.wikipedia.org/wiki/SharpDevelop" target="_blank" rel="noopener">SharpDevelop</a>等，这些IDE是通过调用第三方编译器来实现代码的编译工作的。</p>
+<p>这里推荐两种IDE。</p>
+<p>1，Anaconda 4.4 这也是我正在使用的IDE，集成了IPython，Jupyter Notebook，Spyder，以及会为你预先安装好数量丰富的第三方库。一般来说，数据分析、机器学习领域的程序员会非常喜欢Anaconda。conda还提供了一个指令来替代pip，从而实现灵活的包管理，并且可以灵活的使Python多版本共存。Anaconda下载地址：<a href="https://anaconda.org/" target="_blank" rel="noopener">https://anaconda.org/</a></p>
+<p>当然对于Anaconda来说你也可以先装Anaconda再在里面装Python。同样，建议把Anaconda加入环境变量 add anaconda to PATH。</p>
+<p>![img](【给萌新们的Python】相关环境，以及Python的hello world/img_59c6003967ecf.png)</p>
+<p>这是Anaconda Navigator的一个界面，右边是集成好了的常用Python库。个人非常推荐使用Anaconda。<strong>注意：在进行包管理的时候，Anaconda通常会加入清华的源。</strong></p>
+<p>2,PyCharm，专业Python IDE，饱受好评，JetBrains出品必属精品，非常适合专业开发。其专业版可以通过UESTC的学生邮箱来获得。请使用学生邮箱注册账号，获得免费的专业版。下载地址：<a href="https://www.jetbrains.com/pycharm/" target="_blank" rel="noopener">https://www.jetbrains.com/pycharm/</a></p>
+<hr>
+<p>接下来我推荐一个美化插件：ConEmu，提供了一个cmd和powershell的更好看的前端：<a href="https://conemu.github.io/" target="_blank" rel="noopener">https://conemu.github.io/</a></p>
+<p>默认启动界面请选择cmd（Admin），相对来说比较好用。当然powershell（Admin）也是没问题的。</p>
+<p>之后，我们开始我们的第一次编程。</p>
+<hr>
+<p><strong>Hello World！</strong></p>
+<p>打开ConEmu：</p>
+<p>![img](【给萌新们的Python】相关环境，以及Python的hello world/img_59c6025937868.png)</p>
+<p>输入<code>python</code>.</p>
+<p>![img](【给萌新们的Python】相关环境，以及Python的hello world/img_59c602e400422.png)然后输入</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print("Hello World!")</span><br></pre></td></tr></tbody></table></figure>
+
+<p>![img](【给萌新们的Python】相关环境，以及Python的hello world/img_59c603390b208.png)</p>
+<p>如果一切正常，你将看到Hello World！从现在开始，你已经正式迈向了Python开发者的道路。</p>
+<p>Tips：</p>
+<p>1，Python3的print()是函数，而Python2的print 是指令。</p>
+<p>2，Python解释器是逐行解释的，不会预先编译。</p>
+<p>3，Python不区分单引号”和双引号””。</p>
+<hr>
+<p><strong>有什么参考书推荐吗？</strong></p>
+<p>1，《Learn Python The Hard Way》，注意购买Python3版本。</p>
+<p>2，《Python核心编程（第2版）》《Python基础教程（第2版·修订版）》</p>
+<p>3，廖雪峰的Python3教程</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/张逸霄/" rel="tag"><i class="fa fa-tag"></i> 张逸霄</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2017/09/21/【MSC-2017企划】俱乐部会做什么活动呢？/" rel="next" title="【MSC-2017企划】俱乐部会做什么活动呢？">
+                  <i class="fa fa-chevron-left"></i> 【MSC-2017企划】俱乐部会做什么活动呢？
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2017/09/23/【给萌新们的Python】理解输入和输出/" rel="prev" title="【给萌新们的Python】理解输入和输出">
+                  【给萌新们的Python】理解输入和输出 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UESTC-MSC</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://github.com/uestc-msc" title="GitHub &rarr; https://github.com/uestc-msc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icongithub"></use></svg>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="mailto:uestcmsc@demo4c.onmicrosoft.com" title="邮箱 &rarr; mailto:uestcmsc@demo4c.onmicrosoft.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconOUTLOOK"></use></svg>邮箱</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://weibo.com/uestcmstc" title="微博 &rarr; https://weibo.com/uestcmstc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweibo"></use></svg>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://space.bilibili.com/456910030" title="bilibili &rarr; https://space.bilibili.com/456910030" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconbilibili"></use></svg>bilibili</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" title="微信 &rarr; https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwechat"></use></svg>微信</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2003 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <!-- <i class="fa fa-iconMicrosoft"></i> -->
+    <svg class="icon" aria-hidden="true"><use xlink:href="#iconMicrosoft"></use></svg>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UESTC-MSC</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">41k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:14</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>

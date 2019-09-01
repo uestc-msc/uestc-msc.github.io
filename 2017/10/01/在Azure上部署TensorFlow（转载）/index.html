@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  
+  <meta name="description" content="Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimestake hours, days or weeks go orders of magnitude faster. However, laptops usually">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Azure上部署TensorFlow（转载）">
+<meta property="og:url" content="https://uestc-msc.github.io/2017/10/01/在Azure上部署TensorFlow（转载）/index.html">
+<meta property="og:site_name" content="UESTC-MSC">
+<meta property="og:description" content="Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimestake hours, days or weeks go orders of magnitude faster. However, laptops usually">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-09-01T00:13:24.731Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="在Azure上部署TensorFlow（转载）">
+<meta name="twitter:description" content="Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimestake hours, days or weeks go orders of magnitude faster. However, laptops usually">
+  <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
+  <link rel="canonical" href="https://uestc-msc.github.io/2017/10/01/在Azure上部署TensorFlow（转载）/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.3.0">
+  <link rel="mask-icon" href="/images/logo.svg?v=7.3.0" color="#222">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src = "https://at.alicdn.com/t/font_1378191_mii11329xt.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <title>在Azure上部署TensorFlow（转载） | UESTC-MSC</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">UESTC-MSC</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">欢迎来到电子科大微软学生俱乐部</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-friendlinks">
+      
+    
+
+    <a href="/friendlinks/" rel="section"><i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>友链</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2017/10/01/在Azure上部署TensorFlow（转载）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="UESTC-MSC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="UESTC-MSC">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">在Azure上部署TensorFlow（转载）
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-10-01 00:00:00" itemprop="dateCreated datePublished" datetime="2017-10-01T00:00:00+08:00">2017-10-01</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-01 08:13:24" itemprop="dateModified" datetime="2019-09-01T08:13:24+08:00">2019-09-01</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.2k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>4 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimes<br>take hours, days or weeks go orders of magnitude faster. However, laptops usually don’t come with the fastest GPUs and having<br>to maintain a desktop machine only to occasionally run deep learning tasks is extra hassle.</p>
+<a id="more"></a>
+
+<p>Cloud providers now offer virtual machines (VMs) with GPUs which run in data centers and can be used by anybody on an hourly basis.<br>Below is a quick tutorial that walks through setting up a VM in Microsoft Azure with the necessary drivers<br>to train neural networks using <a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a>.</p>
+<p>First, if you haven’t done so already, create an <a href="https://azure.microsoft.com/en-us/free" target="_blank" rel="noopener">Azure</a> account, install the Azure 2.0 command line interface (CLI)…</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install azure-cli</span><br></pre></td></tr></tbody></table></figure>
+
+<p>… and follow the login procedure:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az login</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Azure manages resources (virtual machines, storage etc.) via resource groups.<br>GPU virtual machine instances are currently available in the East US region. If you already have a group for that region feel free<br>to use it, otherwise create a new resource group:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az group create -n tensorflow -l EastUS</span><br></pre></td></tr></tbody></table></figure>
+
+<p>We will connect to the machine via SSH and need to create a key pair:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -f ~/.ssh/tensorflow_id_rsa -t rsa -b 2048 -C '' -N ''</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Next, we create the actual virtual machine running Ubuntu 16.04.<br>We choose the cheapest and least powerful GPU size (<a href="https://azure.microsoft.com/en-us/blog/azure-n-series-preview-availability" target="_blank" rel="noopener">NC6</a>) and downgrade from premium (SSD) to standard storage (HDD) as the former is not supported for NC instances yet.</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vm create -g tensorflow -n tensorflow --image Canonical:UbuntuServer:16.04-LTS:latest --size Standard_NC6 --storage-sku Standard_LRS --admin-username tensorflow --ssh-key-value ~/.ssh/tensorflow_id_rsa.pub</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Once completed, the command will print the IP address for the newly created machine:</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  "publicIpAddress": "127.0.0.1",</span><br><span class="line">  "resourceGroup": "tensorflow"</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+
+<p>The VM is now running in a data center (and charging for cycles).<br>The following commands can be used to deallocate and restart anytime:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">az vm deallocate -g tensorflow -n tensorflow</span><br><span class="line">az vm start -g tensorflow -n tensorflow</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Connect to the machine via SSH (type ‘yes’, if asked to continue):</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh tensorflow@$(az vm show -d -g tensorflow -n tensorflow --query "publicIps" --o tsv) -i ~/.ssh/tensorflow_id_rsa</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Install-CUDA-8-0"><a href="#Install-CUDA-8-0" class="headerlink" title="Install CUDA 8.0"></a>Install CUDA 8.0</h2><p>Next, download <a href="http://www.nvidia.com/object/cuda_home_new.html" target="_blank" rel="noopener">CUDA</a>, make it known to apt-get and run install:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb</span><br><span class="line">sudo dpkg -i cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y cuda</span><br><span class="line">rm cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Now we can check the status of the GPU(s) by running <code>nvidia-smi</code>.</p>
+<h2 id="Install-CuDNN-5-1"><a href="#Install-CuDNN-5-1" class="headerlink" title="Install CuDNN 5.1"></a>Install CuDNN 5.1</h2><p>Next, download and install <a href="https://developer.nvidia.com/cudnn" target="_blank" rel="noopener">cuDNN</a>…</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://developer.download.nvidia.com/compute/redist/cudnn/v5.1/cudnn-8.0-linux-x64-v5.1.tgz</span><br><span class="line">sudo tar -xzf cudnn-8.0-linux-x64-v5.1.tgz -C /usr/local</span><br><span class="line">rm cudnn-8.0-linux-x64-v5.1.tgz</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Environment-variables"><a href="#Environment-variables" class="headerlink" title="Environment variables"></a>Environment variables</h2><p>…and add the following exports to <code>~/.bashrc</code>:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export CUDA_HOME=/usr/local/cuda-8.0</span><br><span class="line">export PATH=${CUDA_HOME}/bin:${PATH}</span><br><span class="line">export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:/usr/local/cuda/lib64:${LD_LIBRARY_PATH}</span><br></pre></td></tr></tbody></table></figure>
+
+<h2 id="Install-TensorFlow"><a href="#Install-TensorFlow" class="headerlink" title="Install TensorFlow"></a>Install TensorFlow</h2><p>The final step is to install Pip and the GPU version of TensorFlow:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y python-pip python-dev</span><br><span class="line">sudo pip install tensorflow-gpu</span><br></pre></td></tr></tbody></table></figure>
+
+<p>We can now start a Python console and create a TensorFlow session:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; import tensorflow as tf</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; session = tf.Session()</span><br></pre></td></tr></tbody></table></figure>
+
+<p>If everything went well, it will recognize the Tesla K80 GPU:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">I tensorflow/core/common_runtime/gpu/gpu_device.cc:885]</span><br><span class="line">Found device 0 with properties: </span><br><span class="line">name: Tesla K80</span><br><span class="line">major: 3 minor: 7 memoryClockRate (GHz) 0.8235</span><br><span class="line">pciBusID b0b5:00:00.0</span><br><span class="line">Total memory: 11.17GiB</span><br><span class="line">Free memory: 11.11GiB</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Remember to deallocate the VM when done to avoid using cycles:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vm deallocate -g tensorflow -n tensorflow</span><br></pre></td></tr></tbody></table></figure>
+
+<p>Once no longer needed, you can delete the virtual machine by running:</p>
+<figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vm delete -g tensorflow -n tensorflow</span><br></pre></td></tr></tbody></table></figure>
+
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2017/09/26/【谷哥的C-C++（2）】变量，数组，指针，结构体/" rel="next" title="【谷哥的C/C++（2）】变量，数组，指针，结构体">
+                  <i class="fa fa-chevron-left"></i> 【谷哥的C/C++（2）】变量，数组，指针，结构体
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2017/10/21/【给萌新的Python】练习（1）/" rel="prev" title="【给萌新的Python】练习（1）">
+                  【给萌新的Python】练习（1） <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-CUDA-8-0"><span class="nav-number">1.</span> <span class="nav-text">Install CUDA 8.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-CuDNN-5-1"><span class="nav-number">2.</span> <span class="nav-text">Install CuDNN 5.1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Environment-variables"><span class="nav-number">3.</span> <span class="nav-text">Environment variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Install-TensorFlow"><span class="nav-number">4.</span> <span class="nav-text">Install TensorFlow</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UESTC-MSC</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">标签</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://github.com/uestc-msc" title="GitHub &rarr; https://github.com/uestc-msc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icongithub"></use></svg>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="mailto:uestcmsc@demo4c.onmicrosoft.com" title="邮箱 &rarr; mailto:uestcmsc@demo4c.onmicrosoft.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconOUTLOOK"></use></svg>邮箱</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://weibo.com/uestcmstc" title="微博 &rarr; https://weibo.com/uestcmstc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweibo"></use></svg>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://space.bilibili.com/456910030" title="bilibili &rarr; https://space.bilibili.com/456910030" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconbilibili"></use></svg>bilibili</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" title="微信 &rarr; https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwechat"></use></svg>微信</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2003 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <!-- <i class="fa fa-iconMicrosoft"></i> -->
+    <svg class="icon" aria-hidden="true"><use xlink:href="#iconMicrosoft"></use></svg>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UESTC-MSC</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">41k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:14</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
