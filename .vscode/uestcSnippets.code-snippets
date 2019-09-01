@@ -29,7 +29,7 @@
         "body": [
             "---",
             "title: $1",
-            "date: $2 00:00:00",
+            "date: $2",
             "author: $3",
             "categories:",
             "  - $4",
