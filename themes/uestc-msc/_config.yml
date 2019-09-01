@@ -55,7 +55,7 @@ favicon:
 # see README for details
 # Iconfont project source
 iconfont:
-  source: //at.alicdn.com/t/font_1378191_mii11329xt.js
+  source: //at.alicdn.com/t/font_1378191_6tokm7h6w1c.js
 
 # hexo-generator-feed required for rss support. Leave rss as blank to use site's feed link.
 # Set rss to false to disable feed link. Set rss to specific value if you have burned your feed already.
