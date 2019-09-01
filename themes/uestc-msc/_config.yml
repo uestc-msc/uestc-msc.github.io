@@ -38,6 +38,11 @@ custom_file_path:
 # Site Information Settings
 # See: https://theme-next.org/docs/getting-started/
 # ---------------------------------------------------------------
+# To get or check favicons visit: https://realfavicongenerator.net
+# Put your favicons into `hexo-site/source/` (recommend) or `hexo-site/themes/next/source/images/` directory.
+
+# Default NexT favicons placed in `hexo-site/themes/uestc-msc/source/images/` directory.
+# And if you want to place your icons in `hexo-site/source/` root directory, you must remove `/images` prefix from pathes.
 
 favicon:
   small: /images/favicon-16x16-next.png
