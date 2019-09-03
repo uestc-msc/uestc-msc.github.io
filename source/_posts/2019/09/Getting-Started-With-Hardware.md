@@ -5,7 +5,6 @@ author: 灯泡
 categories:
   - 
 tags:
-  - Hardware
   - 灯泡
 ---
 
