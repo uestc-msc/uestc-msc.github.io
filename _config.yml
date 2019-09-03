@@ -96,3 +96,6 @@ symbols_count_time:
   total_symbols: true
   total_time: true
   exclude_codeblock: true
+
+sitemap:
+  path: sitemap.xml

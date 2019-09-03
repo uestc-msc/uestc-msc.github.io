@@ -104,6 +104,7 @@ categories:
 * 站内搜索功能数据库 [hexo-generator-searchdb](https://github.com/theme-next/hexo-generator-searchdb)
 * 站内搜索功能 [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 * RSS订阅功能插件 [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)
+* sitemap生成插件 [hexo-generator-sitemap](https://github.com/hexojs/hexo-generator-sitemap)
 
 ### 更多
 
