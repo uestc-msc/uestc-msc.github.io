@@ -2,13 +2,13 @@
 
 ## TODO
 
-图标
-谷歌认证
-hexo-admin-ehc
-迁移老站点的文章
-about
-评论系统
+- 图标
+- 谷歌认证
+- hexo-admin-ehc
+- about
+- 评论系统
 
+---
 1. [TODO](#todo)
 2. [写作语法](#写作语法)
    1. [next中比较炫酷的用法](#next中比较炫酷的用法)
