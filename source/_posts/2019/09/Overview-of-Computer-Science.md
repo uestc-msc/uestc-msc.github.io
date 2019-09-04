@@ -8,8 +8,6 @@ tags:
   - ZhongTianLe
 ---
 
-# Overview of Computer Science
-
 有的同学表示对计算机有什么方向比较迷茫。应一些小伙伴要求，我就班门弄斧得给大家稍微介绍和总结一下。
 
 <!-- More -->
