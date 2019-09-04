@@ -2,10 +2,8 @@
 
 ## TODO
 
-- 图标
 - 谷歌认证
 - hexo-admin-ehc
-- about
 - 评论系统
 
 ---

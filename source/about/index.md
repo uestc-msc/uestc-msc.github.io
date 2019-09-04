@@ -1,6 +1,6 @@
 ---
-title: about
-date: 2019-08-29 22:48:03
+title: 关于成电微软学生俱乐部
+date: 2019-09-04 08:28:03
 comments: false
 ---
 “微软学生俱乐部”（Microsoft Student Club, 简称 MSC）是微软亚洲研究院 （Microsoft Research Asia, 简称 MSRA）与高校合作培养人才的一种探索。目前MSC只在34所双一流建设高校开设，四川地区仅有电子科技大学与四川大学设有。
