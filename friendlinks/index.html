@@ -14,7 +14,7 @@
 <meta property="og:site_name" content="UESTC-MSC">
 <meta property="og:description" content=".container {     width: 100%;   }    .links {    list-style: none;  }   .link {    margin: 10px;    display: inline-block;  }   .card {    height: 72px;    width: 300px;    box-shadow: 0 3px 1px -">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-04T07:23:43.496Z">
+<meta property="og:updated_time" content="2019-09-04T07:27:56.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="friendlinks">
 <meta name="twitter:description" content=".container {     width: 100%;   }    .links {    list-style: none;  }   .link {    margin: 10px;    display: inline-block;  }   .card {    height: 72px;    width: 300px;    box-shadow: 0 3px 1px -">
@@ -71,7 +71,7 @@
       hits: {"per_page":10},
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     },
-    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
     path: 'search.xml',
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     translation: {
@@ -218,9 +218,36 @@
     <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
 
   </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
   </ul>
 
 </nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
 </div>
     </header>
 
@@ -674,6 +701,8 @@ xhr.send(null);
 
 
 
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
 
 
 
