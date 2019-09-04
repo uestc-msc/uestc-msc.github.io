@@ -8,8 +8,6 @@ tags:
   - 灯泡
 ---
 
-# Getting Started with Hardware
-
 因为有的小伙伴还想看硬件方面的入门，所以我就请了格拉斯哥学院电工专业的灯泡给大家写几句。
 
 <!-- More -->
