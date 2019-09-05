@@ -99,3 +99,7 @@ symbols_count_time:
 
 sitemap:
   path: sitemap.xml
+
+# disable "return means new line"
+marked:
+  breaks: false

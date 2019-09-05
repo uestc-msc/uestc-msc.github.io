@@ -104,6 +104,7 @@ categories:
 * 站内搜索功能 [hexo-generator-search](https://github.com/wzpan/hexo-generator-search)
 * RSS订阅功能插件 [hexo-generator-feed](https://github.com/hexojs/hexo-generator-feed)
 * sitemap生成插件 [hexo-generator-sitemap](https://github.com/hexojs/hexo-generator-sitemap)
+* CJK回车产生空格问题修复插件 [hexo-filter-fix-cjk-spacing](https://github.com/lotabout/hexo-filter-fix-cjk-spacing)
 
 ### 更多
 
@@ -136,7 +137,7 @@ travis自动部署的方式进一步减少需要下载到本地的文件数量
 
 ##### 自定义博客背景图片
 
-因为没找到合适的图片暂时没改. 老网站的背景图是 `themes/uestc-msc/source/images/microsoft-building-logo2-1920.jpg` 
+因为没找到合适的图片暂时没改. 老网站的背景图是 `themes/uestc-msc/source/images/microsoft-building-logo2-1920.jpg`
 
 🔗 [参考操作](https://github.com/theme-next/hexo-theme-next/issues/973)
 
