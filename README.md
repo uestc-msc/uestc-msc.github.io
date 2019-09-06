@@ -243,3 +243,10 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
 
 将指定图片大小的脚本放到了`themes/uestc-msc/source/js/hexo_resize_image.js`, 这
 个文件夹的会被放到站点资源.
+
+💡 使用很简单, 只是拓展了一下Markdown的语法. 👇例子:
+
+```markdown
+![img](example.png?10)
+```
+在图片链接后加问号, 问号后是图片宽度和屏幕宽度的比例.
