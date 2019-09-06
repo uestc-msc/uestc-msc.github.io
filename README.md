@@ -30,6 +30,7 @@
          4. [彩色字体图标](#彩色字体图标)
          5. [实现每篇文章显示作者](#实现每篇文章显示作者)
          6. [更改文章底部tag的](#更改文章底部tag的)
+         7. [指定图片大小](#指定图片大小)
 ---
 
 💡 因为hexo是安装在当前文件夹, 因此不会在路径里, 无法通过 `hexo` 命令直接调用,
@@ -228,3 +229,17 @@ font awesome似乎只提供单色字体图标, 也不够丰富, 而
 ``` swig
             {%- set tag_indicate = '<i class="fa fa-tag"></i>' %}
 ```
+
+##### 指定图片大小
+
+虽然实际指定的是**width**但因为长宽比是固定的所以可以实现指定图片大小的功能
+
+在`themes/uestc-msc/layout/_layout.swig`的body结束tag前加了一句加载设定图片宽度
+脚本的语句.
+
+```javascript
+  <script src="/js/hexo_resize_image.js"></script>
+```
+
+将指定图片大小的脚本放到了`themes/uestc-msc/source/js/hexo_resize_image.js`, 这
+个文件夹的会被放到站点资源.
