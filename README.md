@@ -118,6 +118,12 @@ categories:
 🔗 [更改方
 式](https://leojhonsong.github.io/About-My-Custom-Settings-of-My-Next-Theme-Blog-and-Problem-Killing/#Improved-the-arrangement-of-images-in-asset-folder)
 
+💡 和链接里不一样的是因为这里的文章链接是`:year/:month/:title.md`所以语句稍有不同, 是:
+
+```javascript
+    return pathFn.join(post.path.replace(/\.html?$/, ''), (post.path.replace(/\.html?$/, '')).substr((post.path.replace(/\.html?$/, '')).lastIndexOf(RegExp("\\d\\d\\d\\d/\\d\\d/\\d\\d")) + 11), this.slug);
+```
+
 ##### 将文章md文件按年, 月分类
 
 这样能便于管理文章, 更改 `new_post_name` 的值就可以了
