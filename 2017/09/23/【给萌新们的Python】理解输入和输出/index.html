@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  
+  <meta name="description" content="回到之前那个Hello World程序来。 如果我们使用文本编辑器（如Spyder，Atom，VS Code，Sublime）编写程序，那么这个程序要怎么运行的好呢？">
+<meta name="keywords" content="张逸霄">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【给萌新们的Python】理解输入和输出">
+<meta property="og:url" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/index.html">
+<meta property="og:site_name" content="UESTC-MSC">
+<meta property="og:description" content="回到之前那个Hello World程序来。 如果我们使用文本编辑器（如Spyder，Atom，VS Code，Sublime）编写程序，那么这个程序要怎么运行的好呢？">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6228bbd16e.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c622e1ace96.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c622f62669a.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6231c1e48b.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c623d43d7dd.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6243eedf7e.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c624c51ba8a.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c624f3b98d8.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6260ce9b01.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6259ce3b19.png">
+<meta property="og:updated_time" content="2019-09-13T13:30:06.469Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【给萌新们的Python】理解输入和输出">
+<meta name="twitter:description" content="回到之前那个Hello World程序来。 如果我们使用文本编辑器（如Spyder，Atom，VS Code，Sublime）编写程序，那么这个程序要怎么运行的好呢？">
+<meta name="twitter:image" content="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6228bbd16e.png">
+  <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
+  <link rel="canonical" href="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="mask-icon" href="/images/uestc-msc-logo.jpg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="OKSlvGttut8Kj8llKOQBCC4aORnHzjsELhAofGpH8Lg">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src = "https://at.alicdn.com/t/font_1378191_6tokm7h6w1c.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <title>【给萌新们的Python】理解输入和输出 | UESTC-MSC</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">UESTC-MSC</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">欢迎来到电子科大微软学生俱乐部</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>作者</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-friendlinks">
+      
+    
+
+    <a href="/friendlinks/" rel="section"><i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>友链</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2017/09/23/【给萌新们的Python】理解输入和输出/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="UESTC-MSC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="UESTC-MSC">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【给萌新们的Python】理解输入和输出
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
+              </span>
+              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <a href="/tags/张逸霄" itemprop="url" rel="index">
+                  <span itemprop="name">张逸霄</span>
+                </a>
+              </span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-09-23 03:00:00" itemprop="dateCreated datePublished" datetime="2017-09-23T03:00:00+08:00">2017-09-23</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-13 21:30:06" itemprop="dateModified" datetime="2019-09-13T21:30:06+08:00">2019-09-13</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>708</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>回到之前那个Hello World程序来。</p>
+<p>如果我们使用文本编辑器（如Spyder，Atom，VS Code，Sublime）编写程序，那么这个程序要怎么运行的好呢？</p>
+<a id="more"></a>
+
+<p>我们首先编写一个这样的程序。打开Visual Studio Code，首先安装python插件，这个插件可以很好地帮助我们写Python代码。</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6228bbd16e.png" alt="img"></p>
+<p>之后我们ctrl+N新建一个文件，编写代码，按下ctrl+S，以python文件形式保存。</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c622e1ace96.png" alt="img"></p>
+<p>于是我们得到了hello.py.</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c622f62669a.png" alt="img"></p>
+<p>之后打开cmd，这样运行程序。</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6231c1e48b.png" alt="img"></p>
+<p>执行的指令是：python hello.py</p>
+<hr>
+<p>回到正题，在这个程序里面，什么是输入，什么是输出？</p>
+<p>在console里，我们使用了print()函数，括号里面的是输入，返回的值就是输出。</p>
+<p>现在我们尝试一个这样的代码：</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c623d43d7dd.png" alt="img"></p>
+<p>理所当然地，它会返回300.在这里的输入是100+200，而输出是300.当然print()函数接受多个输入，只要加入逗号就可以了：</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6243eedf7e.png" alt="img"></p>
+<p>我们再看另外一个函数，input()。input()是最典型的输入函数。现在我么认识一个符号：   =</p>
+<p>=可以将=右边的值赋值到=左边去。比如：x=300，这样你就将300赋值到了x上。</p>
+<p>接下来我们尝试这么做：</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c624c51ba8a.png" alt="img"></p>
+<p>我们成功地完成了一次输入。input里面可以填写参数，比如：</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c624f3b98d8.png" alt="img"></p>
+<p>显示出了一些与输入有关的提示符。</p>
+<p>接下来，我们将输入输出函数组合成一个程序：</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6260ce9b01.png" alt="img"></p>
+<p>\n是换行符，请将它放进字符串里，因为\n本身是一个和单词一样的特殊字符。</p>
+<p><img src="%E3%80%90%E7%BB%99%E8%90%8C%E6%96%B0%E4%BB%AC%E7%9A%84Python%E3%80%91%E7%90%86%E8%A7%A3%E8%BE%93%E5%85%A5%E5%92%8C%E8%BE%93%E5%87%BA/img_59c6259ce3b19.png" alt="img"></p>
+<p>这样，我们终于写出了一个与用户可以交互的程序了。</p>
+<hr>
+<p>tips：sss</p>
+<p>1，eval()函数代表，执行括号里面的句子。比如说eval(2<em>300)，会返回这个算术的值。*</em>你可以用这个函数，一行代码写一个计算器。**</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/张逸霄/" rel="tag"><i class="fa fa-tag"></i> 张逸霄</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2017/09/23/【给萌新们的Python】相关环境，以及Python的hello world/" rel="next" title="【给萌新们的Python】相关环境，以及Python的hello world">
+                  <i class="fa fa-chevron-left"></i> 【给萌新们的Python】相关环境，以及Python的hello world
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2017/09/26/【谷哥的C-C++（2）】变量，数组，指针，结构体/" rel="prev" title="【谷哥的C/C++（2）】变量，数组，指针，结构体">
+                  【谷哥的C/C++（2）】变量，数组，指针，结构体 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UESTC-MSC</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">作者</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://github.com/uestc-msc" title="GitHub &rarr; https://github.com/uestc-msc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icongithub"></use></svg>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="mailto:uestcmsc@demo4c.onmicrosoft.com" title="邮箱 &rarr; mailto:uestcmsc@demo4c.onmicrosoft.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconOUTLOOK"></use></svg>邮箱</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://weibo.com/uestcmstc" title="微博 &rarr; https://weibo.com/uestcmstc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweibo"></use></svg>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://space.bilibili.com/456910030" title="bilibili &rarr; https://space.bilibili.com/456910030" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconbilibili"></use></svg>bilibili</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" title="微信 &rarr; https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwechat"></use></svg>微信</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2003 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <!-- <i class="fa fa-iconMicrosoft"></i> -->
+    <svg class="icon" aria-hidden="true"><use xlink:href="#iconMicrosoft"></use></svg>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UESTC-MSC</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">49k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">45 分钟</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  <script src="/js/hexo_resize_image.js"></script>
+</body>
+</html>

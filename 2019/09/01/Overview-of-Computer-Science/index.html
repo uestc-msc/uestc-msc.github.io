@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  
+  <meta name="description" content="有的同学表示对计算机有什么方向比较迷茫。应一些小伙伴要求，我就班门弄斧得给大家稍微介绍和总结一下。">
+<meta name="keywords" content="ZhongTianLe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Overview of Computer Science">
+<meta property="og:url" content="https://uestc-msc.github.io/2019/09/01/Overview-of-Computer-Science/index.html">
+<meta property="og:site_name" content="UESTC-MSC">
+<meta property="og:description" content="有的同学表示对计算机有什么方向比较迷茫。应一些小伙伴要求，我就班门弄斧得给大家稍微介绍和总结一下。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/09/01/Overview-of-Computer-Science/Overview-of-Computer-Science/AllAreas.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/09/01/Overview-of-Computer-Science/Overview-of-Computer-Science/ComTech.jpg">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/09/01/Overview-of-Computer-Science/Overview-of-Computer-Science/Groups.png">
+<meta property="og:updated_time" content="2019-09-13T13:30:06.477Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Overview of Computer Science">
+<meta name="twitter:description" content="有的同学表示对计算机有什么方向比较迷茫。应一些小伙伴要求，我就班门弄斧得给大家稍微介绍和总结一下。">
+<meta name="twitter:image" content="https://uestc-msc.github.io/2019/09/01/Overview-of-Computer-Science/Overview-of-Computer-Science/AllAreas.png">
+  <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
+  <link rel="canonical" href="https://uestc-msc.github.io/2019/09/01/Overview-of-Computer-Science/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="mask-icon" href="/images/uestc-msc-logo.jpg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="OKSlvGttut8Kj8llKOQBCC4aORnHzjsELhAofGpH8Lg">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src = "https://at.alicdn.com/t/font_1378191_6tokm7h6w1c.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <title>Overview of Computer Science | UESTC-MSC</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">UESTC-MSC</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">欢迎来到电子科大微软学生俱乐部</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>作者</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-friendlinks">
+      
+    
+
+    <a href="/friendlinks/" rel="section"><i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>友链</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2019/09/01/Overview-of-Computer-Science/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="UESTC-MSC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="UESTC-MSC">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Overview of Computer Science
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
+              </span>
+              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <a href="/tags/ZhongTianLe" itemprop="url" rel="index">
+                  <span itemprop="name">ZhongTianLe</span>
+                </a>
+              </span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-01 20:05:00" itemprop="dateCreated datePublished" datetime="2019-09-01T20:05:00+08:00">2019-09-01</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-13 21:30:06" itemprop="dateModified" datetime="2019-09-13T21:30:06+08:00">2019-09-13</time>
+              </span>
+            
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>有的同学表示对计算机有什么方向比较迷茫。应一些小伙伴要求，我就班门弄斧得给大家稍微介绍和总结一下。</p>
+<a id="more"></a>
+
+<h2 id="专业计算机科研领域榜单-CSRankings"><a href="#专业计算机科研领域榜单-CSRankings" class="headerlink" title="专业计算机科研领域榜单-CSRankings"></a>专业计算机科研领域榜单-CSRankings</h2><p>首先你需要查看一个计算机学科排名的榜单，叫做<a href="http://csrankings.org/" target="_blank" rel="noopener">CSRankings</a>。这个榜单较为全面的展示了计算机学科的各个方向和排名。</p>
+<p>虽然CSRankings有很多大学的信息并不完全，也因此被诟病，但是CSRankings是一个<strong>专门给大学的计算机学科排名的榜单</strong>。而且CSRankings的考量因素并不包括其他榜单考虑的很多较为难以量化和主观的因素，只考虑从一定角度来说，CSRankings做到了完全靠数据说话，完全客观。</p>
+<p>感兴趣的同学可以看看电子科技大学在计算机领域的综合排名和各个细分方向排名是多少。</p>
+<p>左边就是计算机的各个领域和细分方向了。</p>
+<p><a href="https://github.com/Luosuu/MSC/blob/master/assets/AllAreas.png" target="_blank" rel="noopener"><img src="Overview-of-Computer-Science/AllAreas.png" alt="Areas"></a></p>
+<p>同学们就可以看看哪个方向你看上去比较感兴趣，然后 <strong>Google Scholar(谷歌学术)或者wiki(维基百科)</strong> 搜索一下，最好不要用中文搜索。因为在科研领域中，中文是没有地位的，资料非常不完善并且可能搜出来的东西完全是错的或者是歧义。</p>
+<p>这里稍微歪下，稍微介绍下<strong>Google Scholar</strong>，它是谷歌的一个学术搜索引擎，也是最常用的学术资料搜索引擎，无论是搜索论文还是搜索机构，大学，教授都很方便，电子科技大学现在校园网已经可以不用翻墙就可以访问谷歌学术了。</p>
+<h2 id="计算机工程"><a href="#计算机工程" class="headerlink" title="计算机工程"></a>计算机工程</h2><p>细心的同学会注意到“计算机科学与技术”专业代表了两个方向，即“科学”与“技术”。</p>
+<p>那么我们大概了解了“科学”的方向都有了什么之后，就该了解一下工程界的计算机大概的方向了，也就是“技术”的部分。</p>
+<h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><p>我们知道构建一个app一般需要一个美观的界面，那么构建界面和UI的就是<strong>前端</strong>。</p>
+<p>前端包括一些Web上的技术，也就是“写网页”。主要需要学习的是一些HTML，CSS，Javascript等等，还需要学习一些Javascript的框架，如React，Vue等。</p>
+<p>关于Web的前端，<a href="https://www.w3school.com.cn/" target="_blank" rel="noopener">w3cschool</a>是个很好的学习资源网站。</p>
+<p>还包括写一些软件的界面，主流的有Qt，Electron，微软家的UWP等等。</p>
+<p>开发移动端的话就要学会一些安卓/iOS的开发技巧了，安卓用Java的比较多，iOS主要是Objective-C和Swift。</p>
+<h3 id="后端"><a href="#后端" class="headerlink" title="后端"></a>后端</h3><p>app只有界面不行，还得有功能，功能就需要有服务器和数据库等等的支持，负责这一部分的统称为<strong>后端</strong>。</p>
+<p>可能要学的就是一些服务器和数据库相关的，服务器的话一般都用的Linux系统，所以一定要学会Linux的基本使用方法。</p>
+<p>数据库类型就很多了，如MySQl，而且学校会开设数据库方面的专业课。</p>
+<p>可能还需要学习一些算法知识（其实算法知识或多或少各方面都需要一些）。</p>
+<p>但其实后端包含的面太广了，这里只是说了下典型。</p>
+<p>算法比赛有ACM-ICPC和CCPC。详情可问小灰晖，同时第0次沙龙也有ACM-ICPC的入门介绍。</p>
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>软件写出来直接运行可能会有bug，如果直接发布可能会有严重的后果，负责写程序对软件进行各项检查的就是<strong>测试</strong>。</p>
+<p>下面这个表情包就大概能体现一个软件测试的各项工作了。</p>
+<p><a href="https://github.com/Luosuu/MSC/blob/master/assets/ComTech.jpg" target="_blank" rel="noopener"><img src="Overview-of-Computer-Science/ComTech.jpg" alt="表情包"></a></p>
+<h3 id="安全"><a href="#安全" class="headerlink" title="安全"></a>安全</h3><p>当然软件也需要专业的安全保障，对软件进行安全测试就是<strong>安全</strong>部门的工作了，传统的安全防护有对软件进行逆向工程（俗称“破解”）方面的保护，最近比较火的是网络安全，阻拦网络上的各种恶意攻击和病毒。</p>
+<p>安全方面的工作涉及的知识覆盖密码学，web安全，二进制安全等等。</p>
+<p>安全方面有知名的竞赛，其中一种比较火的就是CTF比赛。感兴趣的可以去了解一下。同时现在有<strong>全国大学生信息安全竞赛</strong>。</p>
+<h3 id="架构"><a href="#架构" class="headerlink" title="架构"></a>架构</h3><p>当然也会有一些人是负责总体设计的，他们一般被叫做<strong>架构师</strong>。</p>
+<p>架构师需要深厚丰富的软件开发经验，可以说是软件的设计师。</p>
+<h3 id="What’s-more"><a href="#What’s-more" class="headerlink" title="What’s more"></a>What’s more</h3><p>实际上构建一个app可能会很复杂，上面的分法是很粗糙的，不同的软件公司和不同的软件都会有不同的开发团队组成。</p>
+<p>有些比较赶新潮的公司就会有云技术，AI，大数据等部门。</p>
+<p>这上面是说构建一个app，当然也存在构建一些所谓“基础设施”的，比如操作系统。</p>
+<h2 id="UESTC有什么方向？"><a href="#UESTC有什么方向？" class="headerlink" title="UESTC有什么方向？"></a>UESTC有什么方向？</h2><p>遗憾的是，我们学校计算机科学并没能实现所有方向全覆盖，在我个人看来甚至瘸腿。所以了解我们学校有什么方向就很关键了，因为如果你要本科从事科研相关活动的话就只能从他们中选了。</p>
+<p>先来看一下我们学校计算机学院有什么科研团队。</p>
+<p><a href="https://github.com/Luosuu/MSC/blob/master/assets/Groups.png" target="_blank" rel="noopener"><img src="Overview-of-Computer-Science/Groups.png" alt="Groups"></a></p>
+<p>细心的同学会发现<strong>你电计算机学院大部分教授都是做AI的</strong>，如果你在CSRankings上看过电子科大的各项排名，会发现我们学校计算机视觉（Computer Vision）方向排名非常突出，而计算机视觉是人工智能细分方向之一。</p>
+<p>几乎所有科研团队都做CV，也造就了你电CV强校的事实，但也让你电计算机学科建设略显单一。不过我们也存在做云计算，网络安全，传统算法，操作系统等方向的实验室。</p>
+<p>实际上最后最重要的是找哪个老师，这一点无论你是不是想从事计算机方向的科研都是一样的，所以要到<a href="http://faculty.uestc.edu.cn/" target="_blank" rel="noopener">电子科大教师信息平台</a>去了解。</p>
+<p>当然如果你想了解下这个老师最近在做什么方向的研究，或者看看他实力如何，是不是高产，你就可以用到上面我提到的Google Scholar了，直接搜这个老师，他的学术活动就一目了然了。</p>
+<h2 id="计算机学院的专业"><a href="#计算机学院的专业" class="headerlink" title="计算机学院的专业"></a>计算机学院的专业</h2><p>虽然我认为在电子科技大学，你在哪个专业并不特别影响你真正从事的方向，我认为这是电子科大非常好的一个地方，不过还是有很大的必要了解一下我们学校的专业设置和专业课程。</p>
+<p>专业的课程设置要看《电子科技大学学生培养方案》，你们领了书的话应该有，是一大本很厚的书，找到自己学院然后看课程设置就是了。</p>
+<p>如果还没拿到书可以到各个学院官网下载历年的培养计划。虽然每年培养计划都会有一点点改动。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/ZhongTianLe/" rel="tag"><i class="fa fa-tag"></i> ZhongTianLe</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2018/08/16/电子科技大学微软学生俱乐部2018企划/" rel="next" title="电子科技大学微软学生俱乐部2018企划">
+                  <i class="fa fa-chevron-left"></i> 电子科技大学微软学生俱乐部2018企划
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/09/01/Getting-Started-With-Hardware/" rel="prev" title="灯泡的硬件入门">
+                  灯泡的硬件入门 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#专业计算机科研领域榜单-CSRankings"><span class="nav-number">1.</span> <span class="nav-text">专业计算机科研领域榜单-CSRankings</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机工程"><span class="nav-number">2.</span> <span class="nav-text">计算机工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端"><span class="nav-number">2.1.</span> <span class="nav-text">前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端"><span class="nav-number">2.2.</span> <span class="nav-text">后端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试"><span class="nav-number">2.3.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安全"><span class="nav-number">2.4.</span> <span class="nav-text">安全</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#架构"><span class="nav-number">2.5.</span> <span class="nav-text">架构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What’s-more"><span class="nav-number">2.6.</span> <span class="nav-text">What’s more</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#UESTC有什么方向？"><span class="nav-number">3.</span> <span class="nav-text">UESTC有什么方向？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#计算机学院的专业"><span class="nav-number">4.</span> <span class="nav-text">计算机学院的专业</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UESTC-MSC</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">作者</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://github.com/uestc-msc" title="GitHub &rarr; https://github.com/uestc-msc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icongithub"></use></svg>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="mailto:uestcmsc@demo4c.onmicrosoft.com" title="邮箱 &rarr; mailto:uestcmsc@demo4c.onmicrosoft.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconOUTLOOK"></use></svg>邮箱</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://weibo.com/uestcmstc" title="微博 &rarr; https://weibo.com/uestcmstc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweibo"></use></svg>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://space.bilibili.com/456910030" title="bilibili &rarr; https://space.bilibili.com/456910030" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconbilibili"></use></svg>bilibili</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" title="微信 &rarr; https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwechat"></use></svg>微信</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2003 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <!-- <i class="fa fa-iconMicrosoft"></i> -->
+    <svg class="icon" aria-hidden="true"><use xlink:href="#iconMicrosoft"></use></svg>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UESTC-MSC</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">49k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">45 分钟</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  <script src="/js/hexo_resize_image.js"></script>
+</body>
+</html>
