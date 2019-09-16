@@ -7,20 +7,27 @@
 <html lang="zh-CN">
 <head>
   
-  <meta name="description" content="大家是否对今年的编程之美比赛有所了解呢？ 如果你还不是很了解，那么，这里是官网传送门: http://studentclub.msra.cn/bop2017/ 建议你先去看一看 总结起来，这次比赛就是做一个足以介绍自己学校的Bot。。。我不得不说，这个不酷，不炫，甚至还有点无聊。。。但是这次比赛的目的性很强，如果你没用过Bot Framework 或者相关框架，在或者你没写过网络服务，在或者你没写">
+  <meta name="description" content="这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊） 这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。">
 <meta name="keywords" content="谷亚奇">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Bot Framework完全攻略】1-1.攻略说明">
-<meta property="og:url" content="https://uestc-msc.github.io/2017/04/23/【Bot Framework完全攻略】1-1.攻略说明/index.html">
+<meta property="og:title" content="【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）">
+<meta property="og:url" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/index.html">
 <meta property="og:site_name" content="UESTC-MSC">
-<meta property="og:description" content="大家是否对今年的编程之美比赛有所了解呢？ 如果你还不是很了解，那么，这里是官网传送门: http://studentclub.msra.cn/bop2017/ 建议你先去看一看 总结起来，这次比赛就是做一个足以介绍自己学校的Bot。。。我不得不说，这个不酷，不炫，甚至还有点无聊。。。但是这次比赛的目的性很强，如果你没用过Bot Framework 或者相关框架，在或者你没写过网络服务，在或者你没写">
+<meta property="og:description" content="这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊） 这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-09-16T15:47:32.683Z">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-22.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-23.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-24.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-25.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-26.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-27.png">
+<meta property="og:updated_time" content="2019-09-16T16:55:19.349Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【Bot Framework完全攻略】1-1.攻略说明">
-<meta name="twitter:description" content="大家是否对今年的编程之美比赛有所了解呢？ 如果你还不是很了解，那么，这里是官网传送门: http://studentclub.msra.cn/bop2017/ 建议你先去看一看 总结起来，这次比赛就是做一个足以介绍自己学校的Bot。。。我不得不说，这个不酷，不炫，甚至还有点无聊。。。但是这次比赛的目的性很强，如果你没用过Bot Framework 或者相关框架，在或者你没写过网络服务，在或者你没写">
+<meta name="twitter:title" content="【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）">
+<meta name="twitter:description" content="这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊） 这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。">
+<meta name="twitter:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-22.png">
   <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
-  <link rel="canonical" href="https://uestc-msc.github.io/2017/04/23/【Bot Framework完全攻略】1-1.攻略说明/">
+  <link rel="canonical" href="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/">
 
 
 <script id="page-configurations">
@@ -84,7 +91,7 @@
   };
 </script>
 
-  <title>【Bot Framework完全攻略】1-1.攻略说明 | UESTC-MSC</title>
+  <title>【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot） | UESTC-MSC</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -273,7 +280,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2017/04/23/【Bot Framework完全攻略】1-1.攻略说明/">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="UESTC-MSC">
@@ -285,7 +292,7 @@
       <meta itemprop="name" content="UESTC-MSC">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">【Bot Framework完全攻略】1-1.攻略说明
+        <h1 class="post-title" itemprop="name headline">【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）
 
           
         </h1>
@@ -312,7 +319,7 @@
                 
               
 
-              <time title="创建时间：2017-04-23 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-23T00:00:00+08:00">2017-04-23</time>
+              <time title="创建时间：2017-04-29 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-29T00:00:00+08:00">2017-04-29</time>
             </span>
           
             
@@ -323,7 +330,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-09-16 23:47:32" itemprop="dateModified" datetime="2019-09-16T23:47:32+08:00">2019-09-16</time>
+                <time title="修改时间：2019-09-17 00:55:19" itemprop="dateModified" datetime="2019-09-17T00:55:19+08:00">2019-09-17</time>
               </span>
             
           
@@ -358,7 +365,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>472</span>
+              <span>799</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -381,12 +388,31 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>大家是否对今年的编程之美比赛有所了解呢？ 如果你还不是很了解，那么，这里是官网传送门: <a href="http://studentclub.msra.cn/bop2017/" target="_blank" rel="noopener">http://studentclub.msra.cn/bop2017/</a></p>
-<p>建议你先去看一看</p>
-<p>总结起来，这次比赛就是做一个足以介绍自己学校的Bot。。。我不得不说，这个不酷，不炫，甚至还有点无聊。。。但是这次比赛的目的性很强，如果你没用过Bot Framework 或者相关框架，在或者你没写过网络服务，在或者你没写过稍微大一丢丢的程序。。。可以来练一练手 ^_^|||</p>
-<p>如果你是个新人，请慎重抱团。额。。。我是指团队合作方面的新人。有一个规则叫做1+1&lt;1，我没打错是小于1，不是小于2。不会团队合作的队友是会互相拖累的。不过，如果能找到值得信赖的好队友也是极好的。</p>
-<p>由于Bot开发涉及的知识较多，而且官方并没有推出友好的中文文档，所以接下来的日子里，我会负责推出一系列的Bot Framework相关教程来帮助大家对Bot开发整体有充分的了解。特此声明，文章更新持续稳定。如有更新不及时，隔着屏幕你又打不死我 ╮(╯▽╰)╭。</p>
-<p>非常感谢 –&lt;-&lt;@</p>
+        <p>这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊）</p>
+<p>这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。</p>
+<a id="more"></a>
+
+<p>首先去Bot官网，并且登陆，进入My bots，选择你的Bot</p>
+<p>找到Web Chat 后面的Edit：</p>
+<p><img src="1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-22.png" alt="img"></p>
+<p>点击之后进入Web Chat 的配置界面。第一次进入可能会提示你新建一个site如果没有的话，就点击左边的Add  new site。site的名字随便起，没卵用的。然后进入这个界面：</p>
+<p><img src="1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-23.png" alt="img"></p>
+<p>你可以看到Secret keys （密钥）是隐藏的，点击后面的Show就能看到。</p>
+<p>下面的Embed code（嵌入代码）是一段HTML代码，内容就是与你Bot聊天的聊天室。</p>
+<p>打开你的记事本，把Embed code（嵌入代码）复制进去，然后复制Secret keys（密钥）其中的一个，替换掉记事本里的 YOUR_SECRET_HERE。这样你就得到一段可用的html代码。</p>
+<p>接下来，打开你的VS，进入你的项目，到解决方案管理器中找到default.htm文件：</p>
+<p><img src="1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-24.png" alt="img"></p>
+<p>打开它，把body标签里面的内容替换成你记事本里的那段代码：</p>
+<p><img src="1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-25.png" alt="img"></p>
+<p>然后，保存你的更改。重新发布你的Bot，这样就可以通过直接访问Bot的主页（endpoint的网址去掉后面/api/messages）来直接访问Bot了。</p>
+<p>效果图：</p>
+<p><img src="1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-26.png" alt="img"></p>
+<p>你会发现聊天的窗口太矮了。。。</p>
+<p>在default.htm做出如下的修改可以改变小窗口的高度：</p>
+<p><img src="1-9.%E7%BB%99%E5%88%AB%E4%BA%BA%E7%9C%8B%E7%9C%8B%E6%88%91%E4%BB%AC%E7%9A%84%E8%88%AA%E6%AF%8D/afs5d-27.png" alt="img"></p>
+<p>修改完记得保存，重新发布。</p>
+<p>记得Web Chat的网址就是你发布的站点URL（你在发布页面能找到）</p>
+<p>大功告成！你可以把聊天窗口的网址发给你的朋友们，让他们感受一下你在做的工作。</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -430,8 +456,8 @@
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2017/04/12/【俱乐部活动】Bot Framework技术汇/" rel="next" title="【俱乐部活动】Bot Framework技术汇">
-                  <i class="fa fa-chevron-left"></i> 【俱乐部活动】Bot Framework技术汇
+                <a href="/2017/04/24/1-8.把旗子插在船上/" rel="next" title="【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）">
+                  <i class="fa fa-chevron-left"></i> 【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）
                 </a>
               
             </div>
@@ -440,8 +466,8 @@
 
             <div class="post-nav-prev post-nav-item">
               
-                <a href="/2017/04/23/【Bot Framework完全攻略】1-2.Bot简介/" rel="prev" title="【Bot Framework完全攻略】1-2.Bot简介">
-                  【Bot Framework完全攻略】1-2.Bot简介 <i class="fa fa-chevron-right"></i>
+                <a href="/2017/04/29/1-10.Cheers/" rel="prev" title="【Bot Framework完全攻略】1-10.Cheers!（初级篇总结）">
+                  【Bot Framework完全攻略】1-10.Cheers!（初级篇总结） <i class="fa fa-chevron-right"></i>
                 </a>
               
             </div>
@@ -504,7 +530,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -664,12 +690,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">49k</span>
+    <span title="站点总字数">46k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">45 分钟</span>
+    <span title="站点阅读时长">42 分钟</span>
 </div>
         
 <div class="busuanzi-count">
