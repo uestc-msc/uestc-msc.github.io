@@ -271,7 +271,7 @@
   <entry>
     <title><![CDATA[【Bot Framework完全攻略】1-5.小试牛刀]]></title>
     <url>%2F2017%2F04%2F24%2F1-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80%2F</url>
-    <content type="text"><![CDATA[本篇教程将引导你实现一个最基础的Bot [开始造船（写一个你的Bot项目）](./[Bot Framework完全攻略]1-6.开始造船（写一个你的Bot项目）/) [向政府注册你的旗帜（注册一个你的Bot）](../【Bot Framework完全攻略】1-7.向政府注册你的旗帜（注册一个你的Bot）/) [把旗子插在船上（关联配置）](../[Bot Framework完全攻略]1-8.把旗子插在船上（关联配置）/) document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+    <content type="text"><![CDATA[本篇教程将引导你实现一个最基础的Bot 开始造船（写一个你的Bot项目） 向政府注册你的旗帜（注册一个你的Bot） 把旗子插在船上（关联配置） document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>Bot Framework</category>
       </categories>
