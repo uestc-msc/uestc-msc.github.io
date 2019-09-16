@@ -1,6 +1,12 @@
 <?xml version="1.0"?>
 <links>
   <link>
+    <title>Computer Music Conference Deadlines</title>
+    <subtitle></subtitle>
+    <avatar>https://ismir.net/images/ismir_04.png</avatar>
+    <url>https://yixiao-music.github.io</url>
+  </link>
+  <link>
     <title>LeoJhonSong's Blog</title>
     <subtitle>记 / 录 / 与 / 分 / 享</subtitle>
     <avatar>https://leojhonsong.github.io/zh-CN/images/avatar.gif</avatar>
@@ -32,7 +38,7 @@
   <link>
     <title>万事屋</title>
     <subtitle></subtitle>
-    <avatar></avatar>
+    <avatar>https://guyaqi.github.io/assets/img/logo.png</avatar>
     <url>https://guyaqi.github.io/</url>
   </link>
   <link>
