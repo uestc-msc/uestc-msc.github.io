@@ -14,7 +14,7 @@ tags: LeoJhonSong
 
 ### 什么是Markdown
 
-Markdown是一门语言, 一门轻量级的**标记语言** (Markup Language). 有没有觉得这个词
+Markdown是一门语言, 一门我正用来写这篇博客所用的语言, 一门轻量级的**标记语言** (Markup Language). 有没有觉得这个词
 很眼熟? 是的, HTML全称**HyperText Markup Language**. Markdown和HTML同属于Markup
 Language(Markdown是一门Markup Language是Markdown作者的恶趣味), 它们与C, Python等
 编程语言并不是一类东西. **Markup**这个词源自**印刷业**, 指的是在电子排版技术出现
