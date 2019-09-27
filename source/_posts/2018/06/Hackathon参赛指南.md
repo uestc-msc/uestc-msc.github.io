@@ -3,7 +3,7 @@ title: Hackathon参赛指南
 date: 2018-06-01 00:00:00
 author: 
 categories:
-  - Hackathon
+  - [活动, Hackathon]
 tags:
   - 
 ---
