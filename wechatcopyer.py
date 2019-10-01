@@ -26,10 +26,14 @@ with open(filePath, "w") as page:
         if not re.search(r'\A\s*data-src', line):
             # if wechat image links are found, if are new ones, save and replace
             # them, if are known ones, replace them
-            if re.search(r'\A\s*src', line):
-                imageURL = line[line.find('https://mmbiz.qpic.cn'):-2]
+            # if re.search(r'\A\s*src', line):
+            if re.search('https://mmbiz.qpic.cn', line):
+                # imageURL = line[line.find('https://mmbiz.qpic.cn'):-2]
+                imageURL = re.search(r'https://mmbiz.qpic.cn.+?wx_fmt=.+?(?=&)', line).group()
                 if imageURL not in imageLinks:
                     match = re.search(r'(?<=wx_fmt=)(.+?)(?="|&)', imageURL)
+                    if not match:
+                        match = re.search(r'(?<=wx_fmt=).+', imageURL)
                     extensionName = match.group()
                     picName = str(lineNumber) + '.' + extensionName
                     savePath = saveFolder + '/' + picName
