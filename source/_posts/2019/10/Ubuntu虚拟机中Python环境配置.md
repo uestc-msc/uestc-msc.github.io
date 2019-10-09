@@ -15,6 +15,8 @@ tags: LeoJhonSong
 - 安装Ubuntu系统
 - 在虚拟机安装Anaconda3
 
+<!-- More -->
+
 ## 安装VMware Workstation 15 Pro
 
 我们通常说的安装Vmware说的是**VMware Workstation Pro**, 是付费的 (可以在网上找激活码来激活), 其实另外有**Vmware Workstaion Player**, 个人使用的话是免费的,安装包也比Pro小不少 (Pro大约550M, Player大约140M), 它们的区别仅在于Pro版多了共享剪贴板, 快照, ssh连接Linux虚拟机, 同时运行多个虚拟机, 运行加密虚拟机等一些功能, 体验更好, 因此**推荐安装Vmware Workstaion Pro**.
