@@ -3,26 +3,8 @@
 import os
 import sys
 
-
-def generateDeploy():
-    os.system('hexo clean')
-    os.system('hexo d -g')
-
-
-def new():
-    os.system('hexo new' + ' "' + sys.argv[2] + '"')
-
-
-layer1 = {
-    'default': generateDeploy,
-    'n': new
-}
-# ##############################################################################
-
 # add hexo to PATH
 os.environ['PATH'] = os.path.abspath(
     '.') + '/node_modules/hexo/bin/' + ':' + os.environ['PATH']
 
-# the main process
-main = layer1[sys.argv[1] if len(sys.argv) > 1 else 'default']
-main()
+os.system("hexo " + " ".join(sys.argv[1:]))
