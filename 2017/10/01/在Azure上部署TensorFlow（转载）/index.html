@@ -7,17 +7,17 @@
 <html lang="zh-CN">
 <head>
   
-  <meta name="description" content="Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimes take hours, days or weeks go orders of magnitude faster. However, laptops usually">
+  <meta name="description" content="Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimestake hours, days or weeks go orders of magnitude faster. However, laptops usually">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Azure上部署TensorFlow（转载）">
 <meta property="og:url" content="https://uestc-msc.github.io/2017/10/01/在Azure上部署TensorFlow（转载）/index.html">
 <meta property="og:site_name" content="UESTC-MSC">
-<meta property="og:description" content="Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimes take hours, days or weeks go orders of magnitude faster. However, laptops usually">
+<meta property="og:description" content="Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimestake hours, days or weeks go orders of magnitude faster. However, laptops usually">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-04T13:19:43.701Z">
+<meta property="og:updated_time" content="2019-11-04T16:01:22.068Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在Azure上部署TensorFlow（转载）">
-<meta name="twitter:description" content="Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimes take hours, days or weeks go orders of magnitude faster. However, laptops usually">
+<meta name="twitter:description" content="Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimestake hours, days or weeks go orders of magnitude faster. However, laptops usually">
   <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
   <link rel="canonical" href="https://uestc-msc.github.io/2017/10/01/在Azure上部署TensorFlow（转载）/">
 
@@ -311,7 +311,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-04 21:19:43" itemprop="dateModified" datetime="2019-11-04T21:19:43+08:00">2019-11-04</time>
+                <time title="修改时间：2019-11-05 00:01:22" itemprop="dateModified" datetime="2019-11-05T00:01:22+08:00">2019-11-05</time>
               </span>
             
           
@@ -369,67 +369,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimes
-take hours, days or weeks go orders of magnitude faster. However, laptops usually don’t come with the fastest GPUs and having
-to maintain a desktop machine only to occasionally run deep learning tasks is extra hassle.</p>
+        <p>Training neural networks (deep learning) is very compute-intensive. Fast GPUs can make those sessions, which sometimes<br>take hours, days or weeks go orders of magnitude faster. However, laptops usually don’t come with the fastest GPUs and having<br>to maintain a desktop machine only to occasionally run deep learning tasks is extra hassle.</p>
 <a id="more"></a>
-
-<p>Cloud providers now offer virtual machines (VMs) with GPUs which run in data centers and can be used by anybody on an hourly basis.
-Below is a quick tutorial that walks through setting up a VM in Microsoft Azure with the necessary drivers
-to train neural networks using <a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a>.</p>
+<p>Cloud providers now offer virtual machines (VMs) with GPUs which run in data centers and can be used by anybody on an hourly basis.<br>Below is a quick tutorial that walks through setting up a VM in Microsoft Azure with the necessary drivers<br>to train neural networks using <a href="https://www.tensorflow.org/" target="_blank" rel="noopener">TensorFlow</a>.</p>
 <p>First, if you haven’t done so already, create an <a href="https://azure.microsoft.com/en-us/free" target="_blank" rel="noopener">Azure</a> account, install the Azure 2.0 command line interface (CLI)…</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install azure-cli</span><br></pre></td></tr></tbody></table></figure>
-
 <p>… and follow the login procedure:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az login</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Azure manages resources (virtual machines, storage etc.) via resource groups.
-GPU virtual machine instances are currently available in the East US region. If you already have a group for that region feel free
-to use it, otherwise create a new resource group:</p>
+<p>Azure manages resources (virtual machines, storage etc.) via resource groups.<br>GPU virtual machine instances are currently available in the East US region. If you already have a group for that region feel free<br>to use it, otherwise create a new resource group:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az group create -n tensorflow -l EastUS</span><br></pre></td></tr></tbody></table></figure>
-
 <p>We will connect to the machine via SSH and need to create a key pair:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -f ~/.ssh/tensorflow_id_rsa -t rsa -b 2048 -C '' -N ''</span><br></pre></td></tr></tbody></table></figure>
-
-<p>Next, we create the actual virtual machine running Ubuntu 16.04.
-We choose the cheapest and least powerful GPU size (<a href="https://azure.microsoft.com/en-us/blog/azure-n-series-preview-availability" target="_blank" rel="noopener">NC6</a>) and downgrade from premium (SSD) to standard storage (HDD) as the former is not supported for NC instances yet.</p>
+<p>Next, we create the actual virtual machine running Ubuntu 16.04.<br>We choose the cheapest and least powerful GPU size (<a href="https://azure.microsoft.com/en-us/blog/azure-n-series-preview-availability" target="_blank" rel="noopener">NC6</a>) and downgrade from premium (SSD) to standard storage (HDD) as the former is not supported for NC instances yet.</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vm create -g tensorflow -n tensorflow --image Canonical:UbuntuServer:16.04-LTS:latest --size Standard_NC6 --storage-sku Standard_LRS --admin-username tensorflow --ssh-key-value ~/.ssh/tensorflow_id_rsa.pub</span><br></pre></td></tr></tbody></table></figure>
-
 <p>Once completed, the command will print the IP address for the newly created machine:</p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  "publicIpAddress": "127.0.0.1",</span><br><span class="line">  "resourceGroup": "tensorflow"</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
-
-<p>The VM is now running in a data center (and charging for cycles).
-The following commands can be used to deallocate and restart anytime:</p>
+<p>The VM is now running in a data center (and charging for cycles).<br>The following commands can be used to deallocate and restart anytime:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">az vm deallocate -g tensorflow -n tensorflow</span><br><span class="line">az vm start -g tensorflow -n tensorflow</span><br></pre></td></tr></tbody></table></figure>
-
 <p>Connect to the machine via SSH (type ‘yes’, if asked to continue):</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh tensorflow@$(az vm show -d -g tensorflow -n tensorflow --query "publicIps" --o tsv) -i ~/.ssh/tensorflow_id_rsa</span><br></pre></td></tr></tbody></table></figure>
-
 <h2 id="Install-CUDA-8-0"><a href="#Install-CUDA-8-0" class="headerlink" title="Install CUDA 8.0"></a>Install CUDA 8.0</h2><p>Next, download <a href="http://www.nvidia.com/object/cuda_home_new.html" target="_blank" rel="noopener">CUDA</a>, make it known to apt-get and run install:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget https://developer.nvidia.com/compute/cuda/8.0/prod/local_installers/cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb</span><br><span class="line">sudo dpkg -i cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install -y cuda</span><br><span class="line">rm cuda-repo-ubuntu1604-8-0-local_8.0.44-1_amd64-deb</span><br></pre></td></tr></tbody></table></figure>
-
 <p>Now we can check the status of the GPU(s) by running <code>nvidia-smi</code>.</p>
 <h2 id="Install-CuDNN-5-1"><a href="#Install-CuDNN-5-1" class="headerlink" title="Install CuDNN 5.1"></a>Install CuDNN 5.1</h2><p>Next, download and install <a href="https://developer.nvidia.com/cudnn" target="_blank" rel="noopener">cuDNN</a>…</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://developer.download.nvidia.com/compute/redist/cudnn/v5.1/cudnn-8.0-linux-x64-v5.1.tgz</span><br><span class="line">sudo tar -xzf cudnn-8.0-linux-x64-v5.1.tgz -C /usr/local</span><br><span class="line">rm cudnn-8.0-linux-x64-v5.1.tgz</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></tbody></table></figure>
-
 <h2 id="Environment-variables"><a href="#Environment-variables" class="headerlink" title="Environment variables"></a>Environment variables</h2><p>…and add the following exports to <code>~/.bashrc</code>:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export CUDA_HOME=/usr/local/cuda-8.0</span><br><span class="line">export PATH=${CUDA_HOME}/bin:${PATH}</span><br><span class="line">export LD_LIBRARY_PATH=${CUDA_HOME}/lib64:/usr/local/cuda/lib64:${LD_LIBRARY_PATH}</span><br></pre></td></tr></tbody></table></figure>
-
 <h2 id="Install-TensorFlow"><a href="#Install-TensorFlow" class="headerlink" title="Install TensorFlow"></a>Install TensorFlow</h2><p>The final step is to install Pip and the GPU version of TensorFlow:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install -y python-pip python-dev</span><br><span class="line">sudo pip install tensorflow-gpu</span><br></pre></td></tr></tbody></table></figure>
-
 <p>We can now start a Python console and create a TensorFlow session:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">python</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; import tensorflow as tf</span><br><span class="line"><span class="meta">&gt;</span>&gt;&gt; session = tf.Session()</span><br></pre></td></tr></tbody></table></figure>
-
 <p>If everything went well, it will recognize the Tesla K80 GPU:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">I tensorflow/core/common_runtime/gpu/gpu_device.cc:885]</span><br><span class="line">Found device 0 with properties: </span><br><span class="line">name: Tesla K80</span><br><span class="line">major: 3 minor: 7 memoryClockRate (GHz) 0.8235</span><br><span class="line">pciBusID b0b5:00:00.0</span><br><span class="line">Total memory: 11.17GiB</span><br><span class="line">Free memory: 11.11GiB</span><br></pre></td></tr></tbody></table></figure>
-
 <p>Remember to deallocate the VM when done to avoid using cycles:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vm deallocate -g tensorflow -n tensorflow</span><br></pre></td></tr></tbody></table></figure>
-
 <p>Once no longer needed, you can delete the virtual machine by running:</p>
 <figure class="highlight shell"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">az vm delete -g tensorflow -n tensorflow</span><br></pre></td></tr></tbody></table></figure>
-
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {

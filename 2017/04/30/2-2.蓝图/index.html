@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="UESTC-MSC">
 <meta property="og:description" content="当你导入Bot Framework项目时，你就看到了一大堆东西。这节教程我们就从Bot Framework项目的解决方案管理器出发，来讲讲项目中代码之外的一切东西。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-11-04T13:19:43.685Z">
+<meta property="og:updated_time" content="2019-11-04T16:01:22.052Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="【Bot Framework完全攻略】2-2.蓝图（Bot Framework项目结构）">
 <meta name="twitter:description" content="当你导入Bot Framework项目时，你就看到了一大堆东西。这节教程我们就从Bot Framework项目的解决方案管理器出发，来讲讲项目中代码之外的一切东西。">
@@ -323,7 +323,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2019-11-04 21:19:43" itemprop="dateModified" datetime="2019-11-04T21:19:43+08:00">2019-11-04</time>
+                <time title="修改时间：2019-11-05 00:01:22" itemprop="dateModified" datetime="2019-11-05T00:01:22+08:00">2019-11-05</time>
               </span>
             
           
@@ -358,7 +358,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>645</span>
+              <span>639</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -383,15 +383,14 @@
       
         <p>当你导入Bot Framework项目时，你就看到了一大堆东西。这节教程我们就从Bot Framework项目的解决方案管理器出发，来讲讲项目中代码之外的一切东西。</p>
 <a id="more"></a>
-
 <p>首先你要知道Bot是一个基于ASP.NET的网络应用，它有一个固有格式，不是所有东西都需要做修改的。下面我先列出你能看到的所有东西的用途：</p>
 <ul>
 <li>Connected Services：从Visual Studio直接连接微软的一些服务（我们应该用不到这些高级的东西）</li>
 <li>Properties中的Assembly.cs：项目信息（用不到）</li>
-<li>***引用：右键点击引用可以管理引用和Nuget程序包，Nuget默认开启了你缺什么包就自动下载的功能，但是就像我之前提到的，使用一些功能时需要手动添加引用。</li>
+<li><em>*</em>引用：右键点击引用可以管理引用和Nuget程序包，Nuget默认开启了你缺什么包就自动下载的功能，但是就像我之前提到的，使用一些功能时需要手动添加引用。</li>
 <li>App_Start中的WebApiConfig.cs：Api配置（用不到）</li>
-<li>***Controllers中的MessagesController.cs</li>
-<li>***Dialogs中的RootDialog.cs</li>
+<li><em>*</em>Controllers中的MessagesController.cs</li>
+<li><em>*</em>Dialogs中的RootDialog.cs</li>
 <li>**default.htm：Bot的首页，已经被我们修改成了与Bot对话的地方</li>
 <li>Global.asax：响应网络应用的应用级和模块级事件（太高级以至于用不到）</li>
 <li>packages.config：文本方式管理应用程序使用的包（你不摸它可以包你没事）</li>
