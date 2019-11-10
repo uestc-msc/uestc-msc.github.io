@@ -21,5 +21,5 @@ before_install:
 # - npm install -g hexo-cli
 # - npm install
 script:
-# - "./node_modules/hexo/bin/hexo clean"
+- "./node_modules/hexo/bin/hexo clean"
 - "./node_modules/hexo/bin/hexo d -g"
