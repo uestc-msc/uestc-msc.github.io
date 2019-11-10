@@ -390,4 +390,4 @@ os.system('clear')
 
 💡 在VSC中可以在设置中搜索**python.linting.pycodestyle**, 勾选**Pycodestyle Enabled**, 这样在VSC中编写Python代码时使用的linter就是pycodestyle啦
 
-![1571142193232](Python基础杂烩/1571142193232.png)
+![1571142193232](./Python基础杂烩/1571142193232.png)
