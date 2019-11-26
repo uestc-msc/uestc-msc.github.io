@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  
+  <meta name="description" content="2019Python学习小组持续更新博客二, 这篇文章列出了一些我认为Python学习者应当知道的一些基础内容">
+<meta name="keywords" content="LeoJhonSong">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Python基础杂烩">
+<meta property="og:url" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/index.html">
+<meta property="og:site_name" content="UESTC-MSC">
+<meta property="og:description" content="2019Python学习小组持续更新博客二, 这篇文章列出了一些我认为Python学习者应当知道的一些基础内容">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/Python基础杂烩/1565579206457.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/Python基础杂烩/1571027624789.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/Python基础杂烩/1571022411897.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/Python基础杂烩/1571022628668.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/Python基础杂烩/1571033275137.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/Python基础杂烩/encode_decode.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/Python基础杂烩/Unicode_Decoding_and_Encoding.png">
+<meta property="og:image" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/Python基础杂烩/1571142193232.png">
+<meta property="og:updated_time" content="2019-11-10T10:34:17.944Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Python基础杂烩">
+<meta name="twitter:description" content="2019Python学习小组持续更新博客二, 这篇文章列出了一些我认为Python学习者应当知道的一些基础内容">
+<meta name="twitter:image" content="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/Python基础杂烩/1565579206457.png">
+  <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
+  <link rel="canonical" href="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="mask-icon" href="/images/uestc-msc-logo.jpg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="OKSlvGttut8Kj8llKOQBCC4aORnHzjsELhAofGpH8Lg">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src = "https://at.alicdn.com/t/font_1378191_6tokm7h6w1c.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <title>Python基础杂烩 | UESTC-MSC</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">UESTC-MSC</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">欢迎来到电子科大微软学生俱乐部</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>作者</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-friendlinks">
+      
+    
+
+    <a href="/friendlinks/" rel="section"><i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>友链</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2019/10/15/Python基础杂烩/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="UESTC-MSC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="UESTC-MSC">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">Python基础杂烩
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
+              </span>
+              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <a href="/tags/LeoJhonSong" itemprop="url" rel="index">
+                  <span itemprop="name">LeoJhonSong</span>
+                </a>
+              </span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2019-10-15 21:53:56" itemprop="dateCreated datePublished" datetime="2019-10-15T21:53:56+08:00">2019-10-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-11-10 18:34:17" itemprop="dateModified" datetime="2019-11-10T18:34:17+08:00">2019-11-10</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/" itemprop="url" rel="index"><span itemprop="name">Python</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Python/Python基础/" itemprop="url" rel="index"><span itemprop="name">Python基础</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>3.6k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>3 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>2019Python学习小组持续更新博客二, 这篇文章列出了一些我认为Python学习者应当知道的一些基础内容</p>
+<a id="more"></a>
+<h2 id="Python解释器"><a href="#Python解释器" class="headerlink" title="Python解释器"></a>Python解释器</h2><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th>版本</th>
+<th>实现方式</th>
+<th>特点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CPython</td>
+<td>C语言写的Python</td>
+<td>速度快</td>
+</tr>
+<tr>
+<td>JPython</td>
+<td>由Java编写的Python</td>
+<td>可以直接调用Java的各种函数库</td>
+</tr>
+<tr>
+<td>PyPy</td>
+<td>由rPython编写的Python</td>
+<td>更灵活, 易于使用和试验</td>
+</tr>
+<tr>
+<td>IronPython</td>
+<td>以. NET和Mono实现的Python</td>
+<td>面向NET和ECMA CLI的Python实现</td>
+</tr>
+<tr>
+<td>ZhPy</td>
+<td>只是把Python翻译了一遍而已</td>
+<td>又称中蟒, 可以完全用中文编程. 但中蟒目前已经停止更新了.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>我们通常所说的Python是<strong>CPython</strong>, 👇Python官方页面提供的是CPython</p>
+<p><img src="Python基础杂烩/1565579206457.png" alt="1565579206457"></p>
+<h2 id="版本"><a href="#版本" class="headerlink" title="版本"></a>版本</h2><p>Python这种语言有<strong>Python2</strong>和<strong>Python3</strong>两个版本, 两者语法有少许不同, 比如Python2和Python3中<code>print()</code>的使用有区别, Python2和Python3中<code>input()</code>接受的数据类型有区别等.</p>
+<p>最新的Python2对大部分Python2, 3不同的语法做了兼容, 而在Python3对Python2的语法兼容性很差, 但是提供了一个叫<a href="https://docs.python.org/zh-cn/3.7/library/2to3.html" target="_blank" rel="noopener">2to3</a>的脚本帮助我们将Python2的程序转换为Python3的程序.</p>
+<h2 id="哲学"><a href="#哲学" class="headerlink" title="哲学"></a>哲学</h2><p><strong>万物皆对象</strong></p>
+<p>python在设计初始是一种<strong>面向对象</strong>语言.</p>
+<p>💡 面向对象是一种<strong>编程范式</strong></p>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><p>Python是一门<strong>动态类型</strong>语言</p>
+<h3 id="类型注解"><a href="#类型注解" class="headerlink" title="类型注解"></a>类型注解</h3><p>在Python3中有了一个新特性: <strong>类型注解</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x:int, y:int)</span> -&gt; int:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></tbody></table></figure>
+<p>正如其名, 注解只是标注一下, 有了类型注解的程序和没有类型注解的程序运行起来没有区别, 但它能帮助程序员更好的发现问题, 也能让IDE提供更准确的代码补全和语法检查.</p>
+<h3 id="类型检查"><a href="#类型检查" class="headerlink" title="类型检查"></a>类型检查</h3><p>有时候为了保证程序的严谨性我们会检查一下变量是不是我们设想它应该是的类型, 这个时候我们用 <code>isinstance()</code></p>
+<p>之所以不使用 <code>type()</code> 是因为 <code>type()</code> 不会认为子类是一种父类类型, 不考虑继承关系. 举例说明:</p>
+<p><img src="Python基础杂烩/1571027624789.png" alt="1571027624789"></p>
+<h3 id="不可变对象"><a href="#不可变对象" class="headerlink" title="不可变对象"></a>不可变对象</h3><p>❗️ <strong>我们可以给不可变对象重新赋值, 但其内存地址会改变</strong>. 以下是体现给可变对象/不可变对象重新赋值时它们的内存地址变化的例子.</p>
+<p>💡 <code>id()</code>能获取一个变量的内存地址</p>
+<p><img src="Python基础杂烩/1571022411897.png" alt="1571022411897"></p>
+<h4 id="Number-数字"><a href="#Number-数字" class="headerlink" title="Number (数字)"></a>Number (数字)</h4><ul>
+<li>int (整数)</li>
+<li>long (长整数)</li>
+<li>float (浮点数, 即小数)</li>
+<li>bool (布尔值, 即 <code>True</code> 和 <code>False</code> )</li>
+</ul>
+<p>Python中的Number我认为是比较特殊的, 因为它<strong>在内存中占用的空间大小是变动</strong>的.(在CPython中是如此, 但不知道为什么在IronPython下不是)</p>
+<p>💡 用<code>sys.getsizeof()</code>可以知道一个变量的占用的内存大小</p>
+<p><img src="Python基础杂烩/1571022628668.png" alt="1571022628668"></p>
+<h4 id="String-字符串"><a href="#String-字符串" class="headerlink" title="String (字符串)"></a>String (字符串)</h4><h4 id="Tuple-元组"><a href="#Tuple-元组" class="headerlink" title="Tuple (元组)"></a>Tuple (元组)</h4><h3 id="可变对象"><a href="#可变对象" class="headerlink" title="可变对象"></a>可变对象</h3><p>可变对象可能带来的危险举例:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myfunc</span><span class="params">(l = [])</span>:</span></span><br><span class="line">    l.append(<span class="string">'add'</span>)</span><br><span class="line">    print(l)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">myfunc([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">myfunc([<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>])</span><br><span class="line">myfunc()</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="List-列表"><a href="#List-列表" class="headerlink" title="List (列表)"></a>List (列表)</h4><p>💡 <strong>string</strong>和<strong>tuple</strong>都是特殊的<strong>list</strong></p>
+<h4 id="Set-集合"><a href="#Set-集合" class="headerlink" title="Set (集合)"></a>Set (集合)</h4><h4 id="Dictionary-字典"><a href="#Dictionary-字典" class="headerlink" title="Dictionary (字典)"></a>Dictionary (字典)</h4><p>👇 在网上偷的<strong>string, tuple, list, dictionary的突出区别比较</strong>.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>名字</th>
+<th>是否可变</th>
+<th>是否可迭代</th>
+<th>是否可切片</th>
+<th>访问方式</th>
+<th>写法举例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>string</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>下标索引</td>
+<td>“abcd”</td>
+</tr>
+<tr>
+<td>tuple</td>
+<td>no</td>
+<td>yes</td>
+<td>yes</td>
+<td>下标索引</td>
+<td>(‘a’,‘b’,‘c’,‘d’,‘abcd’)</td>
+</tr>
+<tr>
+<td>list</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>下标索引</td>
+<td>[‘a’,‘b’,‘c’,‘d’,‘abcd’]</td>
+</tr>
+<tr>
+<td>dictionary</td>
+<td>yes</td>
+<td>yes</td>
+<td>no</td>
+<td>关键字索引</td>
+<td>{‘1’:‘a’,‘2’:‘b’}</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="Python中有关对象需要注意的问题"><a href="#Python中有关对象需要注意的问题" class="headerlink" title="Python中有关对象需要注意的问题"></a>Python中有关对象需要注意的问题</h3><p>python中向函数传递参数只是<strong>引用传递</strong>: 如果参数为可变对象, 在函数中变化会影响引用的这个变量, 而不可变对象不会. 在向类传递参数时也是如此.</p>
+<p><img src="Python基础杂烩/1571033275137.png" alt="1571033275137"></p>
+<h2 id="基础语法"><a href="#基础语法" class="headerlink" title="基础语法"></a>基础语法</h2><h3 id="Python内置帮助文档"><a href="#Python内置帮助文档" class="headerlink" title="Python内置帮助文档"></a>Python内置帮助文档</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">help()</span><br></pre></td></tr></tbody></table></figure>
+<p>调用<code>help()</code>后就会进入Python内置帮助文档, 然后输入想查的类名/函数名/属性名就可以看到对应的帮助文档.</p>
+<p>:bulb: 要注意输入的只有名字, 不带括号什么的, 以及要看一个包里的函数文档时需要先引用该包. 比如如果想查看<strong>time.time()</strong>的帮助文档, 首先<code>import time</code>, 然后输入<code>help()</code>进入帮助文档, 然后输入<code>time.time</code>, 就会看到<strong>time.time()</strong>函数的帮助文档. 按一次<kbd>q</kbd>退出<strong>time.time()</strong>的文档, 再按一次<kbd>q</kbd>退出帮助文档返回交互式Python界面.</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>在Python中 <code>#</code> 开头的为注释</p>
+<h4 id="特殊注释"><a href="#特殊注释" class="headerlink" title="特殊注释"></a>特殊注释</h4><h5 id="shebang"><a href="#shebang" class="headerlink" title="shebang"></a>shebang</h5><p>shenbang (hashbang) 指的是以 <code>#!</code> 开头的语句. Linux操作系统的程序加载器会分析 Shebang 后的内容，将这些内容作为解释器指令，并调用该指令，并将载有 Shebang 的文件路径作为该解释器的参数. 因为在很多语言中以 <code>#</code> 开头的是注释, 所以不会影响程序.</p>
+<h5 id="编码格式"><a href="#编码格式" class="headerlink" title="编码格式"></a>编码格式</h5><p>有的python文件是这么开头的:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br></pre></td></tr></tbody></table></figure>
+<p>第一行是给<strong>Linux系统</strong>的程序加载器看的, 因此在Windows下不需要这句, 第二句是指定文件的编码格式为<strong>UTF-8</strong>, 避免文件中的<strong>非ASCII字符</strong>被识别为乱码.</p>
+<h5 id="docstring"><a href="#docstring" class="headerlink" title="docstring"></a>docstring</h5><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(int x, int y)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    这里是docstring, 是特殊的注释, 能让IDE, 编辑器在鼠标移动到有docstring的函数, 类上时显示这段docstring</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line">a = func(i)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="条件语句及循环"><a href="#条件语句及循环" class="headerlink" title="条件语句及循环"></a>条件语句及循环</h3><h4 id="if-elif-else"><a href="#if-elif-else" class="headerlink" title="if, elif, else"></a>if, elif, else</h4><p>下面是按a &lt; 10, 10 &lt; a &lt; 20, 20 &lt; a &lt; 30, a &gt; 30分类的举例.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> a &lt; <span class="number">10</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">elif</span> a &lt; <span class="number">20</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">elif</span> a &lt; <span class="number">30</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">pass</span></span><br></pre></td></tr></tbody></table></figure>
+<p>另外有一种one liner会很喜欢的用法:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="number">2</span> <span class="keyword">if</span> <span class="number">2</span> &gt; <span class="number">3</span> <span class="keyword">else</span> <span class="number">4</span></span><br></pre></td></tr></tbody></table></figure>
+<p>上面这句与下面这句等效.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="number">2</span> &gt; <span class="number">3</span>:</span><br><span class="line">    a = <span class="number">2</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    a = <span class="number">4</span></span><br></pre></td></tr></tbody></table></figure>
+<h4 id="生成器-·迭代器·range"><a href="#生成器-·迭代器·range" class="headerlink" title="生成器 ·迭代器·range"></a>生成器 ·迭代器·range</h4><p>语法类似于<a href="#切片">切片</a></p>
+<h3 id="推导式"><a href="#推导式" class="headerlink" title="推导式"></a>推导式</h3><p><strong>推导式comprehensions</strong>（又称解析式）, 是Python的一种独有特性.<strong>推导式是可以从一个数据序列构建另一个新的数据序列的结构体</strong>. 换句话说能从一组数据中求出满足条件的新数据, 比如a, b两个等长列表中都为偶数的项的乘积. 共有三种推导式, 在Python2和3 中都有支持:</p>
+<ul>
+<li>列表推导式</li>
+<li>字典推导式</li>
+<li>集合推导式</li>
+</ul>
+<p>列表推导式的语法:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">l = [output_expression <span class="keyword">for</span> out_exp <span class="keyword">in</span> input_list <span class="keyword">if</span> expression]</span><br></pre></td></tr></tbody></table></figure>
+<p>使用举例:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1</span></span><br><span class="line">a = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">30</span>) <span class="keyword">if</span> i % <span class="number">3</span> <span class="keyword">is</span> <span class="number">0</span>]</span><br><span class="line"><span class="comment"># 2</span></span><br><span class="line">names = [<span class="string">'Bob'</span>,<span class="string">'Tom'</span>,<span class="string">'alice'</span>,<span class="string">'Jerry'</span>,<span class="string">'Wendy'</span>,<span class="string">'Smith'</span>]</span><br><span class="line">LONG_NAMES = [name.upper() <span class="keyword">for</span> name <span class="keyword">in</span> names <span class="keyword">if</span> len(name)&gt;<span class="number">3</span>]</span><br><span class="line"><span class="comment"># 3</span></span><br><span class="line">a = [x*y <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">5</span>) <span class="keyword">if</span> x &gt; <span class="number">2</span> <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">4</span>) <span class="keyword">if</span> y &lt; <span class="number">3</span>]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h3><p>因为tuple, string其实都是特殊的列表, 所以列表, 字符串, 元组都可以进行切片.</p>
+<p>语法: l_sliced = a[begin : end : step]</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">l = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>]</span><br><span class="line">l_sliced = l[<span class="number">1</span>:<span class="number">5</span>:<span class="number">2</span>]</span><br></pre></td></tr></tbody></table></figure>
+<p>在没有<strong>numpy</strong>库的情况下<strong>多维切片</strong>是通过推导式实现的:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = [[<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>], [<span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>], [<span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]]</span><br><span class="line">b = [a[i][:<span class="number">-1</span>] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>, <span class="number">3</span>)]</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>💡 要注意函数名后的 <code>()</code> 也是一种运算符, 称为<strong>函数调用运算符</strong>. 如果调用函数的时候不加()只会创建一个该函数的对象而不会调用它.</p>
+<h4 id="定义函数"><a href="#定义函数" class="headerlink" title="定义函数"></a>定义函数</h4><p>python中以 <code>def</code> 关键字定义函数, 结构如下:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> 函数名<span class="params">(参数列表)</span>:</span></span><br><span class="line">    函数主体</span><br></pre></td></tr></tbody></table></figure>
+<p>python中的函数可以有返回值也可以没有返回值</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func1</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func2</span><span class="params">(l)</span>:</span></span><br><span class="line">    l.appeend(<span class="string">'add'</span>)</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">func3</span><span class="params">(x, y)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="用字典来实现case"><a href="#用字典来实现case" class="headerlink" title="用字典来实现case"></a>用字典来实现case</h3><p>示例:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print1</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'111'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print2</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'222'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printdefault</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">'default'</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">dic = {</span><br><span class="line">    <span class="string">'a'</span>: print1,</span><br><span class="line">    <span class="string">'b'</span>: print2,</span><br><span class="line">	<span class="string">'default'</span>: printdefault}</span><br><span class="line"></span><br><span class="line">i = input(<span class="string">'input: '</span>)</span><br><span class="line">main = dic[i <span class="keyword">if</span> (i != <span class="string">'a'</span> <span class="keyword">or</span> i != <span class="string">'b'</span>) <span class="keyword">else</span> <span class="string">'default'</span>]</span><br><span class="line">main()</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="编码格式-1"><a href="#编码格式-1" class="headerlink" title="编码格式"></a>编码格式</h3><p>字符串经过<strong>编码（encode）</strong> 就成为了一堆数据, 反过来, 数据经过<strong>解码（decode）</strong> 就变回我们认识的字符串.</p>
+<p><img src="Python基础杂烩/encode_decode.png" alt="img"></p>
+<p>指定文件编码格式为 <code>utf-8</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br></pre></td></tr></tbody></table></figure>
+<p><span class="github-emoji" style="color: transparent;background:no-repeat url(https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png?v8) center/contain" data-src="https://github.githubassets.com/images/icons/emoji/unicode/1f4a1.png?v8">💡</span> 如果不指定文件编码格式在有的Python2版本中无法识别中文, 即便是中文注释也会报错.</p>
+<p><img src="Python基础杂烩/Unicode_Decoding_and_Encoding.png" alt="Unicode Decoding and Encoding"></p>
+<p>Linux系统默认编码格式是<strong>UTF-8</strong>, 系统语言是简体中文时Windows10的编码格式是<strong>GB2312</strong> (也称GBK, 国标扩展, cp936)</p>
+<p>在python中 <code>str</code> 类型数据都以Unicode码点格式储存, 因此直接打印字符串会看到字符为’\u’开头</p>
+<h3 id="基本读写"><a href="#基本读写" class="headerlink" title="基本读写"></a>基本读写</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">f = open(<span class="string">"test.txt"</span>, <span class="string">"r+"</span>)</span><br><span class="line">f.read()</span><br><span class="line">f.write(<span class="string">"text"</span>)</span><br><span class="line">f.close()</span><br></pre></td></tr></tbody></table></figure>
+<p>或者</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> open(<span class="string">"test.txt"</span>, <span class="string">"r+"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.read()</span><br><span class="line">    f.write(<span class="string">"test"</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>💡 <strong>使用with语句打开文件是最推荐的方式</strong>, 原因见<a href="https://www.cnblogs.com/ymjyqsx/p/6554817.html" target="_blank" rel="noopener">这里</a></p>
+<p>下表是open时要指定的读写模式的比较.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>读写模式</th>
+<th>是否可读</th>
+<th>是否可写</th>
+<th>文件指针位置</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>r</td>
+<td>是</td>
+<td>否</td>
+<td>文件开头</td>
+<td>读取文件, 如果文件不存在则报错</td>
+</tr>
+<tr>
+<td>r+</td>
+<td>是</td>
+<td>是</td>
+<td>文件开头</td>
+<td>读取并写入文件, 如果文件不存在则报错</td>
+</tr>
+<tr>
+<td>w</td>
+<td>否</td>
+<td>是</td>
+<td>文件开头</td>
+<td>覆写原文件, 如果文件不存在则创建</td>
+</tr>
+<tr>
+<td>w+</td>
+<td>是</td>
+<td>是</td>
+<td>文件开头</td>
+<td>读取并覆盖写原内容, 如果文件不存在则创建</td>
+</tr>
+<tr>
+<td>a</td>
+<td>否</td>
+<td>是</td>
+<td>文件末尾</td>
+<td>追加文件内容, 如果文件不存在则报错</td>
+</tr>
+<tr>
+<td>a+</td>
+<td>是</td>
+<td>是</td>
+<td>文件末尾</td>
+<td>追加文件内容并且可读, 如果文件不存在则报错</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>另外还有<code>b</code>模式, 以二进制打开, 允许我们对二进制文件进行编辑, <code>b</code>可以与其他模式组合使用, 比如<br><code>rb</code></p>
+<p>🔗 <a href="https://www.cnblogs.com/nulige/p/6128948.html" target="_blank" rel="noopener">python基础-文件读写’r’ 和 ‘rb’区别</a></p>
+<h2 id="脚本和普通程序的区别"><a href="#脚本和普通程序的区别" class="headerlink" title="脚本和普通程序的区别"></a>脚本和普通程序的区别</h2><p>脚本这个词来源于戏剧, 能用于舞台演出的戏剧文本就称为<strong>脚本</strong>. 在编程中的脚本是解释执行的程序, 通常只用来做简单的处理, 做自动化处理</p>
+<h2 id="解释器的使用技巧"><a href="#解释器的使用技巧" class="headerlink" title="解释器的使用技巧"></a>解释器的使用技巧</h2><p>在解释器中交互式编程时要注意缩进不要错</p>
+<h3 id="清屏"><a href="#清屏" class="headerlink" title="清屏"></a>清屏</h3><p>python解释器本身没有清屏命令, 只能通过调用命令行的清屏命令来达到效果</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="comment"># Windows下</span></span><br><span class="line">os.system(<span class="string">'cls'</span>)</span><br><span class="line"><span class="comment"># Linux下</span></span><br><span class="line">os.system(<span class="string">'clear'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="代码风格"><a href="#代码风格" class="headerlink" title="代码风格"></a>代码风格</h2><p>我推荐遵从<a href="https://www.python.org/dev/peps/pep-0008/" target="_blank" rel="noopener">PEP8</a>. 当然一行一行看完这个规范不是一件令人愉快的事, 最简单的时刻遵守PEP8的方式是在代码工具里安一个<strong>代码风格检查器</strong> (linter).<br>检查你的代码是否符合PEP8的linter是<a href="http://pycodestyle.pycqa.org/en/latest/intro.html" target="_blank" rel="noopener">pycodestyle</a></p>
+<p>💡 在VSC中可以在设置中搜索<strong>python.linting.pycodestyle</strong>, 勾选<strong>Pycodestyle Enabled</strong>, 这样在VSC中编写Python代码时使用的linter就是pycodestyle啦</p>
+<p><img src="./Python基础杂烩/1571142193232.png" alt="1571142193232"></p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/LeoJhonSong/" rel="tag"><i class="fa fa-tag"></i> LeoJhonSong</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2019/10/12/学术沙龙预告Python入门/" rel="next" title="【学术沙龙预告】Python入门">
+                  <i class="fa fa-chevron-left"></i> 【学术沙龙预告】Python入门
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2019/11/04/计算机的数值表示和运算/" rel="prev" title="计算机的数值表示和运算">
+                  计算机的数值表示和运算 <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Python解释器"><span class="nav-number">1.</span> <span class="nav-text">Python解释器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本"><span class="nav-number">3.</span> <span class="nav-text">版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#哲学"><span class="nav-number">4.</span> <span class="nav-text">哲学</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">5.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型注解"><span class="nav-number">5.1.</span> <span class="nav-text">类型注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类型检查"><span class="nav-number">5.2.</span> <span class="nav-text">类型检查</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#不可变对象"><span class="nav-number">5.3.</span> <span class="nav-text">不可变对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Number-数字"><span class="nav-number">5.3.1.</span> <span class="nav-text">Number (数字)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#String-字符串"><span class="nav-number">5.3.2.</span> <span class="nav-text">String (字符串)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Tuple-元组"><span class="nav-number">5.3.3.</span> <span class="nav-text">Tuple (元组)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#可变对象"><span class="nav-number">5.4.</span> <span class="nav-text">可变对象</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#List-列表"><span class="nav-number">5.4.1.</span> <span class="nav-text">List (列表)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set-集合"><span class="nav-number">5.4.2.</span> <span class="nav-text">Set (集合)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dictionary-字典"><span class="nav-number">5.4.3.</span> <span class="nav-text">Dictionary (字典)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Python中有关对象需要注意的问题"><span class="nav-number">5.5.</span> <span class="nav-text">Python中有关对象需要注意的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基础语法"><span class="nav-number">6.</span> <span class="nav-text">基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Python内置帮助文档"><span class="nav-number">6.1.</span> <span class="nav-text">Python内置帮助文档</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注释"><span class="nav-number">6.2.</span> <span class="nav-text">注释</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特殊注释"><span class="nav-number">6.2.1.</span> <span class="nav-text">特殊注释</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#shebang"><span class="nav-number">6.2.1.1.</span> <span class="nav-text">shebang</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#编码格式"><span class="nav-number">6.2.1.2.</span> <span class="nav-text">编码格式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#docstring"><span class="nav-number">6.2.1.3.</span> <span class="nav-text">docstring</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#条件语句及循环"><span class="nav-number">6.3.</span> <span class="nav-text">条件语句及循环</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#if-elif-else"><span class="nav-number">6.3.1.</span> <span class="nav-text">if, elif, else</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成器-·迭代器·range"><span class="nav-number">6.3.2.</span> <span class="nav-text">生成器 ·迭代器·range</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推导式"><span class="nav-number">6.4.</span> <span class="nav-text">推导式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#切片"><span class="nav-number">6.5.</span> <span class="nav-text">切片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#函数"><span class="nav-number">6.6.</span> <span class="nav-text">函数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#定义函数"><span class="nav-number">6.6.1.</span> <span class="nav-text">定义函数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用字典来实现case"><span class="nav-number">6.7.</span> <span class="nav-text">用字典来实现case</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码格式-1"><span class="nav-number">6.8.</span> <span class="nav-text">编码格式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本读写"><span class="nav-number">6.9.</span> <span class="nav-text">基本读写</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#脚本和普通程序的区别"><span class="nav-number">7.</span> <span class="nav-text">脚本和普通程序的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解释器的使用技巧"><span class="nav-number">8.</span> <span class="nav-text">解释器的使用技巧</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#清屏"><span class="nav-number">8.1.</span> <span class="nav-text">清屏</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码风格"><span class="nav-number">9.</span> <span class="nav-text">代码风格</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UESTC-MSC</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">作者</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://github.com/uestc-msc" title="GitHub &rarr; https://github.com/uestc-msc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icongithub"></use></svg>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="mailto:uestcmsc@demo4c.onmicrosoft.com" title="邮箱 &rarr; mailto:uestcmsc@demo4c.onmicrosoft.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconOUTLOOK"></use></svg>邮箱</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://weibo.com/uestcmstc" title="微博 &rarr; https://weibo.com/uestcmstc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweibo"></use></svg>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://space.bilibili.com/456910030" title="bilibili &rarr; https://space.bilibili.com/456910030" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconbilibili"></use></svg>bilibili</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" title="微信 &rarr; https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwechat"></use></svg>微信</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2003 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <!-- <i class="fa fa-iconMicrosoft"></i> -->
+    <svg class="icon" aria-hidden="true"><use xlink:href="#iconMicrosoft"></use></svg>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UESTC-MSC</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">66k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:01</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+  <script src="/js/hexo_resize_image.js"></script>
+</body>
+</html>

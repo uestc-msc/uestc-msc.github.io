@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  
+  <meta name="description" content="前言由于现在是假期，大家的时间比较好安排。所以大家比较可能会有时间系统地看书或者教程。教程从零到编写出第一个程序，方便大家自行安排学习。本次的作业是引导性的，需要学习了知识才能完成。希望大家在假期劳逸结合，学有所得，玩得开心！">
+<meta name="keywords" content="张逸霄,谷亚奇">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【谷哥的新人技术培养计划】从最简单的开始">
+<meta property="og:url" content="https://uestc-msc.github.io/2017/07/28/【谷哥的新人技术培养计划】从最简单的开始/index.html">
+<meta property="og:site_name" content="UESTC-MSC">
+<meta property="og:description" content="前言由于现在是假期，大家的时间比较好安排。所以大家比较可能会有时间系统地看书或者教程。教程从零到编写出第一个程序，方便大家自行安排学习。本次的作业是引导性的，需要学习了知识才能完成。希望大家在假期劳逸结合，学有所得，玩得开心！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-08-31T22:28:22.752Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【谷哥的新人技术培养计划】从最简单的开始">
+<meta name="twitter:description" content="前言由于现在是假期，大家的时间比较好安排。所以大家比较可能会有时间系统地看书或者教程。教程从零到编写出第一个程序，方便大家自行安排学习。本次的作业是引导性的，需要学习了知识才能完成。希望大家在假期劳逸结合，学有所得，玩得开心！">
+  <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
+  <link rel="canonical" href="https://uestc-msc.github.io/2017/07/28/【谷哥的新人技术培养计划】从最简单的开始/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="mask-icon" href="/images/uestc-msc-logo.jpg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="OKSlvGttut8Kj8llKOQBCC4aORnHzjsELhAofGpH8Lg">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src = "https://at.alicdn.com/t/font_1378191_6tokm7h6w1c.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <title>【谷哥的新人技术培养计划】从最简单的开始 | UESTC-MSC</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">UESTC-MSC</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">欢迎来到电子科大微软学生俱乐部</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>作者</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-friendlinks">
+      
+    
+
+    <a href="/friendlinks/" rel="section"><i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>友链</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2017/07/28/【谷哥的新人技术培养计划】从最简单的开始/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="UESTC-MSC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="UESTC-MSC">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">【谷哥的新人技术培养计划】从最简单的开始
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
+              </span>
+              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <a href="/tags/谷亚奇,张逸霄" itemprop="url" rel="index">
+                  <span itemprop="name">谷亚奇,张逸霄</span>
+                </a>
+              </span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2017-07-28 00:00:00" itemprop="dateCreated datePublished" datetime="2017-07-28T00:00:00+08:00">2017-07-28</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2019-09-01 06:28:22" itemprop="dateModified" datetime="2019-09-01T06:28:22+08:00">2019-09-01</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>4.1k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>4 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h4 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h4><p>由于现在是假期，大家的时间比较好安排。所以大家比较可能会有时间<strong>系统地看书</strong>或者教程。教程从零到编写出第一个程序，方便大家自行安排学习。本次的作业是引导性的，需要学习了知识才能完成。希望大家在假期劳逸结合，学有所得，玩得开心！</p>
+<a id="more"></a>
+<h4 id="C语言的前世今生"><a href="#C语言的前世今生" class="headerlink" title="C语言的前世今生"></a>C语言的前世今生</h4><blockquote>
+<p>C是一种通用的编程语言，广泛用于系统软件与应用软件的开发。于1969年至1973年间，为了移植与开发UNIX操作系统，由丹尼斯·里奇与肯·汤普逊，以B语言为基础，在贝尔实验室设计、开发出来。<br>C语言具有高效、灵活、功能丰富、表达力强和较高的可移植性等特点，在程序员中备受青睐，成为最近25年使用最为广泛的编程语言。目前，C语言编译器普遍存在于各种不同的操作系统中，例如Microsoft Windows, Mac OS X, Linux, Unix等。C语言的设计<strong>影响了众多后来的编程语言</strong>，例如C++、Objective-C、Java、C#等。<br>二十世纪八十年代，为了避免各开发厂商用的C语言语法产生差异，由美国国家标准局为C语言订定了一套<strong>完整的国际标准语法</strong>，称为ANSI C，作为C语言的标准。二十世纪八十年代至今的有关程序开发工具，一般都支持匹配ANSI C的语法。<br>–摘自 维基百科</p>
+</blockquote>
+<h4 id="术语解释"><a href="#术语解释" class="headerlink" title="术语解释"></a>术语解释</h4><p><strong>编程语言</strong>：编写计算机程序的语言<br><strong>系统软件、应用软件</strong>：粗略的理解，系统软件指较为底层的软件，应用软件是面向使用者的软件<br><strong>操作系统</strong>：粗略的理解，操作系统是像Windows、Mac OS这样不同的平台。实际上操作系统也是一种程序，它负责管理各种计算机硬件与软件资源，是计算机系统的基石。<br><strong>B语言</strong>：一种被遗弃的编程语言，C语言的前身<br><strong>软件的可移植性</strong>：软件的移植指一个软件从一个平台迁移到另一个平台，比如一个手游从安卓系统迁移到苹果的IOS系统<br><strong>编译器</strong>：编译器是把程序代码转化成计算机程序的组件中的一个</p>
+<h4 id="为什么学习C语言？"><a href="#为什么学习C语言？" class="headerlink" title="为什么学习C语言？"></a>为什么学习C语言？</h4><p><a href="http://c.biancheng.net/cpp/html/2709.html" target="_blank" rel="noopener">http://c.biancheng.net/cpp/html/2709.html</a></p>
+<p>张逸霄注：我认为，C语言在现在固然有它的不足，在设计上也有些繁琐。在实际的工业界，C语言不是一门特别常用的语言。与之相对的，Python作为一门新生语言，拥有自己的灵活特性，的确很引人注目，而且的确很好学。</p>
+<p>但是重点在于，语言越上层，你就看不到越底层的东西。如果你不学习C，你的编程思想会<strong>受到一些限制</strong>，你就可能被囚禁在高等语言的笼子里了。</p>
+<p>第二个原因是，现在又很多主流语言，比如Java，C#，这些语言都是由C语言延伸过来的，C语言可以说是这些主流语言的<strong>简化版</strong>。当你将C语言学通了，再来看这些语言，你将会觉得它们好学得多。</p>
+<p>另外，C语言的<strong>学习周期不长</strong>，一般来说一两个月你就能进入到中等水平，此时你就可以考虑学习C++了。</p>
+<h4 id="关于在线编程、WebIDE"><a href="#关于在线编程、WebIDE" class="headerlink" title="关于在线编程、WebIDE"></a>关于在线编程、WebIDE</h4><p>在线编程是为了方便学习与展示而发展出来的一种形式，由于为了安全起见，在线编程会有诸多限制，有的在线编程网站不支持输入，比如runoob的在线编辑器。</p>
+<h4 id="关于“Hello-World”"><a href="#关于“Hello-World”" class="headerlink" title="关于“Hello World”"></a>关于“Hello World”</h4><p>当新手开始学习、程序员使用一门新的编程语言时，编写的第一个程序通常是输出一行【hello, world】。一般来说，这是每一种计算机编程语言中最基本、最简单的程序，通常也会作为一般的编程语言教程的第一个程序。这个传统产生于贝尔实验室的技术文档中，后来广为流传，沿用至今。</p>
+<p>张逸霄注：当然，某本著名的C语言书里使用的就是：“to C or not to C,  that is a question.”</p>
+<h4 id="Hello-World代码分析"><a href="#Hello-World代码分析" class="headerlink" title="Hello World代码分析"></a>Hello World代码分析</h4><figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">前置说明：程序代码中，<span class="comment">/**/</span>里面的内容是注释，是用来解释程序功能的文字解释</span><br><span class="line">，不会改变程序的行为。</span><br><span class="line"><span class="comment">//在一行中，双斜杠后面的代码也是注释</span></span><br><span class="line">-----</span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">/* 我的第一个 C 程序 */</span></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello, World! \n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="顺序说明"><a href="#顺序说明" class="headerlink" title="顺序说明"></a>顺序说明</h4><p>1.#include用来使用一个库中的功能<br>stdio是C语言标准输入输出库下文的printf就是包含于这个库的。这一行代码表示程序使用C语言标准输入输出库中的内容也是大多数C语言程序都有的一行</p>
+<p>2.空行没有任何作用，目的是使程序代码结构更清晰下面的缩进（每行代码前面相同数量的空格）作用也是如此</p>
+<p>3.main()，主函数。是C语言程序开始的地方，跟随的一对花括号{}中的内容才是程序的主体。</p>
+<p>4./**/里面是解释性文本</p>
+<p>5.printf是C语言中输出内容最常用的函数，括号中的内容是要输出的东西。结尾的分号代表一条C语言语句的结束</p>
+<p>6.return是返回的意思，通常代表一个过程的结束。return 0;是使程序结束的标准做法。</p>
+<h4 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h4><p>1.首先要说明的是，这个程序的主体只有printf(“Hello, World! \n”);一行代码，其余的部分是大多数C语言程序使用的固定格式。对于一个C语言程序，引入一个库的内容，写出程序入口是必要的。<br>#号开头的一行代码（#include <stdio.h>）叫做预编译指令，预编译指令不是编程的主体，它控制编译器的行为。比如说这行指令告诉编译器，程序使用stdio.h库中的内容，如果不加这一行，那么printf函数是无法使用的，编译程序时会出现错误以上是include指令的使用，关于更多预编译指令的知识将在以后介绍</stdio.h></p>
+<p>2.主函数main()前面的int在C语言中表示小整数（当然还有大整数，比如long和long long）函数前面的类型名称，表示的是函数返回的值，与结尾的return 0;相对应用int标记主函数的返回值类型，return 0;来结束程序是C语言程序的规范，事实上还存在其他写法，这里不做介绍。</p>
+<p>张逸霄注：关于C语言的更多细节，可以参见两本著名的教材：《C Primer Plus（第六版 中文版）》以及《C语言程序设计现代方法》。前者是世界著名教材，后者是信软学院使用的教材，非常好用。</p>
+<p>张逸霄注：另外，可以参见知乎链接：<a href="https://www.zhihu.com/question/37304655/answer/71527606" target="_blank" rel="noopener">为什么学习C语言？</a></p>
+<h4 id="在电脑中安装C语言集成开发环境-IDE"><a href="#在电脑中安装C语言集成开发环境-IDE" class="headerlink" title="在电脑中安装C语言集成开发环境(IDE)"></a>在电脑中安装C语言集成开发环境(IDE)</h4><p>Dev C++安装教程：<a href="https://jingyan.baidu.com/article/948f5924014f72d80ff5f908.html" target="_blank" rel="noopener">https://jingyan.baidu.com/article/948f5924014f72d80ff5f908.html</a><br>顺便提一下，这个教程与实际操作的有些出入纯属正常，因为可能你使用的版本不一样。推荐使用英文的程序环境，中文也可以。后面的说明以英文为例</p>
+<p><strong>张逸霄注：当然你也可以使用Visual Studio 2017，相关配置方法参见知乎链接：怎么用Visual Studio写C语言？</strong></p>
+<h4 id="编写属于你自己的第一个程序"><a href="#编写属于你自己的第一个程序" class="headerlink" title="编写属于你自己的第一个程序"></a>编写属于你自己的第一个程序</h4><p>打开Dev c++，从顶部的菜单栏中的File&gt;New&gt;Project…新建一个工程工程类型Basic&gt;Empty Project&gt;C Project<br>项目名改为helloworld，点击下一步。这里的项目名可以理解为程序的名字选择一个空的文件夹来容纳项目，免得把电脑弄得乱七八糟</p>
+<p>项目建立成功后会自动新建一个文件，亲手把一下内容输入：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"hello, world\n"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>提示：缩进可以用键盘最左边的Tab键输入，Dev c++也有自动缩进、自动补全的功能（亲手写了上面的程序肯定能理解是什么意思）</p>
+<p>写完按Ctrl+S保存文件，在相同的目录下保存刚刚写的代码，名字可以随便起。命名为main.c是标准的做法。按F9编译并且执行程序。（F9是上部工具栏中某个图标的快捷键，你可以去找一找）</p>
+<p>等待一小会，弹出一个黑色窗体，里面有白色文字：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">hello, world</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Process exited normally.</span><br><span class="line">Press any key to <span class="keyword">continue</span> . . .</span><br></pre></td></tr></tbody></table></figure>
+<p>你的第一个程序至此运行完毕。</p>
+<h4 id="相关解释"><a href="#相关解释" class="headerlink" title="相关解释"></a>相关解释</h4><p>1.Dev c++是C语言和C++的IDE（集成开发环境）<br>2.Dev c++最顶部的文字菜单叫菜单栏（Menu Bar），菜单中有Dev c++的功能与设置有图标的一条叫做工具栏（Tool Bar），工具栏上面是程序最常用的功能其他部分请自行摸索。</p>
+<p>如果要在关闭Dev c++后，再次打开之前的项目：菜单栏中File&gt;Open…找到之前保存项目的文件夹，打开名字为【项目名称.dev】的文件即可(这次是helloworld.dev)<br>—</p>
+<p>注：上面的教程只是介绍了C语言，带你编写了第一个C语言程序。作业的难度不是很大，请查阅相关资料后完成。</p>
+<h4 id="作业"><a href="#作业" class="headerlink" title="作业"></a>作业</h4><p>1.程序示例：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> a,b;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Input two number,divided with a space:"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;a,&amp;b);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"The sum of them is:%d\n"</span>,a+b);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>这个程序展示了printf，scanf这两个函数的通常用法。请在runoob、C语言中文网、《C Primer Plus》或者在百度上上查阅变量，语句，操作符，转义字符，printf，scanf的知识来理解上面的程序。上面程序的功能是输入两个数字，输出它们的和。并且在运行的时候对用户要进行什么操作给予了提示，对输出做了说明，这是个好习惯。<br>1)编写一个程序，输入三个数字，输出他们的积。例如：输入了2.5 3 4，输出30<br>注意上面的数字是小数，不能用int储存</p>
+<p>2)编写一个程序，输入三个数字，倒序输出他们。例如：输入了2 3 4，输出4 3 2</p>
+<p>—（下面的两个并不是很简单哦）<br>3)编写一个程序，输入一个英文的名字，输出打招呼。例如：输入Henry，输出Hello, Henry.</p>
+<p>4)编写一个程序，输入一个一元二次方程的三个参数，输出两个根（假设有实根）。</p>
+<p>张逸霄注：使用Visual Sudio写程序的时候，会有一个安全警告提示你：scanf()并不安全，你可以自行搜索解决办法，简而言之就是调整Visual Studio的安全等级。</p>
+<p>2.程序实例：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Give me some money for my lunch:"</span>);</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a);</span><br><span class="line">    <span class="keyword">if</span>(a&lt;=<span class="number">50</span>)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"You are too mean!"</span>);</span><br><span class="line">    }<span class="keyword">else</span> <span class="keyword">if</span>(a&lt;=<span class="number">100</span>){</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"Thank you!"</span>);</span><br><span class="line">    }<span class="keyword">else</span>{</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I like you so much!"</span>);</span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>上面的程序是展示了分支型控制流的基本用法请在runoob、C语言中文网、《c primer plus》或者在百度上上查阅关于if语句的知识来理解上面的程序。并且了解while,do while,for,break,continue等关键字的用法。</p>
+<p>1)写一个能一直计算两个数的和的程序，（算完一次提示是否继续）</p>
+<p>2)写一个猜数游戏，玩家输入数字，系统提示是大了还是小了，猜对了结束，数字可以是固定的</p>
+<p>3)写一个完善的解二元一次方程的程序（判断是否有根，有实根输出实根，没有输出虚根）</p>
+<p>结尾</p>
+<p>以上的作业涉及了C语言入门的各种知识，请同学们认真对待，不懂就查资料，靠自己的力量完成，注意培养自己的自学能力，不要轻易的问别人。但是有什么疑惑不解的难题时，不要不好意思，一定要找其他的同学或者学长问问。最后，如果我的教程有问题可以私发我，或者在大群指出，都可以的。</p>
+<p>鉴于是假期，作业是不收的，想让我看可以私发我QQ或者QQ邮箱。</p>
+<p>正式的教程在开学后发布，在此之间这篇教程可能会有所修改（更正文字错误，添加新内容）。我相信，半个月的时间，即使对于没有任何基础的同学来讲，看懂这些也是足够了。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/张逸霄/" rel="tag"><i class="fa fa-tag"></i> 张逸霄</a>
+            
+              <a href="/tags/谷亚奇/" rel="tag"><i class="fa fa-tag"></i> 谷亚奇</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2017/06/03/新的主席团成立！！/" rel="next" title="新的主席团成立！！">
+                  <i class="fa fa-chevron-left"></i> 新的主席团成立！！
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2017/09/21/【MSC-2017企划】俱乐部会做什么活动呢？/" rel="prev" title="【MSC-2017企划】俱乐部会做什么活动呢？">
+                  【MSC-2017企划】俱乐部会做什么活动呢？ <i class="fa fa-chevron-right"></i>
+                </a>
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C语言的前世今生"><span class="nav-number">2.</span> <span class="nav-text">C语言的前世今生</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#术语解释"><span class="nav-number">3.</span> <span class="nav-text">术语解释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#为什么学习C语言？"><span class="nav-number">4.</span> <span class="nav-text">为什么学习C语言？</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于在线编程、WebIDE"><span class="nav-number">5.</span> <span class="nav-text">关于在线编程、WebIDE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关于“Hello-World”"><span class="nav-number">6.</span> <span class="nav-text">关于“Hello World”</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Hello-World代码分析"><span class="nav-number">7.</span> <span class="nav-text">Hello World代码分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#顺序说明"><span class="nav-number">8.</span> <span class="nav-text">顺序说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#解析"><span class="nav-number">9.</span> <span class="nav-text">解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#在电脑中安装C语言集成开发环境-IDE"><span class="nav-number">10.</span> <span class="nav-text">在电脑中安装C语言集成开发环境(IDE)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#编写属于你自己的第一个程序"><span class="nav-number">11.</span> <span class="nav-text">编写属于你自己的第一个程序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关解释"><span class="nav-number">12.</span> <span class="nav-text">相关解释</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作业"><span class="nav-number">13.</span> <span class="nav-text">作业</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UESTC-MSC</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">44</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">作者</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://github.com/uestc-msc" title="GitHub &rarr; https://github.com/uestc-msc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icongithub"></use></svg>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="mailto:uestcmsc@demo4c.onmicrosoft.com" title="邮箱 &rarr; mailto:uestcmsc@demo4c.onmicrosoft.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconOUTLOOK"></use></svg>邮箱</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://weibo.com/uestcmstc" title="微博 &rarr; https://weibo.com/uestcmstc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweibo"></use></svg>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://space.bilibili.com/456910030" title="bilibili &rarr; https://space.bilibili.com/456910030" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconbilibili"></use></svg>bilibili</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" title="微信 &rarr; https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwechat"></use></svg>微信</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2003 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <!-- <i class="fa fa-iconMicrosoft"></i> -->
+    <svg class="icon" aria-hidden="true"><use xlink:href="#iconMicrosoft"></use></svg>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UESTC-MSC</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">66k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:01</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+  <script src="/js/hexo_resize_image.js"></script>
+</body>
+</html>
