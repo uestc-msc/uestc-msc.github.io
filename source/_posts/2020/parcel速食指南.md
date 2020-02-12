@@ -1,7 +1,7 @@
 ---
 title: parcel速食指南
 date: 2020-02-12 10:16:00
-author: 
+author: 万事屋
 categories:
   - [web前端, javascript]
 tags:
