@@ -296,7 +296,7 @@
                 
               
 
-              <time title="创建时间：2020-02-12 10:16:00 / 修改时间：10:27:15" itemprop="dateCreated datePublished" datetime="2020-02-12T10:16:00+08:00">2020-02-12</time>
+              <time title="创建时间：2020-02-12 10:16:00 / 修改时间：11:57:02" itemprop="dateCreated datePublished" datetime="2020-02-12T10:16:00+08:00">2020-02-12</time>
             </span>
           
             
@@ -333,7 +333,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>201</span>
+              <span>1.9k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -343,7 +343,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -356,9 +356,49 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="✨前言"><a href="#✨前言" class="headerlink" title="✨前言"></a>✨前言</h2><p>web前端发展速度以迅猛著称。js在出生以来，一直在经历一次又一次的变化。自从服务器端js(nodejs)出现到现在，前端技术群阀割据。当前已经形成了以webpack为核心，babel，等技术独霸一方的局面。</p>
+          <h2 id="✨-前言"><a href="#✨-前言" class="headerlink" title="✨ 前言"></a>✨ 前言</h2><p>web前端发展速度以迅猛著称。js在出生以来，一直在经历一次又一次的变化。自从服务器端js(nodejs)出现到现在，前端技术群阀割据。当前已经形成了以webpack为核心，babel，等技术独霸一方的局面。</p>
 <p>无论是想用什么框架，似乎搭建环境成为了最大的难题。web前端工程师，不知什么时候成为了配置文件工程师。</p>
 <p>本文将带领大家认识一个新兴的打包工具parcel，为前端0基础从同学打造一篇速食指南。</p>
+<h2 id="🍳-parcel简介"><a href="#🍳-parcel简介" class="headerlink" title="🍳 parcel简介"></a>🍳 parcel简介</h2><p>parcel是一个零配置打包工具。</p>
+<p>对前端不了解的小伙伴们可能不知道，前端开发目前已经发展到了相当复杂的地步。学会html，css，js只是开始。项目的源码结构一定要便于人理解，但是项目层级的递增，文件数量增加都会导致网页性能的下降。加上源代码中有大量的注释，空行等无效部分，web前端项目从编写完到优化需要经历多个工序。诸如：代码压缩，资源合并，目录结构扁平化等等。当然，这些工序都有成熟的工具和方法来进行，并不需要开发人员烦恼具体的处理方法。打包工具正式因此产生的。不夸张的说，js现在已经完全像一个编译语言一样了。项目的源代码，与编译后的结果完全是两个样子。</p>
+<p>打包工具的配置一直是个难题。webpack的配置，会随着项目使用开发技术的增加而增加。webpack配置文件，可以说是对快速原型开发最大的阻碍。所以，当前热门的web前端框架。如vue,react,angular都有自己的脚手架来方便的快速产生一个demo项目。而随着使用技术的增加，web前端开发者需要主动编辑webpack配置文件。这个时候仅仅是噩梦的开始。随之而来的，babel配置，ts配置将把程序员拉向深渊。</p>
+<p>零配置，顾名思义，不需要写配置文件。这正是parcel存在的理由和意义。简而言之，parcel最大的优点：</p>
+<ul>
+<li>极速的原型开发(再也不需要管配置文件了)</li>
+<li>降低前端入门难度</li>
+</ul>
+<p>这些，也正是我带来这篇教程的理由。</p>
+<h2 id="📕-菜单"><a href="#📕-菜单" class="headerlink" title="📕 菜单"></a>📕 菜单</h2><p>接下来我们进行一些准备工作</p>
+<ol>
+<li>安装最新版本的node和npm(服务端js的执行环境和包管理器)</li>
+<li>没了(好吧就这样吧)</li>
+</ol>
+<p><a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">nodejs首页链接</a>，到这里下载一个nodejs。并且正确的配置环境变量等东西(我猜安装程序是自动配置的，毕竟python会，如果不是问问百度怎么装好这个东西)</p>
+<h2 id="🍽-开始"><a href="#🍽-开始" class="headerlink" title="🍽 开始"></a>🍽 开始</h2><p><a href="https://parceljs.org/getting_started.html" target="_blank" rel="noopener">parcel快速开始</a>，到这里参考parcel的官方教程。不过这个官方教程和typescript的一样，开头不由分说的直接要你全局安装parcel。这样的瓜皮操作会让你的项目在别的地方跑不起来。建议按照我的来走(不过肯定有人爱走弯路)。</p>
+<h4 id="🍎-初始化项目"><a href="#🍎-初始化项目" class="headerlink" title="🍎 初始化项目"></a>🍎 初始化项目</h4><p>新建一个空的文件夹，作为项目目录。进入其中，按住shift右键单击，选择<strong>在此处打开powershell窗口</strong>。这个选项不按住shift没有，是一个Windows的神奇操作。当然，非Windows用户，我就当你什么都懂了😁。</p>
+<p>输入以下命令初始化项目<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init -y</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>新建.gitignore文件，输入以下内容<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">.vscode</span><br><span class="line">.cache</span><br><span class="line">dist</span><br><span class="line"></span><br><span class="line"># Logs</span><br><span class="line">logs</span><br><span class="line">*.log</span><br><span class="line">npm-debug.log*</span><br><span class="line">yarn-debug.log*</span><br><span class="line">yarn-error.log*</span><br><span class="line"></span><br><span class="line"># Runtime data</span><br><span class="line">pids</span><br><span class="line">*.pid</span><br><span class="line">*.seed</span><br><span class="line">*.pid.lock</span><br><span class="line"></span><br><span class="line"># Directory for instrumented libs generated by jscoverage/JSCover</span><br><span class="line">lib-cov</span><br><span class="line"> </span><br><span class="line"># Coverage directory used by tools like istanbul</span><br><span class="line">coverage</span><br><span class="line"> </span><br><span class="line"># nyc test coverage</span><br><span class="line">.nyc_output</span><br><span class="line"> </span><br><span class="line"># Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)</span><br><span class="line">.grunt</span><br><span class="line"> </span><br><span class="line"># Bower dependency directory (https://bower.io/)</span><br><span class="line">bower_components</span><br><span class="line"> </span><br><span class="line"># node-waf configuration</span><br><span class="line">.lock-wscript</span><br><span class="line"> </span><br><span class="line"># Compiled binary addons (https://nodejs.org/api/addons.html)</span><br><span class="line">build/Release</span><br><span class="line"> </span><br><span class="line"># Dependency directories</span><br><span class="line">node_modules/</span><br><span class="line">jspm_packages/</span><br><span class="line"> </span><br><span class="line"># Typescript v1 declaration files</span><br><span class="line">typings/</span><br><span class="line"> </span><br><span class="line"># Optional npm cache directory</span><br><span class="line">.npm</span><br><span class="line"> </span><br><span class="line"># Optional eslint cache</span><br><span class="line">.eslintcache</span><br><span class="line"> </span><br><span class="line"># Optional REPL history</span><br><span class="line">.node_repl_history</span><br><span class="line"> </span><br><span class="line"># Output of 'npm pack'</span><br><span class="line">*.tgz</span><br><span class="line"> </span><br><span class="line"># Yarn Integrity file</span><br><span class="line">.yarn-integrity</span><br><span class="line"> </span><br><span class="line"># dotenv environment variables file</span><br><span class="line">.env</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>gitignore是我从网上随便找的一份稍加修改的，你可以用的时候自己改，比如mac用户加上.DS_Store等</p>
+<p>接下来初始化git仓库</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git add .</span><br><span class="line">git commit -m"init"</span><br></pre></td></tr></tbody></table></figure>
+<p>你要是git都没有，或者不会用。emmm，我怎么 隐 隐 约 约 记得我这个文章就是发布在GitHub Pages上面的呢？</p>
+<p>接下来按照自己的情况，决定是否把仓库发布到诸如github，gitlab，gitee等地方备份或者分享。</p>
+<h4 id="🍎-安装依赖"><a href="#🍎-安装依赖" class="headerlink" title="🍎 安装依赖"></a>🍎 安装依赖</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install -D parcel-bundler</span><br><span class="line">npm install normalize.css</span><br></pre></td></tr></tbody></table></figure>
+<p>分别安装了parcel打包工具(开发依赖)，和normalize.css(项目依赖)。这两者的区别在于parcel是用来打包的，我们项目的最终结果里面没有他(工具人)。normalize.css是屏蔽浏览器见差异的初始化样式。</p>
+<h4 id="🍎-代码编写"><a href="#🍎-代码编写" class="headerlink" title="🍎 代码编写"></a>🍎 代码编写</h4><p>创建index.html 和 main.js</p>
+<p>创建<strong>index.html</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang="en"&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset="utf-8"&gt;</span><br><span class="line">    &lt;title&gt;养🐷计划&lt;/title&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;div id="app"&gt;&lt;/div&gt;</span><br><span class="line">    &lt;script src="./src/main.js"&gt;&lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>创建<strong>src</strong>文件夹，在其中创建<strong>main.js</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import Vue from 'vue'</span><br><span class="line">import App from './App'</span><br><span class="line"></span><br><span class="line">new Vue({</span><br><span class="line">  el: '#app',</span><br><span class="line">  render: h =&gt; h(App)</span><br><span class="line">})</span><br></pre></td></tr></tbody></table></figure><p></p>
+<p>在<strong>src</strong>文件夹中，创建<strong>App.vue</strong><br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class="app-root"&gt;</span><br><span class="line">    &lt;div class="display"&gt;你的体重：{{weight}}Kg&lt;/div&gt;</span><br><span class="line">    &lt;div class="eat" @click="eat"&gt;吃&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default {</span><br><span class="line">  data() {</span><br><span class="line">    return {</span><br><span class="line">      weight: 55,</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">  methods: {</span><br><span class="line">    eat() {</span><br><span class="line">      this.weight += 1</span><br><span class="line">    }</span><br><span class="line">  },</span><br><span class="line">}</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.app-root {</span><br><span class="line">  display: flex;</span><br><span class="line">  padding: 30px;</span><br><span class="line">}</span><br><span class="line">.display {</span><br><span class="line">  font-size: 42px;</span><br><span class="line">}</span><br><span class="line">.eat {</span><br><span class="line">  font-size: 36px;</span><br><span class="line">  color: red;</span><br><span class="line">  border: 5px solid red;</span><br><span class="line">  height: 50px;</span><br><span class="line">  width: 50px;</span><br><span class="line">  border-radius: 50px;</span><br><span class="line">  display: flex;</span><br><span class="line">  align-items: center;</span><br><span class="line">  justify-content: center;</span><br><span class="line">  user-select: none;</span><br><span class="line">  cursor: pointer;</span><br><span class="line">  margin-left: 30px;</span><br><span class="line">}</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h4 id="🍎-构建脚本在package-json的scripts中添加两个字段，如果你的项目里面原来是这样"><a href="#🍎-构建脚本在package-json的scripts中添加两个字段，如果你的项目里面原来是这样" class="headerlink" title="🍎 构建脚本在package.json的scripts中添加两个字段，如果你的项目里面原来是这样"></a>🍎 构建脚本在package.json的scripts中添加两个字段，如果你的项目里面原来是这样</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">  "test": "echo \"Error: no test specified\" &amp;&amp; exit 1"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure>
+<p>添加完应该是这样<br></p><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">"scripts": {</span><br><span class="line">  "test": "echo \"Error: no test specified\" &amp;&amp; exit 1",</span><br><span class="line">  "dev": "parcel index.html",</span><br><span class="line">  "build": "parcel build index.html"</span><br><span class="line">},</span><br></pre></td></tr></tbody></table></figure><p></p>
+<h4 id="🍎-运行开发服务器"><a href="#🍎-运行开发服务器" class="headerlink" title="🍎 运行开发服务器"></a>🍎 运行开发服务器</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></tbody></table></figure>
+<p>进去吃点东西</p>
+<h4 id="🍎-打包"><a href="#🍎-打包" class="headerlink" title="🍎 打包"></a>🍎 打包</h4><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></tbody></table></figure>
+<p>运行命令后产生dist文件夹，里面的内容是要发布到服务器的最终结果。如果你想试试但是没有服务器，可以自己弄个GitHub Pages。然后给自己的朋友玩一玩。</p>
+<h2 id="🍇-总结"><a href="#🍇-总结" class="headerlink" title="🍇 总结"></a>🍇 总结</h2><p>这篇文章带大家了解了以下parcel的基本使用方法。里面使用了vue框架，但是没有进行任何配置，拿来就用。同样，如果你喜欢，可以直接用react，pug，less，sass等技术。最夸张的，甚至可以直接在前端项目中写rust😲。这会自动被编译成wasm。</p>
+<p>最后，文章写的仓促，欢迎大家提出意见和建议，指出错误。</p>
+<p>当然，欢迎投喂。</p>
+<p>作者QQ：<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=1360668777&amp;site=oicqzone.com&amp;menu=yes" target="_blank" rel="noopener">pc</a> or <a href="mqqwpa://im/chat?chat_type=wpa&amp;uin=1360668777&amp;version=1&amp;src_type=web&amp;web_src=oicqzone.com" target="_blank" rel="noopener">mobile</a></p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -452,7 +492,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -586,7 +626,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -727,7 +767,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -868,7 +908,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -1015,7 +1055,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -1156,7 +1196,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -1290,7 +1330,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -1424,7 +1464,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -1559,7 +1599,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -1680,7 +1720,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -1790,7 +1830,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -1915,7 +1955,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -2056,7 +2096,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -2198,7 +2238,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -2340,7 +2380,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -2476,7 +2516,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -2599,7 +2639,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -2733,7 +2773,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -2868,7 +2908,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -3003,7 +3043,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -3138,7 +3178,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -3274,7 +3314,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -3397,7 +3437,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -3520,7 +3560,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -3655,7 +3695,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -3789,7 +3829,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -3924,7 +3964,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -4079,7 +4119,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -4228,7 +4268,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -4363,7 +4403,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -4498,7 +4538,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -4632,7 +4672,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -4767,7 +4807,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -4901,7 +4941,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -5050,7 +5090,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -5199,7 +5239,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -5333,7 +5373,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -5469,7 +5509,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -5604,7 +5644,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -5753,7 +5793,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -5888,7 +5928,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -6042,7 +6082,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -6197,7 +6237,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -6338,7 +6378,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-12 10:27:15" itemprop="dateModified" datetime="2020-02-12T10:27:15+08:00">2020-02-12</time>
+                <time title="修改时间：2020-02-12 11:57:02" itemprop="dateModified" datetime="2020-02-12T11:57:02+08:00">2020-02-12</time>
               </span>
             
           
@@ -6647,12 +6687,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">66k</span>
+    <span title="站点总字数">68k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:01</span>
+    <span title="站点阅读时长">1:02</span>
 </div>
         
 <div class="busuanzi-count">
