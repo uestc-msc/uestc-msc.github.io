@@ -7,17 +7,17 @@
 <html lang="zh-CN">
 <head>
   
-  <meta name="description" content="搭梯子比较频繁，记录下步骤方便重现 服务器 别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。  到手后apt update apt upgrade reboot   搭建代理搭建shadowsocks，在服务端步骤如下  安装shadowsocks-libev  1# apt install shadowsocks-libev  配置  1# nano /etc/defau">
+  <meta name="description" content="搭梯子比较频繁，记录下步骤方便重现 引言代理和vpn的工作机制略有不同，代理相对更加灵活，而vpn则兼容性更强,可按需选用或我全都要.jpg 服务器 别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。  到手后apt update apt upgrade reboot   搭建代理搭建shadowsocks，在服务端步骤如下 安装shadowsocks-libev1# apt">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Set Up Vpn">
 <meta property="og:url" content="https://uestc-msc.github.io/2020/05/24/2020-Set-up-VPN/index.html">
 <meta property="og:site_name" content="UESTC-MSC">
-<meta property="og:description" content="搭梯子比较频繁，记录下步骤方便重现 服务器 别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。  到手后apt update apt upgrade reboot   搭建代理搭建shadowsocks，在服务端步骤如下  安装shadowsocks-libev  1# apt install shadowsocks-libev  配置  1# nano /etc/defau">
+<meta property="og:description" content="搭梯子比较频繁，记录下步骤方便重现 引言代理和vpn的工作机制略有不同，代理相对更加灵活，而vpn则兼容性更强,可按需选用或我全都要.jpg 服务器 别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。  到手后apt update apt upgrade reboot   搭建代理搭建shadowsocks，在服务端步骤如下 安装shadowsocks-libev1# apt">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-25T03:19:01.383Z">
+<meta property="og:updated_time" content="2020-05-25T07:34:42.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Set Up Vpn">
-<meta name="twitter:description" content="搭梯子比较频繁，记录下步骤方便重现 服务器 别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。  到手后apt update apt upgrade reboot   搭建代理搭建shadowsocks，在服务端步骤如下  安装shadowsocks-libev  1# apt install shadowsocks-libev  配置  1# nano /etc/defau">
+<meta name="twitter:description" content="搭梯子比较频繁，记录下步骤方便重现 引言代理和vpn的工作机制略有不同，代理相对更加灵活，而vpn则兼容性更强,可按需选用或我全都要.jpg 服务器 别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。  到手后apt update apt upgrade reboot   搭建代理搭建shadowsocks，在服务端步骤如下 安装shadowsocks-libev1# apt">
   <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
   <link rel="canonical" href="https://uestc-msc.github.io/2020/05/24/2020-Set-up-VPN/">
 
@@ -322,7 +322,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-25 11:19:01" itemprop="dateModified" datetime="2020-05-25T11:19:01+08:00">2020-05-25</time>
+                <time title="修改时间：2020-05-25 15:34:42" itemprop="dateModified" datetime="2020-05-25T15:34:42+08:00">2020-05-25</time>
               </span>
             
           
@@ -344,7 +344,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>333</span>
+              <span>541</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -368,6 +368,7 @@
 
       
         <p>搭梯子比较频繁，记录下步骤方便重现</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>代理和vpn的工作机制略有不同，代理相对更加灵活，而vpn则兼容性更强,可按需选用或我全都要.jpg</p>
 <h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><ul>
 <li><p>别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。</p>
 </li>
@@ -375,22 +376,16 @@
 </li>
 </ul>
 <h2 id="搭建代理"><a href="#搭建代理" class="headerlink" title="搭建代理"></a>搭建代理</h2><p>搭建shadowsocks，在服务端步骤如下</p>
-<ol>
-<li>安装shadowsocks-libev</li>
-</ol>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># apt install shadowsocks-libev</span><br></pre></td></tr></tbody></table></figure>
-<ol>
-<li>配置</li>
-</ol>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/default/shadowsocks-libev</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="安装shadowsocks-libev"><a href="#安装shadowsocks-libev" class="headerlink" title="安装shadowsocks-libev"></a>安装shadowsocks-libev</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># apt install shadowsocks-libev</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/default/shadowsocks-libev</span><br></pre></td></tr></tbody></table></figure>
 <p>将<code>USER=nobody</code>和<code>GROUP=nogroup</code>替换成<code>USER=root</code>和<code>GROUP=root</code></p>
 <figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/shadowsocks-libev/config.json</span><br></pre></td></tr></tbody></table></figure>
 <p>替换”server”后的”127.0.0.1”为”0.0.0.0”，替换”password”为自己的密码，”server_port”后替换为443或其它常用端口</p>
 <p>在客户端中，ip填写服务器的公网ip，密码、端口、加密方式同服务器配置，客户端和服务器的local_port没有关系随便填或保持默认。</p>
-<ol>
-<li>运行</li>
-</ol>
-<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl restart shadowsocks-libev</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h3><figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl restart shadowsocks-libev</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="开启bbr"><a href="#开启bbr" class="headerlink" title="开启bbr"></a>开启bbr</h3><p>bbr是一个更新的tcp 拥塞控制算法，在某些机房开启后可大幅提升速度</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo "net.core.default_qdisc=fq" &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo "net.ipv4.tcp_congestion_control=bbr" &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="搭建vpn"><a href="#搭建vpn" class="headerlink" title="搭建vpn"></a>搭建vpn</h2><p>参考 <a href="https://10101.io/2018/11/10/wireguard" target="_blank" rel="noopener">https://10101.io/2018/11/10/wireguard</a> 就好。其中安装部分略微过时，ubuntu20.04直接从源内安装即可无需添加ppa，debian10在开启backports源后也是直接安装</p>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -482,7 +477,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器"><span class="nav-number">1.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建代理"><span class="nav-number">2.</span> <span class="nav-text">搭建代理</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器"><span class="nav-number">2.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建代理"><span class="nav-number">3.</span> <span class="nav-text">搭建代理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装shadowsocks-libev"><span class="nav-number">3.1.</span> <span class="nav-text">安装shadowsocks-libev</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置"><span class="nav-number">3.2.</span> <span class="nav-text">配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运行"><span class="nav-number">3.3.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启bbr"><span class="nav-number">3.4.</span> <span class="nav-text">开启bbr</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建vpn"><span class="nav-number">4.</span> <span class="nav-text">搭建vpn</span></a></li></ol></div>
         
       </div>
       <!--/noindex-->
