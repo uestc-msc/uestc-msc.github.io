@@ -7,27 +7,19 @@
 <html lang="zh-CN">
 <head>
   
-  <meta name="description" content="这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊） 这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。">
-<meta name="keywords" content="谷亚奇">
+  <meta name="description" content="搭梯子比较频繁，记录下步骤方便重现 服务器 别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。  到手后apt update apt upgrade reboot   搭建代理搭建shadowsocks，在服务端步骤如下  安装shadowsocks-libev  1# apt install shadowsocks-libev  配置  1# nano /etc/defau">
 <meta property="og:type" content="article">
-<meta property="og:title" content="【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）">
-<meta property="og:url" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/index.html">
+<meta property="og:title" content="Set Up Vpn">
+<meta property="og:url" content="https://uestc-msc.github.io/2020/05/24/2020-Set-up-VPN/index.html">
 <meta property="og:site_name" content="UESTC-MSC">
-<meta property="og:description" content="这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊） 这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。">
+<meta property="og:description" content="搭梯子比较频繁，记录下步骤方便重现 服务器 别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。  到手后apt update apt upgrade reboot   搭建代理搭建shadowsocks，在服务端步骤如下  安装shadowsocks-libev  1# apt install shadowsocks-libev  配置  1# nano /etc/defau">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.给别人看看我们的航母/afs5d-22.png">
-<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.给别人看看我们的航母/afs5d-23.png">
-<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.给别人看看我们的航母/afs5d-24.png">
-<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.给别人看看我们的航母/afs5d-25.png">
-<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.给别人看看我们的航母/afs5d-26.png">
-<meta property="og:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.给别人看看我们的航母/afs5d-27.png">
-<meta property="og:updated_time" content="2020-05-25T03:09:51.678Z">
+<meta property="og:updated_time" content="2020-05-25T03:09:51.738Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）">
-<meta name="twitter:description" content="这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊） 这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。">
-<meta name="twitter:image" content="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/1-9.给别人看看我们的航母/afs5d-22.png">
+<meta name="twitter:title" content="Set Up Vpn">
+<meta name="twitter:description" content="搭梯子比较频繁，记录下步骤方便重现 服务器 别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。  到手后apt update apt upgrade reboot   搭建代理搭建shadowsocks，在服务端步骤如下  安装shadowsocks-libev  1# apt install shadowsocks-libev  配置  1# nano /etc/defau">
   <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
-  <link rel="canonical" href="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/">
+  <link rel="canonical" href="https://uestc-msc.github.io/2020/05/24/2020-Set-up-VPN/">
 
 
 <script id="page-configurations">
@@ -91,7 +83,7 @@
   };
 </script>
 
-  <title>【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot） | UESTC-MSC</title>
+  <title>Set Up Vpn | UESTC-MSC</title>
   <meta name="generator" content="Hexo 3.9.0">
   
 
@@ -280,7 +272,7 @@
   
   
   <div class="post-block post">
-    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2017/04/29/1-9.给别人看看我们的航母/">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2020/05/24/2020-Set-up-VPN/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="UESTC-MSC">
@@ -292,23 +284,12 @@
       <meta itemprop="name" content="UESTC-MSC">
     </span>
       <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">【Bot Framework完全攻略】1-9.给别人看看我们的航母（如何让别人用我们的Bot）
+        <h1 class="post-title" itemprop="name headline">Set Up Vpn
 
           
         </h1>
 
         <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
-              </span>
-              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                <a href="/tags/谷亚奇" itemprop="url" rel="index">
-                  <span itemprop="name">谷亚奇</span>
-                </a>
-              </span>
-            </span>
-          
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -319,7 +300,7 @@
                 
               
 
-              <time title="创建时间：2017-04-29 00:00:00" itemprop="dateCreated datePublished" datetime="2017-04-29T00:00:00+08:00">2017-04-29</time>
+              <time title="创建时间：2020-05-24 09:12:07" itemprop="dateCreated datePublished" datetime="2020-05-24T09:12:07+08:00">2020-05-24</time>
             </span>
           
             
@@ -333,19 +314,6 @@
                 <time title="修改时间：2020-05-25 11:09:51" itemprop="dateModified" datetime="2020-05-25T11:09:51+08:00">2020-05-25</time>
               </span>
             
-          
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Bot-Framework/" itemprop="url" rel="index"><span itemprop="name">Bot Framework</span></a></span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -365,7 +333,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>799</span>
+              <span>333</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -388,30 +356,30 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>这篇教程就是Bot Framework系列教程初阶部分的最后一篇，读完之后，Bot开发全部的基本流程你应该就一清二楚了。（这可是后面的基础啊）</p>
-<p>这次我就只告诉你Web Chat的使用方法，毕竟Bot支持的那些聊天平台（Skype什么的你室友有几个在用？）在国内使用的太少了。虽然说DirectLine这个功能可以把Bot连到微信公众号，不过那个比较不好弄，是我们后面课程的内容。</p>
-<a id="more"></a>
-<p>首先去Bot官网，并且登陆，进入My bots，选择你的Bot</p>
-<p>找到Web Chat 后面的Edit：</p>
-<p><img src="1-9.给别人看看我们的航母/afs5d-22.png" alt="img"></p>
-<p>点击之后进入Web Chat 的配置界面。第一次进入可能会提示你新建一个site如果没有的话，就点击左边的Add  new site。site的名字随便起，没卵用的。然后进入这个界面：</p>
-<p><img src="1-9.给别人看看我们的航母/afs5d-23.png" alt="img"></p>
-<p>你可以看到Secret keys （密钥）是隐藏的，点击后面的Show就能看到。</p>
-<p>下面的Embed code（嵌入代码）是一段HTML代码，内容就是与你Bot聊天的聊天室。</p>
-<p>打开你的记事本，把Embed code（嵌入代码）复制进去，然后复制Secret keys（密钥）其中的一个，替换掉记事本里的 YOUR_SECRET_HERE。这样你就得到一段可用的html代码。</p>
-<p>接下来，打开你的VS，进入你的项目，到解决方案管理器中找到default.htm文件：</p>
-<p><img src="1-9.给别人看看我们的航母/afs5d-24.png" alt="img"></p>
-<p>打开它，把body标签里面的内容替换成你记事本里的那段代码：</p>
-<p><img src="1-9.给别人看看我们的航母/afs5d-25.png" alt="img"></p>
-<p>然后，保存你的更改。重新发布你的Bot，这样就可以通过直接访问Bot的主页（endpoint的网址去掉后面/api/messages）来直接访问Bot了。</p>
-<p>效果图：</p>
-<p><img src="1-9.给别人看看我们的航母/afs5d-26.png" alt="img"></p>
-<p>你会发现聊天的窗口太矮了。。。</p>
-<p>在default.htm做出如下的修改可以改变小窗口的高度：</p>
-<p><img src="1-9.给别人看看我们的航母/afs5d-27.png" alt="img"></p>
-<p>修改完记得保存，重新发布。</p>
-<p>记得Web Chat的网址就是你发布的站点URL（你在发布页面能找到）</p>
-<p>大功告成！你可以把聊天窗口的网址发给你的朋友们，让他们感受一下你在做的工作。</p>
+        <p>搭梯子比较频繁，记录下步骤方便重现</p>
+<h2 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h2><ul>
+<li><p>别选择没法换ip的就好，比如现在的搬瓦工。系统推荐 debian 10。</p>
+</li>
+<li><p>到手后<code>apt update</code> <code>apt upgrade</code> <code>reboot</code></p>
+</li>
+</ul>
+<h2 id="搭建代理"><a href="#搭建代理" class="headerlink" title="搭建代理"></a>搭建代理</h2><p>搭建shadowsocks，在服务端步骤如下</p>
+<ol>
+<li>安装shadowsocks-libev</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># apt install shadowsocks-libev</span><br></pre></td></tr></tbody></table></figure>
+<ol>
+<li>配置</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/default/shadowsocks-libev</span><br></pre></td></tr></tbody></table></figure>
+<p>将<code>USER=nobody</code>和<code>GROUP=nogroup</code>替换成<code>USER=root</code>和<code>GROUP=root</code></p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># nano /etc/shadowsocks-libev/config.json</span><br></pre></td></tr></tbody></table></figure>
+<p>替换”server”后的”127.0.0.1”为”0.0.0.0”，替换”password”为自己的密码，”server_port”后替换为443或其它常用端口</p>
+<p>在客户端中，ip填写服务器的公网ip，密码、端口、加密方式同服务器配置，客户端和服务器的local_port没有关系随便填或保持默认。</p>
+<ol>
+<li>运行</li>
+</ol>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># systemctl restart shadowsocks-libev</span><br></pre></td></tr></tbody></table></figure>
 <script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
@@ -440,23 +408,14 @@
       
 
       <footer class="post-footer">
-          
-            
-          
-          <div class="post-tags">
-            
-              <a href="/tags/谷亚奇/" rel="tag"><i class="fa fa-tag"></i> 谷亚奇</a>
-            
-          </div>
-        
 
         
 
           <div class="post-nav">
             <div class="post-nav-next post-nav-item">
               
-                <a href="/2017/04/24/1-8.把旗子插在船上/" rel="next" title="【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）">
-                  <i class="fa fa-chevron-left"></i> 【Bot Framework完全攻略】1-8.把旗子插在船上（关联配置）
+                <a href="/2020/02/12/2020-parcel速食指南/" rel="next" title="parcel速食指南">
+                  <i class="fa fa-chevron-left"></i> parcel速食指南
                 </a>
               
             </div>
@@ -464,10 +423,6 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
-              
-                <a href="/2017/04/29/1-10.Cheers/" rel="prev" title="【Bot Framework完全攻略】1-10.Cheers!（初级篇总结）">
-                  【Bot Framework完全攻略】1-10.Cheers!（初级篇总结） <i class="fa fa-chevron-right"></i>
-                </a>
               
             </div>
           </div>
@@ -516,6 +471,8 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器"><span class="nav-number">1.</span> <span class="nav-text">服务器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搭建代理"><span class="nav-number">2.</span> <span class="nav-text">搭建代理</span></a></li></ol></div>
+        
       </div>
       <!--/noindex-->
 
