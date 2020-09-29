@@ -16,7 +16,7 @@ tags: 小灰晖
 * 学生邮箱（[注意事项](#学生邮箱)）：http://mail.std.uestc.edu.cn
 * 教务处：http://www.jwc.uestc.edu.cn
   * 教务系统联系方式一览表：http://www.jwc.uestc.edu.cn/web/News!view.action?id=64
-  * 各类（查分、转专业）申请表下载：http://www.jwc.uestc.edu.cn/web/News!view.action?id=734
+  * 校历、全校课表、培养方案（电子版）、各类（查分、转专业）申请表、均可在教务处网站搜索到
 * 清水河畔（校内论坛）：https://bbs.uestc.edu.cn/
   * 校车 396路 通勤车时刻表：https://bbs.uestc.edu.cn/forum.php?mod=viewthread&tid=1430861
 * 返校代理（[注意事项](#返校代理)）：https://vpn.uestc.edu.cn/
