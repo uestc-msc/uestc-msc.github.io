@@ -1,6 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[MSC 每周两题]]></title>
+    <url>%2F2020%2F11%2F13%2F2020-programming-problem-of-the-week%2F</url>
+    <content type="text"><![CDATA[2020.11.13 前言 &amp; 顺序结构这里是成电微软学生俱乐部 2020 年度 C 语言学习 Guideline。虽然不少专业在大一上已经开设了 C 语言程序设计相关课程，但是仍有其他专业的同学没有学习 C 语言（比如计院 hhhh）。 本系列文章将用六个星期的时间讲述六个专题——————的题目。这些专题覆盖了编程入门（不仅是 C 语言）的最基本的要素，如果你已经精通了 C 语言（呃，是七天精通的那种精通），又正好在学习其他语言（如 Python、Java 亦或是 C# 等），你也可以参与其中，在学习的同时练习语法。 如果你还没有学习 C 语言，推荐翁恺 C 语言程序编程全系列，在 MOOC、bilibili 等视频网站上都能找到。（顺便安利翁恺老师的其他课程都很不错，老师很有人格魅力，声音还好听，女朋友就是看他的 Java 入门）。 不过，需要注意的是，每周一题专题并不是按照翁恺老师的 MOOC 的学习进度而设置的，而是使用了洛谷的程序设计入门题单。 洛谷是一个在线评测平台（Online Judge, OJ）。和平常的 做题-对答案 不同，在 OJ 中，你可以在线提交程序源代码（一般不限于 C 语言，根据系 OJ 支持情况而定），系统对源代码进行编译和执行，并通过预先设计的 测试数据（又称测试点）来检验程序源代码的正确性。OJ 常用于算法竞赛（如 OI、ACM 竞赛）中，也有面向求职者的 Leetcode，我们学校计算机学院的码图、软件学院的 OSTEC。 对于洛谷，在提交代码以后，如果测试点显示 AC(accepted)，表示你提交的代码在这个测试点的输入下的输出与答案相同。如果所有测试点均为 AC，则系统认为你提交的代码是正确的，你会在右边收获一个绿色的 Accepted，你的个人主页的“通过”数也会 +1。 顺便一提，当代码复杂起来，如果想要严格证明代码、或者说算法的正确性，这是相当困难的。因此 OJ 普遍采用的方法是，使用多组测试样例（在 ACM 竞赛中，甚至可能上百、上千）来尽可能找到你的代码的错误。 回归正题，我们第一周的题单是顺序结构。题单中有 12 题，但你只需要完成 P5704 【深基2.例6】字母转换 和 P5708 【深基2.习2】三角形面积 即可。学有余力的同学可以选做题单中的剩下题目。六周以后，总共完成了 12 题及以上的 MSCer，将在年会获得精美小礼品一份~ 下周五晚八点前，我会提供这两道题目的 C 语言题解和简单讲解，同时放出下一周的题单。如果在完成过程中遇到了任何问题，也可以在 MSC 群里放出代码，大家一起讨论（推荐使用 https://paste.ubuntu.com/ 粘贴代码，而不是把代码发到 QQ 聊天框、截图甚至使用手机拍电脑）。 最后，如果对这个版块有好的建议或意见（如题解不够详细、需要线下讲座等），欢迎私聊小灰晖~ 2020.11.20 上周题解 &amp; 分支结构2020.11.27 上周题解 &amp; 循环结构2020.12.4 上周题解 &amp; 数组2020.12.11 上周题解 &amp; 字符串2020.12.18 上周题解 &amp; 函数与结构体2020.12.25 上周题解 &amp; 后记 document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>C/C++</category>
+      </categories>
+      <tags>
+        <tag>小灰晖</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Use Git to Collaborate]]></title>
+    <url>%2F2020%2F10%2F07%2F2020-use-git-to-collaborate%2F</url>
+    <content type="text"><![CDATA[学会使用 Git 和 Github 与他人合作参与项目 https://luosuu.github.io/post/use-git-to-collaborate/ document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Luosuu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Microsoft Learn Python Path]]></title>
+    <url>%2F2020%2F10%2F03%2F2020-microsoft-learn-python-path%2F</url>
+    <content type="text"><![CDATA[使用 Microsoft Learn 入门编程并激发创意 https://luosuu.github.io/post/microsoft-learn-python-path/ document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
+      <tags>
+        <tag>Luosuu</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[电子科技大学常用网站]]></title>
     <url>%2F2020%2F09%2F04%2F2020-uestc-websites%2F</url>
     <content type="text"><![CDATA[本文更新于 2020.9.29，文中信息可能已失效。 常用网址最常用的网站推荐直接记域名，直接敲域名比在官网反复跳转快多了。 教务系统：http://eams.uestc.edu.cn/eams 一卡通，可进行挂失：http://ecard.uestc.edu.cn 学生邮箱（注意事项）：http://mail.std.uestc.edu.cn 教务处：http://www.jwc.uestc.edu.cn 教务系统联系方式一览表：http://www.jwc.uestc.edu.cn/web/News!view.action?id=64 校历、全校课表、培养方案（电子版）、各类（查分、转专业）申请表、均可在教务处网站搜索到 清水河畔（校内论坛）：https://bbs.uestc.edu.cn/ 校车 396路 通勤车时刻表：https://bbs.uestc.edu.cn/forum.php?mod=viewthread&amp;tid=1430861 返校代理（注意事项）：https://vpn.uestc.edu.cn/ 图书馆预约研修室：http://reservelib.uestc.edu.cn/ 在线教材（官方只提供了少部分教材，且几乎没有课程提供 PDF）：http://zxkc.uestc.edu.cn/ 学校官网是 www.uestc.edu.cn，必须加 www！uestc.edu.cn 域名是没有 A 记录的。教务处网站也是如此。 学校地址中/英文官网拉到最下面即是。 中文 英文及邮编 清水河 成都市高新区（西区）西源大道2006号 No.2006, Xiyuan Ave, West Hi-Tech Zone, 611731 沙河 成都市建设北路二段四号 No.4, Section 2, North Jianshe Road, 610054 九里堤 成都市九里堤西路8号 610031 学生邮箱 学生邮箱无需“激活账号”，可直接登录，默认密码是身份证号倒数第七位至倒数第二位。 目前尚不清楚学生邮箱在大一进校以后多久可用，保守估计这个时间在一个月以内。 学生邮箱可用于申请： 一个包含 1T Onedrive 空间的账号 JetBrains 全家桶 由于泥电学生邮箱是外包的且没有购买 SSL 证书，在邮箱客户端使用 IMAP、POP3 等不能使用 SSL 证书进行验证。强制要求 SSL 的客户端（如 Outlook for Android）似乎无法登陆学生邮箱（可以使用 Gmail 代替）。 由上条原因，以及推送可能不及时等问题，建议仅将学校邮箱用于申请上述学生优惠，不要作为主力邮箱。 返校代理登录 https://vpn.uestc.edu.cn/ 后即可通过在浏览器中修改网址达到用学校 IP 访问任意网址的效果。 http://www-uestc-edu-cn-s.vpn.uestc.edu.cn:8118/ 将会代理到 https://www.uestc.edu.cn/可见，将原网址中的 . 改写为 - 即可成功代理。 以下为更多规则： 原网址中的 . 需改写为 - 原网址中的 - 需改写为 -- 原网址如为 https，需在最后加上 -s，如 http://www-uestc-edu-cn-s.vpn.uestc.edu.cn:8118/ eduroam 的账号密码 来源：https://info.uestc.edu.cn/info/1044/1631.htm eduroam 联盟用户连接 SSID：eduroam，802.1x 认证，为全球 eduroam 联盟成员提供上网服务，eduroam 联盟内全球漫游。 我校师生的用户名为：工资号或学号@uestc.edu.cn，如：工资号 123456 对应的账号为 123456@uestc.edu.cn，密码为统一身份认证密码。 document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
@@ -381,7 +411,7 @@
   </entry>
   <entry>
     <title><![CDATA[【Bot Framework完全攻略】1-5.小试牛刀]]></title>
-    <url>%2F2017%2F04%2F24%2F%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80%2F</url>
+    <url>%2F2017%2F04%2F24%2F1-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80%2F</url>
     <content type="text"><![CDATA[本篇教程将引导你实现一个最基础的Bot 开始造船（写一个你的Bot项目） 向政府注册你的旗帜（注册一个你的Bot） 把旗子插在船上（关联配置） document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>Bot Framework</category>
@@ -392,7 +422,7 @@
   </entry>
   <entry>
     <title><![CDATA[【Bot Framework完全攻略】1-5.小试牛刀]]></title>
-    <url>%2F2017%2F04%2F24%2F1-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80%2F</url>
+    <url>%2F2017%2F04%2F24%2F%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80%2F</url>
     <content type="text"><![CDATA[本篇教程将引导你实现一个最基础的Bot 开始造船（写一个你的Bot项目） 向政府注册你的旗帜（注册一个你的Bot） 把旗子插在船上（关联配置） document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>Bot Framework</category>

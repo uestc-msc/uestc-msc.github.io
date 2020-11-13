@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  
+  <meta name="description" content="2020.11.13 前言 &amp;amp; 顺序结构这里是成电微软学生俱乐部 2020 年度 C 语言学习 Guideline。虽然不少专业在大一上已经开设了 C 语言程序设计相关课程，但是仍有其他专业的同学没有学习 C 语言（比如计院 hhhh）。 本系列文章将用六个星期的时间讲述六个专题——————的题目。这些专题覆盖了编程入门（不仅是 C 语言）的最基本的要素，如果你已经精通了 C 语言（呃，是">
+<meta name="keywords" content="小灰晖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MSC 每周两题">
+<meta property="og:url" content="https://uestc-msc.github.io/2020/11/13/2020-programming-problem-of-the-week/index.html">
+<meta property="og:site_name" content="UESTC-MSC">
+<meta property="og:description" content="2020.11.13 前言 &amp;amp; 顺序结构这里是成电微软学生俱乐部 2020 年度 C 语言学习 Guideline。虽然不少专业在大一上已经开设了 C 语言程序设计相关课程，但是仍有其他专业的同学没有学习 C 语言（比如计院 hhhh）。 本系列文章将用六个星期的时间讲述六个专题——————的题目。这些专题覆盖了编程入门（不仅是 C 语言）的最基本的要素，如果你已经精通了 C 语言（呃，是">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://uestc-msc.github.io/2020/11/13/2020-programming-problem-of-the-week/oj-ac.png">
+<meta property="og:updated_time" content="2020-11-13T05:59:44.145Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MSC 每周两题">
+<meta name="twitter:description" content="2020.11.13 前言 &amp;amp; 顺序结构这里是成电微软学生俱乐部 2020 年度 C 语言学习 Guideline。虽然不少专业在大一上已经开设了 C 语言程序设计相关课程，但是仍有其他专业的同学没有学习 C 语言（比如计院 hhhh）。 本系列文章将用六个星期的时间讲述六个专题——————的题目。这些专题覆盖了编程入门（不仅是 C 语言）的最基本的要素，如果你已经精通了 C 语言（呃，是">
+<meta name="twitter:image" content="https://uestc-msc.github.io/2020/11/13/2020-programming-problem-of-the-week/oj-ac.png">
+  <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
+  <link rel="canonical" href="https://uestc-msc.github.io/2020/11/13/2020-programming-problem-of-the-week/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="mask-icon" href="/images/uestc-msc-logo.jpg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="OKSlvGttut8Kj8llKOQBCC4aORnHzjsELhAofGpH8Lg">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src = "https://at.alicdn.com/t/font_1378191_6tokm7h6w1c.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <title>MSC 每周两题 | UESTC-MSC</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">UESTC-MSC</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">欢迎来到电子科大微软学生俱乐部</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>作者</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-friendlinks">
+      
+    
+
+    <a href="/friendlinks/" rel="section"><i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>友链</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2020/11/13/2020-programming-problem-of-the-week/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="UESTC-MSC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="UESTC-MSC">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">MSC 每周两题
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
+              </span>
+              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <a href="/tags/小灰晖" itemprop="url" rel="index">
+                  <span itemprop="name">小灰晖</span>
+                </a>
+              </span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-11-13 11:33:02 / 修改时间：13:59:44" itemprop="dateCreated datePublished" datetime="2020-11-13T11:33:02+08:00">2020-11-13</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C-C/" itemprop="url" rel="index"><span itemprop="name">C/C++</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.4k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="2020-11-13-前言-amp-顺序结构"><a href="#2020-11-13-前言-amp-顺序结构" class="headerlink" title="2020.11.13 前言 &amp; 顺序结构"></a>2020.11.13 前言 &amp; 顺序结构</h2><p>这里是成电微软学生俱乐部 2020 年度 C 语言学习 Guideline。虽然不少专业在大一上已经开设了 C 语言程序设计相关课程，但是仍有其他专业的同学没有学习 C 语言（比如计院 hhhh）。</p>
+<p>本系列文章将用六个星期的时间讲述六个专题——————的题目。这些专题覆盖了编程入门（不仅是 C 语言）的最基本的要素，如果你已经精通了 C 语言（呃，是七天精通的那种精通），又正好在学习其他语言（如 Python、Java 亦或是 C# 等），你也可以参与其中，在学习的同时练习语法。</p>
+<a id="more"></a>
+<p>如果你还没有学习 C 语言，推荐翁恺 C 语言程序编程全系列，在 MOOC、<a href="https://www.bilibili.com/video/BV1sJ411E7St" target="_blank" rel="noopener">bilibili</a> 等视频网站上都能找到。（顺便安利翁恺老师的其他课程都很不错，老师很有人格魅力，声音还好听，女朋友就是看他的 Java 入门）。</p>
+<p>不过，需要注意的是，每周一题专题并不是按照翁恺老师的 MOOC 的学习进度而设置的，而是使用了<a href="https://www.luogu.com.cn/" target="_blank" rel="noopener">洛谷</a>的程序设计入门题单。</p>
+<p>洛谷是一个在线评测平台（Online Judge, OJ）。和平常的 <code>做题-对答案</code> 不同，在 OJ 中，你可以在线提交程序源代码（一般不限于 C 语言，根据系 OJ 支持情况而定），系统对源代码进行编译和执行，并通过预先设计的 <code>测试数据</code>（又称测试点）来检验程序源代码的正确性。OJ 常用于算法竞赛（如 OI、ACM 竞赛）中，也有面向求职者的 <a href="https://leetcode-cn.com/" target="_blank" rel="noopener">Leetcode</a>，我们学校计算机学院的<a href="http://matu.uestc.edu.cn" target="_blank" rel="noopener">码图</a>、软件学院的 <a href="http://ostec.uestc.edu.cn/" target="_blank" rel="noopener">OSTEC</a>。</p>
+<p><img src="oj-ac.png" alt="成功提交并通过的正确示例"></p>
+<p>对于洛谷，在提交代码以后，如果测试点显示 <code>AC(accepted)</code>，表示你提交的代码在这个测试点的输入下的输出与答案相同。如果所有测试点均为 <code>AC</code>，则<strong>系统认为</strong>你提交的代码是正确的，你会在右边收获一个绿色的 <code>Accepted</code>，你的个人主页的“通过”数也会 +1。</p>
+<p>顺便一提，当代码复杂起来，如果想要严格证明代码、或者说算法的正确性，这是相当困难的。因此 OJ 普遍采用的方法是，使用多组测试样例（在 ACM 竞赛中，甚至可能上百、上千）来尽可能找到你的代码的错误。</p>
+<p>回归正题，我们第一周的题单是<a href="https://www.luogu.com.cn/training/100" target="_blank" rel="noopener">顺序结构</a>。题单中有 12 题，但你只需要完成 <a href="https://www.luogu.com.cn/problem/P5704" target="_blank" rel="noopener">P5704 【深基2.例6】字母转换</a> 和 <a href="https://www.luogu.com.cn/problem/P5708" target="_blank" rel="noopener">P5708 【深基2.习2】三角形面积</a> 即可。学有余力的同学可以选做题单中的剩下题目。六周以后，总共完成了 12 题及以上的 MSCer，将在年会获得精美小礼品一份~</p>
+<p>下周五晚八点前，我会提供这两道题目的 C 语言题解和简单讲解，同时放出下一周的题单。如果在完成过程中遇到了任何问题，也可以在 MSC 群里放出代码，大家一起讨论（推荐使用 <a href="https://paste.ubuntu.com/" target="_blank" rel="noopener">https://paste.ubuntu.com/</a> 粘贴代码，而不是把代码发到 QQ 聊天框、截图甚至使用手机拍电脑）。</p>
+<p>最后，如果对这个版块有好的建议或意见（如题解不够详细、需要线下讲座等），欢迎私聊小灰晖~</p>
+<h2 id="2020-11-20-上周题解-amp-分支结构"><a href="#2020-11-20-上周题解-amp-分支结构" class="headerlink" title="2020.11.20 上周题解 &amp; 分支结构"></a>2020.11.20 上周题解 &amp; 分支结构</h2><h2 id="2020-11-27-上周题解-amp-循环结构"><a href="#2020-11-27-上周题解-amp-循环结构" class="headerlink" title="2020.11.27 上周题解 &amp; 循环结构"></a>2020.11.27 上周题解 &amp; 循环结构</h2><h2 id="2020-12-4-上周题解-amp-数组"><a href="#2020-12-4-上周题解-amp-数组" class="headerlink" title="2020.12.4 上周题解 &amp; 数组"></a>2020.12.4 上周题解 &amp; 数组</h2><h2 id="2020-12-11-上周题解-amp-字符串"><a href="#2020-12-11-上周题解-amp-字符串" class="headerlink" title="2020.12.11 上周题解 &amp; 字符串"></a>2020.12.11 上周题解 &amp; 字符串</h2><h2 id="2020-12-18-上周题解-amp-函数与结构体"><a href="#2020-12-18-上周题解-amp-函数与结构体" class="headerlink" title="2020.12.18 上周题解 &amp; 函数与结构体"></a>2020.12.18 上周题解 &amp; 函数与结构体</h2><h2 id="2020-12-25-上周题解-amp-后记"><a href="#2020-12-25-上周题解-amp-后记" class="headerlink" title="2020.12.25 上周题解 &amp; 后记"></a>2020.12.25 上周题解 &amp; 后记</h2><!-- leetcode 数据结构入门；每日一题或 ACM --><script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/小灰晖/" rel="tag"><i class="fa fa-tag"></i> 小灰晖</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/10/07/2020-use-git-to-collaborate/" rel="next" title="Use Git to Collaborate">
+                  <i class="fa fa-chevron-left"></i> Use Git to Collaborate
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-11-13-前言-amp-顺序结构"><span class="nav-number">1.</span> <span class="nav-text">2020.11.13 前言 &amp; 顺序结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-11-20-上周题解-amp-分支结构"><span class="nav-number">2.</span> <span class="nav-text">2020.11.20 上周题解 &amp; 分支结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-11-27-上周题解-amp-循环结构"><span class="nav-number">3.</span> <span class="nav-text">2020.11.27 上周题解 &amp; 循环结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-12-4-上周题解-amp-数组"><span class="nav-number">4.</span> <span class="nav-text">2020.12.4 上周题解 &amp; 数组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-12-11-上周题解-amp-字符串"><span class="nav-number">5.</span> <span class="nav-text">2020.12.11 上周题解 &amp; 字符串</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-12-18-上周题解-amp-函数与结构体"><span class="nav-number">6.</span> <span class="nav-text">2020.12.18 上周题解 &amp; 函数与结构体</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2020-12-25-上周题解-amp-后记"><span class="nav-number">7.</span> <span class="nav-text">2020.12.25 上周题解 &amp; 后记</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UESTC-MSC</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">18</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">作者</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://github.com/uestc-msc" title="GitHub &rarr; https://github.com/uestc-msc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icongithub"></use></svg>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="mailto:uestcmsc@demo4c.onmicrosoft.com" title="邮箱 &rarr; mailto:uestcmsc@demo4c.onmicrosoft.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconOUTLOOK"></use></svg>邮箱</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://weibo.com/uestcmstc" title="微博 &rarr; https://weibo.com/uestcmstc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweibo"></use></svg>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://space.bilibili.com/456910030" title="bilibili &rarr; https://space.bilibili.com/456910030" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconbilibili"></use></svg>bilibili</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" title="微信 &rarr; https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwechat"></use></svg>微信</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2003 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <!-- <i class="fa fa-iconMicrosoft"></i> -->
+    <svg class="icon" aria-hidden="true"><use xlink:href="#iconMicrosoft"></use></svg>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UESTC-MSC</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">71k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:05</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+  <script src="/js/hexo_resize_image.js"></script>
+</body>
+</html>
