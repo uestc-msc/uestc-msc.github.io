@@ -23,6 +23,8 @@ tags: 小灰晖
 * 图书馆预约研修室：http://reservelib.uestc.edu.cn/
 * 在线教材（官方只提供了少部分教材，且几乎没有课程提供 PDF）：http://zxkc.uestc.edu.cn/
 
+<!-- More -->
+
 学校官网是 `www.uestc.edu.cn`，必须加 `www`！`uestc.edu.cn` 域名是没有 A 记录的。教务处网站也是如此。
 
 ## 学校地址
