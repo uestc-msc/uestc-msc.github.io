@@ -20,7 +20,7 @@ tags: 小灰晖
 
 洛谷是一个在线评测平台（Online Judge, OJ）。和平常的 `做题-对答案` 不同，在 OJ 中，你可以在线提交程序源代码（一般不限于 C 语言，根据系 OJ 支持情况而定），系统对源代码进行编译和执行，并通过预先设计的 `测试数据`（又称测试点）来检验程序源代码的正确性。OJ 常用于算法竞赛（如 OI、ACM 竞赛）中，也有面向求职者的 [Leetcode](https://leetcode-cn.com/)，我们学校计算机学院的[码图](http://matu.uestc.edu.cn)、软件学院的 [OSTEC](http://ostec.uestc.edu.cn/)。
 
-![成功提交并通过的正确示例](oj-ac.png)
+![成功提交并通过的正确示例](programming-problem-of-the-week/oj-ac.png)
 
 对于洛谷，在提交代码以后，如果测试点显示 `AC(accepted)`，表示你提交的代码在这个测试点的输入下的输出与答案相同。如果所有测试点均为 `AC`，则**系统认为**你提交的代码是正确的，你会在右边收获一个绿色的 `Accepted`，你的个人主页的“通过”数也会 +1。
 

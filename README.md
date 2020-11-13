@@ -8,41 +8,44 @@
 - 修改网页的配色，使其更加“微软”
 
 ---
-1. [TODO](#todo)
-2. [写作语法](#写作语法)
-   1. [next中比较炫酷的用法](#next中比较炫酷的用法)
-   2. [文章分类](#文章分类)
-      1. [多级分类](#多级分类)
-      2. [多分类](#多分类)
-3. [troubleshoot](#troubleshoot)
-   1. [首页图片地址错误](#首页图片地址错误)
-4. [配置记录](#配置记录)
-   1. [hexo插件](#hexo插件)
-   2. [更多](#更多)
-      1. [文章管理](#文章管理)
-         1. [更改静态文件中asset文件夹地址](#更改静态文件中asset文件夹地址)
-         2. [将文章md文件按年, 月分类](#将文章md文件按年-月分类)
-         3. [集成Travis服务](#集成travis服务)
-      2. [站点内容](#站点内容)
-         1. [自定义博客背景图片](#自定义博客背景图片)
-         2. [生成about和categories页面](#生成about和categories页面)
-         3. [简约而不硬核的友链页面](#简约而不硬核的友链页面)
-         4. [彩色字体图标](#彩色字体图标)
-         5. [实现每篇文章显示作者](#实现每篇文章显示作者)
-         6. [更改文章底部tag的](#更改文章底部tag的)
-         7. [指定图片大小](#指定图片大小)
+- [uestc-msc.github.io](#uestc-mscgithubio)
+  - [TODO](#todo)
+  - [写作语法](#写作语法)
+    - [next中比较炫酷的用法](#next中比较炫酷的用法)
+    - [文章分类](#文章分类)
+      - [多级分类](#多级分类)
+      - [多分类](#多分类)
+  - [troubleshoot](#troubleshoot)
+    - [首页图片地址错误](#首页图片地址错误)
+  - [配置记录](#配置记录)
+    - [hexo插件](#hexo插件)
+    - [更多](#更多)
+      - [文章管理](#文章管理)
+        - [快速转载微信文章](#快速转载微信文章)
+        - [更改静态文件中asset文件夹地址](#更改静态文件中asset文件夹地址)
+        - [将文章md文件按年, 月分类](#将文章md文件按年-月分类)
+        - [集成Travis服务](#集成travis服务)
+      - [站点内容](#站点内容)
+        - [自定义博客背景图片](#自定义博客背景图片)
+        - [生成about和categories页面](#生成about和categories页面)
+        - [简约而不硬核的友链页面](#简约而不硬核的友链页面)
+        - [彩色字体图标](#彩色字体图标)
+        - [实现每篇文章显示作者](#实现每篇文章显示作者)
+        - [更改文章底部tag的](#更改文章底部tag的)
+        - [指定图片大小](#指定图片大小)
 ---
 
-💡 因为hexo是安装在当前文件夹, 因此不会在路径里, 无法通过 `hexo` 命令直接调用,
-hexo位于 `node_modules/hexo/bin/hexo` (相对于根目录)
+💡 因为hexo是安装在当前文件夹, 因此不会在路径里, 无法通过 `hexo` 命令直接调用,  
+hexo位于 `node_modules/hexo/bin/hexo` (相对于根目录)  
+注：我们编写了 `/h` 和 `/hexo.sh`，现在 Linux 下可以在根目录调用 `h <argument>` 实现 `node_modules/hexo/bin/hexo <argument>` 的效果。
 
 ## 写作语法
 
 ### next中比较炫酷的用法
 
-🔗 [note](https://theme-next.org/docs/tag-plugins/note)
+🔗 [note](https://theme-next.js.org/docs/tag-plugins/note)
 
-🔗 [tab](https://theme-next.org/docs/tag-plugins/tabs)
+🔗 [tab](https://theme-next.js.org/docs/tag-plugins/tabs)
 
 🔗 [首页摘要图片](https://segmentfault.com/q/1010000004840061/a-1020000004895286)
 
