@@ -16,7 +16,7 @@
 <meta property="og:description" content="2020.11.13 前言 &amp;amp; 顺序结构这里是成电微软学生俱乐部 2020 年度 C 语言学习 Guideline。虽然不少专业在大一上已经开设了 C 语言程序设计相关课程，但是仍有其他专业的同学没有学习 C 语言（比如计院 hhhh）。 本系列文章将用六个星期的时间讲述六个专题——————的题目。这些专题覆盖了编程入门（不仅是 C 语言）的最基本的要素，如果你已经精通了 C 语言（呃，是">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://uestc-msc.github.io/2020/11/13/programming-problem-of-the-week/programming-problem-of-the-week/oj-ac.png">
-<meta property="og:updated_time" content="2020-11-13T08:11:28.625Z">
+<meta property="og:updated_time" content="2020-11-19T02:47:14.071Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MSC 每周两题">
 <meta name="twitter:description" content="2020.11.13 前言 &amp;amp; 顺序结构这里是成电微软学生俱乐部 2020 年度 C 语言学习 Guideline。虽然不少专业在大一上已经开设了 C 语言程序设计相关课程，但是仍有其他专业的同学没有学习 C 语言（比如计院 hhhh）。 本系列文章将用六个星期的时间讲述六个专题——————的题目。这些专题覆盖了编程入门（不仅是 C 语言）的最基本的要素，如果你已经精通了 C 语言（呃，是">
@@ -314,11 +314,19 @@
                 
               
 
-              <time title="创建时间：2020-11-13 11:33:02 / 修改时间：16:11:28" itemprop="dateCreated datePublished" datetime="2020-11-13T11:33:02+08:00">2020-11-13</time>
+              <time title="创建时间：2020-11-13 11:33:02" itemprop="dateCreated datePublished" datetime="2020-11-13T11:33:02+08:00">2020-11-13</time>
             </span>
           
             
 
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-11-19 10:47:14" itemprop="dateModified" datetime="2020-11-19T10:47:14+08:00">2020-11-19</time>
+              </span>
             
           
             <span class="post-meta-item">
@@ -352,7 +360,7 @@
               
                 <span class="post-meta-item-text">本文字数：</span>
               
-              <span>1.4k</span>
+              <span>2.5k</span>
             </span>
           
             <span class="post-meta-item" title="阅读时长">
@@ -362,7 +370,7 @@
               
                 <span class="post-meta-item-text">阅读时长 &asymp;</span>
               
-              <span>1 分钟</span>
+              <span>2 分钟</span>
             </span>
           
 
@@ -383,11 +391,48 @@
 <p>洛谷是一个在线评测平台（Online Judge, OJ）。和平常的 <code>做题-对答案</code> 不同，在 OJ 中，你可以在线提交程序源代码（一般不限于 C 语言，根据系 OJ 支持情况而定），系统对源代码进行编译和执行，并通过预先设计的 <code>测试数据</code>（又称测试点）来检验程序源代码的正确性。OJ 常用于算法竞赛（如 OI、ACM 竞赛）中，也有面向求职者的 <a href="https://leetcode-cn.com/" target="_blank" rel="noopener">Leetcode</a>，我们学校计算机学院的<a href="http://matu.uestc.edu.cn" target="_blank" rel="noopener">码图</a>、软件学院的 <a href="http://ostec.uestc.edu.cn/" target="_blank" rel="noopener">OSTEC</a>。</p>
 <p><img src="programming-problem-of-the-week/oj-ac.png" alt="成功提交并通过的正确示例"></p>
 <p>对于洛谷，在提交代码以后，如果测试点显示 <code>AC(accepted)</code>，表示你提交的代码在这个测试点的输入下的输出与答案相同。如果所有测试点均为 <code>AC</code>，则<strong>系统认为</strong>你提交的代码是正确的，你会在右边收获一个绿色的 <code>Accepted</code>，你的个人主页的“通过”数也会 +1。</p>
-<p>顺便一提，当代码复杂起来，如果想要严格证明代码、或者说算法的正确性，这是相当困难的。因此 OJ 普遍采用的方法是，使用多组测试样例（在 ACM 竞赛中，甚至可能上百、上千）来尽可能找到你的代码的错误。</p>
+<p>顺便一提，当代码复杂起来，如果想要严格证明代码、或者说算法的正确性，这是相当困难的。因此 OJ 普遍采用的方法是，使用多组测试样例（在 ACM 竞赛中，甚至可能上百、上千）来尽可能找到你的代码的错误。如果没有找到你的代码的错误，就<strong>认为</strong>你的代码是正确的（实际上并不一定是正确的）。</p>
 <p>回归正题，我们第一周的题单是<a href="https://www.luogu.com.cn/training/100" target="_blank" rel="noopener">顺序结构</a>。题单中有 12 题，但你只需要完成 <a href="https://www.luogu.com.cn/problem/P5704" target="_blank" rel="noopener">P5704 【深基2.例6】字母转换</a> 和 <a href="https://www.luogu.com.cn/problem/P5708" target="_blank" rel="noopener">P5708 【深基2.习2】三角形面积</a> 即可。学有余力的同学可以选做题单中的剩下题目。六周以后，总共完成了 12 题及以上的 MSCer，将在年会获得精美小礼品一份~</p>
 <p>下周五晚八点前，我会提供这两道题目的 C 语言题解和简单讲解，同时放出下一周的题单。如果在完成过程中遇到了任何问题，也可以在 MSC 群里放出代码，大家一起讨论（推荐使用 <a href="https://paste.ubuntu.com/" target="_blank" rel="noopener">https://paste.ubuntu.com/</a> 粘贴代码，而不是把代码发到 QQ 聊天框、截图甚至使用手机拍电脑）。</p>
 <p>最后，如果对这个版块有好的建议或意见（如题解不够详细、需要线下讲座等），欢迎私聊小灰晖~</p>
-<h2 id="2020-11-20-上周题解-amp-分支结构"><a href="#2020-11-20-上周题解-amp-分支结构" class="headerlink" title="2020.11.20 上周题解 &amp; 分支结构"></a>2020.11.20 上周题解 &amp; 分支结构</h2><h2 id="2020-11-27-上周题解-amp-循环结构"><a href="#2020-11-27-上周题解-amp-循环结构" class="headerlink" title="2020.11.27 上周题解 &amp; 循环结构"></a>2020.11.27 上周题解 &amp; 循环结构</h2><h2 id="2020-12-4-上周题解-amp-数组"><a href="#2020-12-4-上周题解-amp-数组" class="headerlink" title="2020.12.4 上周题解 &amp; 数组"></a>2020.12.4 上周题解 &amp; 数组</h2><h2 id="2020-12-11-上周题解-amp-字符串"><a href="#2020-12-11-上周题解-amp-字符串" class="headerlink" title="2020.12.11 上周题解 &amp; 字符串"></a>2020.12.11 上周题解 &amp; 字符串</h2><h2 id="2020-12-18-上周题解-amp-函数与结构体"><a href="#2020-12-18-上周题解-amp-函数与结构体" class="headerlink" title="2020.12.18 上周题解 &amp; 函数与结构体"></a>2020.12.18 上周题解 &amp; 函数与结构体</h2><h2 id="2020-12-25-上周题解-amp-后记"><a href="#2020-12-25-上周题解-amp-后记" class="headerlink" title="2020.12.25 上周题解 &amp; 后记"></a>2020.12.25 上周题解 &amp; 后记</h2><!-- leetcode 数据结构入门；每日一题或 ACM --><script>
+<h2 id="2020-11-20-上周题解-amp-分支结构"><a href="#2020-11-20-上周题解-amp-分支结构" class="headerlink" title="2020.11.20 上周题解 &amp; 分支结构"></a>2020.11.20 上周题解 &amp; 分支结构</h2><p>首先是上次顺序结构的题解！</p>
+<p>单纯只出顺序结构相关的题，是不会像分支、循环、函数、结构体等后面的专题一样把 C 玩出花来。所以也就出一些基础一点的题加一点数学题（如果你想体验亿点数学题的话，可以看看<a href="https://www.luogu.com.cn/problem/P2433" target="_blank" rel="noopener">P2433 【深基1-2】小学数学 N 合一</a>）。</p>
+<hr>
+<p>先看 <a href="https://www.luogu.com.cn/problem/P5704" target="_blank" rel="noopener">P5704 【深基2.例6】字母转换</a>。</p>
+<p>题目要求将小写字母转换为大写字母。</p>
+<p>C 语言中，字符 <code>char</code> 是按照 <a href="https://baike.baidu.com/item/ASCII" target="_blank" rel="noopener">ASCII 码</a>存储的，其中 ASCII 表可以百度到，也可以使用你手上的 C 语言编译器自己做一张表（但是这需要循环结构的知识，这里就先挖一个坑；如果你已经学会了循环结构，你可以提前做一张表）。</p>
+<p>从表中可以注意到，大小写字母的 ASCII 码是一一对应的，同一个字母的大小写相差 32。于是，我们对字符变量进行运算：<code>输出字符 = 输入字符 - 32</code> 即可完成此题。</p>
+<p>如果恰巧忘了 32 这个常量值，我们也可以让计算机自行计算出 <code>'a' - 'A'</code> 的值。如下面的代码：</p>
+<figure class="highlight c"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">char</span> ch;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%c"</span>, &amp;ch);</span><br><span class="line">    ch = ch - <span class="string">'a'</span> + <span class="string">'A'</span>;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%c"</span>, ch);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>也就是说，我们并不一定要死记 ASCII 码间的对应关系，而是让电脑自己去运算，这样代码的可读性也会更高。（如，将数字字符转为其数字值时，我更喜欢 <code>num = ch - '0';</code> 而不是 <code>num = ch - 48;</code>）</p>
+<hr>
+<p>另外一题是 <a href="https://www.luogu.com.cn/problem/P5708" target="_blank" rel="noopener">P5708 【深基2.习2】三角形面积</a>。<del>这道题公式都你糊脸上了，直接抄上去就行了</del>程序员的事，能叫抄公式吗？那叫代码复用，我们要讲码德。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// float a, b, c, p, area;</span></span><br><span class="line">    <span class="keyword">double</span> a, b, c, p, area;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%lf%lf%lf"</span>, &amp;a, &amp;b, &amp;c);</span><br><span class="line">    p = (a + b + c) / <span class="number">2</span>;</span><br><span class="line">    area = <span class="built_in">sqrt</span>(p * (p-a) * (p-b) * (p-c));</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.1f"</span>, area);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>这道题如果使用 <code>float</code> 类型运算，最后一个测试点会 <code>Wrong Answer</code>，使用 <code>double</code> 才能全部通过。最后一个测试点的输入为 <code>888.88 888.88 888.88</code>，使用 <code>float</code> 的输出为 <code>342126.8</code>，而 <code>double</code> 的运算结果为 <code>342126.7</code>。</p>
+<p>现实生活中，很多情况下一点误差是允许的，但对于 OJ 这类在线评测，要求结果和测试点的预期完全一样，因此在 OJ 提交时，我们一般都会使用更精确的 <code>double</code> 甚至 <code>long double</code> 类型进行运算，平时写代码的根据自己的需求（精确度、内存等）而定。</p>
+<hr>
+<p>请提交成功的同学将自己的代码提交到 <a href="https://github.com/uestc-msc/2020-members" target="_blank" rel="noopener">GitHub 仓库</a>。</p>
+<p>当然，如果你还不会使用 Git，你可以暂时不提交，之后我们会有关于 Git 的简单使用的<a href="https://blog.lyh543.cn/linux/introduction-to-wsl-ubuntu-and-git/" target="_blank" rel="noopener">教程博客</a>（暂时还没更新）和手把手教学沙龙，这周因为时间不合适，都咕咕咕了。待博客和沙龙都更新完了，各位可以再参考博客或沙龙，提交自己的代码。</p>
+<hr>
+<p>这周的题单是<a href="https://www.luogu.com.cn/training/101" target="_blank" rel="noopener">分支结构</a>，16 道题必做的只有 <a href="https://www.luogu.com.cn/problem/P5711" target="_blank" rel="noopener">P5711 【深基3.例3】闰年判断</a> 和 <a href="https://www.luogu.com.cn/problem/P5712" target="_blank" rel="noopener">P5712 【深基3.例4】Apples</a>，都是在实际开发中经常遇到的情况（手写日期判断等情况，使用单数还是复数）。题解和下周题目会在下周五晚八点前公布~</p>
+<h2 id="2020-11-27-上周题解-amp-循环结构"><a href="#2020-11-27-上周题解-amp-循环结构" class="headerlink" title="2020.11.27 上周题解 &amp; 循环结构"></a>2020.11.27 上周题解 &amp; 循环结构</h2><!-- [WSL(Ubuntu)、Git 配置及简单使用](https://blog.lyh543.cn/linux/introduction-to-wsl-ubuntu-and-git/) -->
+<!-- 打印 ASCII 表 -->
+<h2 id="2020-12-4-上周题解-amp-数组"><a href="#2020-12-4-上周题解-amp-数组" class="headerlink" title="2020.12.4 上周题解 &amp; 数组"></a>2020.12.4 上周题解 &amp; 数组</h2><h2 id="2020-12-11-上周题解-amp-字符串"><a href="#2020-12-11-上周题解-amp-字符串" class="headerlink" title="2020.12.11 上周题解 &amp; 字符串"></a>2020.12.11 上周题解 &amp; 字符串</h2><h2 id="2020-12-18-上周题解-amp-函数与结构体"><a href="#2020-12-18-上周题解-amp-函数与结构体" class="headerlink" title="2020.12.18 上周题解 &amp; 函数与结构体"></a>2020.12.18 上周题解 &amp; 函数与结构体</h2><h2 id="2020-12-25-上周题解-amp-后记"><a href="#2020-12-25-上周题解-amp-后记" class="headerlink" title="2020.12.25 上周题解 &amp; 后记"></a>2020.12.25 上周题解 &amp; 后记</h2><!-- 经过六个专题的练习，2020 年 C 语言入门将暂告一个段落。如果你完成了这些专题，或者虽然没有完成，但是有什么想说的，你可以填写[问卷](https://forms.office.com/Pages/ResponsePage.aspx?id=pOutbSzcpEiz8KuV1mGJ2iUUVS2WU1lBlFAHVjewFntUMUJTVjZKQUJNTFpHRTA1Q1VEWlAxVlJMWC4u)。在年会上，我们会以词云的形式展示这些建议，并在今后的专题中酌情采纳，也会想合格完成专题的同学送出精美小礼品。
+
+那么，下一步是什么呢？
+
+在寒假的时候，现役 ACM 校队成员 @OrangeRain 学长会延续这类专题的风格，推出数据结构与算法方面的每日一题，题量和难度会较目前有提升，欢迎各位持续关注。
+
+除此之外，如果你想要系统性的自学数据结构与算法，并且喜欢 MOOC 这类学习类型，推荐这一门 MOOC：[【清华大学】邓俊辉 MOOC 数据结构与算法](https://www.bilibili.com/video/av75509584/)
+
+如果你喜欢在 OJ 上做题的这类风格，你可以在 [LeetCode书架](https://leetcode-cn.com/leetbook/) 上找到《初级算法》，以及《中级算法》和《高级算法》，结合上面的 MOOC 边学边练。
+
+如果你对数据结构与算法已经有一定了解了，并且想要定期或不定期地练习或参加比赛，你可以尝试 [LeetCode](https://leetcode-cn.com/) 的每日一题，或者参加 LeetCode（难度接近 `Div. 3`）、[CodeForces](https://codeforces.com/)（比赛难度由低到高依次为 `Div.3`，`Div.2`，`Div.1`）或 [AtCoder](https://atcoder.jp/)（难度由低到高依次为 `Beginner Contest`，`Regular Contest`，`Grant Contest`）举办的比赛。
+
+如果你对数据结构和算法非常感兴趣，或有 OI 基础，你也可以参加算法竞赛（ACM ICPC、CCPC 等），我们学校 ACM 校队集训、招新一般在每年 4 月左右，在此之前你可以继续在洛谷做其他题，或自学[《算法竞赛入门经典（第2版）》(刘汝佳)](https://item.jd.com/11469701.html)。参加（包括但不限于算法竞赛）竞赛可以获得保研加分、面试优势等。
+
+最后的最后，如果你想要尝试程序开发，俱乐部正计划将《阮薇薇点名啦》小程序进行重构，想要参项目开发、成为《阮薇薇点名啦 v2》开发者的同学（零基础也行的~），欢迎联系小灰晖。 -->
+<script>
         document.querySelectorAll('.github-emoji')
           .forEach(el => {
             if (!el.dataset.src) { return; }
@@ -439,6 +484,10 @@
             <span class="post-nav-divider"></span>
 
             <div class="post-nav-prev post-nav-item">
+              
+                <a href="/2020/11/18/introduction-to-wsl-ubuntu-and-git/" rel="prev" title="WSL(Ubuntu)、Git 配置及简单使用">
+                  WSL(Ubuntu)、Git 配置及简单使用 <i class="fa fa-chevron-right"></i>
+                </a>
               
             </div>
           </div>
@@ -502,7 +551,7 @@
         
           <a href="/archives/">
         
-          <span class="site-state-item-count">50</span>
+          <span class="site-state-item-count">51</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -553,7 +602,9 @@
         
           
         
-        <span class="site-state-item-count">18</span>
+          
+        
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">分类</span>
         </a>
       </div>
@@ -686,12 +737,12 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-area-chart"></i>
     </span>
-    <span title="站点总字数">71k</span>
+    <span title="站点总字数">73k</span>
     <span class="post-meta-divider">|</span>
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">1:05</span>
+    <span title="站点阅读时长">1:06</span>
 </div>
         
 <div class="busuanzi-count">
