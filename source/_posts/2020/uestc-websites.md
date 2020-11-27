@@ -5,7 +5,8 @@ author: 小灰晖
 tags: 小灰晖
 ---
 
-> 本文更新于 2020.9.29，文中信息可能已失效。
+> 本文更新于 2020.11.21，文中信息可能已失效。
+> 更多信息可见：https://blog.lyh543.cn/others/something-about-uestc/
 
 ## 常用网址
 
@@ -55,9 +56,14 @@ http://www-uestc-edu-cn-s.vpn.uestc.edu.cn:8118/ 将会代理到 https://www.ues
 可见，将原网址中的 `.` 改写为 `-` 即可成功代理。
 
 以下为更多规则：
-* 原网址中的 `.` 需改写为 `-`
-* 原网址中的 `-` 需改写为 `--`
-* 原网址如为 `https`，需在最后加上 `-s`，如 http://www-uestc-edu-cn-s.vpn.uestc.edu.cn:8118/
+
+规则|例子|实际访问网站
+-|-|-
+原网址中的 `.` 需改写为 `-`|
+原网址中的 `-` 需改写为 `--`|
+访问指定端口，需在后面加上 `-<端口号>-p`|http://www-uestc-edu-cn-80-p.vpn.uestc.edu.cn:8118/|http://www.uestc.edu.cn:80/
+以 `https` 协议访问，需在最后加上 `-s`|http://www-uestc-edu-cn-s.vpn.uestc.edu.cn:8118/|https://www.uestc.edu.cn/
+以 `https` 协议访问指定端口，使用 `-<端口号>-p-s`|http://www-uestc-edu-cn-443-p-s.vpn.uestc.edu.cn:8118/|https://www.uestc.edu.cn:443/
 
 ## eduroam 的账号密码
 
