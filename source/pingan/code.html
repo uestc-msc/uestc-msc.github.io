@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>平安成电智慧通行</title>
+<style type="text/css">
+</style>
+</head>
+  <body>
+  <div id="box" style="background-color:#fff;border-color:#fff;color:rgba(0,0,0,0.87);padding:8px 8px !improtant;border-radius:2px;transition:.3s cubic-bezier(.25,.8,.5,1);box-shadow:0px 3px 1px -2px rgba(0,0,0,0.2),0px 2px 2px 0px rgba(0,0,0,0.14),0px 1px 5px 0px rgba(0,0,0,0.12);text-decoration:none;padding-bottom:10px">
+  	<div style="text-align:center;font-weight:bold">行人二维码</div>
+	<div style="text-align:center;"><img width="200" src="img/code.png"></div> 
+	<div style="text-align:center;">
+		<div style="display:inline-block;">二维码剩余有效时间</div>
+		<div style="display:inline-block;" id="time">300</div>
+		<div style="display:inline-block;">秒</div>
+	</div>
+	
+	<div style="display:flex;margin-top:10px;margin-bottom:10px;">
+		<span style="background-color:#02c3a4;color:white;padding-left:10px;padding-right:10px;margin:0 auto;display:block;border-radius:3px;line-height:37px;" >
+						查看通行规则
+		</span>
+	</div>
+  </div>
+  <script type="text/javascript">
+  function doCount(){
+	var time = document.getElementById("time");
+	var seconds = time.innerText - 1;
+	if (seconds < 0 )
+	{
+		seconds = 300;
+	}
+	//var left2 = parseInt(time2.style.left)-1;
+	time.innerHTML = seconds
+	window.setTimeout("doCount()",1000);
+}
+	doCount();
+  </script>
+  </body>
+</html>
