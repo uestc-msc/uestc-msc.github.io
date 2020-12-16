@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  
+  <meta name="description" content="说周五发这篇博客，然后就咕了一个多星期 hhhh 俱乐部的鸽子本性。 不过，本期题解的线下沙龙的录屏已经投到了 B 站（就是麦克风效果有点不行）：https://www.bilibili.com/video/BV1Cv411b7tA">
+<meta name="keywords" content="小灰晖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MSC 每周两题：上周题解 &amp; 数组">
+<meta property="og:url" content="https://uestc-msc.github.io/2020/12/15/2020-programming-of-the-week-4-array/index.html">
+<meta property="og:site_name" content="UESTC-MSC">
+<meta property="og:description" content="说周五发这篇博客，然后就咕了一个多星期 hhhh 俱乐部的鸽子本性。 不过，本期题解的线下沙龙的录屏已经投到了 B 站（就是麦克风效果有点不行）：https://www.bilibili.com/video/BV1Cv411b7tA">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-12-16T04:00:30.190Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MSC 每周两题：上周题解 &amp; 数组">
+<meta name="twitter:description" content="说周五发这篇博客，然后就咕了一个多星期 hhhh 俱乐部的鸽子本性。 不过，本期题解的线下沙龙的录屏已经投到了 B 站（就是麦克风效果有点不行）：https://www.bilibili.com/video/BV1Cv411b7tA">
+  <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
+  <link rel="canonical" href="https://uestc-msc.github.io/2020/12/15/2020-programming-of-the-week-4-array/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="mask-icon" href="/images/uestc-msc-logo.jpg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="OKSlvGttut8Kj8llKOQBCC4aORnHzjsELhAofGpH8Lg">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src = "https://at.alicdn.com/t/font_1378191_6tokm7h6w1c.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <title>MSC 每周两题：上周题解 & 数组 | UESTC-MSC</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">UESTC-MSC</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">欢迎来到电子科大微软学生俱乐部</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>作者</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-friendlinks">
+      
+    
+
+    <a href="/friendlinks/" rel="section"><i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>友链</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2020/12/15/2020-programming-of-the-week-4-array/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="UESTC-MSC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="UESTC-MSC">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">MSC 每周两题：上周题解 & 数组
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
+              </span>
+              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <a href="/tags/小灰晖" itemprop="url" rel="index">
+                  <span itemprop="name">小灰晖</span>
+                </a>
+              </span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-12-15 21:00:00" itemprop="dateCreated datePublished" datetime="2020-12-15T21:00:00+08:00">2020-12-15</time>
+            </span>
+          
+            
+
+            
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-12-16 12:00:30" itemprop="dateModified" datetime="2020-12-16T12:00:30+08:00">2020-12-16</time>
+              </span>
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MSC-每周两题/" itemprop="url" rel="index"><span itemprop="name">MSC 每周两题</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>2.2k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>2 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>说周五发这篇博客，然后就咕了一个多星期 hhhh 俱乐部的鸽子本性。</p>
+<p>不过，本期题解的线下沙龙的录屏已经投到了 B 站（就是麦克风效果有点不行）：<a href="https://www.bilibili.com/video/BV1Cv411b7tA" target="_blank" rel="noopener">https://www.bilibili.com/video/BV1Cv411b7tA</a></p>
+<a id="more"></a>
+<h2 id="系列目录"><a href="#系列目录" class="headerlink" title="系列目录"></a>系列目录</h2><ol>
+<li><a href="/2020/11/13/2020-programming-of-the-week-1-preface-and-sequential/">MSC 每周两题：前言 &amp; 顺序结构</a></li>
+<li><a href="/2020/11/20/2020-programming-of-the-week-2-branch/">MSC 每周两题：上周题解 &amp; 分支结构</a></li>
+<li><a href="/2020/11/27/2020-programming-of-the-week-3-loop/">MSC 每周两题：上周题解 &amp; 循环结构</a></li>
+<li><a href="/2020/12/15/2020-programming-of-the-week-4-array/">MSC 每周两题：上周题解 &amp; 数组</a></li>
+<li>MSC 每周两题：上周题解 &amp; 字符串</li>
+<li>MSC 每周两题：上周题解 &amp; 函数和结构体</li>
+<li>MSC 每周两题：上周题解 &amp; 后记</li>
+</ol>
+<h2 id="P5719-【深基4-例3】分类平均"><a href="#P5719-【深基4-例3】分类平均" class="headerlink" title="P5719 【深基4.例3】分类平均"></a>P5719 【深基4.例3】分类平均</h2><p><a href="https://www.luogu.com.cn/problem/P5719" target="_blank" rel="noopener">P5719 【深基4.例3】分类平均</a></p>
+<h3 id="方法一"><a href="#方法一" class="headerlink" title="方法一"></a>方法一</h3><p>最简单的做法就是把 $1$ 到 $n$ 的数全部遍历一遍，然后使用一个 <code>if</code> 对数分类，统计数的总和以及总数，最后求一个平均数即可。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="keyword">double</span> a_sum = <span class="number">0</span>, b_sum = <span class="number">0</span>, a_n = <span class="number">0</span>, b_n = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;k);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (i % k == <span class="number">0</span>)</span><br><span class="line">        {</span><br><span class="line">            a_sum += i;</span><br><span class="line">            a_n++;</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">        {</span><br><span class="line">            b_sum += i;</span><br><span class="line">            b_n++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.1f %.1f"</span>, a_sum / a_n, b_sum / b_n);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>应同学要求，这次加上了 Python 3 的代码。</p>
+<p>使用 Python，可以使用 <code>filter</code> 函数将数组直接分为能被 $k$ 整除，以及不能被 $k$ 整除的部分，而不用写 <code>for</code> 语句。</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">n, k = map(int, input().split())</span><br><span class="line">numbers = range(<span class="number">1</span>,  n+<span class="number">1</span>)</span><br><span class="line">numbers_a = list(filter(<span class="keyword">lambda</span> x: x % k == <span class="number">0</span>, numbers))</span><br><span class="line">numbers_b = list(filter(<span class="keyword">lambda</span> x: x % k != <span class="number">0</span>, numbers))</span><br><span class="line">average_a = sum(numbers_a)/len(numbers_a)</span><br><span class="line">average_b = sum(numbers_b)/len(numbers_b)</span><br><span class="line">print(<span class="string">"%.1f %.1f"</span> % (average_a, average_b))</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="方法二"><a href="#方法二" class="headerlink" title="方法二"></a>方法二</h3><p>除了循环以外，能不能直接根据 n 和 k 直接计算得出结果呢？这道题有很强的数学性质，于是可以尝试往这方面想想。</p>
+<p>设两个集合分别为 $S_A$ 和 $S_B$。显然有：</p>
+<script type="math/tex; mode=display">\sum_{x \in S_A} x + \sum_{y \in S_B} y = \frac{1}{2}n(n+1)</script><script type="math/tex; mode=display">|S_A| + |S_B| = n</script><p>注意到 $S_A$ 是“前 $n$ 个数中能被 $k$ 整除的数组成的集合”，所以不难推出集合 $S_A$ 中共有 $\lfloor\frac{n}{k}\rfloor$ 个元素。（不会推导的同学也可以举 $n=5, k=2$ 这样的例子验证）</p>
+<p>而 $S_A$ 中的元素又构成了首项、公差均为 $k$ 的等差数列，其个数也可以求出（如上）。</p>
+<p>用总的个数与元素和分别减去 $S_A$ 的个数和元素和，就可以得到 $S_B$ 的个数以及元素和。最后分别求 $S_A$ 和 $S_B$ 的平均数即可。</p>
+<p>下面是 C 和 Python 3 的实现。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> n, k;</span><br><span class="line">    <span class="keyword">double</span> a_sum = <span class="number">0</span>, b_sum = <span class="number">0</span>, a_n = <span class="number">0</span>, b_n = <span class="number">0</span>, sum = <span class="number">0</span>;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;n, &amp;k);</span><br><span class="line">    sum = (<span class="number">1</span> + n) * n / <span class="number">2</span>;</span><br><span class="line">    a_n = n / k;</span><br><span class="line">    a_sum = (k + k * a_n) * a_n / <span class="number">2</span>;</span><br><span class="line">    b_n = n - a_n;</span><br><span class="line">    b_sum = sum - a_sum;</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%.1f %.1f"</span>, a_sum / a_n, b_sum / b_n);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">n, k = map(int, input().split())</span><br><span class="line">sum = (<span class="number">1</span> + n) * n / <span class="number">2</span></span><br><span class="line">a_n = n // k</span><br><span class="line">a_sum = (k + k * a_n) * a_n / <span class="number">2</span></span><br><span class="line">b_n = n - a_n</span><br><span class="line">b_sum = sum - a_sum</span><br><span class="line">print(<span class="string">"%.1f %.1f"</span> % (a_sum / a_n, b_sum / b_n))</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="P5723-【深基4-例13】质数口袋"><a href="#P5723-【深基4-例13】质数口袋" class="headerlink" title="P5723 【深基4.例13】质数口袋"></a>P5723 【深基4.例13】质数口袋</h2><p><a href="https://www.luogu.com.cn/problem/P5723" target="_blank" rel="noopener">P5723 【深基4.例13】质数口袋</a></p>
+<h3 id="方法一-1"><a href="#方法一-1" class="headerlink" title="方法一"></a>方法一</h3><p>题目本质是在求从 2 开始的所有质数，直至满足其和大于 $L$。所以本题的三个方法均围绕如何求质数进行。</p>
+<p>最朴素的方法就是根据质数的定义：</p>
+<blockquote>
+<p>质数（Prime number），又称素数，指在大于1的自然数中，除了1和该数自身外，无法被其他自然数整除的数（也可定义为只有1与该数本身两个正因数的数）。</p>
+</blockquote>
+<p>根据定义，对于大于1的自然数 $i$，如果验证 $2\sim i-1$ 均不能整除 $i$，那么 $i$ 一定是质数。</p>
+<p>但是，一定要判定 $2\sim i-1$ 吗？</p>
+<p>一种优化，是只判定 $2\sim \sqrt{i}$ 之间的整数。因为一个合数 $i$ 必然会有一个因数小于 $\sqrt{i}$（想想，这是为什么？）。</p>
+<p>下面的 C 和 Python 代码就采用了这种优化。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> L;</span><br><span class="line">    scanf_s(<span class="string">"%d"</span>, &amp;L);</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>, n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; sum + i &lt;= L; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">bool</span> is_prime = <span class="literal">true</span>;</span><br><span class="line">        <span class="keyword">int</span> sqrt_i = <span class="built_in">sqrt</span>(i); <span class="comment">// 注意不要把 sqrt(i) 的计算过程写到 for 的判定条件中</span></span><br><span class="line">        <span class="comment">// 在不考虑编译器优化的情况下，这种写法会导致每次判定 j &lt;= sqrt(i) 时都会重新计算 sqrt(i)</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">2</span>; j &lt;= sqrt_i; j++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (i % j == <span class="number">0</span>)</span><br><span class="line">            {</span><br><span class="line">                is_prime = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">break</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">        <span class="keyword">if</span> (is_prime)</span><br><span class="line">        {</span><br><span class="line">            sum += i;</span><br><span class="line">            n++;</span><br><span class="line">            <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i);</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, n);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> sqrt</span><br><span class="line"></span><br><span class="line">L=int(input())</span><br><span class="line">sum, n = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, L):</span><br><span class="line">    <span class="keyword">if</span> sum+i &gt; L:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    is_prime = <span class="literal">True</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">2</span>, int(sqrt(i))+<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">if</span> i % j == <span class="number">0</span>:</span><br><span class="line">            is_prime = <span class="literal">False</span></span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> is_prime:</span><br><span class="line">        sum += i</span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line">        print(i)</span><br><span class="line">print(n)</span><br></pre></td></tr></tbody></table></figure>
+<p>对这种方法更进一步的优化，是只判定 $2\sim \sqrt{i}$ 之间的质数。因为一个合数 $i$ 必然会有一个<strong>质因数</strong>小于 $\sqrt{i}$。</p>
+<p>不过，这样就要求将前面计算出的质数存到数组中，需要额外的数组空间。</p>
+<h3 id="方法二-1"><a href="#方法二-1" class="headerlink" title="方法二"></a>方法二</h3><p>方法二源于埃拉托斯特尼筛法。其算法思想是，假设所有数都是质数，第一步先从 4 开始把 2 的倍数筛掉（因为都是和数），下一步筛掉 3 的倍数，然后筛掉 5 的倍数……</p>
+<p>由于算法很著名，网上有不少现成的、形象易懂的埃氏筛算法的讲解博客，因此这里不进行更多展开。感兴趣的同学可以自行搜索并进行学习。</p>
+<p>下面是 C 和 Python 3 的实现。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> max_size = <span class="number">1e6</span> + <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="comment">// 为方便，这里使用 is_not_prime 并设初值为 0，代替算法中的 is_prime 初值为 1</span></span><br><span class="line">    <span class="keyword">bool</span> is_not_prime[max_size] = { <span class="number">0</span> };</span><br><span class="line">    <span class="keyword">int</span> L;</span><br><span class="line">    scanf_s(<span class="string">"%d"</span>, &amp;L);</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>, n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">2</span>; sum + i &lt;= L; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">if</span> (is_not_prime[i])</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i * i; i * j &lt;= L; j += i)</span><br><span class="line">            is_not_prime[j] = <span class="number">1</span>;</span><br><span class="line">        sum += i;</span><br><span class="line">        n++;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, i);</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, n);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">MAX_SIZE = <span class="number">100005</span></span><br><span class="line">is_not_prime = [<span class="literal">False</span>] * MAX_SIZE</span><br><span class="line">L=int(input())</span><br><span class="line">sum, n = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>, L):</span><br><span class="line">    <span class="keyword">if</span> sum+i &gt; L:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> is_not_prime[i]:</span><br><span class="line">        <span class="keyword">continue</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i*i, L+<span class="number">1</span>, i):</span><br><span class="line">        is_not_prime[j] = <span class="literal">True</span></span><br><span class="line">    sum += i</span><br><span class="line">    n += <span class="number">1</span></span><br><span class="line">    print(i)</span><br><span class="line">print(n)</span><br></pre></td></tr></tbody></table></figure>
+<p>除此之外，埃氏筛法还有线性筛、奇数筛等优化，学有余力的同学可以自行搜索了解。</p>
+<h3 id="方法三"><a href="#方法三" class="headerlink" title="方法三"></a>方法三</h3><p>还有一种方法，这种方法是为了单纯为了把程序运行速度提高到极致才产生的方法：使用方法一或方法二的算法生成足够用的质数表，然后将质数表复制到代码里直接使用！</p>
+<p>这种技巧被称为“打表”。</p>
+<blockquote>
+<p>打表，是一个信息学专用术语，意指对一些题目，通过打表技巧获得一个有序表或常量表，来执行程序某一部分，优化时间复杂度。这种算法也可用于在对某种题目没有最优解法时，用来得到分数的一种策略。</p>
+</blockquote>
+<p>以下是我们得到了质数表的前提下的 C 和 Python 3 代码。</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> prime[] = { <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">37</span>, <span class="number">41</span>, <span class="number">43</span>, <span class="number">47</span>, <span class="number">53</span>, <span class="number">59</span>, <span class="number">61</span>, <span class="number">67</span>, <span class="number">71</span>, <span class="number">73</span>, <span class="number">79</span>, <span class="number">83</span>, <span class="number">89</span>, <span class="number">97</span>, <span class="number">101</span>, <span class="number">103</span>, <span class="number">107</span>, <span class="number">109</span>, <span class="number">113</span>, <span class="number">127</span>, <span class="number">131</span>, <span class="number">137</span>, <span class="number">139</span>, <span class="number">149</span>, <span class="number">151</span>, <span class="number">157</span>, <span class="number">163</span>, <span class="number">167</span>, <span class="number">173</span>, <span class="number">179</span>, <span class="number">181</span>, <span class="number">191</span>, <span class="number">193</span>, <span class="number">197</span>, <span class="number">199</span>, <span class="number">211</span>, <span class="number">223</span>, <span class="number">227</span>, <span class="number">229</span>, <span class="number">233</span>, <span class="number">239</span>, <span class="number">241</span>, <span class="number">251</span>, <span class="number">257</span>, <span class="number">263</span>, <span class="number">269</span>, <span class="number">271</span>, <span class="number">277</span>, <span class="number">281</span>, <span class="number">283</span>, <span class="number">293</span>, <span class="number">307</span>, <span class="number">311</span>, <span class="number">313</span>, <span class="number">317</span>, <span class="number">331</span>, <span class="number">337</span>, <span class="number">347</span>, <span class="number">349</span>, <span class="number">353</span>, <span class="number">359</span>, <span class="number">367</span>, <span class="number">373</span>, <span class="number">379</span>, <span class="number">383</span>, <span class="number">389</span>, <span class="number">397</span>, <span class="number">401</span>, <span class="number">409</span>, <span class="number">419</span>, <span class="number">421</span>, <span class="number">431</span>, <span class="number">433</span>, <span class="number">439</span>, <span class="number">443</span>, <span class="number">449</span>, <span class="number">457</span>, <span class="number">461</span>, <span class="number">463</span>, <span class="number">467</span>, <span class="number">479</span>, <span class="number">487</span>, <span class="number">491</span>, <span class="number">499</span>, <span class="number">503</span>, <span class="number">509</span>, <span class="number">521</span>, <span class="number">523</span>, <span class="number">541</span>, <span class="number">547</span>, <span class="number">557</span>, <span class="number">563</span>, <span class="number">569</span>, <span class="number">571</span>, <span class="number">577</span>, <span class="number">587</span>, <span class="number">593</span>, <span class="number">599</span>, <span class="number">601</span>, <span class="number">607</span>, <span class="number">613</span>, <span class="number">617</span>, <span class="number">619</span>, <span class="number">631</span>, <span class="number">641</span>, <span class="number">643</span>, <span class="number">647</span>, <span class="number">653</span>, <span class="number">659</span>, <span class="number">661</span>, <span class="number">673</span>, <span class="number">677</span>, <span class="number">683</span>, <span class="number">691</span>, <span class="number">701</span>, <span class="number">709</span>, <span class="number">719</span>, <span class="number">727</span>, <span class="number">733</span>, <span class="number">739</span>, <span class="number">743</span>, <span class="number">751</span>, <span class="number">757</span>, <span class="number">761</span>, <span class="number">769</span>, <span class="number">773</span>, <span class="number">787</span>, <span class="number">797</span>, <span class="number">809</span>, <span class="number">811</span>, <span class="number">821</span>, <span class="number">823</span>, <span class="number">827</span>, <span class="number">829</span>, <span class="number">839</span>, <span class="number">853</span>, <span class="number">857</span>, <span class="number">859</span>, <span class="number">863</span>, <span class="number">877</span>, <span class="number">881</span>, <span class="number">883</span>, <span class="number">887</span>, <span class="number">907</span>, <span class="number">911</span>, <span class="number">919</span>, <span class="number">929</span>, <span class="number">937</span>, <span class="number">941</span>, <span class="number">947</span>, <span class="number">953</span>, <span class="number">967</span>, <span class="number">971</span>, <span class="number">977</span>, <span class="number">983</span>, <span class="number">991</span>, <span class="number">997</span>, <span class="number">1009</span>, <span class="number">1013</span>, <span class="number">1019</span>, <span class="number">1021</span>, <span class="number">1031</span>, <span class="number">1033</span>, <span class="number">1039</span>, <span class="number">1049</span>, <span class="number">1051</span>, <span class="number">1061</span>, <span class="number">1063</span>, <span class="number">1069</span>, <span class="number">1087</span>, <span class="number">1091</span>, <span class="number">1093</span>, <span class="number">1097</span>, <span class="number">1103</span>, <span class="number">1109</span>, <span class="number">1117</span>, <span class="number">1123</span>, <span class="number">1129</span>, <span class="number">1151</span>, <span class="number">10000</span>};</span><br><span class="line"><span class="comment">// 最后一个 10000 是防止遍历数组的时候越界</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> L;</span><br><span class="line">    scanf_s(<span class="string">"%d"</span>, &amp;L);</span><br><span class="line">    <span class="keyword">int</span> sum = <span class="number">0</span>, n = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; sum + prime[i] &lt;= L; i++)</span><br><span class="line">    {</span><br><span class="line">        sum += prime[i];</span><br><span class="line">        n++;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d\n"</span>, prime[i]);</span><br><span class="line">    }</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, n);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">prime = [ <span class="number">2</span>, <span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">19</span>, <span class="number">23</span>, <span class="number">29</span>, <span class="number">31</span>, <span class="number">37</span>, <span class="number">41</span>, <span class="number">43</span>, <span class="number">47</span>, <span class="number">53</span>, <span class="number">59</span>, <span class="number">61</span>, <span class="number">67</span>, <span class="number">71</span>, <span class="number">73</span>, <span class="number">79</span>, <span class="number">83</span>, <span class="number">89</span>, <span class="number">97</span>, <span class="number">101</span>, <span class="number">103</span>, <span class="number">107</span>, <span class="number">109</span>, <span class="number">113</span>, <span class="number">127</span>, <span class="number">131</span>, <span class="number">137</span>, <span class="number">139</span>, <span class="number">149</span>, <span class="number">151</span>, <span class="number">157</span>, <span class="number">163</span>, <span class="number">167</span>, <span class="number">173</span>, <span class="number">179</span>, <span class="number">181</span>, <span class="number">191</span>, <span class="number">193</span>, <span class="number">197</span>, <span class="number">199</span>, <span class="number">211</span>, <span class="number">223</span>, <span class="number">227</span>, <span class="number">229</span>, <span class="number">233</span>, <span class="number">239</span>, <span class="number">241</span>, <span class="number">251</span>, <span class="number">257</span>, <span class="number">263</span>, <span class="number">269</span>, <span class="number">271</span>, <span class="number">277</span>, <span class="number">281</span>, <span class="number">283</span>, <span class="number">293</span>, <span class="number">307</span>, <span class="number">311</span>, <span class="number">313</span>, <span class="number">317</span>, <span class="number">331</span>, <span class="number">337</span>, <span class="number">347</span>, <span class="number">349</span>, <span class="number">353</span>, <span class="number">359</span>, <span class="number">367</span>, <span class="number">373</span>, <span class="number">379</span>, <span class="number">383</span>, <span class="number">389</span>, <span class="number">397</span>, <span class="number">401</span>, <span class="number">409</span>, <span class="number">419</span>, <span class="number">421</span>, <span class="number">431</span>, <span class="number">433</span>, <span class="number">439</span>, <span class="number">443</span>, <span class="number">449</span>, <span class="number">457</span>, <span class="number">461</span>, <span class="number">463</span>, <span class="number">467</span>, <span class="number">479</span>, <span class="number">487</span>, <span class="number">491</span>, <span class="number">499</span>, <span class="number">503</span>, <span class="number">509</span>, <span class="number">521</span>, <span class="number">523</span>, <span class="number">541</span>, <span class="number">547</span>, <span class="number">557</span>, <span class="number">563</span>, <span class="number">569</span>, <span class="number">571</span>, <span class="number">577</span>, <span class="number">587</span>, <span class="number">593</span>, <span class="number">599</span>, <span class="number">601</span>, <span class="number">607</span>, <span class="number">613</span>, <span class="number">617</span>, <span class="number">619</span>, <span class="number">631</span>, <span class="number">641</span>, <span class="number">643</span>, <span class="number">647</span>, <span class="number">653</span>, <span class="number">659</span>, <span class="number">661</span>, <span class="number">673</span>, <span class="number">677</span>, <span class="number">683</span>, <span class="number">691</span>, <span class="number">701</span>, <span class="number">709</span>, <span class="number">719</span>, <span class="number">727</span>, <span class="number">733</span>, <span class="number">739</span>, <span class="number">743</span>, <span class="number">751</span>, <span class="number">757</span>, <span class="number">761</span>, <span class="number">769</span>, <span class="number">773</span>, <span class="number">787</span>, <span class="number">797</span>, <span class="number">809</span>, <span class="number">811</span>, <span class="number">821</span>, <span class="number">823</span>, <span class="number">827</span>, <span class="number">829</span>, <span class="number">839</span>, <span class="number">853</span>, <span class="number">857</span>, <span class="number">859</span>, <span class="number">863</span>, <span class="number">877</span>, <span class="number">881</span>, <span class="number">883</span>, <span class="number">887</span>, <span class="number">907</span>, <span class="number">911</span>, <span class="number">919</span>, <span class="number">929</span>, <span class="number">937</span>, <span class="number">941</span>, <span class="number">947</span>, <span class="number">953</span>, <span class="number">967</span>, <span class="number">971</span>, <span class="number">977</span>, <span class="number">983</span>, <span class="number">991</span>, <span class="number">997</span>, <span class="number">1009</span>, <span class="number">1013</span>, <span class="number">1019</span>, <span class="number">1021</span>, <span class="number">1031</span>, <span class="number">1033</span>, <span class="number">1039</span>, <span class="number">1049</span>, <span class="number">1051</span>, <span class="number">1061</span>, <span class="number">1063</span>, <span class="number">1069</span>, <span class="number">1087</span>, <span class="number">1091</span>, <span class="number">1093</span>, <span class="number">1097</span>, <span class="number">1103</span>, <span class="number">1109</span>, <span class="number">1117</span>, <span class="number">1123</span>, <span class="number">1129</span>, <span class="number">1151</span>, <span class="number">10000</span>]</span><br><span class="line"></span><br><span class="line">L=int(input())</span><br><span class="line">sum, n = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> prime:</span><br><span class="line">    <span class="keyword">if</span> sum+i &gt; L:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    sum += i</span><br><span class="line">    n += <span class="number">1</span></span><br><span class="line">    print(i)</span><br><span class="line">print(n)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="将代码上传到-GitHub"><a href="#将代码上传到-GitHub" class="headerlink" title="将代码上传到 GitHub"></a>将代码上传到 GitHub</h2><p>上上周我们开了沙龙讲解如何配置 WSL 和 Git。这里有博客记录：<a href="https://blog.lyh543.cn/linux/introduction-to-wsl-ubuntu-and-git/" target="_blank" rel="noopener">WSL(Ubuntu)、Git 配置及简单使用</a>。</p>
+<p>我们希望同学能将自己在洛谷提交的代码也提交到 Git 仓库：<a href="https://github.com/uestc-msc/2020-members" target="_blank" rel="noopener">uestc-msc/2020-members</a>。提交时，请 fork 原仓库到自己账号下，在自己账号下的仓库完成提交，然后向俱乐部仓库 Pull Request。</p>
+<p>尚不会使用 Git 的同学，可以参考上面的博客，也可以在 QQ 群里提问。</p>
+<h2 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h2><p>这周的题单是<a href="https://www.luogu.com.cn/training/103" target="_blank" rel="noopener">数组</a>。这周的题单 20 题中，必做的为 <a href="https://www.luogu.com.cn/problem/P5728" target="_blank" rel="noopener">P5728 【深基5.例5】旗鼓相当的对手</a> 和 <a href="https://www.luogu.com.cn/problem/P1789" target="_blank" rel="noopener">P1789 【Mc生存】插火把</a>，还有 <a href="https://www.luogu.com.cn/problem/P2615" target="_blank" rel="noopener">P2615 神奇的幻方</a>。</p>
+<p>除了上面的题以外，我们还需要填一个坑，就是基于之前分支结构中的 <a href="https://www.luogu.com.cn/problem/P5711" target="_blank" rel="noopener">P5711 【深基3.例3】闰年判断</a> 的 <a href="https://www.luogu.com.cn/problem/P5716" target="_blank" rel="noopener">P5716 【深基3.例9】月份天数</a>。各位可以基于之前的代码加以完善，然后完成此题。</p>
+<p>本次题目的题解将于下周五 (2020-12-25) 给出，敬请期待~</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/小灰晖/" rel="tag"><i class="fa fa-tag"></i> 小灰晖</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/11/27/2020-programming-of-the-week-3-loop/" rel="next" title="MSC 每周两题：上周题解 & 循环结构">
+                  <i class="fa fa-chevron-left"></i> MSC 每周两题：上周题解 & 循环结构
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系列目录"><span class="nav-number">1.</span> <span class="nav-text">系列目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P5719-【深基4-例3】分类平均"><span class="nav-number">2.</span> <span class="nav-text">P5719 【深基4.例3】分类平均</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一"><span class="nav-number">2.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二"><span class="nav-number">2.2.</span> <span class="nav-text">方法二</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P5723-【深基4-例13】质数口袋"><span class="nav-number">3.</span> <span class="nav-text">P5723 【深基4.例13】质数口袋</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#方法一-1"><span class="nav-number">3.1.</span> <span class="nav-text">方法一</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法二-1"><span class="nav-number">3.2.</span> <span class="nav-text">方法二</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法三"><span class="nav-number">3.3.</span> <span class="nav-text">方法三</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将代码上传到-GitHub"><span class="nav-number">4.</span> <span class="nav-text">将代码上传到 GitHub</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组"><span class="nav-number">5.</span> <span class="nav-text">数组</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UESTC-MSC</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">54</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">作者</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://github.com/uestc-msc" title="GitHub &rarr; https://github.com/uestc-msc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icongithub"></use></svg>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="mailto:uestcmsc@demo4c.onmicrosoft.com" title="邮箱 &rarr; mailto:uestcmsc@demo4c.onmicrosoft.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconOUTLOOK"></use></svg>邮箱</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://weibo.com/uestcmstc" title="微博 &rarr; https://weibo.com/uestcmstc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweibo"></use></svg>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://space.bilibili.com/456910030" title="bilibili &rarr; https://space.bilibili.com/456910030" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconbilibili"></use></svg>bilibili</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" title="微信 &rarr; https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwechat"></use></svg>微信</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2003 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <!-- <i class="fa fa-iconMicrosoft"></i> -->
+    <svg class="icon" aria-hidden="true"><use xlink:href="#iconMicrosoft"></use></svg>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UESTC-MSC</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">77k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:10</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+  <script src="/js/hexo_resize_image.js"></script>
+</body>
+</html>
