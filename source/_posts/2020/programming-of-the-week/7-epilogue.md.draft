@@ -1,0 +1,27 @@
+---
+title: MSC 每周两题：上周题解 & 后记
+date: 2020-11-13 11:33:02
+categories:
+- [C++]
+- [MSC 每周两题]
+author: 小灰晖
+tags: 小灰晖
+---
+
+<!-- More -->
+
+<!-- 经过六个专题的练习，2020 年 C 语言入门将暂告一个段落。如果你完成了这些专题，或者虽然没有完成，但是有什么想说的，你可以填写[问卷](https://forms.office.com/Pages/ResponsePage.aspx?id=pOutbSzcpEiz8KuV1mGJ2iUUVS2WU1lBlFAHVjewFntUMUJTVjZKQUJNTFpHRTA1Q1VEWlAxVlJMWC4u)。在年会上，我们会以词云的形式展示这些建议，并在今后的专题中酌情采纳，也会想合格完成专题的同学送出精美小礼品。
+
+那么，下一步是什么呢？
+
+在寒假的时候，现役 ACM 校队成员 @OrangeRain 学长会延续这类专题的风格，推出数据结构与算法方面的每日一题，题量和难度会较目前有提升，欢迎各位持续关注。
+
+除此之外，如果你想要系统性的自学数据结构与算法，并且喜欢 MOOC 这类学习类型，推荐这一门 MOOC：[【清华大学】邓俊辉 MOOC 数据结构与算法](https://www.bilibili.com/video/av75509584/)
+
+如果你喜欢在 OJ 上做题的这类风格，你可以在 [LeetCode书架](https://leetcode-cn.com/leetbook/) 上找到《初级算法》，以及《中级算法》和《高级算法》，结合上面的 MOOC 边学边练。
+
+如果你对数据结构与算法已经有一定了解了，并且想要定期或不定期地练习或参加比赛，你可以尝试 [LeetCode](https://leetcode-cn.com/) 的每日一题，或者参加 LeetCode（难度接近 `Div. 3`）、[CodeForces](https://codeforces.com/)（比赛难度由低到高依次为 `Div.3`，`Div.2`，`Div.1`）或 [AtCoder](https://atcoder.jp/)（难度由低到高依次为 `Beginner Contest`，`Regular Contest`，`Grant Contest`）举办的比赛。
+
+如果你对数据结构和算法非常感兴趣，或有 OI 基础，你也可以参加算法竞赛（ACM ICPC、CCPC 等），我们学校 ACM 校队集训、招新一般在每年 4 月左右，在此之前你可以继续在洛谷做其他题，或自学[《算法竞赛入门经典（第2版）》(刘汝佳)](https://item.jd.com/11469701.html)。参加（包括但不限于算法竞赛）竞赛可以获得保研加分、面试优势等。
+
+最后的最后，如果你想要尝试程序开发，俱乐部正计划将《阮薇薇点名啦》小程序进行重构，想要参项目开发、成为《阮薇薇点名啦 v2》开发者的同学（零基础也行的~），欢迎联系小灰晖。 -->
