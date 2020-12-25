@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+
+
+
+
+
+<html lang="zh-CN">
+<head>
+  
+  <meta name="description" content="数组部分的题解！">
+<meta name="keywords" content="小灰晖">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MSC 每周两题：上周题解 &amp; 字符串">
+<meta property="og:url" content="https://uestc-msc.github.io/2020/12/25/2020-programming-of-the-week-5-string/index.html">
+<meta property="og:site_name" content="UESTC-MSC">
+<meta property="og:description" content="数组部分的题解！">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-12-25T13:44:25.269Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MSC 每周两题：上周题解 &amp; 字符串">
+<meta name="twitter:description" content="数组部分的题解！">
+  <link rel="alternate" href="/atom.xml" title="UESTC-MSC" type="application/atom+xml">
+  <link rel="canonical" href="https://uestc-msc.github.io/2020/12/25/2020-programming-of-the-week-5-string/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/uestc-msc-logo.jpg?v=7.3.0">
+  <link rel="mask-icon" href="/images/uestc-msc-logo.jpg?v=7.3.0" color="#222">
+  <meta name="google-site-verification" content="OKSlvGttut8Kj8llKOQBCC4aORnHzjsELhAofGpH8Lg">
+
+<link rel="stylesheet" href="/css/main.css?v=7.3.0">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.7.0">
+  <script src = "https://at.alicdn.com/t/font_1378191_6tokm7h6w1c.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.3.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":true,"show_result":false,"style":"mac"},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":false},
+    path: 'search.xml',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+  <title>MSC 每周两题：上周题解 & 字符串 | UESTC-MSC</title>
+  <meta name="generator" content="Hexo 3.9.0">
+  
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">UESTC-MSC</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">欢迎来到电子科大微软学生俱乐部</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+      
+      
+      
+        
+        <li class="menu-item menu-item-home">
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-tags">
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>作者</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-categories">
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-archives">
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-friendlinks">
+      
+    
+
+    <a href="/friendlinks/" rel="section"><i class="menu-item-icon fa fa-fw fa-thumbs-up"></i> <br>友链</a>
+
+  </li>
+      
+      
+      
+        
+        <li class="menu-item menu-item-about">
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a href="javascript:;" class="popup-trigger">
+        
+          <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+      </li>
+    
+  </ul>
+
+</nav>
+  <div class="site-search">
+    <div class="popup search-popup">
+    <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocorrect="off" autocapitalize="none"
+           placeholder="搜索..." spellcheck="false"
+           type="text" id="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result"></div>
+
+</div>
+<div class="search-pop-overlay"></div>
+
+  </div>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+            
+
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+      <article itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block post">
+    <link itemprop="mainEntityOfPage" href="https://uestc-msc.github.io/2020/12/25/2020-programming-of-the-week-5-string/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="UESTC-MSC">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="UESTC-MSC">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">MSC 每周两题：上周题解 & 字符串
+
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <svg class="icon" aria-hidden="true"><use xlink:href="#iconpen"></use></svg>
+              </span>
+              <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <a href="/tags/小灰晖" itemprop="url" rel="index">
+                  <span itemprop="name">小灰晖</span>
+                </a>
+              </span>
+            </span>
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              
+                
+              
+
+              <time title="创建时间：2020-12-25 11:33:02 / 修改时间：21:44:25" itemprop="dateCreated datePublished" datetime="2020-12-25T11:33:02+08:00">2020-12-25</time>
+            </span>
+          
+            
+
+            
+          
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/MSC-每周两题/" itemprop="url" rel="index"><span itemprop="name">MSC 每周两题</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">本文字数：</span>
+              
+              <span>1.3k</span>
+            </span>
+          
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              
+              <span>1 分钟</span>
+            </span>
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>数组部分的题解！</p>
+<a id="more"></a>
+<h2 id="系列目录"><a href="#系列目录" class="headerlink" title="系列目录"></a>系列目录</h2><ol>
+<li><a href="/2020/11/13/2020-programming-of-the-week-1-preface-and-sequential/">MSC 每周两题：前言 &amp; 顺序结构</a></li>
+<li><a href="/2020/11/20/2020-programming-of-the-week-2-branch/">MSC 每周两题：上周题解 &amp; 分支结构</a></li>
+<li><a href="/2020/11/27/2020-programming-of-the-week-3-loop/">MSC 每周两题：上周题解 &amp; 循环结构</a></li>
+<li><a href="/2020/12/15/2020-programming-of-the-week-4-array/">MSC 每周两题：上周题解 &amp; 数组</a></li>
+<li><a href="/2020/12/25/2020-programming-of-the-week-5-string/">MSC 每周两题：上周题解 &amp; 字符串</a></li>
+<li>MSC 每周两题：上周题解 &amp; 函数和结构体</li>
+<li>MSC 每周两题：上周题解 &amp; 后记</li>
+</ol>
+<h2 id="P5728-【深基5-例5】旗鼓相当的对手"><a href="#P5728-【深基5-例5】旗鼓相当的对手" class="headerlink" title="P5728 【深基5.例5】旗鼓相当的对手"></a>P5728 【深基5.例5】旗鼓相当的对手</h2><p><a href="https://www.luogu.com.cn/problem/P5728" target="_blank" rel="noopener">P5728 【深基5.例5】旗鼓相当的对手</a> <del>一看就是老炉石玩家了</del></p>
+<p>这题比较基础，可以练习一下数组的语法。就不多讲了。</p>
+<p>具体的代码上，可以使用二维数组存所有的成绩，也可以使用三个一维数组分别存语文、数学和英语成绩（也可以再用第四个一位数组存总成绩）。</p>
+<p>C++ 采用四个一维数组进行实现：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">int</span> chinese[<span class="number">1000</span>], math[<span class="number">1000</span>], english[<span class="number">1000</span>], total[<span class="number">1000</span>];</span><br><span class="line">    <span class="keyword">int</span> n, ans = <span class="number">0</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;chinese[i], &amp;math[i], &amp;english[i]);</span><br><span class="line">        total[i] = chinese[i] + math[i] + english[i];</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt; n; j++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (<span class="built_in">abs</span>(chinese[i] - chinese[j]) &lt;= <span class="number">5</span> </span><br><span class="line">                &amp;&amp; <span class="built_in">abs</span>(math[i] - math[j]) &lt;= <span class="number">5</span> </span><br><span class="line">                &amp;&amp; <span class="built_in">abs</span>(english[i] - english[j]) &lt;= <span class="number">5</span> </span><br><span class="line">                &amp;&amp; <span class="built_in">abs</span>(total[i] - total[j]) &lt;= <span class="number">10</span>)</span><br><span class="line">                ans++;</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, ans);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>Python 使用二维数组进行实现：</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">n = int(input())</span><br><span class="line">scores = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    score = list(map(int, input().split()))</span><br><span class="line">    scores.append(score)</span><br><span class="line"></span><br><span class="line">ans = <span class="number">0</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> range(i+<span class="number">1</span>, n):</span><br><span class="line">        <span class="keyword">if</span> abs(scores[i][<span class="number">0</span>] - scores[j][<span class="number">0</span>]) &lt;= <span class="number">5</span> \</span><br><span class="line">        <span class="keyword">and</span> abs(scores[i][<span class="number">1</span>] - scores[j][<span class="number">1</span>]) &lt;= <span class="number">5</span> \</span><br><span class="line">        <span class="keyword">and</span> abs(scores[i][<span class="number">2</span>] - scores[j][<span class="number">2</span>]) &lt;= <span class="number">5</span> \</span><br><span class="line">        <span class="keyword">and</span> abs(sum(scores[i]) - sum(scores[j])) &lt;= <span class="number">10</span>:</span><br><span class="line">            ans += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">print(ans)</span><br></pre></td></tr></tbody></table></figure>
+<p>这次还新加入了 Go 语言，使用三个一维数组实现：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">abs</span><span class="params">(x <span class="keyword">int</span>)</span> <span class="title">int</span></span> {</span><br><span class="line">	<span class="keyword">if</span> x &lt; <span class="number">0</span> {</span><br><span class="line">		<span class="keyword">return</span> -x</span><br><span class="line">	} <span class="keyword">else</span> {</span><br><span class="line">		<span class="keyword">return</span> x</span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  {</span><br><span class="line">	n, ans := <span class="number">0</span>, <span class="number">0</span></span><br><span class="line">	fmt.Scanln(&amp;n)</span><br><span class="line"></span><br><span class="line">	chinese, math, english := <span class="built_in">make</span>([]<span class="keyword">int</span>, n), <span class="built_in">make</span>([]<span class="keyword">int</span>, n), <span class="built_in">make</span>([]<span class="keyword">int</span>, n)</span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ {</span><br><span class="line">		fmt.Scanln(&amp;chinese[i], &amp;math[i], &amp;english[i])</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ {</span><br><span class="line">		<span class="keyword">for</span> j := i+<span class="number">1</span>; j &lt; n; j++ {</span><br><span class="line">			<span class="keyword">if</span> abs(chinese[i] - chinese[j]) &lt;= <span class="number">5</span> &amp;&amp;</span><br><span class="line">				abs(math[i] - math[j]) &lt;= <span class="number">5</span> &amp;&amp;</span><br><span class="line">				abs(english[i] - english[j]) &lt;= <span class="number">5</span> &amp;&amp;</span><br><span class="line">				abs(chinese[i] + math[i] + english[i] - chinese[j] - math[j] - english[j]) &lt;= <span class="number">10</span> {</span><br><span class="line">				ans++</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	fmt.Println(ans)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="P1789-【Mc生存】插火把"><a href="#P1789-【Mc生存】插火把" class="headerlink" title="P1789 【Mc生存】插火把"></a>P1789 【Mc生存】插火把</h2><p><a href="https://www.luogu.com.cn/problem/P1789" target="_blank" rel="noopener">P1789 【Mc生存】插火把</a> <del>一看就是老 MC 玩家了</del></p>
+<p>也是非常基础的一个题，按照题目说的，使用一个二维数组模拟地图。先假设每个格子都可能出现怪物 (<code>true</code>)，然后对每个火把和萤石，将其照亮的区域标记为 <code>false</code>，最后数一遍地图上还有多少个 <code>true</code> 即可。</p>
+<p>处理萤石比较简单，因为萤石照亮的范围是：</p>
+<script type="math/tex; mode=display">\left\{\begin{matrix}
+x-2 \leq x_0 \leq x+2 \\
+y-2 \leq y_0 \leq y+2
+\end{matrix}\right.</script><p>但是火把的范围比较麻烦，它是一个菱形。我们可以这样定义：设 $dx = x-x_0, dy = y-y_0$，则有</p>
+<script type="math/tex; mode=display">|dx|+|dy| \leq 2</script><p>最后还需要注意，可能出现火把（萤石）照到地图以外的地方，所以记得判定是否越界。</p>
+<p>C 语言：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">bool</span> monster[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">int</span> n, fire, stone;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;fire, &amp;stone);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            monster[i][j] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; fire; i++) <span class="comment">// 统计火把</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> x0, y0;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x0, &amp;y0);</span><br><span class="line">        x0--, y0--; <span class="comment">// 我们定义的地图数组下标从 0 开始，题目从 1 开始，所以要把题目的输入减 1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> dx = <span class="number">0</span>; dx &lt;= <span class="number">2</span>; dx++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> dy = <span class="number">0</span>; dy &lt;= <span class="number">2</span> - dx; dy++)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (x0 - dx &gt;= <span class="number">0</span> &amp;&amp; x0 - dx &lt; n &amp;&amp; y0 - dy &gt;= <span class="number">0</span> &amp;&amp; y0 - dy &lt; n) <span class="comment">// 判定越界</span></span><br><span class="line">                    monster[x0 - dx][y0 - dy] = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (x0 + dx &gt;= <span class="number">0</span> &amp;&amp; x0 + dx &lt; n &amp;&amp; y0 - dy &gt;= <span class="number">0</span> &amp;&amp; y0 - dy &lt; n) <span class="comment">// 判定越界</span></span><br><span class="line">                    monster[x0 + dx][y0 - dy] = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (x0 - dx &gt;= <span class="number">0</span> &amp;&amp; x0 - dx &lt; n &amp;&amp; y0 + dy &gt;= <span class="number">0</span> &amp;&amp; y0 + dy &lt; n) <span class="comment">// 判定越界</span></span><br><span class="line">                    monster[x0 - dx][y0 + dy] = <span class="literal">false</span>;</span><br><span class="line">                <span class="keyword">if</span> (x0 + dx &gt;= <span class="number">0</span> &amp;&amp; x0 + dx &lt; n &amp;&amp; y0 + dy &gt;= <span class="number">0</span> &amp;&amp; y0 + dy &lt; n) <span class="comment">// 判定越界</span></span><br><span class="line">                    monster[x0 + dx][y0 + dy] = <span class="literal">false</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stone; i++) <span class="comment">// 统计萤石</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> x0, y0;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x0, &amp;y0);</span><br><span class="line">        x0--, y0--;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = x0 - <span class="number">2</span>; x &lt;= x0 + <span class="number">2</span>; x++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">if</span> (x &lt; <span class="number">0</span> || x &gt;= n) <span class="comment">// 判定越界</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> y = y0 - <span class="number">2</span>; y &lt;= y0 + <span class="number">2</span>; y++)</span><br><span class="line">            {</span><br><span class="line">                <span class="keyword">if</span> (y &lt; <span class="number">0</span> || y &gt;= n)</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                monster[x][y] = <span class="literal">false</span>;</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>; <span class="comment">// 统计怪物总数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; n; x++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; n; y++)</span><br><span class="line">            <span class="keyword">if</span> (monster[x][y])</span><br><span class="line">                ans++;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, ans);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>注意到 21 行至 28 行都是结构重复的代码，只是处理的变量有点不同。因此我们可以把重复的一个小过程独立为<strong>函数</strong>（但这是下周的内容，所以不做要求）。同时我们还需要将 <code>monster[][]</code> 和 <code>n</code> 的定义放到 main 函数以外（相关知识：函数作用域）。</p>
+<p>题外话，如果不想把 <code>monster</code> 和 <code>n</code> 的定义放到 <code>main</code> 外呢？可以把这两个作为函数的参数（但是二维数组一般不推荐作为函数参数），或者使用 <code>lambda</code> 表达式在 <code>main</code> 函数内定义我们上面提到的函数。这里涉及的知识又有不少了，甚至 <code>lambda</code> 表达式超出了 C 语言的范围，因此我们略过，有兴趣的同学可以自己了解。</p>
+<p>运用函数的 C 语言版本：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> monster[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"><span class="keyword">int</span> n, fire, stone;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lighten</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">if</span> (x &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; n) <span class="comment">// 判定越界</span></span><br><span class="line">        monster[x][y] = <span class="literal">false</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>, &amp;n, &amp;fire, &amp;stone);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; n; j++)</span><br><span class="line">            monster[i][j] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; fire; i++) <span class="comment">// 统计火把</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> x0, y0;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x0, &amp;y0);</span><br><span class="line">        x0--, y0--; <span class="comment">// 我们定义的地图数组下标从 0 开始，题目从 1 开始，所以要把题目的输入减 1</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> dx = <span class="number">0</span>; dx &lt;= <span class="number">2</span>; dx++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> dy = <span class="number">0</span>; dy &lt;= <span class="number">2</span> - dx; dy++)</span><br><span class="line">            {</span><br><span class="line">                lighten(x0 + dx, y0 - dy);</span><br><span class="line">                lighten(x0 - dx, y0 + dy);</span><br><span class="line">                lighten(x0 + dx, y0 + dy);</span><br><span class="line">                lighten(x0 - dx, y0 - dy);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; stone; i++) <span class="comment">// 统计萤石</span></span><br><span class="line">    {</span><br><span class="line">        <span class="keyword">int</span> x0, y0;</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;x0, &amp;y0);</span><br><span class="line">        x0--, y0--;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> x = x0 - <span class="number">2</span>; x &lt;= x0 + <span class="number">2</span>; x++)</span><br><span class="line">        {</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> y = y0 - <span class="number">2</span>; y &lt;= y0 + <span class="number">2</span>; y++)</span><br><span class="line">            {</span><br><span class="line">                lighten(x, y);</span><br><span class="line">            }</span><br><span class="line">        }</span><br><span class="line">    }</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> ans = <span class="number">0</span>; <span class="comment">// 统计怪物总数</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; n; x++)</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> y = <span class="number">0</span>; y &lt; n; y++)</span><br><span class="line">            <span class="keyword">if</span> (monster[x][y])</span><br><span class="line">                ans++;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%d"</span>, ans);</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>Python 版本直接给出利用函数的版本：</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">lighten</span><span class="params">(x: int, y: int)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> <span class="number">0</span> &lt;= x &lt; n <span class="keyword">and</span> <span class="number">0</span> &lt;= y &lt; n:</span><br><span class="line">        monster[x][y] = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">n, fire, stone = map(int, input().split())</span><br><span class="line">monster = [[<span class="literal">True</span>] * n <span class="keyword">for</span> i <span class="keyword">in</span> range(n)] <span class="comment"># 运用列表生成式初始化二维数组</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(fire): <span class="comment"># 处理萤火</span></span><br><span class="line">    x0, y0 = map(int, input().split())</span><br><span class="line">    x0 -= <span class="number">1</span></span><br><span class="line">    y0 -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> dx <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">3</span>):</span><br><span class="line">        <span class="keyword">for</span> dy <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">3</span> - dx):</span><br><span class="line">            lighten(x0-dx, y0-dy)</span><br><span class="line">            lighten(x0+dx, y0-dy)</span><br><span class="line">            lighten(x0-dx, y0+dy)</span><br><span class="line">            lighten(x0+dx, y0+dy)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(stone): <span class="comment"># 处理萤火</span></span><br><span class="line">    x0, y0 = map(int, input().split())</span><br><span class="line">    x0 -= <span class="number">1</span></span><br><span class="line">    y0 -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> dx <span class="keyword">in</span> range(<span class="number">-2</span>, <span class="number">3</span>):</span><br><span class="line">        <span class="keyword">for</span> dy <span class="keyword">in</span> range(<span class="number">-2</span>, <span class="number">3</span>):</span><br><span class="line">            lighten(x0+dx, y0+dy)</span><br><span class="line"></span><br><span class="line">s = sum(map(sum, monster)) <span class="comment"># 二维数组求和</span></span><br><span class="line">print(s)</span><br></pre></td></tr></tbody></table></figure>
+<p>Go 版本：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> n <span class="keyword">int</span></span><br><span class="line"><span class="keyword">var</span> monster [<span class="number">100</span>][<span class="number">100</span>]<span class="keyword">bool</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">lighten</span><span class="params">(x <span class="keyword">int</span>, y <span class="keyword">int</span>)</span></span> {</span><br><span class="line">	<span class="keyword">if</span> x &gt;= <span class="number">0</span> &amp;&amp; x &lt; n &amp;&amp; y &gt;= <span class="number">0</span> &amp;&amp; y &lt; n {</span><br><span class="line">		monster[x][y] = <span class="literal">false</span></span><br><span class="line">	}</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span>  {</span><br><span class="line">	fire, stone, ans := <span class="number">0</span>, <span class="number">0</span>,<span class="number">0</span></span><br><span class="line">	fmt.Scanln(&amp;n, &amp;fire, &amp;stone)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ {</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">0</span>; j &lt; n; j++ {</span><br><span class="line">			monster[i][j] = <span class="literal">true</span></span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; fire; i++ { <span class="comment">// 处理火把</span></span><br><span class="line">		<span class="keyword">var</span> x, y <span class="keyword">int</span></span><br><span class="line">		fmt.Scanln(&amp;x, &amp;y)</span><br><span class="line">		x--</span><br><span class="line">		y--</span><br><span class="line">		<span class="keyword">for</span> dx := <span class="number">0</span>; dx &lt;= <span class="number">2</span>; dx++ {</span><br><span class="line">			<span class="keyword">for</span> dy := <span class="number">0</span>; dy &lt;= <span class="number">2</span> - dx; dy++ {</span><br><span class="line">				lighten(x-dx, y-dy)</span><br><span class="line">				lighten(x+dx, y-dy)</span><br><span class="line">				lighten(x-dx, y+dy)</span><br><span class="line">				lighten(x+dx, y+dy)</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; stone; i++ { <span class="comment">// 处理萤石</span></span><br><span class="line">		<span class="keyword">var</span> x, y <span class="keyword">int</span></span><br><span class="line">		fmt.Scanln(&amp;x, &amp;y)</span><br><span class="line">		x--</span><br><span class="line">		y--</span><br><span class="line">		<span class="keyword">for</span> dx := <span class="number">-2</span>; dx &lt;= <span class="number">2</span>; dx++ {</span><br><span class="line">			<span class="keyword">for</span> dy := <span class="number">-2</span>; dy &lt;= <span class="number">2</span>; dy++ {</span><br><span class="line">				lighten(x+dx, y+dy)</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> i := <span class="number">0</span>; i &lt; n; i++ {</span><br><span class="line">		<span class="keyword">for</span> j := <span class="number">0</span>; j &lt; n; j++ {</span><br><span class="line">			<span class="keyword">if</span> monster[i][j] {</span><br><span class="line">				ans++</span><br><span class="line">			}</span><br><span class="line">		}</span><br><span class="line">	}</span><br><span class="line">	fmt.Println(ans)</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="P2615-神奇的幻方"><a href="#P2615-神奇的幻方" class="headerlink" title="P2615 神奇的幻方"></a>P2615 神奇的幻方</h2><p><a href="https://www.luogu.com.cn/problem/P2615" target="_blank" rel="noopener">P2615 神奇的幻方</a></p>
+<p>题目讲的是构造幻方的一个套路。按照题意写就行啦。这里只给出 C++ 的版本：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">	<span class="keyword">int</span> square[<span class="number">40</span>][<span class="number">40</span>];</span><br><span class="line">	<span class="keyword">int</span> n, i, j;		<span class="comment">// i 表示行，j 表示列，下标从 1 开始</span></span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, &amp;n);</span><br><span class="line">	i = <span class="number">1</span>, j = n / <span class="number">2</span> + <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> sum = <span class="number">1</span>; sum &lt;= n * n; sum++)</span><br><span class="line">	{</span><br><span class="line">		square[i][j] = sum;</span><br><span class="line">		<span class="keyword">if</span> (sum % n == <span class="number">0</span>)</span><br><span class="line">		{</span><br><span class="line">			i++;</span><br><span class="line">			<span class="keyword">if</span> (i == n + <span class="number">1</span>)</span><br><span class="line">				i = <span class="number">1</span>;</span><br><span class="line">		}</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">		{</span><br><span class="line">			i--;</span><br><span class="line">			j++;</span><br><span class="line">		}</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span> (i == <span class="number">0</span>)</span><br><span class="line">			i = n;</span><br><span class="line">		<span class="keyword">if</span> (j == n + <span class="number">1</span>)</span><br><span class="line">			j = <span class="number">1</span>;</span><br><span class="line">	}</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)</span><br><span class="line">	{</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= n; j++)</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%d "</span>, square[i][j]);</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">	}</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="P5716-【深基3-例9】月份天数"><a href="#P5716-【深基3-例9】月份天数" class="headerlink" title="P5716 【深基3.例9】月份天数"></a>P5716 【深基3.例9】月份天数</h2><p><a href="https://www.luogu.com.cn/problem/P5716" target="_blank" rel="noopener">P5716 【深基3.例9】月份天数</a></p>
+<p>使用<a href="/2020/11/27/2020-programming-of-the-week-3-loop/#P5711-【深基3-例3】闰年判断">闰年判断</a>的代码，我们可以判断某年 2 月的天数。剩下的月份我们只需要打一份表，将十一个月的天数保存在一个数组中，根据不同输入，输出对应的数字即可。</p>
+<p>C 语言版本：</p>
+<figure class="highlight cpp"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>{</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> mdays[] = { <span class="number">-1</span>, <span class="number">31</span>, <span class="number">-1</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span> }; <span class="comment">// 十二个月每月的天数</span></span><br><span class="line">    <span class="keyword">int</span> year, month;</span><br><span class="line">    <span class="built_in">scanf</span>(<span class="string">"%d%d"</span>, &amp;year, &amp;month);</span><br><span class="line">    <span class="keyword">if</span> (month != <span class="number">2</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d"</span>, mdays[month]);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (year % <span class="number">4</span> != <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"28"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (year % <span class="number">100</span> != <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"29"</span>);</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (year % <span class="number">400</span> != <span class="number">0</span>)</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"28"</span>);</span><br><span class="line">    <span class="keyword">else</span></span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"29"</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<p>Python 版本：</p>
+<figure class="highlight py"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">mdays = [<span class="number">-1</span>, <span class="number">31</span>, <span class="number">-1</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>]</span><br><span class="line">year, month = map(int, input().split())</span><br><span class="line"><span class="keyword">if</span> month != <span class="number">2</span>:</span><br><span class="line">    print(mdays[month])</span><br><span class="line"><span class="keyword">elif</span> year % <span class="number">4</span> != <span class="number">0</span>:</span><br><span class="line">    print(<span class="number">28</span>)</span><br><span class="line"><span class="keyword">elif</span> year % <span class="number">100</span> != <span class="number">0</span>:</span><br><span class="line">    print(<span class="number">29</span>)</span><br><span class="line"><span class="keyword">elif</span> year % <span class="number">400</span> != <span class="number">0</span>:</span><br><span class="line">    print(<span class="number">28</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="number">29</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>Go 版本：</p>
+<figure class="highlight go"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">"fmt"</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> {</span><br><span class="line">	<span class="keyword">var</span> year, month <span class="keyword">int</span></span><br><span class="line">	mdays := []<span class="keyword">int</span>{<span class="number">-1</span>, <span class="number">31</span>, <span class="number">-1</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>, <span class="number">30</span>, <span class="number">31</span>}</span><br><span class="line">	fmt.Scanln(&amp;year, &amp;month)</span><br><span class="line">	<span class="keyword">if</span> month != <span class="number">2</span> {</span><br><span class="line">		fmt.Println(mdays[month])</span><br><span class="line">	} <span class="keyword">else</span> <span class="keyword">if</span> year%<span class="number">4</span> != <span class="number">0</span> {</span><br><span class="line">		fmt.Println(<span class="number">28</span>)</span><br><span class="line">	} <span class="keyword">else</span> <span class="keyword">if</span> year%<span class="number">100</span> != <span class="number">0</span> {</span><br><span class="line">		fmt.Println(<span class="number">29</span>)</span><br><span class="line">	} <span class="keyword">else</span> <span class="keyword">if</span> year%<span class="number">400</span> != <span class="number">0</span> {</span><br><span class="line">		fmt.Println(<span class="number">28</span>)</span><br><span class="line">	} <span class="keyword">else</span> {</span><br><span class="line">		fmt.Println(<span class="number">29</span>)</span><br><span class="line">	}</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="本周题单：字符串"><a href="#本周题单：字符串" class="headerlink" title="本周题单：字符串"></a>本周题单：字符串</h2><p>这周的题单是<a href="https://www.luogu.com.cn/training/104" target="_blank" rel="noopener">字符串</a>。这周的题单 15 题中，必做的为 <a href="https://www.luogu.com.cn/problem/P1914" target="_blank" rel="noopener">P1914 小书童——凯撒密码</a> 和 <a href="https://www.luogu.com.cn/problem/P1597" target="_blank" rel="noopener">P1597 语句解析</a>。</p>
+<script>
+        document.querySelectorAll('.github-emoji')
+          .forEach(el => {
+            if (!el.dataset.src) { return; }
+            const img = document.createElement('img');
+            img.style = 'display:none !important;';
+            img.src = el.dataset.src;
+            img.addEventListener('error', () => {
+              img.remove();
+              el.style.color = 'inherit';
+              el.style.backgroundImage = 'none';
+              el.style.background = 'none';
+            });
+            img.addEventListener('load', () => {
+              img.remove();
+            });
+            document.body.appendChild(img);
+          });
+      </script>
+    </div>
+
+    
+    
+    
+        
+      
+
+      <footer class="post-footer">
+          
+            
+          
+          <div class="post-tags">
+            
+              <a href="/tags/小灰晖/" rel="tag"><i class="fa fa-tag"></i> 小灰晖</a>
+            
+          </div>
+        
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+              
+                <a href="/2020/12/15/2020-programming-of-the-week-4-array/" rel="next" title="MSC 每周两题：上周题解 & 数组">
+                  <i class="fa fa-chevron-left"></i> MSC 每周两题：上周题解 & 数组
+                </a>
+              
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+              
+            </div>
+          </div>
+        
+      </footer>
+    
+  </div>
+  
+  
+  
+  </article>
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+        
+        
+        
+        
+      
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系列目录"><span class="nav-number">1.</span> <span class="nav-text">系列目录</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P5728-【深基5-例5】旗鼓相当的对手"><span class="nav-number">2.</span> <span class="nav-text">P5728 【深基5.例5】旗鼓相当的对手</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P1789-【Mc生存】插火把"><span class="nav-number">3.</span> <span class="nav-text">P1789 【Mc生存】插火把</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P2615-神奇的幻方"><span class="nav-number">4.</span> <span class="nav-text">P2615 神奇的幻方</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P5716-【深基3-例9】月份天数"><span class="nav-number">5.</span> <span class="nav-text">P5716 【深基3.例9】月份天数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本周题单：字符串"><span class="nav-number">6.</span> <span class="nav-text">本周题单：字符串</span></a></li></ol></div>
+        
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">UESTC-MSC</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+  <nav class="site-state motion-element">
+      <div class="site-state-item site-state-posts">
+        
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">55</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-categories">
+        
+          
+            <a href="/categories/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">分类</span>
+        </a>
+      </div>
+    
+      
+      
+      <div class="site-state-item site-state-tags">
+        
+          
+            <a href="/tags/">
+          
+        
+        
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+          
+        
+        <span class="site-state-item-count">10</span>
+        <span class="site-state-item-name">作者</span>
+        </a>
+      </div>
+    
+  </nav>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://github.com/uestc-msc" title="GitHub &rarr; https://github.com/uestc-msc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#icongithub"></use></svg>GitHub</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="mailto:uestcmsc@demo4c.onmicrosoft.com" title="邮箱 &rarr; mailto:uestcmsc@demo4c.onmicrosoft.com" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconOUTLOOK"></use></svg>邮箱</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://weibo.com/uestcmstc" title="微博 &rarr; https://weibo.com/uestcmstc" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconweibo"></use></svg>微博</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://space.bilibili.com/456910030" title="bilibili &rarr; https://space.bilibili.com/456910030" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconbilibili"></use></svg>bilibili</a>
+      </span>
+    
+      <span class="links-of-author-item">
+      
+      
+        
+      
+      
+        
+        
+      
+        <a href="https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" title="微信 &rarr; https://mp.weixin.qq.com/s/0Zf5wau55u2-x4L2ngpSQQ" rel="noopener" target="_blank"><svg class="icon" aria-hidden="true"><use xlink:href="#iconwechat"></use></svg>微信</a>
+      </span>
+    
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2003 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <!-- <i class="fa fa-iconMicrosoft"></i> -->
+    <svg class="icon" aria-hidden="true"><use xlink:href="#iconMicrosoft"></use></svg>
+  </span>
+  <span class="author" itemprop="copyrightHolder">UESTC-MSC</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    <span title="站点总字数">78k</span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="站点阅读时长">1:11</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+    <span class="post-meta-divider">|</span>
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+
+
+  <script src="/lib/anime.min.js?v=3.1.0"></script>
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+<script src="/js/utils.js?v=7.3.0"></script><script src="/js/motion.js?v=7.3.0"></script>
+<script src="/js/schemes/pisces.js?v=7.3.0"></script>
+<script src="/js/next-boot.js?v=7.3.0"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="/js/local-search.js?v=7.3.0"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+    
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script>
+
+    
+  
+
+  
+
+  
+
+  <script src="/js/hexo_resize_image.js"></script>
+</body>
+</html>
