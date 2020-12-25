@@ -18,7 +18,7 @@ tags: 小灰晖
 2. [MSC 每周两题：上周题解 & 分支结构](/2020/11/20/2020-programming-of-the-week-2-branch/)
 3. [MSC 每周两题：上周题解 & 循环结构](/2020/11/27/2020-programming-of-the-week-3-loop/)
 4. [MSC 每周两题：上周题解 & 数组](/2020/12/15/2020-programming-of-the-week-4-array/)
-5. MSC 每周两题：上周题解 & 字符串
+5. [MSC 每周两题：上周题解 & 字符串](/2020/12/25/2020-programming-of-the-week-5-string/)
 6. MSC 每周两题：上周题解 & 函数和结构体
 7. MSC 每周两题：上周题解 & 后记
 
@@ -182,7 +182,7 @@ int main()
 
 学会了闰年判断，能否判断一个年月有多少天呢？这个坑放到数组专题来填（这是第几次挖坑了）。
 
-## 循环结构
+## 本周题单：循环结构
 
 这周的题单是[循环结构](https://www.luogu.com.cn/training/102)。这周的题单 13 题中，必做的为[P5719 【深基4.例3】分类平均](https://www.luogu.com.cn/problem/P5719)和[P5723 【深基4.例13】质数口袋](https://www.luogu.com.cn/problem/P5723)。
 

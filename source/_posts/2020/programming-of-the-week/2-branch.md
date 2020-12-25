@@ -20,7 +20,7 @@ tags: 小灰晖
 2. [MSC 每周两题：上周题解 & 分支结构](/2020/11/20/2020-programming-of-the-week-2-branch/)
 3. [MSC 每周两题：上周题解 & 循环结构](/2020/11/27/2020-programming-of-the-week-3-loop/)
 4. [MSC 每周两题：上周题解 & 数组](/2020/12/15/2020-programming-of-the-week-4-array/)
-5. MSC 每周两题：上周题解 & 字符串
+5. [MSC 每周两题：上周题解 & 字符串](/2020/12/25/2020-programming-of-the-week-5-string/)
 6. MSC 每周两题：上周题解 & 函数和结构体
 7. MSC 每周两题：上周题解 & 后记
 
@@ -80,6 +80,6 @@ int main()
 
 当然，如果你还不会使用 Git，你可以暂时不提交，之后我们会有关于 Git 的简单使用的[教程博客](https://blog.lyh543.cn/linux/introduction-to-wsl-ubuntu-and-git/)（暂时还没更新）和手把手教学沙龙，这周因为时间不合适，都咕咕咕了。待博客和沙龙都更新完了，各位可以再参考博客或沙龙，提交自己的代码。
 
-## 分支结构
+## 本周题单：分支结构
 
 这周的题单是[分支结构](https://www.luogu.com.cn/training/101)，16 道题必做的只有 [P5711 【深基3.例3】闰年判断](https://www.luogu.com.cn/problem/P5711) 和 [P5712 【深基3.例4】Apples](https://www.luogu.com.cn/problem/P5712)，都是在实际开发中经常遇到的情况（手写日期判断等情况，使用单数还是复数）。题解和下周题目会在下周五晚八点前公布~

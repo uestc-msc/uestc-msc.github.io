@@ -10,9 +10,11 @@ tags: 小灰晖
 
 说周五发这篇博客，然后就咕了一个多星期 hhhh 俱乐部的鸽子本性。
 
-不过，本期题解的线下沙龙的录屏已经投到了 B 站（就是麦克风效果有点不行）：https://www.bilibili.com/video/BV1Cv411b7tA
+不过，本期题解的线下沙龙的录屏已经投到了 B 站（就是麦克风效果有点不行）：
 
 <!-- More -->
+
+<iframe src="//player.bilibili.com/player.html?aid=245617490&bvid=BV1Cv411b7tA&cid=263251749&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
 
 ## 系列目录
 
@@ -20,7 +22,7 @@ tags: 小灰晖
 2. [MSC 每周两题：上周题解 & 分支结构](/2020/11/20/2020-programming-of-the-week-2-branch/)
 3. [MSC 每周两题：上周题解 & 循环结构](/2020/11/27/2020-programming-of-the-week-3-loop/)
 4. [MSC 每周两题：上周题解 & 数组](/2020/12/15/2020-programming-of-the-week-4-array/)
-5. MSC 每周两题：上周题解 & 字符串
+5. [MSC 每周两题：上周题解 & 字符串](/2020/12/25/2020-programming-of-the-week-5-string/)
 6. MSC 每周两题：上周题解 & 函数和结构体
 7. MSC 每周两题：上周题解 & 后记
 
@@ -304,7 +306,7 @@ print(n)
 
 尚不会使用 Git 的同学，可以参考上面的博客，也可以在 QQ 群里提问。
 
-## 数组
+## 本周题单：数组
 
 这周的题单是[数组](https://www.luogu.com.cn/training/103)。这周的题单 20 题中，必做的为 [P5728 【深基5.例5】旗鼓相当的对手](https://www.luogu.com.cn/problem/P5728) 和 [P1789 【Mc生存】插火把](https://www.luogu.com.cn/problem/P1789)，还有 [P2615 神奇的幻方](https://www.luogu.com.cn/problem/P2615)。
 
