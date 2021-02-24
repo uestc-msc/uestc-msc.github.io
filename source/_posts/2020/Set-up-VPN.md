@@ -3,6 +3,7 @@ title: Set Up Vpn
 date: 2020-05-24 17:12:07
 author: nexustar
 tags: nexustar
+hidden: true
 ---
 
 搭梯子比较频繁，记录下步骤方便重现
