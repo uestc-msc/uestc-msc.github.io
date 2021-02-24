@@ -464,7 +464,7 @@
   </entry>
   <entry>
     <title><![CDATA[【Bot Framework完全攻略】1-5.小试牛刀]]></title>
-    <url>%2F2017%2F04%2F24%2F1-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80%2F</url>
+    <url>%2F2017%2F04%2F24%2F%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80%2F</url>
     <content type="text"><![CDATA[本篇教程将引导你实现一个最基础的Bot 开始造船（写一个你的Bot项目） 向政府注册你的旗帜（注册一个你的Bot） 把旗子插在船上（关联配置） document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>Bot Framework</category>
@@ -475,7 +475,7 @@
   </entry>
   <entry>
     <title><![CDATA[【Bot Framework完全攻略】1-5.小试牛刀]]></title>
-    <url>%2F2017%2F04%2F24%2F%E3%80%90Bot%20Framework%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5%E3%80%911-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80%2F</url>
+    <url>%2F2017%2F04%2F24%2F1-5.%E5%B0%8F%E8%AF%95%E7%89%9B%E5%88%80%2F</url>
     <content type="text"><![CDATA[本篇教程将引导你实现一个最基础的Bot 开始造船（写一个你的Bot项目） 向政府注册你的旗帜（注册一个你的Bot） 把旗子插在船上（关联配置） document.querySelectorAll('.github-emoji') .forEach(el => { if (!el.dataset.src) { return; } const img = document.createElement('img'); img.style = 'display:none !important;'; img.src = el.dataset.src; img.addEventListener('error', () => { img.remove(); el.style.color = 'inherit'; el.style.backgroundImage = 'none'; el.style.background = 'none'; }); img.addEventListener('load', () => { img.remove(); }); document.body.appendChild(img); });]]></content>
       <categories>
         <category>Bot Framework</category>
