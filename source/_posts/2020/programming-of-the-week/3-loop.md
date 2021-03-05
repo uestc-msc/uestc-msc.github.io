@@ -19,7 +19,7 @@ tags: 小灰晖
 3. [MSC 每周两题：上周题解 & 循环结构](/2020/11/27/2020-programming-of-the-week-3-loop/)
 4. [MSC 每周两题：上周题解 & 数组](/2020/12/15/2020-programming-of-the-week-4-array/)
 5. [MSC 每周两题：上周题解 & 字符串](/2020/12/25/2020-programming-of-the-week-5-string/)
-6. MSC 每周两题：上周题解 & 函数和结构体
+6. [MSC 每周两题：去年题解 & 函数和结构体](/2021/03/04/2020-programming-of-the-week-6-function-and-structure/)
 7. MSC 每周两题：上周题解 & 后记
 
 ## P5712 【深基3.例4】Apples
